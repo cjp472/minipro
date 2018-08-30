@@ -1,0 +1,10 @@
+<view class="container {{theme}}">
+    <view class="title">
+        <text>你要参加什么考试？</text>
+    </view>
+    <view class="flex-column">
+        <view bindtap="chooseSubject" class="kcbtn kcbtn1" data-level="{{item.SubjectLevel}}" data-parentid="{{item.SubjectParentId}}" data-parentname="{{item.SubjectName}}" hover="true" hoverClass="kcbtn2" wx:for="{{parentSubjects}}" wx:key="SubjectName">
+            <text>{{item.SubjectName}}</text>
+        </view>
+    </view>
+</view>

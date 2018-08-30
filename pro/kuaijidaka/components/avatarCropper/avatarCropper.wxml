@@ -1,0 +1,22 @@
+<template name="avatarCropper">
+    <scroll-view class="cropper_main_container {{data.hidden?'hidden':''}}">
+        <view class="cropper_container" style="width:{{data.W}}px; height:{{data.H}}px;">
+            <canvas canvasId="originalCanvas" class="original_canvas" style="width:{{cropperChangableData.originalSize.width}}px;height:{{cropperChangableData.originalSize.height}}px;"></canvas>
+            <image class="scale-image cropper_canvas_container_item" mode="aspectFill" src="{{data.imageInfo.path}}" style="left:{{cropperChangableData.previewImageInfo.x}}px; top:{{cropperChangableData.previewImageInfo.y}}px; width:{{cropperChangableData.previewImageInfo.w}}px; height:{{cropperChangableData.previewImageInfo.h}}px; transform:rotate({{cropperChangableData.rotateDegree}}deg);"></image>
+            <view class="cropper_canvas_container" style="width:{{cropperChangableData.scaleSize.width}}px;height:{{cropperChangableData.scaleSize.height}}px;">
+                <canvas canvasId="moveCanvas" class="move_canvas cropper_canvas_container_item"></canvas>
+                <movable-area class="cropper_movable_area_container" height="{{cropperChangableData.scaleSize.height}}" style="width:{{cropperChangableData.scaleSize.width}}px;height:{{cropperChangableData.scaleSize.height}}px;" width="{{cropperChangableData.scaleSize.width}}">
+                    <movable-view bindtouchend="endEvent" bindtouchmove="moveEvent" class="move_item" direction="all" style="width:{{cropperChangableData.scaleSize.width}}px; height:{{cropperChangableData.scaleSize.height}}px;"></movable-view>
+                </movable-area>
+            </view>
+        </view>
+        <view class="cropper_toolbar">
+            <view bindtap="hideCropper" class="button_item cancel_button">
+                取消
+            </view>
+            <view bindtap="cropImage" class="crop_image_button button_item ">
+                选取
+            </view>
+        </view>
+    </scroll-view>
+</template>

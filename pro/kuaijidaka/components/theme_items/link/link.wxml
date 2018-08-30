@@ -1,0 +1,9 @@
+<view class="link-box {{applyType}}">
+    <view catchtap="toLinkDetail" class="link-jump">
+        <view class="link-left">
+            <view class="ico link-book"></view>
+        </view>
+        <view class="link-title" hoverClass="tap-hover">{{linkTitle}}</view>
+    </view>
+    <view catchtap="delLink" class="ico del-link" wx:if="{{applyType==='user-edit'||applyType==='add-theme'}}"></view>
+</view>

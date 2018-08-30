@@ -1,0 +1,31 @@
+<view class="pd4 por col3 {{index==0?'':'mt20'}}" wx:for="{{commontJson}}" wx:key="{{remark_id}}">
+    <view class="comment_icon"></view>
+    <view class="record_comment">
+        <view class="flex-satrt">
+            <view class="photo_bg">
+                <image mode="widthFix" src="{{item.avatar_url}}" style="width:100%;height:100%;display:block;"></image>
+            </view>
+            <view class="flex-s-c">
+                <view class="fz28 mb10">
+                    <text>{{item.user_name}}</text>
+                    <text class="answer-score" wx:if="{{index==0&&!!item.remark_score&&item.remark_score>0}}">评分</text>
+                    <text class="answer-score-num" wx:if="{{index==0&&!!item.remark_score&&item.remark_score>0}}">{{item.remark_score}}</text>
+                    <view class="score score--{{item.scoreLevel}}" wx:if="{{item.avg_score}}">
+                        <span class="ico score__ico"></span>
+                        <text class="score__text">{{item.avg_score}}</text>
+                    </view>
+                </view>
+                <text class="fz24 col8">{{item.createdAt}}</text>
+            </view>
+        </view>
+        <view class="mt20" wx:if="{{item.content}}">
+            <text class="word-wrap fz28">{{item.content}}</text>
+        </view>
+        <view class="mt20" wx:if="{{item.voice_list.length>0}}">
+            <jdk-silk-voice voices="{{item.voice_list}}"></jdk-silk-voice>
+        </view>
+        <view wx:if="{{item.picture_list.length>0}}">
+            <thumbnail deleteBtn="{{false}}" imgArr="{{item.picture_list}}" page="answer"></thumbnail>
+        </view>
+    </view>
+</view>

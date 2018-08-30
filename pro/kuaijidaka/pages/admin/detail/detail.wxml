@@ -1,0 +1,34 @@
+<import src="/components/user_punch/accessory/accessory.wxml"></import>
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view catchtap="toggleSubmit" class="last-submit toggle {{!leftSubmitId?'grey':''}}" data-order="last">
+    <view class="iconfont icon-keshi-fanye"></view>
+</view>
+<view catchtap="toggleSubmit" class="next-submit toggle  {{!rightSubmitId?'grey':''}}" data-order="next">
+    <view class="iconfont icon-keshi-fanye1"></view>
+</view>
+<view class="container" wx:if="{{!notLogin}}">
+    <view class="title-top">
+        <view class="clearfix">
+            <view class="h2">
+                <text>{{labelText.topTitle}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="all-bg" wx:if="{{submitData.user_id}}">
+        <view class="submit-container">
+            <jdk-submit catchaudioType="setAudioType" catchpreview="markPreview" currentAudioType="{{currentAudioType}}" page="detail" submitData="{{submitData}}" wx:if="{{submitData.user_id}}"></jdk-submit>
+        </view>
+        <view class="operateBtn clearfix">
+            <view class="longPic">
+                <button catchtap="longPicture" style="background: #fff; color: #8b97a4; border: none;">生成长图</button>
+            </view>
+            <view class="longPic">
+                <button openType="share" style="background:#fff; color: #8b97a4; border: none;">分享转发</button>
+            </view>
+        </view>
+        <view class="commentOther">
+            <button catchtap="commentOther" style="background:#4f598f; color: #fff; border: none;">点评他人</button>
+        </view>
+    </view>
+</view>
+<share-modal catchloginSuccess="loginSuccess" colorTheme="admin" page="detail" submitId="{{submitId}}" wx:else></share-modal>

@@ -1,0 +1,132 @@
+<jdk-modal bind:modalConfirm="modalConfirm" confirmColor="{{modalOptions.confirmColor}}" confirmText="{{modalOptions.confirmText}}" content="{{modalOptions.content}}" contentColor="{{modalOptions.contentColor}}" needCancel="{{modalOptions.needCancel}}" title="{{modalOptions.title}}" wx:if="{{modalOptions.showModal}}"></jdk-modal>
+<view class="container">
+    <view class="operation-bar">
+        <text class="miniapp-name">{{miniappName}}</text>
+        <view class="right">
+            <view catchtap="associationInform" class="inform">
+                <text>群发通知</text>
+                <view class="ico"></view>
+            </view>
+            <view catchtap="actionSheetTap2" class="create-course">
+                <text>创建课程</text>
+                <view class="ico"></view>
+            </view>
+        </view>
+    </view>
+    <view>
+        <view style="padding-bottom: 30rpx;">
+            <view class="list">
+                <view class="list-top">
+                    <view class="left">
+                        <view class="ico em"></view>
+                        <text>全部课程</text>
+                    </view>
+                    <view>
+                        <text class="course-number">总课程：{{totalCourseNumber||0}}</text>
+                        <text class="course-number">进行中：{{nowCourseNumber||0}}</text>
+                    </view>
+                </view>
+                <view class="item {{item.end_time&&item.end_time<currenTime&&item.courseType!=1?'end-time':''}}" data-courseId="{{item.course_id}}" data-course_name="{{item.title}}" data-course_type="{{item.course_type}}" data-total_submit_count="{{item.total_submit_count}}" wx:for="{{course_list}}" wx:for-index="idx" wx:key="unique">
+                    <form reportSubmit bindsubmit="collectFormId" class="collect-form-id">
+                        <button class="items" data-url="{{item.url}}" formType="submit" hoverClass="card-hover-class">
+                            <view class="li">
+                                <text class="title">{{item.title}}</text>
+                                <view class="course-stick" wx:if="{{item.top==1}}">已置顶</view>
+                                <view class="bottom">
+                                    <block wx:if="{{item.course_type!=2}}">
+                                        <text class="left">{{item.course_type==0?'累计打卡: ':'累计提交: '}}<text class="count">{{item.total_submit_count}}</text> 次</text>
+                                        <text class="left" wx:if="{{item.end_time&&item.end_time<currenTime}}">共进行:<text class="date">{{item.time_count}}</text> 天</text>
+                                        <text class="left" wx:else>{{item.course_type==0?'已进行: ':'作业数: '}}<text class="date">{{item.course_type==0?item.time:item.practice_count}}</text>{{item.course_type==0?' 天':' 个'}}</text>
+                                    </block>
+                                    <block wx:else>
+                                        <text class="left">累计打卡: <text class="count">{{item.people_submit_count}}</text> 人</text>
+                                        <text class="left">累计提交: <text class="date">{{item.total_submit_count}}</text> 次</text>
+                                    </block>
+                                    <view class="right">
+                                        <text wx:if="{{item.end_time&&item.end_time<currenTime}}">已结束</text>
+                                        <view class="massage ico" wx:if="{{item.hasMessages}}"></view>
+                                    </view>
+                                </view>
+                            </view>
+                        </button>
+                    </form>
+                    <view class="battom-nav">
+                        <view catchtap="toWeekly" class="dl ranking" data-courseid="{{item.course_id}}" data-coursetype="{{item.course_type}}" data-groupid="{{item.holded_by_group_id}}" data-title="{{item.title}}" hoverClass="none">
+                            <view class="ico"></view>
+                            <text>排行榜</text>
+                            <view class="strong"></view>
+                        </view>
+                        <navigator class="dl qrcode" hoverClass="card-btn-hover" url="/pages/admin_sub/qrcode/qrcode?course_id={{item.course_id}}&title={{item.title}}&witchday={{item.witchday}}&start_at={{item.start_at}}&end_time={{item.end_time}}&course_type={{item.course_type}}{{item.qr_args}}" wx:if="{{item.course_type!=2}}">
+                            <view class="ico"></view>
+                            <text>课程二维码</text>
+                            <view class="strong"></view>
+                        </navigator>
+                        <navigator class="dl qrcode" hoverClass="card-btn-hover" url="/pages/admin_sub/qrcode/qrcode?course_id={{item.course_id}}&title={{item.title}}&course_type=2" wx:if="{{item.course_type==2}}">
+                            <view class="ico"></view>
+                            <text>课时二维码</text>
+                            <view class="strong"></view>
+                        </navigator>
+                        <view bindtap="courseEdit" class="dl edit" data-course_type="{{item.course_type}}" data-idx="{{idx}}" data-managerid="{{item.holded_by_user_id}}" hoverClass="card-btn-hover">
+                            <view class="ico"></view>
+                            <text>编辑</text>
+                        </view>
+                    </view>
+                    <view class="operating">
+                        <view bindtap="actionSheetTap" class="ico" data-course_id="{{item.course_id}}" data-course_stick="{{item.top}}" data-course_type="{{item.course_type}}" data-ended_at="{{item.ended_at}}" data-idx="{{idx}}" data-managerid="{{item.holded_by_user_id}}" data-start_at="{{item.start_at}}" data-title="{{item.title}}"></view>
+                    </view>
+                </view>
+                <view class="nodata" wx:if="{{course_list==null||course_list==''}}">
+                    <view class="ico"></view>
+                    <view>
+                        <view>暂无可管理课程</view>
+                        <view>请创建新课程或联系课程创建者配置管理权限</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="user-in-btn">
+        <view bindtap="switchUserLoginType" class="classname">学员入口</view>
+    </view>
+    <view class="btn">
+        <view class="url my-card selected">
+            <view class="ico"></view>
+            <text>全部课程</text>
+        </view>
+        <navigator class="url my-user" hoverClass="none" openType="redirect" url="{{jumpToMyUrl}}">
+            <view class="ico"></view>
+            <text>我的</text>
+        </navigator>
+    </view>
+    <action-sheet bindchange="actionSheetbindchange" class="action-sheet" hidden="{{actionSheetHidden}}" hoverClass="none">
+        <action-sheet-item bindtap="bind{{item.bindtap}}" class="{{item.color}}" wx:for="{{actionSheetItems}}" wx:key="unique">{{item.txt}}</action-sheet-item>
+        <action-sheet-cancel class="cancel">取消
+      <span></span>
+        </action-sheet-cancel>
+    </action-sheet>
+    <action-sheet bindchange="actionSheetbindchange2" class="action-sheet" hidden="{{actionSheetHidden2}}" hoverClass="none">
+        <action-sheet-item bindtap="bind{{item.bindtap}}" wx:for="{{actionSheetItems2}}" wx:key="unique">{{item.txt}}</action-sheet-item>
+        <action-sheet-cancel class="cancel">取消
+      <span></span>
+        </action-sheet-cancel>
+    </action-sheet>
+    <view class="public del-public" style="{{del}}">
+        <view class="i"></view>
+        <view class="content">
+            <view class="dialog-body">
+                <view class="dialog-title">删除课程</view>
+                <view class="dialog-text">
+          请在下方输入“确认删除”
+        </view>
+                <input bindinput="onInputDeleteText" placeholder="请输入“确认删除”来确认此操作" placeholderClass="placeholder-class" type="text" value="{{customData.confirmDeleteText}}"></input>
+            </view>
+            <view class="btn btn50">
+                <text bindtap="cancel">取消</text>
+                <text bindtap="sub" style="color:#4f598f;">确认</text>
+                <view class="online"></view>
+            </view>
+        </view>
+    </view>
+    <view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+    <foot-loading loadMore="{{isLoadingMore}}" noMore="{{noMoreData}}" pageType="admin"></foot-loading>
+</view>

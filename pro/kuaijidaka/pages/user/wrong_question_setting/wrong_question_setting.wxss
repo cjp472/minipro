@@ -1,0 +1,132 @@
+page {
+}
+
+.container {
+    background-color: #f0f0f0;
+}
+
+.setting-card {
+    margin-bottom: 10rpx;
+    background-color: #fff;
+    border-bottom: 1px solid #eef0f3;
+}
+
+.setting-content {
+    padding: 30rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.setting-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30rpx;
+    border-bottom: 1px solid #eef0f3;
+}
+
+.setting-title .tips {
+    color: #3c4856;
+    font-size: 28rpx;
+}
+
+.setting-title .selected {
+    color: #8d97a3;
+    font-size: 28rpx;
+}
+
+.time-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100rpx;
+}
+
+.time-box .time {
+    font-size: 44rpx;
+    color: #3c4856;
+}
+
+.time-box .time .close {
+    font-size: 36rpx;
+}
+
+.time-box .time .tips {
+    font-size: 24rpx;
+    color: #8d97a3;
+}
+
+.time-picker {
+    height: 300rpx;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.time-picker-item {
+    line-height: 70rpx;
+    text-align: center;
+    color: #3c4856;
+    font-size: 32rpx;
+}
+
+.week-list {
+    width: 120%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.week-list .week-item {
+    padding: 30rpx 49.5rpx;
+    border: 1px solid #eef0f3;
+    border-radius: 8rpx;
+    color: #3c4856;
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+    margin-right: 20rpx;
+    position: relative;
+}
+
+.week-list .week-item.active {
+    border-color: #22dd82;
+    color: #22dd82;
+}
+
+.week-list .week-item.active:after {
+    content: " ";
+    position: absolute;
+    z-index: 10;
+    height: 40rpx;
+    width: 40rpx;
+    border-radius: 50%;
+    top: -20rpx;
+    right: -20rpx;
+    background-image: url(https://cdn-qiye.jingdaka.com/images/sprites.png?v=40);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    display: inline-block;
+    background-position: -99rpx -1603rpx;
+}
+
+.setting-button {
+    background-color: #fff;
+    padding: 50rpx 0 20rpx;
+}
+
+.btn {
+    width: 350rpx;
+    height: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: #22dd82;
+    border-radius: 10rpx;
+    font-size: 36rpx;
+    margin: 0 auto;
+}
+
+.mb0 {
+    margin-bottom: 0!important;
+}

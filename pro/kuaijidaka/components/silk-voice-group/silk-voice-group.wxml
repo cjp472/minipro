@@ -1,0 +1,3 @@
+<view class="silk-voice-group" wx:if="{{voices.length>0}}">
+    <jdk-silk-voice applyType="{{applyType}}" bind:endplay="onEndPlay" bind:stopplay="onStopPlay" index="{{index}}" size="normal" theme="{{theme}}" toPlay="{{item.voice_url===playingVoice.voice_url}}" voice="{{item}}" wx:for="{{voices}}" wx:key="voice_url"></jdk-silk-voice>
+</view>

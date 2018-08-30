@@ -1,0 +1,103 @@
+@import "../../../__wuBaseWxss__/8.wxss";
+
+.card-hover-class {
+    background-color: #e7eff7;
+    opacity: 0.4;
+}
+
+.submit {
+    position: relative;
+    background: #fff;
+    padding: 30rpx 0 1rpx 0;
+    margin-bottom: 30rpx;
+    border-radius: 10rpx;
+    clear: both;
+}
+
+.submit--home-self {
+    padding: 40rpx 30rpx;
+    background: white;
+}
+
+.submit--home-self .submit {
+    border: solid 1rpx #eee;
+    border-radius: 10rpx;
+    position: relative;
+}
+
+.submit::after {
+    display: block;
+    content: ' ';
+    visibility: hidden;
+    clear: both;
+}
+
+.stick {
+    width: 75rpx;
+    height: 75rpx;
+}
+
+.stick__ico {
+    width: 75rpx;
+    height: 75rpx;
+    background-position: 0 -520rpx;
+}
+
+.submit--home-self .split {
+    display: block;
+}
+
+.split {
+    display: none;
+    height: 93rpx;
+    position: relative;
+}
+
+.split__line {
+    width: 354rpx;
+    height: 1rpx;
+    background: #bec0c2;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -177rpx;
+    margin-top: -0.5rpx;
+}
+
+.split__text {
+    width: 228rpx;
+    height: 40rpx;
+    font-size: 24rpx;
+    display: block;
+    position: absolute;
+    background: white;
+    left: 50%;
+    top: 50%;
+    color: #8b97a4;
+    margin-left: -114rpx;
+    margin-top: -20rpx;
+    z-index: 80;
+    line-height: 40rpx;
+    text-align: center;
+}
+
+.right-badge {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    position: absolute;
+    z-index: 45;
+    top: -5rpx;
+    right: -5rpx;
+}
+
+.repair-card {
+    width: 30rpx;
+    height: 41rpx;
+    background: url('https://cdn-qiye.jingdaka.com/images/sprites.png?v=40');
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    background-position: -137rpx -1150rpx;
+    margin: 2px 30rpx 0 0;
+}

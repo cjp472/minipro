@@ -1,0 +1,140 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/examInfo/examInfo/examInfo",
+        "pages/practiceCollection/practiceCollection",
+        "pages/bulkPurchase/bulkPurchase",
+        "pages/repository/repository",
+        "pages/group/groupBuy/groupBuy",
+        "pages/group/groupDocList/groupDocList",
+        "pages/chaterVideoOrder/chaterVideoOrder",
+        "pages/live/liveVideo/liveVideo",
+        "pages/live/liveVideoPlay/liveVideoPlay",
+        "pages/vipCoursesDetail/vipCoursesDetail",
+        "pages/vipCourses/vipCourses",
+        "pages/mine/nameModify/nameModify",
+        "pages/mine/modify/modify",
+        "pages/practicePapers/practicePapers",
+        "pages/practiceSolidify/practiceSolidify",
+        "pages/papers/papers",
+        "pages/papersAnalysis/papersAnalysis",
+        "pages/practiceHistory/practiceHistory",
+        "pages/questionsVideo/questionsVideo",
+        "pages/questionsVideo/evaluation/evaluation",
+        "pages/practiceChapter/practiceChapter",
+        "pages/questionsFeedback/questionsFeedback",
+        "pages/capacityReport/capacityReport",
+        "pages/papersReport/papersReport",
+        "pages/mine/mine",
+        "pages/selectExamArea/selectExamArea",
+        "pages/selectSubject/selectSubject",
+        "pages/course/course",
+        "pages/evaluation/evaluation",
+        "pages/chooseSchool/chooseSchool",
+        "pages/about/about",
+        "pages/chooseSubject/chooseSubject",
+        "pages/debug/error",
+        "pages/debug/index",
+        "pages/debug/auth",
+        "pages/user/userRegister",
+        "pages/feedBack/feedBack",
+        "pages/feedBack/chat/chat",
+        "pages/user/userOldLogin",
+        "pages/user/userLogin",
+        "pages/chooseSchoolType/chooseSchoolType",
+        "pages/operateSubject/operateSubject",
+        "pages/vipPractice/burningPapers/burningPapers",
+        "pages/vipPractice/finePapers/finePapers",
+        "pages/vipPractice/textbookPapers/textbookPapers",
+        "pages/vipPractice/highFrePapers/highFrePapers",
+        "pages/couresUnlock/couresUnlock",
+        "pages/vipCourseDetailsList/vipCourseDetailsList",
+        "pages/examInfo/swiperCity/swiperCity",
+        "packageMock/pages/mockDetail/mockDetail",
+        "packageMock/pages/mockReport/mockReport",
+        "packageMock/pages/mockWait/mockWait",
+        "packageClock/pages/clockProfile/clockProfile",
+        "packageClock/pages/clockLog/clockLog",
+        "packageClock/pages/clockHome/clockHome",
+        "packageClock/pages/clockSetting/clockSetting",
+        "packageClock/pages/clockThemeDetail/clockThemeDetail",
+        "packageClock/pages/clockGroup/clockGroup",
+        "packageClock/pages/clockReport/clockReport",
+        "packageClock/pages/paperDetail/paperDetail",
+        "packageClock/pages/allTheme/allTheme",
+        "packageClock/pages/clockGeneralRport/clockGeneralRport",
+        "packageClock/pages/finishClock/finishClock",
+        "packageClock/pages/clockThemePreview/clockThemePreview",
+        "packageClock/pages/myErrorQuestion/myErrorQuestion"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#6fce29",
+        "navigationBarTextStyle": "white",
+        "backgroundTextStyle": "light"
+    },
+    "tabBar": {
+        "backgroundColor": "#ffffff",
+        "selectedColor": "#6fce29",
+        "color": "#9a9a9a",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "学习",
+                "iconPath": "images/tabBar/wantiku_icon1_disabled.png",
+                "selectedIconPath": "images/tabBar/wantiku-icon1.png"
+            },
+            {
+                "pagePath": "pages/live/liveVideo/liveVideo",
+                "text": "发现",
+                "iconPath": "images/tabBar/home_icon_video_dis.png",
+                "selectedIconPath": "images/tabBar/home_icon_video.png"
+            },
+            {
+                "pagePath": "pages/repository/repository",
+                "text": "资料包",
+                "iconPath": "images/tabBar/home_icon_hongbao.png",
+                "selectedIconPath": "images/tabBar/home_icon_hongbao.png"
+            },
+            {
+                "pagePath": "pages/vipCourses/vipCourses",
+                "text": "VIP",
+                "iconPath": "images/tabBar/wantiku_icon3_disabled.png",
+                "selectedIconPath": "images/tabBar/wantiku-icon3.png"
+            },
+            {
+                "pagePath": "pages/mine/mine",
+                "text": "我的",
+                "iconPath": "images/tabBar/wantiku_icon2_disabled.png",
+                "selectedIconPath": "images/tabBar/wantiku-icon2.png"
+            }
+        ]
+    },
+    "subPackages": [
+        {
+            "root": "packageMock",
+            "pages": [
+                "packageMock/pages/mockDetail/mockDetail",
+                "packageMock/pages/mockReport/mockReport",
+                "packageMock/pages/mockWait/mockWait"
+            ]
+        },
+        {
+            "root": "packageClock",
+            "pages": [
+                "packageClock/pages/clockProfile/clockProfile",
+                "packageClock/pages/clockLog/clockLog",
+                "packageClock/pages/clockHome/clockHome",
+                "packageClock/pages/clockSetting/clockSetting",
+                "packageClock/pages/clockThemeDetail/clockThemeDetail",
+                "packageClock/pages/clockGroup/clockGroup",
+                "packageClock/pages/clockReport/clockReport",
+                "packageClock/pages/paperDetail/paperDetail",
+                "packageClock/pages/allTheme/allTheme",
+                "packageClock/pages/clockGeneralRport/clockGeneralRport",
+                "packageClock/pages/finishClock/finishClock",
+                "packageClock/pages/clockThemePreview/clockThemePreview",
+                "packageClock/pages/myErrorQuestion/myErrorQuestion"
+            ]
+        }
+    ]
+}

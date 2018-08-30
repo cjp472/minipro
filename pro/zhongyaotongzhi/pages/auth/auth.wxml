@@ -1,0 +1,16 @@
+<view class="login">
+    <image class="login-logo" src="/images/logo.png"></image>
+    <view class="login-title">重要通知</view>
+    <view class="login-title">欢迎你</view>
+    <text class="login-desc">请微信授权登录后放心使用重要通知
+你的信息和数据将受到保护</text>
+    <button bindgetuserinfo="login" class="button btn-auth" openType="getUserInfo">
+        <image src="/images/wx_logo.png"></image>
+        <view>微信授权登录</view>
+    </button>
+    <view class="login-contact">
+        <view>版本：v1.1.5</view>
+        <label>联系客服</label>
+        <button class="contact" formType="submit" openType="contact">进入客服会话</button>
+    </view>
+</view>

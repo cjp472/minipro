@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "打卡记录",
+    "navigationBarBackgroundColor": "#4f598f",
+    "usingComponents": {
+        "jdk-submit": "/components/user-submit/submit/submit",
+        "jdk-logo": "/components/logo/logo"
+    }
+}

@@ -1,0 +1,20 @@
+<view class="voice-container {{applyType}}">
+    <view class="silk-voice__container">
+        <view hoverStopPropagation catchtap="toggleAudio" class="silk-voice {{size==='small'?'silk-voice--small':''}} {{theme==='admin'?'silk-voice--theme-admin':''}}" hoverClass="silk-voice__play-button--hover">
+            <view class="silk-voice__play-button ico {{isPlaying?'ico-playing':'ico-to-play'}}"></view>
+            <view class="silk-voice__duration-text">{{voiceStatus.currentTimes&&isPlaying?voiceStatus.currentTimes:voice.voice_duration}}"</view>
+        </view>
+    </view>
+    <view class="silk-voice__status-indicator ico ico-has-played {{voice.hasPlayed?'silk-voice--listened':''}} {{theme==='admin'?'manager-ico-has-played':''}}" wx:if="{{size!=='small'}}"></view>
+    <view class="loading" wx:if="{{!!voiceStatus.isWaiting&&isPlaying}}">
+        <view class="loading__leaf-container">
+            <view class="loading__leaf"></view>
+            <view class="loading__leaf"></view>
+            <view class="loading__leaf"></view>
+            <view class="loading__leaf"></view>
+            <view class="loading__leaf"></view>
+            <view class="loading__leaf"></view>
+        </view>
+        <view class="loading__circle"></view>
+    </view>
+</view>

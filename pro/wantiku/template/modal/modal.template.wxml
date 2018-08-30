@@ -1,0 +1,11 @@
+<template name="modal">
+    <view class="modal-mask">
+        <view class="modal-cont">
+            <view class="modal-hd">{{title}}</view>
+            <view class="modal-bd">{{content}}</view>
+            <view class="modal-ft">
+                <view bindtap="hideModal" class="confirm-btn">知道了</view>
+            </view>
+        </view>
+    </view>
+</template>

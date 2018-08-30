@@ -1,0 +1,106 @@
+page {
+    background-color: #f5f5f5;
+}
+
+scroll-view {
+    background-color: #f5f5f5;
+}
+
+.list {
+    width: 100%;
+}
+
+.pltr {
+    box-sizing: border-box;
+    height: 207rpx;
+    padding: 0 30rpx;
+    border-bottom: 10rpx solid #f5f5f5;
+    background: #fff;
+}
+
+.pltr-img {
+    display: inine-block;
+    float: left;
+    width: 244rpx;
+    height: 137rpx;
+    margin-right: 16rpx;
+    margin-top: 30rpx;
+    border-radius: 8rpx;
+    background: #f1eddc;
+}
+
+.pltr-title {
+    display: inline-block;
+    float: right;
+    width: 430rpx;
+    height: 80rpx;
+    margin-top: 28rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #2a2e3d;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.pltr-bottom {
+    position: relative;
+    display: inline-block;
+    float: right;
+    width: 430rpx;
+    height: 59rpx;
+}
+
+.pltr-teacher {
+    display: inline-block;
+    float: left;
+    width: auto;
+    height: 59rpx;
+}
+
+.mr-8 {
+    margin-right: 8rpx;
+}
+
+.pltr-name {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    height: 22rpx;
+    margin-top: 37rpx;
+    line-height: 22rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+    text-align: center;
+}
+
+.pltr-price {
+    position: absolute;
+    top: -7rpx;
+    right: 0;
+    height: 44rpx;
+    line-height: 44rpx;
+    font-size: 30rpx;
+    color: #ef533d;
+}
+
+.pltr-little {
+    font-size: 26rpx;
+}
+
+.pltr-info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 22rpx;
+    line-height: 22rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.pltr-signed {
+    position: absolute;
+    top: -27rpx;
+    right: 0;
+    width: 105rpx;
+    height: 88rpx;
+}

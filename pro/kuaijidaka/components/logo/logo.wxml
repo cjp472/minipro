@@ -1,0 +1,3 @@
+<view catchtap="toInfo" class="logo_bg" wx:if="{{!hideLogoJump&&isUser}}">
+    <view class="footer {{support}}" style="margin-bottom:{{marginBottom}}rpx; margin-top:{{marginTop}}rpx;"></view>
+</view>

@@ -1,0 +1,18 @@
+<form bindsubmit="postFormId" reportSubmit="true">
+    <view class="root">
+        <view>
+            <view class="comment-header">
+                <button bindtap="cancel" class="cancel" formType="submit">取消</button>
+                <button bindtap="postComment" class="finish" formType="submit">完成</button>
+            </view>
+            <view class="comment-info">
+                <text class="text" wx:if="{{replyCommentId.length>0}}">回复{{replyName}}:{{replyContent}}</text>
+                <textarea autoFocus="true" bindinput="inputCommentContent" maxlength="-1" placeholder="" placeholderClass="placeholder"></textarea>
+            </view>
+        </view>
+        <view class="comment-footer">
+            <view class="ads">微友助手 提供技术支持</view>
+            <view class="ads">weiyoubot.cn</view>
+        </view>
+    </view>
+</form>

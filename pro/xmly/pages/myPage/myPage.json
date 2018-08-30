@@ -1,0 +1,9 @@
+{
+    "backgroundTextStyle": "#333",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "喜马拉雅FM",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+        "sign-in": "/components/signIn/signIn"
+    }
+}

@@ -1,0 +1,243 @@
+<import src="../shared/globalMsg/globalMsg.wxml"></import>
+<view class="activity-container {{rulesBox||getFreeSuccess||canvasShow||showShareBox||authorizeBox||clipboardBox?'over-hidden':''}}">
+    <template is="globalMsg" data="{{globalMsg:globalMsg}}" wx:if="{{globalMsg}}"></template>
+    <view hidden="{{!canvasShow}}">
+        <view bindtap="canvasHide" class="pyq-image">
+            <canvas canvasId="share" catchtap="nothing" style="width:{{canvasW}}px;height:{{canvasH}}px"></canvas>
+            <button catchtap="save" class="btn-save-image {{posterSuccess?'posterSuccess':''}}">保存图片</button>
+            <view catchtap="nothing" class="save-tip">保存图片并分享，让好友为你助力</view>
+        </view>
+    </view>
+    <view class="{{canvasShow?'blur':''}}">
+        <image class="container-bg" mode="widthFix" src="../../images/assist-bg-1.png"></image>
+        <view class="assist-tip" wx:if="{{uid==urlUid}}">集齐助力人数后,你将免费获得完整节目</view>
+        <view class="assist-tip" wx:else>为ta助力，你也能获得快速领取特权</view>
+        <go-to-home-page albumId="{{albumId}}" pageType="activityDetail" wx:if="{{source!=0}}"></go-to-home-page>
+        <view class="main-top">
+            <view bindtap="toAlbumDeail" class="activity-hd">
+                <view class="cover-wrap">
+                    <image class="cover-black" mode="widthFix" src="../../images/icon-cover.png"></image>
+                    <image class="cover-img" mode="widthFix" src="{{albumCover||coverDefault}}"></image>
+                </view>
+                <view class="album-tit">{{albumTitle||'标题'}} <image class="to-album-detail" src="../../images/icon-jump.png"></image>
+                </view>
+                <view class="subscribes">
+                    <image src="../../images/icon-subscribes.png"></image> {{subscribes||'...'}}人购买 </view>
+                <view class="price">
+                    <image src="../../images/icon-price.png"></image> 原价<text>{{originalPrice||'...'}}</text>元 </view>
+            </view>
+            <view class="activity-bd">
+                <view class="proccess-tip {{uid==urlUid?'self':''}}">
+                    <view class="sponsor-avatar-wrap" wx:if="{{uid!=urlUid}}">
+                        <image class="sponsor-avatar-img" src="{{sponsorAvatarUrl}}"></image>
+                    </view>
+                    <view class="proccess" style="border-radius: {{borderRadius}};" wx:if="{{assistNum>=maxCount}}">
+                        <block wx:if="{{uid==urlUid}}">
+                            哇塞，已经集满助力，可以免费领取完整课程了！
+                        </block>
+                        <block wx:else>
+                            我已集满助力 谢谢你～
+                        </block>
+                    </view>
+                    <view class="proccess" style="border-radius: {{borderRadius}};" wx:elif="{{activityEnd&&uid==urlUid&&drawStatus!=1}}">sorry 助力失败了 不如再来一次？</view>
+                    <view class="proccess" style="border-radius: {{borderRadius}};" wx:elif="{{hasAssisted&&status!=0&&uid!=urlUid}}">感谢你为我助力。
+                        <block wx:if="{{myActivityId==0}}">
+                                送你 <text>{{maxCount-count}}</text> 个助力名额，再邀请 <text>{{count}}</text> 人助力你也能听这门课哦～
+                        </block>
+                    </view>
+                    <view class="proccess" style="border-radius: {{borderRadius}};" wx:else>
+                            还差 <text>{{maxCount-assistNum}}</text> 个助力就可以免费领课程，{{uid==urlUid?'快去':''}}求助攻~
+
+                    </view>
+                </view>
+                <view class="btn-area">
+                    <view class="btns">
+                        <button bindgetuserinfo="wechatLogin" class="btn-item btn-login" lang="zh_CN" openType="getUserInfo" wx:if="{{!isLogin}}"></button>
+                        <block wx:if="{{uid==urlUid||source==0}}">
+                            <block wx:if="{{drawStatus==1}}">
+                                <button plain class="btn-item btn-help btn-has-got" wx:if="{{hasGot}}">已领取</button>
+                                <button bindtap="getFreeSuccess" class="btn-item btn-help" wx:else>直接领取</button>
+                            </block>
+                            <button plain class="btn-item btn-help btn-has-got" wx:elif="{{drawStatus==2&&assistNum>=maxCount}}">已领光</button>
+                            <form bindsubmit="createActivityAndRefresh" class="btns" reportSubmit="true" wx:elif="{{activityEnd}}">
+                                <button class="btn-item btn-help" formType="submit">重新发起助力</button>
+                            </form>
+                            <form bindsubmit="collectNoticeId" class="btns" reportSubmit="true" wx:else>
+                                <button plain bindtap="showShareBox" class="btn-item btn-share btn-share-wxq btn-invite pulse" formType="submit">邀请好友助力</button>
+                            </form>
+                        </block>
+                        <block wx:else>
+                            <form bindsubmit="createActivityAndRefresh" class="btns btns-has-assisted" reportSubmit="true" wx:if="{{hasAssisted||upperLimit}}">
+                                <button plain catchtap="tofreeGetList" class="btn-to-list" data-index="1">更多好课</button>
+                                <button plain class="btn-item btn-help btn-get-also" formType="submit">我也要领课</button>
+                            </form>
+                            <button bindtap="assist" class="btn-item btn-help" wx:else>点击为Ta助力</button>
+                        </block>
+                    </view>
+                    <view bindtap="showRulesBox" class="help-info" wx:if="{{hasAssisted}}">
+                        <text>助力说明</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="avatar-container">
+            <view class="clock-wrap" wx:if="{{assistNum<maxCount}}">{{activityEnd?'':'距结束: '}}<clock bindend="activityEnd" endLabel="{{endLabel}}" initTime="{{leftTime}}" wx:if="{{leftTime!=null}}"></clock>
+            </view>
+            <view class="btn-tip">
+                <text wx:if="{{assistNum==0&&uid==urlUid}}">暂时没有人为你助力，快去分享吧</text>
+                <text wx:else>已有{{assistNum}}人为{{uid==urlUid?'你':'Ta'}}助力</text>
+            </view>
+            <view class="avatar-list">
+                <view class="avatar-item-wrap" wx:for="{{avatars}}" wx:key="avatars{{index}}">
+                    <image class="avatar-img" src="{{item||avatarDefault}}" wx:if="{{item!='#'}}"></image>
+                    <image class="avatar-img" src="{{assistAvatarDeault}}" wx:else></image>
+                </view>
+            </view>
+        </view>
+        <view class="activity-ft">
+            <view class="ft-info" wx:if="{{uid==urlUid&&source==0}}">
+                <view class="ft-tit">加入学习群</view>
+                <view class="ft-tip">与众多好友一起交流</view>
+            </view>
+            <view class="ft-info" wx:else>
+                <view class="ft-tit">免费听大咖节目</view>
+                <view class="ft-tip">集满助力即可领取</view>
+            </view>
+            <view class="ft-main">
+                <button bindtap="joinGroup" class="join-group" openType="contact" wx:if="{{uid==urlUid||source==0}}">
+                    <view class="group-cover-wrap">
+                        <image class="group-cover" src="../../images/group_cover.png"></image>
+                        <text class="news-count">1</text>
+                    </view>
+                    <view class="group-info-wrap">
+                        <view class="group-tit">官方学习群</view>
+                        <view class="group-tip">
+                            <view>点击进群，并 <text class="group-code">回复“{{replyMsg}}”</text>
+                            </view>
+                            <view>获得进群二维码</view>
+                        </view>
+                    </view>
+                    <view class="btn-join">进群</view>
+                </button>
+                <view class="recommend-album-list" wx:else>
+                    <albumRecommend album="{{album}}" class="component-album" hasTotalCount="true" isLast="{{index==albums.length-1?true:false}}" isAssistant="1" ispaid="1" wx:for="{{albums}}" wx:for-item="album" wx:key="{{album.id}}"></albumRecommend>
+                    <button plain bindtap="tofreeGetList" class="to-free-get-list" data-index="2">
+                        查看全部
+                        <image class="icon-jump-white" src="../../images/icon-jump-white.png"></image>
+                    </button>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="closeShareBox" class="app-box share-box {{canvasShow||authorizeBox||clipboardBox?'blur':''}}" wx:if="{{showShareBox}}">
+        <view catchtap="nothing" class="app-box-main">
+            <image bindtap="closeShareBox" class="close" src="../../images/icon-delete.png"></image>
+            <view class="btn-know-area">
+                <button plain class="btn-item btn-share" openType="share">
+                    <image class="icon-wxq" mode="widthFix" src="../../images/icon-wxq.png"></image>微信好友</button>
+                <button plain bindtap="createImage" class="btn-item btn-share">
+                    <image class="icon-pyq" mode="widthFix" src="../../images/icon-pyq.png"></image>保存图片</button>
+            </view>
+        </view>
+    </view>
+    <view class="activity-bd get-free-success" hidden="{{!getFreeSuccess}}">
+        <image class="star-gif" src="http://fdfs.xmcdn.com/group43/M08/37/4D/wKgKjVsffUTSYzjRAAVqzKS4wnU741.jpg"></image>
+        <view class="success-main">
+            <image class="get-free-success-bg" mode="widthFix" src="../../images/free-success-bg.png"></image>
+            <view class="album-cover-wrap">
+                <image class="cover-black" mode="widthFix" src="../../images/icon-cover.png"></image>
+                <image class="album-cover" mode="widthFix" src="{{albumCover||coverDefault}}"></image>
+            </view>
+            <view class="success-tip mb-4-5">
+                <view class="succ-tit">
+                    <view class="succ-tit-main">
+                        <image class="icon-succ" src="../../images/icon-succ.png"></image>
+                        <text class="succ-tit-text">领取成功</text>
+                    </view>
+                </view>
+                <view class="succ-text">
+                    哇哦,已成功领取课程！
+                </view>
+                <view class="succ-text">
+                    可在"我的已购"查看
+                </view>
+            </view>
+            <view class="btn-area">
+                <view class="btns">
+                    <button bindtap="showAppBox" class="btn-item btn-help btn-download-app" style="line-height: 41px;">直接收听</button>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="app-box" wx:if="{{appBox}}">
+        <view class="app-box-main">
+            <view class="app-box-pic-wrap">
+                <image class="app-box-pic" mode="widthFix" src="../../images/app-box-pic.png"></image>
+            </view>
+            <view class="app-box-text">
+                <text>请打开App Store或应用市场</text>
+                <text>下载喜马拉雅app</text>
+            </view>
+            <view class="btn-know-area">
+                <button bindtap="closeAppBox" class="btn-know">我知道了</button>
+            </view>
+        </view>
+    </view>
+    <view class="app-box rules-box" wx:if="{{rulesBox}}">
+        <view class="app-box-main rules-box-main">
+            <view class="rules-tit">
+                活动说明
+            </view>
+            <scroll-view scrollY class="rules">
+                <view class="rule">
+                    1.选择你心仪的课程，集满要求的助力人数，即可免费领取。
+                </view>
+                <view class="rule">
+                    2.每个用户每天最多可以为他人助力1次。
+                </view>
+                <view class="rule">
+                    3.为好友助力后，可以获得名额奖励，即你再发起该专辑的助力时，所需助力人数减5。                </view>
+                <view class="rule">
+                    4.每天的助力免费领名额有限，先助力成功先获得课程。
+                </view>
+                <view class="rule">
+                    重要：助力成功后，课程发放在<text class="strong">你的小程序登录账户中，点击我的-我的已购即可收听。也可下载喜马拉雅app，选择相应的登录方式后收听。</text>
+                </view>
+                <view class="rule">
+                    法律允许范围内，本功能最终解释权归上海证大喜马拉雅有限公司所有。                </view>
+            </scroll-view>
+            <view class="btn-know-area">
+                <button plain bindtap="closeRulesBox" class="btn-know">知道了</button>
+            </view>
+        </view>
+    </view>
+    <view class="app-box clipboard-box" wx:if="{{clipboardBox}}">
+        <view class="app-box-main">
+            <image bindtap="closeClipboardBox" class="close" src="../../images/icon-delete.png"></image>
+            <view class="app-box-pic-wrap">
+                海报已保存至相册
+            </view>
+            <view class="app-box-text">
+                <text class="clipboard-tip">将文字和图片一起分享，成功率翻10倍！</text>
+                <text class="clipboard-data">{{clipboardData}}</text>
+            </view>
+            <view class="btn-know-area">
+                <button bindtap="setClipboard" class="btn-know">一键复制文字，去分享</button>
+            </view>
+        </view>
+    </view>
+    <view class="app-box authorize-box" wx:if="{{authorizeBox}}">
+        <view class="app-box-main">
+            <image bindtap="closeAuthorizeBox" class="close" src="../../images/icon-delete.png"></image>
+            <view class="app-box-pic-wrap">
+                微信授权
+            </view>
+            <view class="app-box-text">
+                <text>请在设置界面打开“保存到相册”</text>
+            </view>
+            <view class="btn-know-area">
+                <button bindtap="toSetting" class="btn-know">去设置</button>
+            </view>
+        </view>
+    </view>
+</view>

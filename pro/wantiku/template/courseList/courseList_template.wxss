@@ -1,0 +1,46 @@
+.practice-papers-box.subject-class-list .subject-class.class-one .subject-class-title {
+    padding-left: 0rpx;
+    background: none;
+}
+
+.practice-papers-box.subject-class-list .subject-class .practice-class-title-text {
+    width: 560rpx;
+}
+
+.practice-papers-box.subject-class-list .subject-class .subject-class-info {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.practice-papers-box.subject-class-list .subject-class.disable .practice-class-title-text {
+    width: 520rpx;
+}
+
+.practice .new-icon {
+    background: #fc5e5e;
+    font-size: 18rpx;
+    color: #ffffff;
+    display: inline-block;
+    padding: 0rpx 6rpx;
+    margin-right: 10rpx;
+    height: 28rpx;
+    margin-bottom: 6rpx;
+    vertical-align: middle;
+    border-radius: 4rpx;
+}
+
+.subject-class-list .subject-class.class-three.disable .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/user_icon/icon_lianxi_hui@2x.png');
+}
+
+.subject-class-list .subject-class.class-two.disable .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/user_icon/icon_lianxi_hui@2x.png');
+}
+
+.error .subject-class-list .subject-class.class-three.disable .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/user_icon/icon_chakan_hui@2x.png');
+}
+
+.error .subject-class-list .subject-class.class-two.disable .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/user_icon/icon_chakan_hui@2x.png');
+}

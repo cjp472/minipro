@@ -1,0 +1,9 @@
+{
+    "navigationBarBackgroundColor": "#22dd82",
+    "navigationBarTitleText": "绑定第三方账号",
+    "navigationBarTextStyle": "#fff",
+    "backgroundColor": "#fff",
+    "backgroundColorTop": "#22dd82",
+    "backgroundColorBottom": "#fff",
+    "disableScroll": true
+}

@@ -1,0 +1,15 @@
+<view catchtap="buttonEvent" class="suspend-button" style="{{buttonStyle}}" wx:if="{{scene==='normal'}}">
+    <view class="suspend-button__text">{{text}}</view>
+</view>
+<view catchtap="toggleAdmin" class="admin-entry" wx:if="{{(userType==2||userType==3)&&scene==='user-home'}}">
+    <view>
+        <view>管理</view>
+        <view>入口</view>
+    </view>
+</view>
+<view catchtap="toHome" class="home-navi" wx:if="{{scene==='user-home'||scene==='course-overview'}}">
+    <view>
+        <view class="iconfont icon-shouye"></view>
+        <view>首页</view>
+    </view>
+</view>

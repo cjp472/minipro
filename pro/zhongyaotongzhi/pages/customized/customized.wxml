@@ -1,0 +1,28 @@
+<view>
+    <view class="error" wx:if="{{showLoadError}}">
+        <image class="error-icon" src="/images/error.png"></image>
+        <view class="error-text">加载失败，请检查网络</view>
+        <button bindtap="refresh" class="error-refresh" formType="submit">重新加载</button>
+    </view>
+    <view class="customization">
+        <image class="banner" src="/images/customized/header_bg.jpg"></image>
+        <view class="introduce">
+            <view class="text gray">80%的员工来自于微软、谷歌、腾讯、百度等全球知名互联网公司，拥有5年以上的移动互联网从业经验。</view>
+            <view class="text">现提供小程序商城、微官网定制服务，帮助更好展示企业产品及文化。适用于服装、水果、电器、五金、化妆品等企业及个体商户。</view>
+            <text class="text" selectable="true">以下为小程序示例模板。微官网小程序价格：399元起/永久，其他定制请直接联系微信：547895354</text>
+        </view>
+    </view>
+    <view class="recommend" wx:for="{{recommends}}">
+        <view bindtap="try" class="header" data-index="{{index}}">
+            <image class="logo" src="{{item.logo}}"></image>
+            <view class="title">{{item.title}}</view>
+            <view class="try">立即体验</view>
+        </view>
+        <text class="description">{{item.description}}</text>
+        <scroll-view scrollX="true">
+            <view class="pic" wx:for="{{item.pics}}" wx:for-item="pic">
+                <image bindtap="showPic" data-pic="{{pic}}" data-pics="{{item.pics}}" src="{{pic}}"></image>
+            </view>
+        </scroll-view>
+    </view>
+</view>

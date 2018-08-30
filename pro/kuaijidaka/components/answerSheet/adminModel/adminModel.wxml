@@ -1,0 +1,15 @@
+<view class="pd030" wx:if="{{listArray}}">
+    <view class="qs_bg por w_100">
+        <view class="pd0-30" wx:if="{{listArray}}">
+            <view wx:if="{{select==index}}" wx:for="{{listArray}}" wx:key="{{item}}">
+                <choice answerContent="{{item.standard_answer?item.standard_answer:''}}" chapter="{{chapter}}" colorScheme="admin" index="{{index}}" page="admin" qsId="{{item.question_id}}" qsList="{{item.items}}" selectType="{{item.kind}}" title="{{item.question_content}}"></choice>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="footer-tab" wx:if="{{allQsNum>1}}">
+    <footer-tab allQsNum="{{allQsNum}}" bind:next="next" bind:previous="previous" chapter="{{chapter}}" chapterNum="{{chapterNum}}" index="{{index}}" length="{{listArray.length}}" page="admin" qsNum="{{qsNum}}" wx:if="{{listArray.length>0}}"></footer-tab>
+</view>
+<view class="user-in-btn">
+    <view bindtap="goBack" class="classname">结束预览</view>
+</view>

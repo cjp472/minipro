@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "点评",
+    "navigationBarBackgroundColor": "#4f598f",
+    "usingComponents": {
+        "orderly-content-editor": "/components/orderly-content-editor/orderly-content-editor",
+        "user-submit-content": "/components/user-submit/content/content"
+    }
+}

@@ -1,0 +1,615 @@
+.red .wechat-cont .wechat-cont-btn {
+    color: #ff5757;
+}
+
+.red .live-chat-box .live-info {
+    color: #ff5757;
+}
+
+.red .live-chat-input .post-message {
+    color: #ff5757;
+}
+
+.red .weChat-btn {
+    box-shadow: 0 6rpx 12rpx #E8BFBF;
+}
+
+.blue .wechat-cont .wechat-cont-btn {
+    color: #4380db;
+}
+
+.blue .live-chat-box .live-info {
+    color: #4380db;
+}
+
+.blue .live-chat-input .post-message {
+    color: #4380db;
+}
+
+.blue .weChat-btn {
+    box-shadow: 0 6rpx 12rpx #97B4D3;
+}
+
+.green .wechat-cont .wechat-cont-btn {
+    color: #0e9900;
+}
+
+.green .live-chat-box .live-info {
+    color: #0e9900;
+}
+
+.green .live-chat-input .post-message {
+    color: #0e9900;
+}
+
+.green .weChat-btn {
+    box-shadow: 0 6rpx 12rpx #C2E9BE;
+}
+
+.orange .wechat-cont .wechat-cont-btn {
+    color: #ff7e00;
+}
+
+.orange .live-chat-box .live-info {
+    color: #ff7e00;
+}
+
+.orange .live-chat-input .post-message {
+    color: #ff7e00;
+}
+
+.orange .weChat-btn {
+    box-shadow: 0 6rpx 12rpx #f0e2c4;
+}
+
+.Lightblue .wechat-cont .wechat-cont-btn {
+    color: #27c1f4;
+}
+
+.Lightblue .live-chat-box .live-info {
+    color: #27c1f4;
+}
+
+.Lightblue .live-chat-input .post-message {
+    color: #27c1f4;
+}
+
+.Lightblue .weChat-btn {
+    box-shadow: 0 6rpx 12rpx #a7dfeb;
+}
+
+.yellow .wechat-cont .wechat-cont-btn {
+    color: #db9b00;
+}
+
+.yellow .live-chat-box .live-info {
+    color: #db9b00;
+}
+
+.yellow .live-chat-input .post-message {
+    color: #db9b00;
+}
+
+.yellow .weChat-btn {
+    box-shadow: 0 6rpx 12rpx #f0e2c4;
+}
+
+.purple .wechat-cont .wechat-cont-btn {
+    color: #a066e8;
+}
+
+.purple .live-chat-box .live-info {
+    color: #a066e8;
+}
+
+.purple .live-chat-input .post-message {
+    color: #a066e8;
+}
+
+.purple .weChat-btn {
+    box-shadow: 0 6rpx 12rpx #c9adeb;
+}
+
+.live-player.iPhoneX {
+    bottom: 60rpx;
+}
+
+page {
+    background: #f2f3f4;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.live-player {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.live-video {
+    width: 750rpx;
+    height: 422rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.live-video.small {
+    width: 377rpx;
+    height: 212rpx;
+    top: 422rpx;
+    right: 0;
+    z-index: 9;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.live-video image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.live-player .live-small-video {
+    position: absolute;
+    width: 282rpx;
+    height: 212rpx;
+    top: 422rpx;
+    right: 0;
+    z-index: 99;
+}
+
+.live-player .live-small-video.big {
+    width: 750rpx;
+    height: 422rpx;
+    top: 0;
+    right: 0;
+}
+
+.live-player .live-small-video video {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.live-player .live-chat-box {
+    position: absolute;
+    top: 422rpx;
+    bottom: 101rpx;
+    background: #f2f3f4;
+    width: 750rpx;
+    box-sizing: border-box;
+}
+
+.live-player .live-chat-input {
+    width: 100%;
+    height: 100rpx;
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    align-items: center;
+    border-top: 1rpx solid #ebebeb;
+    background: #ffffff;
+    transition: bottom 0.2s ease;
+}
+
+.live-player .live-chat-input input {
+    font-size: 30rpx;
+    color: #4e4e4e;
+    width: 100%;
+    height: 100rpx;
+}
+
+.live-player .icon-box {
+    width: 70rpx;
+    height: 70rpx;
+    background-color: #f3f4f5;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 70rpx;
+    margin-right: 30rpx;
+}
+
+.live-player .icon-box .iconfont {
+    color: #9a9a9a;
+    font-size: 32rpx;
+}
+
+.weChat-btn {
+    position: absolute;
+    width: 92rpx;
+    height: 92rpx;
+    right: 30rpx;
+    bottom: 132rpx;
+    z-index: 87;
+    border-radius: 50%;
+    box-shadow: 0 6rpx 12rpx #B8E499;
+}
+
+.weChat-btn image {
+    width: 92rpx;
+    height: 92rpx;
+    display: block;
+    position: relative;
+    z-index: 9;
+}
+
+.live-chat-box .live-info {
+    display: none;
+    padding: 0 30rpx;
+    color: #6fce29;
+    font-size: 24rpx;
+    height: 70rpx;
+    line-height: 74rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    align-items: center;
+}
+
+.live-chat-cont {
+    position: absolute;
+    top: 0rpx;
+    bottom: 0;
+    width: 100%;
+    -webkit-overflow-scrolling: auto;
+}
+
+.live-chat-box .live-info .iconfont {
+    margin-right: 10rpx;
+    font-size: 24rpx;
+}
+
+.live-chat-box .live-chat {
+    line-height: 38rpx;
+    font-size: 28rpx;
+    color: #4e4e4e;
+    border-bottom: 1rpx solid #ebebeb;
+    padding: 20rpx 0rpx;
+    width: 690rpx;
+    margin: 0 auto;
+}
+
+.live-chat-box .live-chat .name {
+    display: inline-block;
+    max-width: 180rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fc5e5e;
+    vertical-align: middle;
+}
+
+.live-chat-box .live-chat.student .name {
+    color: #9a9a9a;
+}
+
+.switch-video-box {
+    position: fixed;
+    top: 211rpx;
+    transform: translateY(-50%);
+    right: 20rpx;
+    width: 80rpx;
+    height: 80rpx;
+    box-sizing: border-box;
+    z-index: 99;
+    border-radius: 50%;
+}
+
+.switch-video {
+    margin: 0 auto;
+    width: 60rpx;
+    height: 60rpx;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 30rpx;
+    text-align: center;
+    line-height: 60rpx;
+    font-size: 11px;
+    color: #ffffff;
+    overflow: hidden;
+    z-index: 99;
+}
+
+.coverbtn {
+    font-size: 11px;
+}
+
+.hide-small-btn.hidetop {
+    top: 422rpx;
+}
+
+.hide-small-btn.hidetop.iOS {
+    top: 522rpx;
+    border-radius: 10rpx 0 0 10rpx;
+}
+
+.hide-small-btn {
+    position: absolute;
+    right: 0;
+    top: 634rpx;
+    color: #9a9a9a;
+    z-index: 99;
+    width: 58rpx;
+    height: 58rpx;
+    line-height: 58rpx;
+    text-align: center;
+    border-radius: 0 0 0 10rpx;
+    background: #e7e7e7;
+}
+
+.hide-small-btn .iconfont {
+    font-size: 22rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.transition {
+    transition: all 0.3s linear;
+}
+
+.hide-small-btn.coverbtn {
+}
+
+.wechat-cont {
+    position: fixed;
+    bottom: 0;
+    width: 750rpx;
+    height: 270rpx;
+    left: 0;
+    background: #ffffff;
+    border-radius: 20rpx 20rpx 0 0;
+    text-align: center;
+    z-index: 99;
+    transform: translateY(120%);
+    transition: all 0.2s ease-out;
+    opacity: 0;
+}
+
+.wechat-cont.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.wechat-cont .teacher-avator {
+    width: 114rpx;
+    height: 114rpx;
+    border-radius: 50%;
+    border: 12rpx solid #ffffff;
+    position: absolute;
+    background: #ffffff;
+    left: 50%;
+    margin-left: -63rpx;
+    top: -63rpx;
+    overflow: hidden;
+}
+
+.wechat-cont .teacher-avator image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+}
+
+.wechat-cont .teacher-name {
+    font-size: 30rpx;
+    line-height: 30rpx;
+    color: #4e4e4e;
+    margin-top: 85rpx;
+}
+
+.wechat-cont .teacher-wechat-number {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    margin-top: 18rpx;
+    color: #9a9a9a;
+}
+
+.wechat-cont .wechat-cont-btn-box {
+    position: absolute;
+    width: 100%;
+    height: 88rpx;
+    bottom: 0;
+    align-items: center;
+    border-top: 1rpx solid #ebebeb;
+}
+
+.wechat-cont .wechat-cont-btn {
+    width: 50%;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 30rpx;
+    color: #6fce29;
+    text-align: center;
+}
+
+.wechat-cont .wechat-cont-btn:first-child {
+    border-right: 1rpx solid #ebebeb;
+}
+
+.wechat-cont .wechat-cont-btn .iconfont {
+    font-size: 28rpx;
+    margin-right: 14rpx;
+}
+
+.live-chat-input .input-text-cont {
+    width: 300rpx;
+    position: absolute;
+    right: 0rpx;
+    top: -80rpx;
+}
+
+.live-chat-input .input-text {
+    width: 128rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    background: #ffffff;
+    border-radius: 8rpx;
+    box-shadow: 0 6rpx 16rpx #DDDDDD;
+    font-size: 28rpx;
+    text-align: center;
+    margin-right: 20rpx;
+}
+
+.live-chat-input .input-text.one {
+    color: #41d497;
+}
+
+.live-chat-input .input-text.two {
+    color: #ffae05;
+}
+
+.live-chat-input .input-text span {
+    font-size: 29rpx;
+    font-weight: 800;
+}
+
+.live-chat-input .post-message {
+    width: 120rpx;
+    font-size: 30rpx;
+    color: #6fce29;
+    text-align: center;
+    border-left: 1rpx solid #cccccc;
+}
+
+.live-chat .live-chat-image {
+    vertical-align: middle;
+}
+
+.no-ppt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-image: url('http://img02.exam8.com/img2017/minapp/video/bg_video.png');
+    z-index: 9;
+}
+
+.no-ppt image {
+    display: block;
+    width: 93rpx;
+    margin: 110rpx auto 25rpx auto;
+}
+
+.no-ppt .text {
+    color: #9a9a9a;
+    font-size: 30rpx;
+    text-align: center;
+}
+
+.live-video.small .no-ppt image {
+    display: block;
+    width: 60rpx;
+    margin: 40rpx auto 20rpx auto;
+}
+
+.live-video.small .no-ppt .text {
+    font-size: 22rpx;
+    padding: 0 20rpx;
+}
+
+.live-chat text text {
+    vertical-align: middle;
+}
+
+.input-box {
+    flex-grow: 1;
+    padding-left: 30rpx;
+    position: relative;
+}
+
+.input-box-cover {
+    position: absolute;
+    top: 0;
+    width: 90%;
+    height: 100%;
+    z-index: 9;
+}
+
+.live-player .live-chat-input.keyword {
+    bottom: 490rpx;
+}
+
+.teacher-ppt {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 750rpx;
+    height: 422rpx;
+    overflow: hidden;
+    z-index: 19;
+}
+
+.teacher-ppt.hide {
+    transform: translateY(-100%);
+}
+
+#teacher-ppt {
+    width: 750rpx;
+    height: 422rpx;
+}
+
+.noread-message {
+    position: fixed;
+    bottom: 132rpx;
+    left: 30rpx;
+    width: 212rpx;
+    height: 72rpx;
+    border-radius: 10rpx;
+    background: #ffffff;
+    box-shadow: 0 2rpx 16rpx #DDDDDD;
+    font-size: 26rpx;
+    color: #6fce29;
+    line-height: 72rpx;
+    text-align: center;
+}
+
+.noread-message .iconfont {
+    font-size: 11rpx;
+    vertical-align: middle;
+    margin-left: 12rpx;
+}
+
+.switch-btn {
+    position: absolute;
+    right: 0;
+    top: 422rpx;
+    width: 58rpx;
+    height: 58rpx;
+    background: #e7e7e7;
+    z-index: 99;
+    border-radius: 0 0 0 10rpx;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch-btn.big {
+    right: 377rpx;
+}
+
+.switch-btn.small {
+    right: 282rpx;
+}
+
+.switch-btn.none {
+    right: 0;
+}
+
+.switch-btn .hebingxingzhuang {
+    color: #9a9a9a;
+    font-size: 24rpx;
+    display: block;
+}
+
+.iPhoneX .wechat-cont.show {
+    transform: translateY(-60rpx);
+    opacity: 1;
+}

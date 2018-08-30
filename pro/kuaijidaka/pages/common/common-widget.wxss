@@ -1,0 +1,290 @@
+.public {
+    position: relative;
+    z-index: 1000;
+    display: block;
+}
+
+.public .content2 {
+    background: #fff;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    z-index: 99999;
+    width: 600rpx;
+    margin-left: -300rpx;
+    margin-top: -220rpx;
+    border-radius: 20rpx;
+    padding-top: 70rpx;
+}
+
+.public .content2 .h2 {
+    font-size: 36rpx;
+    font-weight: normal;
+    padding: 0 20rpx;
+    color: #3c4856;
+    position: relative;
+    text-align: center;
+}
+
+.public .content2 .p {
+    font-size: 30rpx;
+    line-height: 40rpx;
+    margin-top: 50rpx;
+    padding: 0 40rpx;
+    color: #666;
+    text-align: center;
+}
+
+.public .content2 .p .inputext {
+    height: 86rpx;
+    text-align: left;
+    padding: 0 20rpx;
+}
+
+.public .content2 .p textarea {
+    width: 460rpx;
+    height: 230rpx;
+    border: 1rpx solid #c4c8cc;
+    background: #eee;
+    padding: 30rpx;
+    font-size: 30rpx;
+    color: #3c4856;
+}
+
+.public .content2 .btn {
+    line-height: 100rpx;
+    width: 100%;
+    height: 100rpx;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top: 1rpx solid #eaeaea;
+    padding: 0;
+    margin: 0;
+    margin-top: 60rpx;
+}
+
+.public .content2 .btn text {
+    font-size: 36rpx;
+    color: #22dd82;
+}
+
+.public .content2 .btn.btn50 text {
+    width: 50%;
+    text-align: center;
+}
+
+.public .content2 .btn.btn50 text:nth-of-type(1) {
+    color: #3c4856;
+}
+
+.public .content2 .btn .online {
+    position: absolute;
+    width: 1rpx;
+    height: 100rpx;
+    background: #eaeaea;
+    border-right: 1rpx solid #eaeaea;
+    display: block;
+    top: 0;
+    left: 50%;
+}
+
+.public .i {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    z-index: 88;
+}
+
+.password-public .content2 {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    overflow: hidden;
+    background: url(https://static3t.jingdaka.com/images/img_pwdbg.png?v=2);
+    background-repeat: no-repeat;
+    background-size: 750rpx;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+.password-public .content2 .h2 {
+    margin-top: 110rpx;
+    font-size: 42rpx;
+    color: #fff!important;
+}
+
+.password-public .content2 .pwdtip {
+    text-align: center;
+    font-size: 28rpx;
+    color: #d7ffec;
+    margin: 40rpx 70rpx 36rpx 70rpx;
+}
+
+.public.password-public .content2 .p {
+    font-size: 30rpx;
+    line-height: 40rpx;
+    margin-top: 50rpx;
+    padding: 0;
+    margin: 50rpx 65rpx 0 65rpx;
+    color: #666;
+    text-align: center;
+}
+
+.public.password-public .content2 .p .inputext {
+    background: #6be8ac!important;
+    height: 88rpx;
+    text-align: left;
+    padding: 0 20rpx;
+    margin: 0;
+    border-radius: 10rpx;
+}
+
+.password-public .content2 .confirm {
+    border-radius: 10rpx;
+    margin: 220rpx 65rpx 20rpx 65rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #1bb869;
+    font-size: 36rpx;
+    text-align: center;
+    color: #fff;
+}
+
+.password-public .content2 .backHome {
+    border-radius: 10rpx;
+    margin: 0 65rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #1ac974;
+    font-size: 36rpx;
+    text-align: center;
+    color: #6be8ac;
+    border: 1rpx solid #6be8ac;
+}
+
+.shade {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #e9f4ee;
+    z-index: 88;
+}
+
+.no-permission-back {
+    background: url(http://jingdaka.oss-cn-shanghai.aliyuncs.com/images/img_pwdbg.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 750rpx;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.highlight {
+    background: #fff;
+    border-radius: 8rpx;
+    z-index: 99999;
+    position: fixed;
+    top: 30rpx;
+    left: 30rpx;
+    width: 690rpx;
+}
+
+.no-permission {
+    position: relative;
+    z-index: 1000;
+    display: block;
+}
+
+.no-permission-pic {
+    background: url(http://jingdaka.oss-cn-shanghai.aliyuncs.com/images/img_nohomework.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 196rpx;
+    height: 280rpx;
+    margin-top: 200rpx;
+    margin-bottom: 40rpx;
+}
+
+.official-tip {
+    font-size: 36rpx;
+    color: #8b97a4;
+    text-align: center;
+    margin-bottom: 80rpx;
+}
+
+.admin-tip {
+    position: relative;
+}
+
+.admin-tip .tip-text {
+    font-size: 28rpx;
+    color: #8897a5;
+    text-align: center;
+    height: 30rpx;
+    line-height: 30rpx;
+    margin-bottom: 36rpx;
+}
+
+.admin-tip .tip-text::before {
+    content: '';
+    width: 120rpx;
+    height: 1rpx;
+    position: absolute;
+    top: 14rpx;
+    left: 90rpx;
+    background-color: #dde2e8;
+}
+
+.admin-tip .tip-text::after {
+    content: '';
+    width: 120rpx;
+    height: 1rpx;
+    position: absolute;
+    top: 14rpx;
+    right: 90rpx;
+    background-color: #dde2e8;
+}
+
+.admin-tip text {
+    font-size: 28rpx;
+    color: #8897a5;
+    width: 510rpx;
+    margin: 0 90rpx;
+    word-break: break-all;
+    text-align: center;
+    display: block;
+    height: 80rpx;
+    line-height: 40rpx;
+}
+
+.no-permission .btn2 {
+    margin: 190rpx 225rpx 80rpx 225rpx;
+    height: 88rpx;
+    font-size: 26rpx;
+    color: #fff;
+    background: #22dd82;
+    border-radius: 8rpx;
+    line-height: 88rpx;
+    text-align: center;
+}
+
+.no-permission .btn2 .no-tip {
+    margin-top: 416rpx;
+}

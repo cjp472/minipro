@@ -1,0 +1,20 @@
+<view class="bf-fff" wx:if="{{publicListLength==0}}">
+    <image class="bg-img" src="/resources/bg_no_public.png"></image>
+    <view class="bg-des">暂时没有公开课</view>
+    <navigator class="bg-go" openType="switchTab" url="/pages/public/public">去逛逛</navigator>
+</view>
+<view wx:if="{{publicListLength>0}}">
+    <view class="list-box">
+        <view bindtap="myPublicList" class="list" data-goods_id="{{item.goods_id}}" wx:for="{{publicList}}" wx:key="*publicList">
+            <image class="last" src="/resources/public/last.png" wx:if="{{item.is_recent_study==true}}"></image>
+            <text class="last-txt" wx:if="{{item.is_recent_study==true}}">上次学习</text>
+            <image class="head-map" src="{{item.banner_img}}"></image>
+            <view class="des">
+                <view class="title">{{item.name}}</view>
+                <view class="lessons">
+            {{item.chapter_num}}课时 | 已学<text class="color">{{item.study_num}}</text>课时
+          </view>
+            </view>
+        </view>
+    </view>
+</view>

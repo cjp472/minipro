@@ -1,0 +1,71 @@
+<view class="container">
+    <view class="setting-card">
+        <view class="setting-content">
+            <view class="time-box">
+                <view class="time">
+                    <block wx:if="{{noticeState}}">
+                        <view>
+                        {{time}}
+                    </view>
+                        <view class="tips">
+                        {{weekText}}
+                    </view>
+                    </block>
+                    <view class="close" wx:else>
+                    关闭通知
+                </view>
+                </view>
+                <view class="switch">
+                    <switch bindchange="NoticeStateChange" checked="{{noticeState}}" color="#22dd82"></switch>
+                </view>
+            </view>
+        </view>
+    </view>
+    <block wx:if="{{showSetting}}">
+        <view class="setting-card">
+            <view class="setting-title">
+                <view class="tips">
+                时间
+                </view>
+            </view>
+            <view class="setting-content">
+                <view class="timer-picker-box">
+                    <picker-view catchchange="timerChange" class="time-picker" value="{{value}}">
+                        <picker-view-column>
+                            <view class="time-picker-item" wx:for="{{hours}}" wx:key="index">
+                                {{item}}
+                            </view>
+                        </picker-view-column>
+                        <picker-view-column>
+                            <view class="time-picker-item" wx:for="{{minites}}" wx:key="index">
+                                {{item}}
+                            </view>
+                        </picker-view-column>
+                    </picker-view>
+                </view>
+            </view>
+        </view>
+        <view class="setting-card mb0">
+            <view class="setting-title">
+                <view class="tips">
+                    重复
+                </view>
+                <view class="selected">
+                   {{weekText}}
+                </view>
+            </view>
+            <view class="setting-content">
+                <view class="week-list">
+                    <view catchtap="weekSelected" class="week-item {{index==3?'fourth':''}} {{item.selected?'active':''}}" data-index="{{index}}" wx:for="{{weeks}}" wx:key="id">
+                        {{item.title}}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="setting-button">
+            <view catchtap="tapSubmit" class="btn btn-success">
+                保存
+            </view>
+        </view>
+    </block>
+</view>

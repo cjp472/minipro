@@ -1,0 +1,16 @@
+<view style="width:510rpx;">
+    <text class="word-wrap" style="line-height: 60rpx;" wx:if="{{content.text}}">{{content.text}}</text>
+</view>
+<block wx:for="{{content.media}}" wx:for-item="it" wx:key="{{type}}">
+    <view class="{{content.text?'mt10':''}}" wx:if="{{it.type=='picture'}}">
+        <view catchtap="previewImg" class="optionImg" data-url="{{item.picture_url}}" wx:for="{{it.content}}" wx:for-index="i" wx:key="{{picture_url}}">
+            <image lazyLoad class="w370" mode="widthFix" src="{{item.picture_url}}" style="display:block;"></image>
+        </view>
+    </view>
+    <view class="{{content.text?'mt10':''}}" wx:if="{{it.type=='recording'}}">
+        <jdk-theme-audio colorScheme="{{colorScheme}}" voice="{{item}}" wx:for="{{it.content}}" wx:for-index="i" wx:key="{{picture_url}}"></jdk-theme-audio>
+    </view>
+    <view class="{{content.text?'mt10':''}}" wx:if="{{it.type=='voice'}}">
+        <jdk-theme-audio colorScheme="{{colorScheme}}" voice="{{item}}" wx:for="{{it.content}}" wx:for-index="i" wx:key="{{picture_url}}"></jdk-theme-audio>
+    </view>
+</block>

@@ -1,0 +1,42 @@
+<form reportSubmit catchsubmit="geFormId">
+    <view class="foot-tab-bg" wx:if="{{page=='default'||page=='error'}}">
+        <view class="flex-between w_100">
+            <view catchtap="previous" class="flex-center h90 grow fz32 por {{previous?'col-green':'col-gray'}}" hoverClass="hover" wx:if="{{chapter>0||index>0}}">
+                <button class="shade_button" data-type="previous" formType="submit" hoverClass="none" plain="true"></button>
+                <view class="arrow_icon_left shrink_no icon-bd icon-active"></view>
+                <text wx:if="{{index>0}}">上一题</text>
+                <text wx:if="{{index==0}}">{{page=='error'?'上一课时':'上一章'}}</text>
+            </view>
+            <view catchtap="next" class="flex-center h90 grow fz32 por {{next?'col-green':'col-gray'}}" hoverClass="hover" wx:if="{{chapter<chapterNum-1||index<length-1}}">
+                <button class="shade_button" data-type="next" formType="submit" hoverClass="none" plain="true"></button>
+                <text wx:if="{{index<length-1}}">下一题</text>
+                <text wx:if="{{index==length-1}}">{{page=='error'?'下一课时':'下一章'}}</text>
+                <view class="arrow_icon_right shrink_no icon-bd icon-active"></view>
+            </view>
+            <view catchtap="submit" class="grow fz32 flex-center h90 por" hoverClass="hover" wx:if="{{chapter==chapterNum-1&&index==length-1&&(page=='default'||page=='error')&&!showAnswer}}">
+                <text class="col-green">提交</text>
+                <view class="arrow_icon_right shrink_no icon-active"></view>
+                <button class="shade_button" data-type="submit" formType="submit" hoverClass="none" plain="true"></button>
+            </view>
+            <view catchtap="goBack" class="grow fz32 flex-center h90 por" hoverClass="hover" wx:elif="{{chapter==chapterNum-1&&index==length-1&&(page=='default'||page=='error')}}">
+                <view class="col-green">返回错题本</view>
+            </view>
+        </view>
+        <progress active activeMode="forwards" activeColor="#22dd82" backgroundColor="#ffffff" class="progress" percent="{{qsNum/allQsNum*100}}" strokeWidth="4" wx:if="{{allQsNum>1}}"></progress>
+    </view>
+    <view class="foot-tab-bg" wx:if="{{page=='admin'}}">
+        <view class="flex-between w_100">
+            <view catchtap="previous" class="flex-center h90 grow fz32 por {{previous?'col-admin':'col-gray'}}" hoverClass="hover" wx:if="{{chapter>0||index>0}}">
+                <view class="arrow_icon_left shrink_no icon-bd icon-active-admin"></view>
+                <text wx:if="{{index>0}}">上一题</text>
+                <text wx:if="{{index==0}}">上一章</text>
+            </view>
+            <view catchtap="next" class="flex-center h90 grow fz32 por {{next?'col-admin':'col-gray'}}" hoverClass="hover" wx:if="{{chapter<chapterNum-1||index<length-1}}">
+                <text wx:if="{{index<length-1}}">下一题</text>
+                <text wx:if="{{index==length-1}}">下一章</text>
+                <view class="arrow_icon_right shrink_no icon-bd icon-active-admin"></view>
+            </view>
+        </view>
+        <progress active activeMode="forwards" activeColor="#515b8d" backgroundColor="#ffffff" class="progress" percent="{{qsNum/allQsNum*100}}" strokeWidth="4" wx:if="{{allQsNum>1}}"></progress>
+    </view>
+</form>

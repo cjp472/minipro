@@ -1,0 +1,60 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="user_top_bg content_bg" wx:if="{{submit_id}}">
+    <view class="score_bg pd30">
+        <view class="icon score_{{starNumber}}" wx:if="{{eval_state&&result_effect!==2}}">
+            <view class="words" wx:if="{{starNumber<=2}}">需要加油哦！</view>
+            <view class="words" wx:elif="{{starNumber<=4}}">表现不错哦！</view>
+            <view class="words" wx:else>完美，再接再厉！</view>
+        </view>
+        <view class="score_number" wx:elif="{{eval_state}}">
+            <text class="score">{{answer_score}}</text>
+            <view class="words" wx:if="{{starNumber<=2}}">需要加油哦！</view>
+            <view class="words" wx:elif="{{starNumber<=4}}">表现不错哦！</view>
+            <view class="words" wx:else>完美，再接再厉！</view>
+        </view>
+        <view wx:else>
+            <view class="score_bg score_no_eval mb20">
+                <text class="my_score">恭喜你</text>
+            </view>
+            <view class="words--no-eval">完成此次练习</view>
+        </view>
+        <view class="flex_between" style="width:100%;">
+            <button bindtap="toQsList" class="wx-button wx-button2" data-chapter="0" data-index="0" hoverClass="opcity5">查看跟读详情</button>
+            <button class="wx-button wx-button3" hoverClass="opcity5" openType="share" style="background:#22dd82; color: #fff;">分享转发</button>
+        </view>
+    </view>
+    <view class="submit-container">
+        <view class="border-top"></view>
+        <jdk-actions bind:assessAgain="assessAgain" catchaudioType="setAudioType" catchpreview="markPreview" currentAudioType="{{currentAudioType}}" page="detail" submitData="{{submitData}}"></jdk-actions>
+    </view>
+    <view class="qs_content_bg mt30">
+        <view wx:if="{{!!eval_state}}">
+            <view class="pd30">
+                <view class="fz32 col3e4855 fw600">跟读评测结果</view>
+            </view>
+            <view class="score_content">
+                <view bindtap="toQsList" class="score_list {{result_effect===2?'score_list--number':''}}" data-questionid="{{item.question_id}}" wx:for="{{answers}}" wx:key="question_id">
+                    <block wx:if="{{result_effect!==2}}">
+                        <text class="fz28 colb4bcc6">测评{{index+1}}</text>
+                        <view class="score_icon">
+                            <view class="icon star_score"></view>
+                            <view class="icon {{item.score>=50?'star_score':'star_score2'}}"></view>
+                            <view class="icon {{item.score>=80?'star_score':'star_score2'}}"></view>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <text class="fz28 colb4bcc6 ml5">测评{{index+1}}</text>
+                        <view class="icon score-result-bg item-score">{{item.score}}分</view>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <view class="pd30" wx:if="{{remarks.length>0}}">
+            <record-comment commont="{{remarks}}"></record-comment>
+        </view>
+    </view>
+    <view class="no_eval_data mt30" wx:if="{{!eval_state&&remarks.length===0}}">本次作业需要老师单独点评！</view>
+    <jdk-logo></jdk-logo>
+</view>
+<day-sign customOn="{{is_custom_on}}" imgSrc="{{signImage}}" submitId="{{submit_id}}" wx:if="{{isMine&&signImage&&!hideDaySign}}"></day-sign>
+<image src="{{signImage}}" style="width:0;height:0;overflow: hidden;opacity: 0;"></image>

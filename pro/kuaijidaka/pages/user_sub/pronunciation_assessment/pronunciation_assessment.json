@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "jdk-theme": "/components/topic/topic",
+        "read-float": "/components/read-float/read-float",
+        "jdk-theme-eval": "/components/theme_items/eval/eval",
+        "eval-editor": "/components/theme_items/eval-edit/eval-edit"
+    }
+}

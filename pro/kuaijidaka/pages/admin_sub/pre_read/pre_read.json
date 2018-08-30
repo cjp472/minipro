@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "read-float": "/components/read-float/read-float"
+    },
+    "navigationBarBackgroundColor": "#4f598f",
+    "navigationBarTitleText": "预览内容"
+}

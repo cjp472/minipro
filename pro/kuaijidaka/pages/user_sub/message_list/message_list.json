@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "群通知列表",
+    "backgroundColor": "#22dd82",
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "jdk-switch": "/components/UI/switch/switch",
+        "foot-loading": "/components/footLoading/footLoading"
+    }
+}

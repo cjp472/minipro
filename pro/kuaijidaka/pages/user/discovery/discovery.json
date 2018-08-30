@@ -1,0 +1,15 @@
+{
+    "navigationBarBackgroundColor": "#f2f4f5",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "发现",
+    "backgroundColor": "#f2f4f5",
+    "enablePullDownRefresh": true,
+    "enableOnReachBottom": true,
+    "component": true,
+    "usingComponents": {
+        "user-table": "/components/user-table/user-table",
+        "jdk-modal": "/components/modal/modal",
+        "login-button": "/components/loginBtn/loginBtn",
+        "foot-loading": "/components/footLoading/footLoading"
+    }
+}

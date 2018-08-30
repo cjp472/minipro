@@ -1,0 +1,17 @@
+<view class="container">
+    <view class="title-top"></view>
+    <view class="relative">
+        <view class="logo">
+            <image class="img" src="{{companyLogo}}"></image>
+            <view class="h2">
+                <text>{{companyName}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="login">
+        <login-button btnStyle="background:#fff;color:#22dd82;" catchloginSuccess="loginSuccess" class="btn">登录</login-button>
+        <view class="p">
+            <text>同意微信授权，登录小程序</text>
+        </view>
+    </view>
+</view>

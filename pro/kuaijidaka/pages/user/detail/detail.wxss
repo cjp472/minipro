@@ -1,0 +1,204 @@
+@import "../../../__wuBaseWxss__/16.wxss";
+
+@import "../../../__wuBaseWxss__/8.wxss";
+
+.sharePic {
+    display: inline-block;
+    margin-right: 0!important;
+}
+
+.sharePic button {
+    width: 330rpx;
+    background: #fff;
+    color: #8b97a4;
+    border: none;
+}
+
+.onlySharePic button {
+    width: 690rpx;
+    background: #fff;
+    color: #8b97a4;
+}
+
+.onlySharePic--exam {
+    margin: 30rpx 30rpx 0 0;
+}
+
+.onlySharePic--exam button {
+    width: 690rpx;
+}
+
+.longPic {
+    display: inline-block;
+    margin-right: 0;
+}
+
+.longPic button {
+    width: 330rpx;
+}
+
+.button--primary {
+    border-radius: 5px;
+    width: 690rpx;
+    margin: 0 auto;
+    background: #22dd82;
+    color: #fff;
+    text-align: center;
+    line-height: 90rpx;
+    font-size: 36rpx;
+    margin-top: 30rpx;
+}
+
+.button--primary.white {
+    background-color: #22dd82;
+    color: #fff;
+}
+
+.signalPic {
+    display: inline-block;
+    margin-right: 0!important;
+}
+
+.signalPic button {
+    width: 330rpx;
+}
+
+.punchPic {
+    display: inline-block;
+}
+
+.punchPic button {
+    width: 330rpx;
+}
+
+.onlyPunchPic button {
+    width: 690rpx;
+}
+
+.onlyLongPic button {
+    width: 690rpx;
+}
+
+.onlyLongPic.green button {
+    background: #22dd82!important;
+    color: #fff!important;
+    border: none!important;
+}
+
+.first-punch {
+    position: fixed;
+    z-index: 9999;
+    width: 490rpx;
+    top: 120rpx;
+    left: 90rpx;
+    padding: 0 40rpx 30rpx 40rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+}
+
+.first-punch .medal {
+    background: url(http://jdk3t.oss-cn-shanghai.aliyuncs.com/images/img_medal.png);
+    background-repeat: no-repeat;
+    background-size: 276rpx;
+    width: 276rpx;
+    height: 289rpx;
+    margin: 0 107rpx;
+}
+
+.first-punch .title {
+    text-align: center;
+}
+
+.first-punch .title .first {
+    height: 60rpx;
+    line-height: 60rpx;
+    position: relative;
+}
+
+.first-punch .title .first .left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: -240rpx -60rpx;
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.first-punch .title .first .right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-position: -270rpx -60rpx;
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.first-punch .title .first .congratulation {
+    padding: 0 34rpx;
+    font-size: 42rpx;
+    color: #3c4856;
+}
+
+.first-punch .title text {
+    display: block;
+    padding: 20rpx 0;
+    font-size: 32rpx;
+    color: #8b97a4;
+    border-bottom: 1rpx solid #edf0f3;
+}
+
+.first-punch .info {
+    text-align: center;
+}
+
+.first-punch .info .avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    margin: 38rpx 195rpx 20rpx 195rpx;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.14),0px 4px 2px 0px rgba(0,0,0,0.04);
+}
+
+.first-punch .info .name {
+    text-align: center;
+    font-size: 32rpx;
+    color: #3c4856;
+}
+
+.first-punch .info .record {
+    font-size: 28rpx;
+    color: #8b97a4;
+    margin-top: 36rpx;
+    margin-bottom: 76rpx;
+}
+
+.first-punch .confirm {
+    height: 88rpx;
+    width: 100%;
+    line-height: 88rpx;
+    text-align: center;
+    background-color: #22dd82;
+    border-radius: 10rpx;
+    font-size: 36rpx;
+    color: #fff;
+}
+
+.submit-container {
+    padding: 0 30rpx;
+    min-height: 100rpx;
+}
+
+.unlock-guide {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    height: 88rpx;
+    line-height: 88rpx;
+    width: 100%;
+    text-align: center;
+    font-size: 28rpx;
+    color: #69da8a;
+    border-top: solid 2rpx #dae1e8;
+    background-color: white;
+}

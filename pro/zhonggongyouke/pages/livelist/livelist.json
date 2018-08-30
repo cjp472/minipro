@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "直播课-课程目录",
+    "disableScroll": false,
+    "enablePullDownRefresh": false,
+    "component": true,
+    "usingComponents": {}
+}

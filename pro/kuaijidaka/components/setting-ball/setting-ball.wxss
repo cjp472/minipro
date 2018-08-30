@@ -1,0 +1,39 @@
+@import "../../__wuBaseWxss__/8.wxss";
+
+.ball-box {
+    position: relative;
+    position: fixed;
+    z-index: 5;
+    right: 30rpx;
+    bottom: 30rpx;
+}
+
+.ball-main {
+    height: 112rpx;
+    width: 112rpx;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    font-size: 28rpx;
+    box-shadow: 0px -3px 6px 0px rgba(238,238,238,0.4);
+}
+
+.ball-list {
+    height: auto;
+    transition: height .3s;
+    overflow: hidden;
+}
+
+.ball-list .ball-main {
+    margin-bottom: 40rpx;
+}
+
+.ico {
+    background-position-x: -240rpx;
+    background-position-y: -1006rpx;
+    height: 50rpx;
+    width: 50rpx;
+}

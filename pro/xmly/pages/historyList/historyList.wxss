@@ -1,0 +1,103 @@
+.history-list {
+}
+
+.history-list-item {
+    display: flex;
+    flex-flow: row;
+    padding-left: 30rpx;
+    padding-right: 0;
+    align-items: center;
+}
+
+.history-image {
+    width: 128rpx;
+    height: 128rpx;
+    background: #ccc;
+    margin-right: 30rpx;
+    background: url('https://img.alicdn.com/imgextra/i2/732450928/TB22yXCbipnpuFjSZFIXXXh2VXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+    border: 2rpx solid #f1f1f1;
+}
+
+.history-info {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    padding: 45rpx 30rpx 45rpx 0;
+    border-bottom: 1rpx solid #EFEFEF;
+}
+
+.history-title-wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.tag-paid {
+    display: inline-block;
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    color: #fff;
+    background: #E0C69B;
+    border-radius: 1px;
+    padding: 2rpx 8rpx;
+    margin-right: 10rpx;
+}
+
+.history-title {
+    font-family: PingFangSC-Light;
+    flex: 1;
+    font-size: 30rpx;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.history-intro {
+    font-family: PingFangSC-Light;
+    font-size: 24rpx;
+    color: #999;
+    line-height: 30rpx;
+}
+
+.history-last-text {
+    font-family: PingFangSC-Light;
+    font-size: 22rpx;
+    color: #999;
+}
+
+.history-list-empty {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background: #f0f0f0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 110rpx;
+}
+
+.history-empty-image {
+    width: 270rpx;
+    height: 330rpx;
+    background: url('https://img.alicdn.com/imgextra/i2/732450928/TB2Q8KjbY4npuFjSZFmXXXl4FXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+}
+
+.empty-title {
+    display: inline-block;
+    margin-bottom: 20rpx;
+    font-size: 32rpx;
+    color: #333;
+}
+
+.empty-sub-title {
+    display: inline-block;
+    font-size: 24rpx;
+    color: #333;
+}

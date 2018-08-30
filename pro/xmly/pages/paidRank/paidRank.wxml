@@ -1,0 +1,43 @@
+<import src="../shared/player/player.wxml"></import>
+<view class="container bg-gray no-scroll">
+    <view class="scrollBar">
+        <scroll-view scrollWithAnimation scrollX class="scrollBar-items" scrollIntoView="{{typeId}}">
+            <view bindtap="setType" class="scrollBar-item {{'type'+index==typeId?'active':''}}" data-index="{{index}}" data-rank-tag="{{item.tag_name}}" data-real-rank-tag="{{item.real_tag_name}}" data-type-id="type{{index}}" id="type{{index}}" wx:for="{{typeList}}">{{item.tag_name}}</view>
+        </scroll-view>
+        <view bindtap="switchTypes" class="scrollBar-btn"></view>
+    </view>
+    <view bindtap="switchTypes" class="mask" style="display:{{showTypes?'block':'none'}}">
+        <view class="types">
+            <view catchtap="setType" class="type {{item.real_tag_name==rankTag?'active':''}}" data-index="{{index}}" data-rank-tag="{{item.tag_name}}" data-real-rank-tag="{{item.real_tag_name}}" data-type-id="type{{index}}" wx:for="{{typeList}}">{{item.tag_name}}</view>
+        </view>
+    </view>
+    <scroll-view scrollY bindscrolltolower="getAlbumsNext" style="height:{{windowHeight-40}}px">
+        <view class="albums">
+            <view bindtap="toAlbumDetail" class="album" data-album-id="{{album.id}}" wx:for="{{albumList}}" wx:for-item="album" wx:key="{{album.id}}">
+                <view class="album-index">{{index<9?'0'+index+1:index+1}} </view>
+                <view class="album-cover-wrapper">
+                    <image lazyLoad class="album-cover" src="{{album.cover_url_large}}"></image>
+                    <image lazyLoad class="icon-paid" mode="widthFix" src="../../images/home_ic_pay_n@3x.png" wx:if="{{album.isPaid&&!album.isVipFree}}"></image>
+                    <image lazyLoad class="icon-vip-free" mode="widthFix" src="../../images/home_ic_vip_n@3x.png" wx:if="{{album.isVipFree}}"></image>
+                </view>
+                <view class="album-info">
+                    <view class="album-title line-ellipsis">{{album.album_title}}</view>
+                    <view class="album-intro">{{album.album_intro}}</view>
+                    <view class="album-playcount">
+                        <image class="icon icon-playcount" src="../../images/icon-playcount.png"></image>
+                        <text>{{album.play_count}}</text>
+                        <icon class="icon icon-tracksCounts"></icon>
+                        <text class="text-sub-info">{{album.include_track_count}}集</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="loading-wrap" wx:if="{{!isAll||isLoading}}">
+            <text class="loading-text">正在火速加载中...</text>
+        </view>
+        <view class="loading-wrap" wx:if="{{isAll}}">
+            <text class="loading-text">已经到头啦...</text>
+        </view>
+    </scroll-view>
+    <template is="player" data="{{player:player,actionSheet:actionSheet}}"></template>
+</view>

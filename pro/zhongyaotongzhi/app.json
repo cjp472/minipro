@@ -1,0 +1,26 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/detail/detail",
+        "pages/dev/dev",
+        "pages/edit/edit",
+        "pages/cover/cover",
+        "pages/qrcode/qrcode",
+        "pages/recommend/recommend",
+        "pages/customized/customized",
+        "pages/zhibo/zhibo",
+        "pages/webview/webview",
+        "pages/groupedit/groupedit",
+        "pages/weiyou/weiyou",
+        "pages/readlist/readlist",
+        "pages/comment/comment",
+        "pages/otherprogram/otherprogram",
+        "pages/auth/auth"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#1677d2",
+        "navigationBarTitleText": "重要通知",
+        "navigationBarTextStyle": "white"
+    }
+}

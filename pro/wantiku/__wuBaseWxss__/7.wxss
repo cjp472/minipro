@@ -1,0 +1,27 @@
+.red .practice-continue .icon_arrow_right {
+    color: #ff5757;
+}
+
+.blue .practice-continue .icon_arrow_right {
+    color: #4380db;
+}
+
+.green .practice-continue .icon_arrow_right {
+    color: #0e9900;
+}
+
+.Lightblue .practice-continue .icon_arrow_right {
+    color: #27c1f4;
+}
+
+.orange .practice-continue .icon_arrow_right {
+    color: #ff7e00;
+}
+
+.yellow .practice-continue .icon_arrow_right {
+    color: #db9b00;
+}
+
+.purple .practice-continue .icon_arrow_right {
+    color: #a066e8;
+}

@@ -1,0 +1,164 @@
+<import src="../shared/player/player.wxml"></import>
+<import src="../shared/globalMsg/globalMsg.wxml"></import>
+<import src="../shared/tab/tab.wxml"></import>
+<view class="container {{posterBox?'no-scroll blur':''}}">
+    <view class="freeAlbum">
+        <view class="header">
+            <view class="album-header " wx:if="{{displayMode===1}}">
+                <view class="album-header-bg">
+                    <image mode="widthFix" src="{{album.coverLarge||defaultAlbumCover}}"></image>
+                </view>
+                <view class="album-header-front">
+                    <view class="album-cover">
+                        <image class="album-cover-bg" src="../../images/bg-circle.png" wx:if="{{album.coverLarge}}"></image>
+                        <image bindload="handleAlbumCoverLoad" class="album-cover-front" src="{{album.coverMiddle||defaultAlbumCover}}"></image>
+                    </view>
+                    <view class="album-info" wx:if="{{album.title}}">
+                        <text class="album-title banner-title-free small-mode">{{album.title||'标题'}}</text>
+                        <text class="album-subtitle line-ellipsis">{{album.customSubTitle}}</text>
+                        <view class="album-meta-info">
+                            <view class="album-total-subs">{{album.subscribeCount}}人</view>
+                            <view class="album-total-update">已更新{{album.tracks}}期</view>
+                        </view>
+                        <view class="album-actions">
+                            <button plain bindtap="showShareBox" class="btn-share" hoverClass="btn-hover">
+                                <image src="../../images/share_small.png"></image>
+                            </button>
+                            <button plain bindtap="subscribe" class="btn-subscribe" data-album-id="{{album.albumId}}" hoverClass="btn-hover">
+                                <image src="../../images/sub_small.png" wx:if="{{!album.isFavorite}}"></image>
+                                <image src="../../images/subed_small.png" wx:else></image>
+                            </button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="fixed-view {{fixed?'fixed':''}}">
+                <template is="tab" data="{{Tab:Tab}}"></template>
+                <view class="sort-wrap" wx:if="{{Tab.index==1}}">
+                    <view class="pages-hd">
+                        <view bindtap="switchASC" class="asc" wx:if="{{isAsc}}">
+                            <image class="icon-asc" src="../../images/icon-asc.png"></image>正序</view>
+                        <view bindtap="switchASC" class="asc" wx:else>
+                            <image class="icon-asc" src="../../images/icon-asc.png"></image>倒序</view>
+                        <view bindtap="switchPagesBox" class="choose-pages">
+                            <image class="icon-choose-page" src="../../images/icon-choose-page.png"></image>
+            {{choosedPage?pages[choosedPage-1]:'选集'}}
+          </view>
+                    </view>
+                    <view class="pages-bd" style="max-height: {{windowHeight-tabHeight-headerHeight-100}}px;" wx:if="{{showPages}}">
+                        <view class="table">
+                            <view catchtap="choosePage" class="page-item {{choosedPage==index+1?'choosed-page':''}}" data-page-id="{{index+1}}" wx:for="{{pages}}" wx:key="{{index}}">
+                                <text>{{item}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="" wx:if="{{toUpper&&tracks.prevPage!=0&&Tab.index==1}}">
+            <view class="loading-wrap">
+                <text class="loading-text">正在火速加载中...</text>
+            </view>
+        </view>
+        <view class="detail" style="{{Tab.index!==1?'margin-top:50px':''}}">
+            <view class="album-introduction" wx:if="{{Tab.index===0}}">
+                <view class="album-introduction-block" wx:if="{{album.introRich}}">
+                    <view class="block-header">
+                        <text class="block-header-text">简介</text>
+                    </view>
+                    <rich-text nodes="{{album.introRich}}"></rich-text>
+                </view>
+                <view class="album-introduction-block" wx:else>
+                    <view class="block-header">
+                        <text class="block-header-text">简介</text>
+                    </view>
+                    <text class="no-data">暂无</text>
+                </view>
+            </view>
+            <view class="free-tracks" style="min-height: {{windowHeight-tabHeight-headerHeight+5}}px;" wx:if="{{Tab.index===1}}">
+                <view class="text-empty" wx:if="{{tracks.totalCount<1}}">该专辑下还没有节目哦~</view>
+                <block wx:else>
+                    <view catchtap="{{item.trackId==player.sound.id&&!player.state.paused?'jumpToDetail':'playAndJumpToDetail'}}" class="audition-list-item {{item.trackId==(player.playerFocusId?player.playerFocusId:player.sound.id)?'active':''}}" data-album-id="{{albumId}}" data-is-free="{{true}}" data-ispaid="{{0}}" data-sample-duration="{{item.duration}}" data-title="{{item.title}}" data-track-id="{{item.trackId}}" wx:for="{{tracks.list}}">
+                        <view class="album-index-wrap">
+                  {{item.orderNo}}
+                </view>
+                        <view class="audition-info">
+                            <view class="audition-title-wrap">
+                                <view class="audition-title">{{item.title}}</view>
+                                <view class="audition-title-sub-info-inner">
+                                    <view class="text-info">{{item.createdAt}}</view>
+                                </view>
+                            </view>
+                            <view class="audition-sub-info">
+                                <view class="audition-sub-info-inner">
+                                    <icon class="icon icon-playCount"></icon>
+                                    <text class="text-info">{{item.calcPlaytimes}}</text>
+                                    <icon class="icon icon-comment"></icon>
+                                    <text class="text-info">{{item.comments}}</text>
+                                    <icon class="icon icon-duration"></icon>
+                                    <text class="text-info">{{item.calcDuration}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <view class="loading-wrap" wx:if="{{tracks.isAll&&tracks.list.length>0}}">
+                    <text class="loading-text">已经到头啦</text>
+                </view>
+                <view class="loading-wrap" wx:else>
+                    <text class="loading-text">正在火速加载中...</text>
+                </view>
+            </view>
+        </view>
+        <template is="globalMsg" data="{{globalMsg:globalMsg}}" wx:if="{{globalMsg}}"></template>
+        <template is="player" data="{{player:player,actionSheet:actionSheet}}" wx:if="{{ispaid!=1&&!isAssistant}}"></template>
+        <go-to-home-page wx:if="{{showGoToIndex}}"></go-to-home-page>
+    </view>
+    <view bindtap="goToTop" class="goto-top-btn" hoverClass="btn-hover" hoverStayTime="30" wx:if="{{showGoToTopBtn}}">
+        <image src="../../images/gototop.png"></image>
+    </view>
+</view>
+<view bindtap="closeShareBox" class="pop-box share-box {{posterBox?'blur':''}}" wx:if="{{showShareBox}}">
+    <view catchtap="nothing" class="pop-content share-content">
+        <image bindtap="closeShareBox" class="close" src="../../images/icon-delete.png"></image>
+        <view class="btn-know-area">
+            <button plain class="btn-item btn-share" openType="share">
+                <image class="icon-wxq" mode="widthFix" src="../../images/icon-wxq.png"></image>
+        微信好友
+      </button>
+            <button plain bindgetuserinfo="wechatLogin" class="btn-item btn-share" data-action="createPoster" lang="zh_CN" openType="getUserInfo" wx:if="{{!isLogin}}">
+                <image class="icon-pyq" mode="widthFix" src="../../images/icon-pyq.png"></image>
+        保存图片
+      </button>
+            <button plain bindtap="createPoster" class="btn-item btn-share" wx:else>
+                <image class="icon-pyq" mode="widthFix" src="../../images/icon-pyq.png"></image>
+        保存图片
+      </button>
+        </view>
+    </view>
+</view>
+<view bindtap="closePosterBox" class="pop-box poster-box" hidden="{{!posterBox}}">
+    <view class="pop-content poster-content">
+        <view class="poster-preview-wrap">
+            <view class="poster-preview">
+                <image catchtap="nothing" class="poster" src="{{posterPath}}" style="width:{{canvasW/2}}px;height:{{canvasH/2}}px;"></image>
+                <button plain catchtap="savePoster" class="btn-save-poster {{posterSuccess?'posterSuccess':''}}">保存图片</button>
+            </view>
+        </view>
+        <canvas canvasId="poster" catchtap="nothing" class="poster" style=" margin-top:100px;opacity: 0;width:{{canvasW}}px;height:{{canvasH}}px"></canvas>
+    </view>
+</view>
+<view class="pop-box authorize-box" wx:if="{{authorizeBox}}">
+    <view class="pop-content authorize-box-content">
+        <image bindtap="closeAuthorizeBox" class="close" src="../../images/icon-delete.png"></image>
+        <view class="app-box-pic-wrap">
+      微信授权
+    </view>
+        <view class="app-box-text">
+            <text>请在设置界面打开“保存到相册”</text>
+        </view>
+        <view class="btn-know-area">
+            <button plain bindopensetting="toSetting" class="btn-know" openType="openSetting">去设置</button>
+        </view>
+    </view>
+</view>

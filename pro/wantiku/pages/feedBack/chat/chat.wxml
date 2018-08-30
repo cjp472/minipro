@@ -1,0 +1,45 @@
+<view>
+    <scroll-view bindscroll="bindscroll" bindscrolltoupper="bindscrolltoupper" class="information" scrollIntoView="item-{{list.length}}" scrollTop="" scrollWithAnimation="{{true}}" scrollY="true" style="height: {{height}}">
+        <view class="{{idx=='0'?'header':''}}" id="item-{{idx+1}}" wx:for="{{list}}" wx:for-index="idx" wx:key="{{index}}">
+            <view class="flex system-msg" wx:if="{{item.IsReply=='1'}}">
+                <image class="avatar" src="{{item.AdminPicUrl}}"></image>
+                <view class="system-msg-content" wx:if="{{item.FBContent}}">
+                    <text class="system-msg-text">{{item.FBContent}}</text>
+                </view>
+                <image class="imgBig" mode="widthFix" src="{{item.FBPicUrl}}" wx:else></image>
+            </view>
+            <block wx:if="{{item.IsReply==0}}">
+                <view class="title-top" style="text-align: center">
+                    <text class="title-time">{{item.DateStr}}</text>
+                </view>
+                <view class="user-msg">
+                    <view class="flex float-right user-text">
+                        <view class="user-msg-content" wx:if="{{item.FBContent}}">
+                            <text class="user-msg-text">{{item.FBContent}}</text>
+                        </view>
+                        <view class="img-wrap" wx:if="{{item.FBPicUrl||imgHide}}">
+                            <image bindtap="imagesEnlarge" class="imgBig" data-img-url="{{msgImg||item.FBPicUrl}}" mode="widthFix" src="{{msgImg||item.FBPicUrl}}"></image>
+                        </view>
+                        <image class="avatar" src="{{item.PhotoUrl||avatarImg}}"></image>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view style="height: {{IsShare=='1'?'172rpx':'40rpx'}}"></view>
+    </scroll-view>
+    <form bindsubmit="sendSubmit" reportSubmit="{{true}}" scrollTop="">
+        <view class="msg-chat {{confirmState?'cursor':''}} {{inputState?'input':''}}">
+            <button class="upload" data-id="0" formType="submit" hoverClass="none">
+                <image class="img-upload" src="http://img02.exam8.com/img2017/minapp/icon/icon_picture@3x.png"></image>
+            </button>
+            <view class="chat-window">
+                <input bindblur="inputCloseFocus" bindinput="msgInfo" confirmHold="{{false}}" confirmType="done" focus="{{inputState}}" type="text" value="{{msgInfo}}"></input>
+                <view bindtap="inputGetFocus" class="input-top"></view>
+            </view>
+            <button class="send {{disable?'show':'hide'}}" data-id="1" formType="submit">提交</button>
+        </view>
+    </form>
+    <view bindtap="goBackIndex" class="goBackIndex go-index" wx:if="{{IsShare==1}}">
+        <text class="iconfont icon_home"></text>
+    </view>
+</view>

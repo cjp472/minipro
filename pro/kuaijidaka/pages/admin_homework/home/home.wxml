@@ -1,0 +1,57 @@
+<import src="../../common/nonet.wxml"></import>
+<import src="../../common/home-search-box.wxml"></import>
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<jdk-navi naviList="{{naviList}}" wx:if="{{naviList.length>0}}"></jdk-navi>
+<view class="container" wx:if="{{netWorkStatus&&courseDetail.title}}">
+    <view class="homework-top">
+        <view catchtap="toggleHomework" class="homework-top__text" data-order="last" wx:if="{{topic.calendar_left!=0}}">上一次</view>
+        <view class="homework-top__text" wx:else></view>
+        <view catchtap="toHomeworkList" class="homework-top__title">
+            <view class="homework-top__title--current">{{topic.calendar_title}}</view>
+            <view class="iconfont icon-xiala1"></view>
+        </view>
+        <view catchtap="toggleHomework" class="homework-top__text" data-order="next" wx:if="{{topic.calendar_right!=0}}">下一次</view>
+        <view class="homework-top__text" wx:else></view>
+    </view>
+    <home-tools admin="{{true}}" courseParams="{{courseDetail}}" topicParams="{{topic}}" wx:if="{{courseDetail&&topic}}"></home-tools>
+    <view class="theme">
+        <view class="h50">
+            <view class="admin-ico2 theme__title"></view>
+            <view class="theme__title-text">{{topic.category===3?'阅读说明':'主题'}}</view>
+        </view>
+        <jdk-theme applyType="topic" catchaudioType="setAudioType" catchpreview="markPreview" colorScheme="admin" currentAudioType="{{currentAudioType}}" hybrid_content="{{topic.hybrid_content}}" pc_content="{{topic.pc_content}}" playRule="{{topic.play_rule||0}} " title="{{courseDetail.title}}" wx:if="{{topic.pc_content||topic.hybrid_content}}"></jdk-theme>
+    </view>
+    <view bindtap="toMsg" class="prompt-message" wx:if="{{selfMsg>0}}">
+        <span>
+            <text>{{selfMsg}}条新消息</text>
+        </span>
+    </view>
+    <home-select bind:changeSort="changeSort" isEval="{{topic.eval_state}}" resetTrigger="{{selectReset}}" submitCount="{{submitListObj.submit_count}}" wx:if="{{submitListObj.submit_count>=0}}"></home-select>
+    <view class="user-list" id="userList">
+        <view class="ul" wx:if="{{submitListObj.submit_list&&submitListObj.submit_list.length>0}}">
+            <view wx:for="{{submitListObj.submit_list}}" wx:key="submit_id">
+                <jdk-submit binddeletesubmit="deleteSubmit" catchaudioType="setAudioType" catchpreview="markPreview" currentAudioType="{{currentAudioType}}" page="home" submitData="{{item}}"></jdk-submit>
+            </view>
+            <foot-loading loadMore="{{isLoadingMore}}" noMore="{{noMore}}" pageType="admin"></foot-loading>
+        </view>
+        <view wx:elif="{{!hideShareMenu}}">
+            <view class="group-punchcard-tip" wx:if="{{courseDetail.permit_type===3}}">
+                <view class="ico left-tit"></view>
+                <view class="ico right-tit"></view>
+                <text>请转发此页面至课程群，群内学员点击进入后即可识别为本课程学员，否则将无法打卡。</text>
+            </view>
+            <view class="btn">
+                <button class="main-green-bg-color" openType="share" type="primary" wx:if="{{canUseShareButton}}">{{courseDetail.permit_type===3?'转发到群内提交作业':'转发给学员提交作业'}}</button>
+                <button catchtap="shareClick" class="main-green-bg-color" type="primary" wx:else>{{courseDetail.permit_type===3?'转发到群内提交作业':'转发给学员提交作业'}}</button>
+            </view>
+        </view>
+    </view>
+</view>
+<share-modal catchloginSuccess="loginSuccess" colorTheme="admin" courseId="{{courseId}}" page="home" wx:if="{{notLogin}}"></share-modal>
+<view class="share" hidden="{{shareHidden}}">
+    <view catchtap="shareClickclose" class="text"></view>
+    <view class="bg"></view>
+</view>
+<template is="nonet" data wx:if="{{!netWorkStatus}}"></template>
+<template is="home-search-box" data="{{...searchBoxData}}" wx:if="{{searchBoxData.isShowSearchBox}}"></template>
+<modal-input catchcancel="cancelNaming" catchconfirm="nameWXGroup" placeholder="{{namingModal.placeholder}}" tips="{{namingModal.tips}}" title="{{namingModal.title}}" wx:if="{{namingInputVisible}}"></modal-input>

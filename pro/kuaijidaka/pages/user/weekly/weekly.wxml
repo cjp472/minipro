@@ -1,0 +1,205 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<jdk-permission-checker catchpermissionpass="onPermissionPass" codeImg="{{permissionChecker.permit_image}}" courseId="{{permissionChecker.courseId}}" denyReason="{{permissionChecker.denyReason}}" tips="{{permissionChecker.tips}}" wx:if="{{permissionChecker}}"></jdk-permission-checker>
+<view wx:if="{{shutDown===1}}">
+    <jdk-guide-card scene="{{5}}"></jdk-guide-card>
+</view>
+<view class="container {{isUser&&!!userData.user_id?'':'admin_container'}}" wx:elif="{{!!integral_switch}}">
+    <view class="ranking-user" wx:if="{{isUser}}">
+        <view class="ico-rank rank-bg {{isUser?'':'rank-bg--admin'}}"></view>
+        <view class="button-box" wx:if="{{!!teamId}}">
+            <view catchtap="rankInTeam" class="{{rankTypeChosen===0?'purple':rankTypeChosen===1?'yellow':rankTypeChosen===2?'orange':''}} {{isTeam?'picked':''}}">组榜</view>
+            <view catchtap="rankInAll" class="{{rankTypeChosen===0?'purple':rankTypeChosen===1?'yellow':rankTypeChosen===2?'orange':''}} {{isTeam?'':'picked'}}">总榜</view>
+        </view>
+        <view class="user">
+            <view class="ico-rank banner {{rankTypeChosen===RANK_TYPE.WEEK?'banner--week':rankTypeChosen===RANK_TYPE.LAST_WEEK?'banner--last-week':'banner--all'}}"></view>
+            <view class="user-profile">
+                <view class="avatar">
+                    <image backgroundSize="cover" src="{{userData.avatar}}"></image>
+                </view>
+                <view class="nick">{{userData.nick}}</view>
+            </view>
+            <view class="rank">
+                <view class="item">
+                    <text class="item-data">{{userData.rank_num}}</text>
+                    <text class="item-name">排名</text>
+                </view>
+                <view class="item" wx:if="{{is_bind_partner}}">
+                    <text class="item-data">{{userData.lesson_count||0}}</text>
+                    <text class="item-name">今日已学课件</text>
+                </view>
+                <view class="item">
+                    <text class="item-data">{{userData.record||0}}</text>
+                    <text class="item-name">{{rankTypeText}}</text>
+                </view>
+            </view>
+            <view class="operations" wx:if="{{userData.rank_num!=='-'}}">
+                <view catchtap="toAchievement" class="btn">
+                    <em class="ico icon-achivement"></em>成就卡</view>
+                <em class="vertical-line"></em>
+                <view class="btn">
+                    <button openType="share" wx:if="{{canIUseShareButton}}">
+                        <em class="ico icon-share"></em>去炫耀</button>
+                </view>
+            </view>
+            <view catchtap="changeRankType" class="tab {{index===0?'tab-top':'tab-bottom'}} {{rankTypes[item].className}}" data-ranktype="{{rankTypes[item].value}}" wx:for="{{rankTypeOthers}}" wx:key="*this">{{rankTypes[item].text}}</view>
+        </view>
+    </view>
+    <view class="ranking-user" wx:if="{{!isUser}}">
+        <view class="flex_center admin_rank_bg">
+            <view catchtap="changeRankType" class="rank_button {{rankTypeChosen==1?'active':''}}" data-ranktype="1">
+        本周排行榜
+      </view>
+            <view catchtap="changeRankType" class="rank_button {{rankTypeChosen==0?'active':''}}" data-ranktype="0">
+        总排行榜
+      </view>
+            <view catchtap="changeRankType" class="rank_button {{rankTypeChosen==2?'active':''}}" data-ranktype="2">
+        上周排行榜
+      </view>
+        </view>
+        <view class="ico-rank rank-bg rank-bg--admin"></view>
+        <view class="user" style="background:none;">
+            <view class="ico-rank banner {{rankTypeChosen==RANK_TYPE.WEEK?'banner--week':rankTypeChosen==RANK_TYPE.LAST_WEEK?'banner--last-week':'banner--all'}}"></view>
+        </view>
+    </view>
+    <view class="ranking-list">
+        <view class="people">
+            <view class="people-item">参与人数 {{!invitationRank?submit_user:''}}</view>
+            <view class="switch-rank-container">
+                <view catchtap="toggleSortOptions" class="switch-rank">
+                    <text>{{RANK_RULE[rankRule].content}}排名</text>
+                    <view class="ico"></view>
+                </view>
+                <view class="sort-options" hidden="{{sortOptionsHidden}}">
+                    <view class="ico-triangle-up"></view>
+                    <block wx:for="{{rankTypeSelect}}" wx:key="{{item}}">
+                        <view catchtap="changeSortType" class="sort-option" data-sorttype="{{item}}" wx:if="{{item=='6'&&result_answer}}">{{RANK_RULE[item].content}}排名
+              <view class="ico" hidden="{{rankRule!=item}}"></view>
+                        </view>
+                        <view catchtap="changeSortType" class="sort-option" data-sorttype="{{item}}" wx:if="{{item=='3'&&result_eval}}">{{RANK_RULE[item].content}}排名
+              <view class="ico" hidden="{{rankRule!=item}}"></view>
+                        </view>
+                        <view catchtap="changeSortType" class="sort-option" data-sorttype="{{item}}" wx:if="{{item!=3&&item!=6}}">{{RANK_RULE[item].content}}排名
+              <view class="ico" hidden="{{rankRule!=item}}"></view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <text catchtap="showIntegrationRule" class="integration-rule" wx:if="{{rankRule==5}}">积分规则</text>
+            <text catchtap="showIntegrationRule" class="integration-rule" wx:if="{{rankRule!=5}}">榜单说明</text>
+        </view>
+        <view class="list" hidden="{{hasNoData}}">
+            <view class="ul">
+                <view class="li {{rankItem.raceClass?rankItem.raceClass:''}}" wx:for="{{items}}" wx:for-index="rankIndex" wx:for-item="rankItem" wx:key="unique">
+                    <view class="img">
+                        <view class="rank">{{rankIndex+1}}</view>
+                        <image lazyLoad backgroundSize="cover" catchtap="goToRecords" data-userid="{{rankItem.user_id}}" src="{{rankItem.avatar}}"></image>
+                    </view>
+                    <view class="text">
+                        <view class="fl">
+                            <text class="user-name block beyond_1">{{rankItem.nick}}</text>
+                            <text class="kejian-data block" wx:if="{{is_bind_partner}}">今日已学 <text class="kejian-number">{{rankItem.lesson_count||0}}</text> 课件</text>
+                        </view>
+                        <view class="fr">
+                            <text>{{(rankItem.record||0)+rankText}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="nodata" hidden="{{!hasNoData}}">
+        <view class="ico"></view>
+        <view>
+            <text>什么都没有</text>
+        </view>
+    </view>
+    <view class="share" hidden="{{shareHidden}}">
+        <view catchtap="shareClickclose" class="text2"></view>
+        <view class="bg"></view>
+    </view>
+</view>
+<view class="iWant" hidden="{{hideIwant}}" wx:if="{{isUser}}">
+    <button catchtap="iWant" style="background:#22dd82; color: #fff; border: none;">我要参与</button>
+</view>
+<foot-loading loadMore="{{isLoadingMore}}" noMore="{{items.length==0?false:maxOffset}}" pageTxt="{{items.length<100?'已经到底了':'排行榜最多只显示100条数据'}}" pageType="{{isUser?'user':'admin'}}"></foot-loading>
+<view class="popup-mask" hidden="{{!popup}}"></view>
+<view class="popup-wrapper" hidden="{{!popup}}">
+    <view wx:if="{{rankRule==5}}">
+        <view class="popup-title">
+            <text style="font-wight:600;font-size:32rpx;">积分计算规则</text>
+        </view>
+        <view class="popup-content">
+            <block wx:for="{{intrgral_setting.user_integral_show_type}}" wx:key="*this">
+                <view class="item" wx:if="{{item==1&&!!intrgral_setting.integral_type_score.submit_score}}">
+                    <text class="popup-circle"></text>
+                    <view>打卡1次 +{{intrgral_setting.integral_type_score.submit_score}}分</view>
+                </view>
+                <view class="item" wx:if="{{item==2&&!!intrgral_setting.integral_type_score.top_score}}">
+                    <text class="popup-circle"></text>
+                    <view>获得精选1次 +{{intrgral_setting.integral_type_score.top_score}}分</view>
+                </view>
+                <view class="item" wx:if="{{item==3&&!!intrgral_setting.integral_type_score.remark_score}}">
+                    <text class="popup-circle"></text>
+                    <view>被管理员点评1次 +{{intrgral_setting.integral_type_score.remark_score}}分</view>
+                </view>
+                <view class="item" wx:if="{{item==9&&!!intrgral_setting.integral_type_score.acquire_praise_score}}">
+                    <text class="popup-circle"></text>
+                    <view>获得点赞1次 +{{intrgral_setting.integral_type_score.acquire_praise_score}}分
+            <text style="font-size:22rpx;color:#C3C7CB;">(取消不得分,每日上限{{intrgral_setting.integral_type_score.acquire_praise_number*intrgral_setting.integral_type_score.acquire_praise_score}}分)</text>
+                    </view>
+                </view>
+                <view class="item" wx:if="{{item==10&&!!intrgral_setting.integral_type_score.acquire_comment_score}}">
+                    <text class="popup-circle"></text>
+                    <view>获得评论1次 +{{intrgral_setting.integral_type_score.acquire_comment_score}}分
+            <text style="font-size:22rpx;color:#C3C7CB;">(取消不得分,每日上限{{intrgral_setting.integral_type_score.acquire_comment_number*intrgral_setting.integral_type_score.acquire_comment_score}}分)</text>
+                    </view>
+                </view>
+                <view class="item" wx:if="{{item==6&&!!intrgral_setting.integral_type_score.invitee_submit_score}}">
+                    <text class="popup-circle"></text>
+                    <view>邀请1名好友打卡 +{{intrgral_setting.integral_type_score.invitee_submit_score}}分</view>
+                </view>
+                <view class="item" wx:if="{{item==4&&!!intrgral_setting.integral_type_score.praise_score}}">
+                    <text class="popup-circle"></text>
+                    <view>点赞他人1次 +{{intrgral_setting.integral_type_score.praise_score}}分
+            <text style="font-size:22rpx;color:#C3C7CB;">(取消不得分,每日上限{{intrgral_setting.integral_type_score.praise_number*intrgral_setting.integral_type_score.praise_score}}分)</text>
+                    </view>
+                </view>
+                <view class="item" wx:if="{{item==5&&!!intrgral_setting.integral_type_score.comment_score}}">
+                    <text class="popup-circle"></text>
+                    <view>评论他人1次 +{{intrgral_setting.integral_type_score.comment_score}}分
+            <text style="font-size:22rpx;color:#C3C7CB;">(删除不得分,每日上限{{intrgral_setting.integral_type_score.comment_number*intrgral_setting.integral_type_score.comment_score}}分)</text>
+                    </view>
+                </view>
+                <view class="item" wx:if="{{!!result_answer&&item==8&&!!intrgral_setting.integral_type_score.answer_multiple_number}}">
+                    <text class="popup-circle"></text>
+                    <view>完成答题可获得总分的 {{intrgral_setting.integral_type_score.answer_multiple_number}} 倍分</view>
+                </view>
+                <view class="item" wx:if="{{!!result_eval&&item==7&&!!intrgral_setting.integral_type_score.eval_multiple_number}}">
+                    <text class="popup-circle"></text>
+                    <view>完成语言类测评可获得总分的 {{intrgral_setting.integral_type_score.eval_multiple_number}} 倍分
+            <text style="font-size:22rpx;color:#C3C7CB;">(多次重测仅计算第1次)</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="popup-title">
+        <text style="font-wight:600;font-size:32rpx;">排行榜说明</text>
+        <text style="font-size:22rpx;color:#C3C7CB;"> (以积分排行榜举例)</text>
+    </view>
+    <view class="popup-content">
+        <view class="item">
+            <text class="popup-circle"></text>
+            <view>总排行榜：该课程获取的积分总分排名</view>
+        </view>
+        <view class="item">
+            <text class="popup-circle"></text>
+            <view>上周排行榜：该课程上个自然周内新增积分排名</view>
+        </view>
+        <view class="item">
+            <text class="popup-circle"></text>
+            <view>本周排行榜：该课程本周内新增积分排名</view>
+        </view>
+    </view>
+    <view catchtap="closePopup" class="popup-confirm">我知道了</view>
+</view>

@@ -1,0 +1,40 @@
+<import src="/template/toLoading/toLoading.wxml"></import>
+<view class="box {{theme}}">
+    <view bindtap="onedetileData" class="oneselfdata_box" data-item="{{item}}" wx:if="{{ifData}}" wx:for="{{GoodsList}}" wx:key="key-GoodsList">
+        <view class="titleI_mage_view">
+            <image class="title_Image" src="{{item.ImageUrl}}"></image>
+        </view>
+        <view class="content_txt">
+            <text>{{item.GoodsName}}</text>
+        </view>
+    </view>
+    <template is="toLoadingSign" data="{{isLoadMore:isLoadMore}}"></template>
+    <view class="dataloading_box" wx:if="{{showHId}}">
+        <view class="data_Loading">
+            <view class="data_loading_con">
+                <view class="Loading_text">
+                    <text>正在加载资料</text>
+                </view>
+                <view class="loading_cont">
+                    <text>共<text class="num">{{sumSize}}</text>{{unit}}</text>
+                </view>
+                <progress class="progress" percent="{{progress}}" strokeWidth="4"></progress>
+            </view>
+        </view>
+    </view>
+    <view class="nocontainer {{theme}}" wx:if="{{!ifData}}">
+        <form bindsubmit="formSubmit" reportSubmit="{{true}}">
+            <view class="nocontainer_box">
+                <view class="detile_box">
+                    <view>
+                        <image class="detile_image" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/empty_wodeziliao_{{theme}}@2x.png"></image>
+                    </view>
+                    <view class="detile_pointes">{{IOS?'暂无已领资料':'暂无已购资料'}}</view>
+                    <view wx:if="{{HasGroupon}}">
+                        <button class="lq_btn" formType="submit">领取资料</button>
+                    </view>
+                </view>
+            </view>
+        </form>
+    </view>
+</view>

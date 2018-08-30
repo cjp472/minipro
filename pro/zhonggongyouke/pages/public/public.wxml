@@ -1,0 +1,14 @@
+<import src="../card/card.wxml"></import>
+<view class="container">
+    <view class="swiper">
+        <swiper autoplay="{{bannerset.autoplay}}" circular="{{bannerset.circular}}" duration="{{bannerset.duration}}" indicatorActiveColor="{{bannerset.color}}" indicatorDots="{{bannerset.indicatorDots}}" interval="{{bannerset.interval}}" nextMargin="{{bannerset.nextMargin}}rpx" previousMargin="{{bannerset.previousMargin}}rpx">
+            <swiper-item wx:for="{{bannerList}}" wx:key="*this">
+                <view bindtap="clickBanner" class="banner" data-banner_id="{{item.banner_id}}" data-url="{{item.jump_url}}">
+                    <image src="{{item.banner_img}}" title="{{item.banner_name}}"></image>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="empty"></view>
+    <template is="card" data="{{courselist:courselist}}"></template>
+</view>

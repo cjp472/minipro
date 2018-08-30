@@ -1,0 +1,129 @@
+<view class="part1">
+    <image class="img1" src="../../resources/offcn/offcn_1.png"></image>
+    <image class="img2" src="../../resources/offcn/offcn_2.png"></image>
+</view>
+<view class="part2">
+    <view class="o_title">优课，中公名师团倾力推荐</view>
+    <view class="part2_intro">云哲、刘伟伟、刘爱昕等老师，他们真的来了！</view>
+    <view bindtap="play" class="o_video_box" wx:if="{{!video_play}}">
+        <image src="../../resources/offcn/video.jpg"></image>
+    </view>
+    <video autoplay bindended="videoEnd" class="o_video" objectFit="fill" src="{{video_url}}" wx:if="{{video_play}}"></video>
+</view>
+<view class="part3">
+    <view class="o_title">优课，我们就是不一样</view>
+    <view class="part3-list">
+        <image class="part3-img" src="../../resources/offcn/list1.png"></image>
+        <text class="part3-head">师资阵容</text>
+        <text class="part3-intro">6500+全职教师</text>
+        <text class="part3-intro">1000+专职研发教师</text>
+    </view>
+    <view class="part3-list">
+        <image class="part3-img" src="../../resources/offcn/list2.png"></image>
+        <text class="part3-head">教研实力</text>
+        <text class="part3-intro">近20年教研教学积累 </text>
+        <text class="part3-intro">教材讲义品质保证</text>
+    </view>
+    <view class="part3-list">
+        <image class="part3-img" src="../../resources/offcn/list3.png"></image>
+        <text class="part3-head">学习方式</text>
+        <text class="part3-intro">小程序在手  名师课程尽有</text>
+        <text class="part3-intro">随时随地想学就学</text>
+    </view>
+    <view class="part3-list">
+        <image class="part3-img" src="../../resources/offcn/list4.png"></image>
+        <text class="part3-head">高性价比</text>
+        <text class="part3-intro">不再奔波无需空等</text>
+        <text class="part3-intro">省时省钱备考无忧</text>
+    </view>
+    <view class="part3-list">
+        <image class="part3-img" src="../../resources/offcn/list5.png"></image>
+        <text class="part3-head">免费公开课</text>
+        <text class="part3-intro">首席名师团主讲 </text>
+        <text class="part3-intro">四大品牌栏目 </text>
+        <text class="part3-intro">尽看教师风采与学科魅力</text>
+    </view>
+    <view class="part3-list">
+        <image class="part3-img" src="../../resources/offcn/list6.png"></image>
+        <text class="part3-head">在线直播课</text>
+        <text class="part3-intro">专题课+系列课双管齐下</text>
+        <text class="part3-intro">基础提高强化冲刺  进阶式学习</text>
+        <text class="part3-intro">因为专业所以有效</text>
+    </view>
+    <view class="part3-list">
+        <image class="part3-img" src="../../resources/offcn/list7.png"></image>
+        <text class="part3-head">趣味短视频</text>
+        <text class="part3-intro">世界格局热点话题 </text>
+        <text class="part3-intro">有趣有料有看点 </text>
+        <text class="part3-intro">跟上节奏打开眼界 </text>
+    </view>
+    <view class="part3-list">
+        <image class="part3-img" src="../../resources/offcn/list8.png"></image>
+        <text class="part3-head">口碑式服务</text>
+        <text class="part3-intro">考前考中考后全程陪伴</text>
+        <text class="part3-intro">每天推送四大系列内容</text>
+        <text class="part3-intro">督学促学   备考不孤单</text>
+    </view>
+</view>
+<view class="part4">
+    <view class="o_title">优课，真正的轻课堂</view>
+    <view class="part4-list part4-l">
+        <image class="part4-img" src="../../resources/offcn/part4_1.png"></image>
+        <text class="part4-txt">扫码关注</text>
+        <text class="part4-txt">微信小程序“中公优课”</text>
+    </view>
+    <view class="part4-list part4-r">
+        <image class="part4-img" src="../../resources/offcn/part4_2.png"></image>
+        <text class="part4-txt">选择适合和喜欢的课程</text>
+        <text class="part4-txt">直接在线报名</text>
+    </view>
+    <view class="part4-list part4-l">
+        <image class="part4-img" src="../../resources/offcn/part4_3.png"></image>
+        <text class="part4-txt">关注课前提醒，打开小程序</text>
+        <text class="part4-txt">进入在线直播互动课堂</text>
+    </view>
+    <view class="part4-list part4-r">
+        <image class="part4-img" src="../../resources/offcn/part4_4.png"></image>
+        <text class="part4-txt">有效期内无限次回放</text>
+        <text class="part4-txt">随时学习和复习，跟踪效果</text>
+    </view>
+</view>
+<view class="part5">
+    <view class="o_title">优课，认识一下</view>
+    <view class="part5-list">
+        <view class="part5-head">
+            <image class="part5-img" src="../../resources/offcn/part5.png"></image>
+            <text class="part-5-top">什么是中公优课？</text>
+        </view>
+        <view class="part5-intro">优课，是中公教育集团旗下在线教育品牌，覆盖公考、事业单位、教资等考试 项目，为学员提供优质学习资源。让中公名师离你更近，让备考更轻松高效。 我们相信，优课，改变就在此课。</view>
+    </view>
+    <view class="part5-list">
+        <view class="part5-head">
+            <image class="part5-img" src="../../resources/offcn/part5.png"></image>
+            <text class="part-5-top">中公优课有哪些课程？</text>
+        </view>
+        <view class="part5-intro">主要覆盖公务员、事业单位、教师资格等考试领域，更多考试项目将陆续上线。课程类型包括公开课和直播课两种，其中直播课又分为专题课和系列课。在课程设计上，采用阶段式、梯度式设计，对学员进行分层，推出适合各类学员的优质课程。</view>
+    </view>
+    <view class="part5-list">
+        <view class="part5-head">
+            <image class="part5-img" src="../../resources/offcn/part5.png"></image>
+            <text class="part-5-top">如何购课和上课？</text>
+        </view>
+        <view class="part5-intro">优课目前已推出微信小程序，关注小程序进行课程报名，即可直接上课。直播课，在线互动课堂，课堂氛围活跃，课后有效期内可不限次回看。公开课，录播形式，精良后期制作，随报随学。</view>
+    </view>
+    <view class="part5-list">
+        <view class="part5-head">
+            <image class="part5-img" src="../../resources/offcn/part5.png"></image>
+            <text class="part-5-top">如何联系客服？</text>
+        </view>
+        <view class="part5-intro">客服电话：400-900-8885（售前转1，售后转2)<view>课程咨询：点击课程详情页中的“咨询”即可在线咨询</view>
+            <view>工作时间：周一至周日9:00-22:00</view>
+        </view>
+    </view>
+</view>
+<view class="part6">
+    <image class="part6_1" src="../../resources/offcn/part6_1.png"></image>
+    <image class="part6_2" src="../../resources/offcn/part6_2.png"></image>
+    <view class="part6-txt">关注中公教育优课公众号 · 备考干货天天见</view>
+</view>
+<image bindtap="goIndex" class="cover-img" src="../../resources/offcn/cover.png"></image>

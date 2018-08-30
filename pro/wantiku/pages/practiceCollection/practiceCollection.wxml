@@ -1,0 +1,26 @@
+<import src="../../template/courseList/courseList_template.wxml"></import>
+<import src="../../template/userPractice/userPracticeInfo/userPracticeInfo_template.wxml"></import>
+<view class="paper-error-cont practice {{reciteModle?'error':''}}  {{theme}}">
+    <template is="userPracticeInfo" data="{{totalCount:totalCount,configColor:configColor,rightDel:rightDel,reciteModle:reciteModle,navList:navList,chooseType:chooseType,showModuleState:showModuleState,scrollX:scrollX}}"></template>
+    <view class="paper-list">
+        <view class="no-content" style="top:354rpx" wx:if="{{empty&&!loading}}">
+            <view class="cont">
+                <view>
+                    <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/empty_cuoti_{{theme}}@2x.png"></image>
+                </view>
+                <view class="text">暂无{{practiceCollection?'收藏':'错题'}}</view>
+            </view>
+        </view>
+        <template is="courseList" data="{{treeData:treeData,paperData:paperData}}"></template>
+    </view>
+    <view class="paper-all-btn-cont" wx:if="{{!empty&&!loading}}">
+        <view catchtap="onALlErroQuestionJs" class="paper-all-btn {{btnAnimationState?'clear-animated':'animated'}}">
+            <block wx:if="{{reciteModle}}">
+        查看全部{{practiceCollection?'收藏':'错题'}}
+      </block>
+            <block wx:else>
+        练习全部{{practiceCollection?'收藏':'错题'}}
+      </block>
+        </view>
+    </view>
+</view>

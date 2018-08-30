@@ -1,0 +1,9 @@
+{
+    "navigationBarBackgroundColor": "#34384F",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "本周排行",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#34384F",
+    "disableScroll": false,
+    "usingComponents": {}
+}

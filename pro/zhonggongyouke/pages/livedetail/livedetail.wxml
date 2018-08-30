@@ -1,0 +1,159 @@
+<import src="../livelist/livelist.wxml"></import>
+<import src="../../wxParse/wxParse.wxml"></import>
+<scroll-view scrollY="true" style="height:100vh;">
+    <view class="container">
+        <view class="top2" wx:if="{{head_tpl_type==1}}">
+            <image class="top2-img" src="{{banner_img}}"></image>
+            <button class="consult2" openType="contact">
+                <image class="consult2-icon" src="/resources/live/zixun.png"></image>
+                <text class="consult2-txt">咨询</text>
+            </button>
+        </view>
+        <view class="top" wx:elif="{{head_tpl_type==2}}">
+            <view class="title">{{name}}</view>
+            <view class="info">
+                <view class="lesson">
+                    <image class="date-icon" src="/resources/time.png"></image>
+                    <text>{{time_section}}</text>
+                    <text> | {{chapter_num}}课时</text>
+                </view>
+                <view class="tag-box">
+                    <text class="tag" wx:for="{{tag_list}}" wx:key="*tag">{{item}}</text>
+                </view>
+                <button class="consult" openType="contact">
+                    <image class="consult-icon" src="/resources/live/zixun.png"></image>
+                    <text class="consult-txt">咨询</text>
+                </button>
+            </view>
+        </view>
+        <view class="teacher-box" wx:if="{{teachers_length==1}}">
+            <view class="teacher-title">
+                <text>授课老师</text>
+                <image class="teacher-box-line" src="/resources/public/line.png"></image>
+                <text class="text">{{teachers_length}}位</text>
+            </view>
+            <view class="teacher-list fn">
+                <view class="teacher-info">
+                    <image class="head-img" src="{{teachers[0].avatar}}"></image>
+                    <view class="teacher-name">{{teachers[0].name}}</view>
+                    <view class="teacher-honor">{{teachers[0].nickname}}</view>
+                </view>
+                <view class="teacher-intro">{{teachers[0].brief}}</view>
+            </view>
+        </view>
+        <view class="teacher-box" wx:elif="{{teachers_length>1}}">
+            <view class="teacher-title">
+                <text>授课老师</text>
+                <image class="teacher-box-line" src="/resources/public/line.png"></image>
+                <text class="text">{{teachers_length}}位</text>
+            </view>
+            <swiper autoplay="{{false}}" circular="{{false}}" duration="500" indicatorDots="{{false}}" nextMargin="90rpx">
+                <swiper-item wx:for="{{teachers}}" wx:key="*teachers">
+                    <view class="teacher-list-bg">
+                        <view class="teacher-list">
+                            <view class="teacher-info" data-teacher-id="{{item.teacher_id}}">
+                                <image class="head-img" src="{{item.avatar}}"></image>
+                                <view class="teacher-name">{{item.name}}</view>
+                                <view class="teacher-honor">{{item.nickname}}</view>
+                            </view>
+                            <view class="teacher-intro">{{item.brief}}</view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="clear"></view>
+        <view class="tab-h tab-box">
+            <view bindtap="swichNav" class="tab {{currentTab==0?'on':''}}" data-current="0">
+                <text class="tab-title">课程介绍</text>
+                <text class="tab-line"></text>
+            </view>
+            <view bindtap="swichNav" class="tab {{currentTab==1?'on':''}}" data-current="1">
+                <text class="tab-title">课程目录</text>
+                <text class="tab-line"></text>
+            </view>
+        </view>
+        <block wx:if="{{currentTab==0}}">
+            <view class="lib content1" wx:if="{{tpl_type=='image'}}">
+                <image bindload="content1" class="intro-img-big" mode="widthFix" src="{{item.image}}" style="width:690rpx" wx:for="{{content}}" wx:key="*content"></image>
+            </view>
+            <view bindload="content1" class="lib content1" wx:elif="{{tpl_type=='multi'}}">
+                <view class="intro-list" wx:for="{{content}}" wx:key="*content">
+                    <view class="intro-title" wx:if="{{item.title}}">{{item.title}}</view>
+                    <view class="intro-intro">
+                        <template is="wxParse" data="{{wxParseData:intro0.nodes}}" wx:if="{{index==0}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro1.nodes}}" wx:if="{{index==1}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro2.nodes}}" wx:if="{{index==2}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro3.nodes}}" wx:if="{{index==3}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro4.nodes}}" wx:if="{{index==4}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro5.nodes}}" wx:if="{{index==5}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro6.nodes}}" wx:if="{{index==6}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro7.nodes}}" wx:if="{{index==7}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro8.nodes}}" wx:if="{{index==8}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro9.nodes}}" wx:if="{{index==9}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro10.nodes}}" wx:if="{{index==10}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro11.nodes}}" wx:if="{{index==11}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro12.nodes}}" wx:if="{{index==12}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro13.nodes}}" wx:if="{{index==13}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro14.nodes}}" wx:if="{{index==14}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro15.nodes}}" wx:if="{{index==15}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro16.nodes}}" wx:if="{{index==16}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro17.nodes}}" wx:if="{{index==17}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro18.nodes}}" wx:if="{{index==18}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro19.nodes}}" wx:if="{{index==19}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro20.nodes}}" wx:if="{{index==20}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro21.nodes}}" wx:if="{{index==21}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro22.nodes}}" wx:if="{{index==22}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro23.nodes}}" wx:if="{{index==23}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro24.nodes}}" wx:if="{{index==24}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro25.nodes}}" wx:if="{{index==25}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro26.nodes}}" wx:if="{{index==26}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro27.nodes}}" wx:if="{{index==27}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro28.nodes}}" wx:if="{{index==28}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro29.nodes}}" wx:if="{{index==29}}"></template>
+                        <template is="wxParse" data="{{wxParseData:intro30.nodes}}" wx:if="{{index==30}}"></template>
+                    </view>
+                    <image bindload="content1" class="intro-img" mode="widthFix" src="{{item.image}}" style="width:690rpx;" wx:if="{{item.image}}"></image>
+                </view>
+                <view style="clear:both;"></view>
+            </view>
+        </block>
+        <view class="lib content2" wx:if="{{currentTab==1}}">
+            <template is="livelist" data="{{coursemenu:coursemenu}}"></template>
+        </view>
+        <view bindtap="mylivelist" class="dis-btn study" wx:if="{{status=='buy'}}">去学习</view>
+        <view class="dis-btn" wx:elif="{{status=='full'}}">已报满</view>
+        <view class="dis-btn" wx:elif="{{status=='stop'}}">已停售</view>
+        <view class="dis-btn" wx:elif="{{status=='upcoming'}}">即将开售</view>
+        <view class="bottom" wx:elif="{{status=='normal'}}">
+            <view wx:if="{{platform==1}}">
+                <view bindtap="activeBuy" class="cheap-btn cheap-half" wx:if="{{is_active==1}}">特惠咨询</view>
+                <view bindtap="order" class="buy {{is_active==1?'buy-half':'buy-full'}}" data-status="{{status}}">课程咨询</view>
+            </view>
+            <view wx:if="{{platform==2}}">
+                <view bindtap="activeBuy" class="cheap-btn" wx:if="{{is_active==1}}">￥{{lowest_price}}限时购</view>
+                <view bindtap="order" class="buy {{is_active==1?'buy-little':'empty'}}" data-status="{{status}}">立即购买</view>
+                <view class="price-box {{is_active==1?'price-box-little':'empty'}}">
+                    <text class="new-price" wx:if="{{price}}">
+                        <text>￥</text>{{price}}</text>
+                    <text class="old-price" wx:if="{{original_price!=0&&original_price>price}}">￥{{original_price}}</text>
+                </view>
+                <view class="sign-box {{is_active==1?'sign-box-little':'empty'}}">
+                    <text wx:if="{{is_show_surplus==true}}">剩余席位{{surplus_num}}</text>
+                    <text wx:if="{{is_show_surplus==false&&buy_num}}">{{buy_num}}人已报</text>
+                    <text wx:if="{{countdown_num!=0}}">
+                        <text> | </text>距离停售<text class="yellow">{{countdown_num}}天</text>
+                    </text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <image bindtap="goIndex" class="cover-img" src="../../resources/offcn/cover.png" wx:if="{{share}}"></image>
+</scroll-view>
+<view bindtap="hideContact" class="contact-layer {{contact?'show':'hide'}}"></view>
+<view class="contact-box {{contact?'show':'hide'}}">
+    <image bindtap="hideContact" class="close2" src="/resources/public/close2.png"></image>
+    <view class="c-tip2">购买成功</view>
+    <image class="success-img" src="/resources/public/success-img.png"></image>
+    <view bindtap="mylivelist" class="bind-url">查看课程</view>
+</view>

@@ -1,0 +1,32 @@
+<view class="{{theme}}">
+    <view class="user-login-header">
+        <view class="user-login-logo">
+            <view>
+                <image mode="widthFix" src="{{logo}}"></image>
+            </view>
+            <view class="user-logo-name">
+                <text>{{appName}}</text>
+            </view>
+            <view>{{touristPracticeTip}}</view>
+        </view>
+    </view>
+    <view class="user-login-phone analyze_wxmobile" wx:if="{{effect.selectNextIndex==0}}">
+        <button bindgetphonenumber="getPhoneNumber" class="pj-submit phone analyze_othermobile" openType="getPhoneNumber" type="primary">微信手机号验证</button>
+        <view bindtap="otherMobile" class="other-phone">
+            <text>其他手机号验证</text>
+        </view>
+    </view>
+    <view class="user-login-number" style="padding-top:30rpx;" wx:if="{{effect.selectNextIndex==1}}">
+        <form bindsubmit="bindNext">
+            <view animation="{{pageAnimate}}" class="input-box">
+                <view class="input-list">
+                    <input autoFocus="true" bindinput="mobileInput" bindtap="focusInput" focus="{{mobileFocus}}" name="mobile" placeholder="输入手机号" placeholderClass="input-inherit" type="number"></input>
+                </view>
+            </view>
+            <view animation="{{tipAnimate}}" class="user-login-error">
+                <text>{{errorText}}</text>
+            </view>
+            <button animation="{{pageAnimate}}" class="pj-submit phone {{nextCanClick?'':'initial'}} analyze_mobileNext" disabled="{{!nextCanClick}}" formType="submit">下一步</button>
+        </form>
+    </view>
+</view>

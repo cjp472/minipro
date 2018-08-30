@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "主题详情页",
+    "usingComponents": {
+        "jdk-topic": "/components/topic/topic"
+    }
+}

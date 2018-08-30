@@ -1,0 +1,77 @@
+<template name="livelist">
+    <view class="public-list-box" wx:if="{{coursemenu.show_type==1}}">
+        <view class="public-des">
+            <text>
+                <text class="txt-1">{{coursemenu.chapter_num}}课时  </text>
+                <text class="txt-2" wx:if="{{coursemenu.trans_student_id==0}}">已结束的课程可在购买后观看回放</text>
+                <text class="txt-2" wx:if="{{coursemenu.trans_student_id!=0}}">已结束的课程可在购买后观看回放</text>
+            </text>
+        </view>
+        <view class="p-t-33" style="padding-top:30rpx;">
+            <view class="public-list list1" data-chapter_id="{{item.chapter_id}}" wx:for="{{coursemenu.menu_list}}" wx:key="*menu_list">
+                <view class="public-list-item" wx:if="{{item.index<10}}">0{{item.index}}</view>
+                <view class="public-list-item" wx:else>{{item.index}}</view>
+                <view class="public-list-des {{item.index==coursemenu.chapter_num?'public-padding':''}}">
+                    <image class="public-list-tip" src="/resources/public/top-1.png" wx:if="{{item.index==1}}"></image>
+                    <image class="public-list-tip public-list-tip-3" src="/resources/public/top4.png" wx:elif="{{item.index==coursemenu.chapter_num}}"></image>
+                    <image class="public-list-tip" src="/resources/public/top-2.png" wx:else></image>
+                    <view class="public-list-title">{{item.name}}</view>
+                    <view class="public-list-info">
+                        <image class="public-list-info-img" src="/resources/time.png"></image>
+              {{item.time_section}}
+            </view>
+                    <view class="public-list-bottom " wx:if="{{item.teacher_name!=null}}">
+                        <view class="public-list-teacher" wx:if="{{item.teacher_name.length>0}}">授课老师：<text>{{item.teacher_name}} </text>
+                        </view>
+                        <view style="clear:both;"></view>
+                    </view>
+                </view>
+                <view style="clear:both;"></view>
+            </view>
+        </view>
+    </view>
+    <view class="public-list-box" wx:if="{{coursemenu.show_type==2}}">
+        <view class="p-t-33">
+            <view class="public-list" data-chapter_id="{{item.chapter_id}}" data-course_id="{{coursemenu.course_id}}" wx:for="{{coursemenu.menu_list}}" wx:key="*menu_list">
+                <view class="public-list-item" wx:if="{{item.index<10}}">0{{item.index}}</view>
+                <view class="public-list-item" wx:else>{{item.index}}</view>
+                <view class="public-list-des {{item.index==coursemenu.chapter_num?'public-padding':'aa'}}">
+                    <image class="public-list-tip" src="/resources/public/top-1.png" wx:if="{{index==0}}"></image>
+                    <image class="public-list-tip public-list-tip-3" src="/resources/public/top4.png" wx:elif="{{item.index==coursemenu.chapter_num}}"></image>
+                    <image class="public-list-tip" src="/resources/public/top-2.png" wx:else></image>
+                    <view class="public-list-title">{{item.name}}</view>
+                    <view class="time-range">
+                        <view class="time-icon">
+                            <image src="/resources/time.png"></image>
+                        </view>{{item.time_section}}</view>
+                    <view class="public-list-bottom">
+                        <view class="public-list-teacher" wx:if="{{item.teacher_name.length>0}}">授课老师：<text>{{item.teacher_name}} </text>
+                        </view>
+                        <view class="public-list-learn" wx:if="{{item.status}}">
+                            <view bindtap="seedetail" class="doc" data-url="{{item.material}}" wx:if="{{item.material!=''}}">
+                                <image class="doc-img" src="/resources/live/doc.png"></image>
+                  查看讲义
+                </view>
+                            <view class="end" wx:if="{{item.status=='finish'}}">已结束</view>
+                            <view bindtap="seedetail" class="now" data-chapter_id="{{item.chapter_id}}" data-course_id="{{coursemenu.course_id}}" data-url="{{item.video_url}}" wx:elif="{{item.status=='in_class'}}">正在直播</view>
+                            <view bindtap="seedetail" class="later" data-chapter_id="{{item.chapter_id}}" data-course_id="{{coursemenu.course_id}}" data-url="{{item.video_url}}" wx:elif="{{item.status=='upcoming'}}">即将开始</view>
+                            <view bindtap="showtip2" class="wait" wx:elif="{{item.status=='not_start'}}">尚未开始</view>
+                        </view>
+                        <view class="public-list-learn" wx:if="{{!item.status}}">
+                            <view bindtap="seedetail" class="doc" data-url="{{item.material}}" wx:if="{{item.material!=''}}">
+                                <image class="doc-img" src="/resources/live/doc.png"></image>
+                  查看讲义
+                </view>
+                            <view bindtap="{{item.video_type==2?'seedetail':'prewdetail'}}" class="seevideo" data-authcode="{{item.authcode}}" data-chapter_id="{{item.chapter_id}}" data-course_id="{{coursemenu.course_id}}" data-ownerid="{{item.ownerid}}" data-uname="{{item.uname}}" data-url="{{item.playback_url}}" wx:if="{{item.playback_url!=''}}">
+                                <image class="video-img" src="/resources/live/video.png"></image>
+                  看回放
+                </view>
+                            <view bindtap="showtip" class="novideo" wx:if="{{item.playback_url==''}}">暂无回放</view>
+                        </view>
+                    </view>
+                </view>
+                <view style="clear:both;"></view>
+            </view>
+        </view>
+    </view>
+</template>

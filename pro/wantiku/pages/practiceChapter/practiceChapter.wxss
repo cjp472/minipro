@@ -1,0 +1,62 @@
+@import "../../__wuBaseWxss__/7.wxss";
+
+@font-face {
+    font-family:'iconfont';src:url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.eot');src:url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.eot?#iefix') format('embedded-opentype'),url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.woff') format('woff'),url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.ttf') format('truetype'),url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.svg#iconfont') format('svg');
+}
+
+.icon_fenxiangweixin:before {
+    content: "\e639";
+}
+
+.practice-box {
+    position: fixed;
+    top: 0;
+    bottom: 90rpx;
+}
+
+.hei100 {
+    bottom: 0;
+}
+
+.subject-class:last-child {
+    border: 0;
+}
+
+.practice-continue {
+    width: 100%;
+    box-sizing: border-box;
+    height: 90rpx;
+    line-height: 90rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 0;
+    padding: 0 30rpx;
+    font-size: 26rpx;
+    color: #7a7a7a;
+    box-shadow: 0rpx 2rpx 24rpx #ebf4ef;
+}
+
+.practice-continue .text {
+    width: 92%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.practice-continue .icon_arrow_right {
+    font-size: 22rpx;
+    color: #6fce29;
+}
+
+.s_hongbao {
+    bottom: 108rpx;
+}
+
+.goBackIndex {
+    bottom: 272rpx;
+    right: 22rpx;
+}

@@ -1,0 +1,190 @@
+<import src="../shared/tab/tab.wxml"></import>
+<view class="container bg-gray  no-scroll">
+    <view class="searchBar">
+        <input autoFocus bindconfirm="search" bindinput="onInput" class="searchBar-input" confirmType="search" maxlength="20" placeholder="搜索专辑、主播、声音" placeholderStyle="color:#999" value="{{kw}}"></input>
+        <image class="searchBar-icon" src="../../images/icon-search.png"></image>
+        <view catchtap="clearQuery" class="searchBar-clear" style="display:{{kw!==''?'flex':'none'}}">
+            <image class="searchBar-delete" src="../../images/icon-close.png"></image>
+        </view>
+        <view bindtap="search" class="searchBar-btn {{kw===''?'':'searchBar-btn--active'}}">{{kw===''?'取消':'搜索'}}</view>
+    </view>
+    <scroll-view scrollY="true" style="height:{{windowHeight-30}}px;display:{{kw===''?'block':'none'}}">
+        <view class="start">
+            <view class="hot" wx:if="{{hotWords.length}}">
+                <view class="hot-title">热门搜索</view>
+                <view class="hot-words">
+                    <view bindtap="searchWord" class="hot-word" data-text="{{item}}" data-type="hot" wx:for="{{hotWords}}" wx:key="index">{{item}}</view>
+                </view>
+            </view>
+            <view class="history" wx:if="{{history.length}}">
+                <view class="history-title">
+          搜索历史
+          <text bindtap="deleteHistoryAll" class="history-clearAll">全部清除</text>
+                </view>
+                <view class="history-list">
+                    <view bindtap="searchWord" class="history-item" data-text="{{item}}" data-type="history" wx:for="{{history}}">
+                        <view class="history-name line-ellipsis">{{item}}</view>
+                        <image catchtap="deleteHistory" class="history-delete" data-text="{{item}}" src="../../images/icon-delete.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="suggestions" wx:if="{{showSuggestions&&!showData}}">
+        <view bindtap="toAlbumDetail" class="album" data-album-id="{{album.id}}" wx:for="{{suggestAlbums}}" wx:for-item="album" wx:key="{{album.id}}">
+            <image lazyLoad class="album-cover" src="{{album.imgPath||albumCoverDefault}}"></image>
+            <view class="album-info">
+                <view class="album-title line-ellipsis">
+                    <text style="color:#F86442;margin-right:10rpx">{{album.hightlight}}</text>{{album.keyword}}</view>
+                <view class="album-intro">{{album.category}}</view>
+            </view>
+        </view>
+        <view bindtap="searchWord" class="suggestion line-ellipsis" data-text="{{item.hightlight+(item.keyword?item.keyword:'')}}" wx:for="{{suggestWord}}">
+            <text style="color:#F86442;margin-right:10rpx">{{item.hightlight}}</text>{{item.keyword}}
+      </view>
+    </view>
+    <view class="data" wx:if="{{showData}}">
+        <template is="tab" data="{{Tab:Tab}}"></template>
+        <view class="filterBar">
+            <view>
+          共
+          <text class="filterBar-num">{{count}}</text> 个搜索结果
+        </view>
+            <view bindtap="showSort" class="sort">
+                <image src="../../images/icon-order.png" wx:if="{{!isShowSort}}"></image>
+                <image src="../../images/icon-order--active.png" wx:if="{{isShowSort}}"></image>
+            </view>
+        </view>
+        <view class="data-inner">
+            <view catchtap="closeSort" class="mask" wx:if="{{isShowSort}}">
+                <view class="sortBar" wx:if="{{Tab.index===0}}">
+                    <view catchtap="setCalc" class="sortBar-item {{albumsCalc=='relation'?'active':''}}" data-calc="relation">相关</view>
+                    <view catchtap="setCalc" class="sortBar-item {{albumsCalc=='play'?'active':''}}" data-calc="play">最热</view>
+                    <view catchtap="setCalc" class="sortBar-item {{albumsCalc=='recent'?'active':''}}" data-calc="recent">最新</view>
+                </view>
+                <view class="sortBar" wx:if="{{Tab.index===1}}">
+                    <view catchtap="setCalc" class="sortBar-item {{announcersCalc=='relation'?'active':''}}" data-calc="relation">相关</view>
+                    <view catchtap="setCalc" class="sortBar-item {{announcersCalc=='fans'?'active':''}}" data-calc="fans">粉丝</view>
+                    <view catchtap="setCalc" class="sortBar-item {{announcersCalc=='voice'?'active':''}}" data-calc="voice">声音</view>
+                </view>
+                <view class="sortBar" wx:if="{{Tab.index===2}}">
+                    <view catchtap="setCalc" class="sortBar-item {{tracksCalc=='relation'?'active':''}}" data-calc="relation">相关</view>
+                    <view catchtap="setCalc" class="sortBar-item {{tracksCalc=='play'?'active':''}}" data-calc="play">最热</view>
+                    <view catchtap="setCalc" class="sortBar-item {{tracksCalc=='recent'?'active':''}}" data-calc="recent">最新</view>
+                </view>
+            </view>
+            <view style="display:{{Tab.index==0?'block':'none'}}">
+                <scroll-view bindscrolltolower="getAlbums" lowerThreshold="100" scrollY="true" style="height:{{player.sound.title?scrollHeight-50:scrollHeight}}px">
+                    <view bindtap="toAlbumDetail" class="album" data-album-id="{{album.id}}" data-is-paid="{{album.is_paid}}" wx:for="{{albums.albums}}" wx:for-item="album" wx:key="{{album.id}}">
+                        <image lazyLoad class="icon-paid" src="../../images/icon-ispaid.png" wx:if="{{album.is_paid}}"></image>
+                        <image lazyLoad class="album-cover" src="{{album.cover_path||albumCoverDefault}}"></image>
+                        <view class="album-info">
+                            <view class="album-title line-ellipsis">{{album.title}}</view>
+                            <view class="album-intro">{{album.intro}}</view>
+                            <view class="album-playcount">
+                                <image class="icon icon-playcount" src="../../images/icon-playcount.png"></image>
+                                <text class="album-playcount">{{album.play}}</text>
+                                <icon class="icon icon-tracksCounts"></icon>
+                                <text class="text-sub-info">{{album.tracks}}集</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="loading-wrap" wx:if="{{isAlbumsLoading}}">
+                        <text class="loading-text">正在火速加载中...</text>
+                    </view>
+                    <view class="loading-wrap" wx:if="{{isAlbumsAll}}">
+                        <text class="loading-text">已经到头啦...</text>
+                    </view>
+                </scroll-view>
+            </view>
+            <view style="display:{{Tab.index==1?'block':'none'}}">
+                <scroll-view bindscrolltolower="getAnnouncers" lowerThreshold="100" scrollY="true" style="height:{{player.sound.title?scrollHeight-50:scrollHeight}}px">
+                    <view class="announcers">
+                        <view bindtap="toAnnouncer" class="announcer" data-id="{{item.uid}}" wx:for="{{announcers.announcers}}" wx:key="item.uid">
+                            <image class="announcer-avatar" src="{{item.logoPic||albumCoverDefault}}"></image>
+                            <view class="announcer-info">
+                                <view class="announcer-name">
+                    {{item.nickname}}
+                    <image class="announcer-v" src="../../images/icon-v.png" wx:if="{{item.isVerified}}"></image>
+                                </view>
+                                <view class="announcer-desc line-ellipsis">{{item.pTtitle}}</view>
+                                <view class="announcer-data">
+                                    <icon class="icon icon-tracksCounts"></icon>
+                                    <text>{{item.tracks_counts}}</text>
+                                    <image class="icon icon-fans" src="../../images/icon-fans.png"></image>
+                                    <text>{{item.followers_counts}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="loading-wrap" wx:if="{{isAnnouncersLoading}}">
+                        <text class="loading-text">正在火速加载中...</text>
+                    </view>
+                    <view class="loading-wrap" wx:if="{{isAnnouncersAll}}">
+                        <text class="loading-text">已经到头啦...</text>
+                    </view>
+                </scroll-view>
+            </view>
+            <view style="display:{{Tab.index==2?'block':'none'}}">
+                <scroll-view bindscrolltolower="getTracks" lowerThreshold="100" scrollY="true" style="height:{{player.sound.title?scrollHeight-50:scrollHeight}}px">
+                    <view class="tracks">
+                        <view bindtap="toSoundPage" class="track" data-is-paid="{{item.is_paid}}" data-track-id="{{item.id}}" wx:for="{{tracks.tracks}}">
+                            <image class="track-cover" src="{{item.cover_path||albumCoverDefault}}"></image>
+                            <view class="track-data">
+                                <view class="track-title">{{item.title}}</view>
+                                <view class="track-nickname">
+                                    <image class="icon icon-announcer" src="../../images/icon-announcer.png"></image>
+                    {{item.nickname}}
+                  </view>
+                                <view>
+                                    <image class="icon icon-playcount" src="../../images/icon-playcount.png"></image>
+                                    <text>{{item.count_play}}</text>
+                                    <image class="icon icon-comment" src="https://img.alicdn.com/imgextra/i2/732450928/TB25mf_XB0kpuFjSsziXXa.oVXa_!!732450928.png"></image>
+                                    <text>{{item.count_comment}}</text>
+                                    <image class="icon icon-duration" src="https://img.alicdn.com/imgextra/i3/732450928/TB2jixpXUdnpuFjSZPhXXbChpXa_!!732450928.png"></image>
+                                    <text>{{item.duration}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="loading-wrap" wx:if="{{isTracksLoading}}">
+                        <text class="loading-text">正在火速加载中...</text>
+                    </view>
+                    <view class="loading-wrap" wx:if="{{isTracksAll}}">
+                        <text class="loading-text">已经到头啦...</text>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+    <scroll-view scrollY="true" style="width:100%;">
+        <view class="album-list">
+            <view bindtap="toAlbumDetail" class="album-list-item" data-album-id="{{item.id}}" wx:for="{{albumList}}">
+                <image class="album-image" src="{{item.cover_url_middle}}"></image>
+                <view class="album-info">
+                    <view class="title-wrap">
+                        <text class="tag-finished" wx:if="{{item.isFinished===2}}">完本</text>
+                        <text class="text-title {{item.isFinished?'overflow-1-line':''}}">{{item.album_title}}</text>
+                    </view>
+                    <view class="title-wrap">
+                        <text class="text-intro">{{item.album_intro}}</text>
+                    </view>
+                    <view class="album-sub-info">
+                        <view class="album-sub-info-inner">
+                            <icon class="icon icon-playCount"></icon>
+                            <text class="text-sub-info">{{item.play_count}}</text>
+                            <icon class="icon icon-tracksCounts"></icon>
+                            <text class="text-sub-info">{{item.include_track_count}}集</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="loading-wrap" wx:if="{{isLoading}}">
+            <text class="loading-text">正在火速加载中...</text>
+        </view>
+        <view class="loading-wrap" wx:if="{{isAll}}">
+            <text class="loading-text">已经到头啦...</text>
+        </view>
+    </scroll-view>
+</view>

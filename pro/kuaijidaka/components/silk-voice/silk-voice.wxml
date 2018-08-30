@@ -1,0 +1,33 @@
+<view class="voice-container {{applyType}}">
+    <view class="silk-voice__container">
+        <view hoverStopPropagation catchtap="onClickVoice" class="silk-voice {{size==='small'?'silk-voice--small':''}} {{theme==='admin'?'silk-voice--theme-admin':''}}" hoverClass="silk-voice__play-button--hover">
+            <view class="silk-voice__play-button ico {{doPlaying?'ico-playing':'ico-to-play'}}"></view>
+            <block wx:if="{{size==='normal'}}">
+                <view class="duration-bar" style="width:{{voice.voice_duration*0.5}}rpx">
+                    <view class="duration-bar__progress-bar" style="width:{{speedStyle*0.5}}rpx">
+                        <view class="duration-bar__progress-dot"></view>
+                    </view>
+                </view>
+                <view class="silk-voice__duration-text">{{voice.voice_duration}}"</view>
+            </block>
+            <view class="silk-voice__duration-text" wx:if="{{size==='small'}}">{{speedStyle?speedStyle:voice.voice_duration}}"</view>
+        </view>
+    </view>
+    <view class="silk-voice__status-indicator ico ico-has-played {{voice.hasPlayed?'silk-voice--listened':''}} {{theme==='admin'?'manager-ico-has-played':''}}" wx:if="{{size!=='small'}}"></view>
+    <view class="loading" hidden="{{!isWaiting}}">
+        <view class="loading__leaf-container">
+            <view class="loading__leaf"></view>
+            <view class="loading__leaf"></view>
+            <view class="loading__leaf"></view>
+            <view class="loading__leaf"></view>
+            <view class="loading__leaf"></view>
+            <view class="loading__leaf"></view>
+        </view>
+        <view class="loading__circle"></view>
+    </view>
+    <view catchtap="delVoice" class="ico del_voice" wx:if="{{applyType==='user-edit'||applyType==='add-theme'}}"></view>
+    <span catchtap="uploadFailRecorder" class="btn-upload-voice" data-voiceobj="{{voice}}" wx:if="{{voice.success===false}}">
+        <view class="ico"></view>
+    重新上传
+  </span>
+</view>

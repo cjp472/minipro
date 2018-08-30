@@ -1,0 +1,57 @@
+<view class="container container-footer-empty {{actionSheet.showActionSheet?'no-scroll':''}} free-get-list {{rulesBox?'fixed':''}}">
+    <view class="free-get-header">
+        <image class="head_bg" mode="widthFix" src="../../images/head_bg.png"></image>
+        <view bindtap="showRulesBox" class="check-rule-btn" hoverClass="btn-hover">
+            <image src="../../images/check_rule_btn.png"></image>
+        </view>
+    </view>
+    <view class="album-list-wrap">
+        <free-get-album album="{{album}}" noBorderBottom="{{index===AssistanceAlbumList.length-1?true:false}}" wx:if="{{curTab===1}}" wx:for="{{AssistanceAlbumList}}" wx:for-item="album" wx:key="{{album.id}}"></free-get-album>
+        <free-get-album album="{{album}}" bindcheck="handleCheck" bindshare="handleShare" isFailed="{{album.leftCount>0&&album.leftTime==0}}" isOutOfNumber="{{album.leftAlbumQuantity==0}}" isSucceed="{{album.leftCount<=0&&album.leftAlbumQuantity>0}}" noBorderBottom="{{index===MyAssistanceAlbumList.length-1?true:false}}" showMine="{{curTab===2}}" wx:if="{{curTab===2}}" wx:for="{{MyAssistanceAlbumList}}" wx:for-item="album" wx:key="{{album.id}}"></free-get-album>
+        <view class="no-data" wx:if="{{curTab===2&&isNodata}}">
+            <image src="../../images/no-data.png"></image>
+            <view class="no-data-txt">
+        天哪，你还没有助力专辑
+      </view>
+            <button plain bindtap="checkList" hoverClass="btn-hover">去选课</button>
+        </view>
+    </view>
+    <view class="custom-tabbar">
+        <view bindtap="toggleTabBar" class="tabbar-item {{curTab===1?'active':''}}" data-index="1" hoverClass="btn-hover">助力免费领</view>
+        <label class="gap-line"></label>
+        <view bindtap="toggleTabBar" class="tabbar-item {{curTab===2?'active':''}}" data-index="2" hoverClass="btn-hover">我的助力</view>
+    </view>
+    <view class="app-box rules-box" wx:if="{{rulesBox}}">
+        <view class="app-box-main rules-box-main">
+            <view class="rules-tit">
+        活动说明
+      </view>
+            <view class="rules">
+                <scroll-view scrollY style="height:100%;">
+                    <view class="rule">
+            1.选择你心仪的课程，集满要求的助力人数，即可免费领取。
+          </view>
+                    <view class="rule">
+            2.每个用户每天最多可以为他人助力1次。
+          </view>
+                    <view class="rule">
+            3.为好友助力后，可以获得名额奖励，即你再发起该专辑的助力时，所需助力人数减5。
+          </view>
+                    <view class="rule">
+            4.每天的助力免费领名额有限，先助力成功先获得课程。
+          </view>
+                    <view class="rule">
+            重要：助力成功后，课程发放在
+            <text class="strong">你的小程序登录账户中，点击我的-我的已购即可收听。也可下载喜马拉雅app，选择相应的登录方式后收听。</text>
+                    </view>
+                    <view class="rule">
+            法律允许范围内，本功能最终解释权归上海证大喜马拉雅有限公司所有。
+          </view>
+                </scroll-view>
+            </view>
+            <view class="btn-know-area">
+                <button plain bindtap="closeRulesBox" class="btn-know">知道了</button>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,21 @@
+<import src="../shared/player/player.wxml"></import>
+<view class="container {{player.sound.title?'container-footer-empty':''}} {{actionSheet.showActionSheet?'no-scroll':''}}">
+    <scroll-view>
+        <view class="history-list" wx:if="{{history.length>0}}">
+            <view catchtap="toAlbumDetail" class="history-list-item" data-album-id="{{item.albumId}}" data-is-free="{{item.is_free}}" data-ispaid="{{item.is_paid||item.isPaid||item.isPay?1:0}}" data-sample-duration="{{item.sample_duration}}" data-track-bought-status="{{item.track_bought_status}}" data-track-id="{{item.trackId}}" wx:for="{{history}}">
+                <image class="history-image" src="{{item.coverSmall}}"></image>
+                <view class="history-info">
+                    <view class="history-title-wrap">
+                        <text class="tag-paid" wx:if="{{item.isPaid}}">精品</text>
+                        <text class="history-title">{{item.albumTitle}}</text>
+                    </view>
+                    <text class="history-intro">{{item.title}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="history-list-empty" wx:else>
+            <image class="history-empty-image"></image>
+        </view>
+    </scroll-view>
+    <template is="player" data="{{player:player,actionSheet:actionSheet}}"></template>
+</view>

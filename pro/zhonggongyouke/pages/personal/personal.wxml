@@ -1,0 +1,87 @@
+<scroll-view bindscroll="scroll" scrollY="true" style="height:100vh;">
+    <view class="container">
+        <view class="user-info">
+            <view class="avatar">
+                <image class="cover" src="/resources/personal/avatar-cover.png"></image>
+                <view class="avatar-img">
+                    <open-data type="userAvatarUrl"></open-data>
+                </view>
+                <image class="avatar-img" src="{{userInfo.avatarUrl}}" wx:if="{{getInfo}}"></image>
+                <image class="avatar-bg" src="/resources/personal/avatar-bg.png"></image>
+            </view>
+            <view class="nickname">
+                <open-data lang="zh_CN" type="userNickName"></open-data>
+                <button bindgetuserinfo="onGotUserInfo" class="getInfoBtn" openType="getUserInfo" wx:if="{{getInfo}}">获取头像</button>
+                <text wx:if="{{getInfo}}">{{userInfo.nickName}}</text>
+            </view>
+            <view class="fr" wx:if="{{is_signin_today==false}}">
+                <view bindtap="sign" class="sign">
+                    <image class="sign-icon" src="/resources/personal/sign_on.png"></image>签到</view>
+                <view class="record">累计签到{{signin_num}}天</view>
+            </view>
+            <view class="fr" wx:if="{{is_signin_today==true}}">
+                <view class="sign on">
+                    <image class="sign-icon" src="/resources/personal/sign.png"></image>已签到</view>
+                <view class="record">累计签到{{signin_num}}天</view>
+            </view>
+        </view>
+        <view class="lesson-box">
+            <view bindtap="myLive" class="lesson">
+                <image class="t-icon" src="/resources/personal/live.png"></image>
+                <view class="lesson-txt">
+                    <text class="lesson-name">直播课</text>
+                    <image class="link-icon" src="/resources/personal/line.png"></image>
+                    <text class="lesson-num">{{live_course_num}}门</text>
+                </view>
+                <view class="live-tip" wx:if="{{next_live_time!=''}}">{{next_live_time}}<text wx:if="{{next_live_time!='正在直播'}}">有直播课</text>
+                </view>
+            </view>
+            <view bindtap="myPublic" class="lesson">
+                <image class="t-icon" src="/resources/personal/public.png"></image>
+                <view class="lesson-txt">
+                    <text class="lesson-name">公开课</text>
+                    <image class="link-icon" src="/resources/personal/line.png"></image>
+                    <text class="lesson-num">{{public_course_num}}门</text>
+                </view>
+            </view>
+        </view>
+        <view class="list-box">
+            <view bindtap="myRecord" class="list">
+                <image class="l-icon" src="/resources/personal/menu-1.png"></image>
+                <view class="title">学习记录</view>
+                <image class="r-icon" src="/resources/personal/r-icon.png"></image>
+                <view class="item">{{study_num}}条</view>
+            </view>
+            <navigator class="list" url="/pages/group/group">
+                <image class="l-icon" src="/resources/personal/menu-2.png"></image>
+                <view class="title">进备考群</view>
+                <image class="r-icon" src="/resources/personal/r-icon.png"></image>
+                <view class="item">小伙伴已到齐，就差你了！</view>
+            </navigator>
+            <navigator class="list" url="/pages/question/question">
+                <image class="l-icon" src="/resources/personal/menu-3.png"></image>
+                <view class="title">常见问题</view>
+                <image class="r-icon" src="/resources/personal/r-icon.png"></image>
+            </navigator>
+            <view bindtap="showContact" class="list">
+                <image class="l-icon" src="/resources/personal/menu-4.png"></image>
+                <view class="title">意见反馈</view>
+                <image class="r-icon" src="/resources/personal/r-icon.png"></image>
+            </view>
+            <view bindtap="calling" class="list">
+                <image class="l-icon" src="/resources/personal/menu-5.png"></image>
+                <view class="title">联系客服</view>
+                <image class="r-icon" src="/resources/personal/r-icon.png"></image>
+                <view class="item">400-900-8885</view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<view bindtap="hideContact" class="contact-layer  {{contact?'show':'hide'}}"></view>
+<view class="contact-box {{contact?'show':'hide'}}">
+    <image bindtap="hideContact" class="close" src="/resources/public/close2.png"></image>
+    <view class="c-tip">请关注公众号：<text class="color">中公教育优课</text>
+    </view>
+    <view class="c-tip">反馈您的问题！</view>
+    <image class="QR-code" src="/resources/personal/erweima.png"></image>
+</view>

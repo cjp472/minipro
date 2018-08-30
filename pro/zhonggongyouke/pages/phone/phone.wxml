@@ -1,0 +1,11 @@
+<view class="container">
+    <view class="content">
+        <input bindinput="mobileInput" maxlength="11" placeholder="请输入手机号" placeholderClass="placeholdercolor" type="number"></input>
+        <text class="err-tip" wx:if="{{errTipShow}}">{{errorTipTxt}}</text>
+    </view>
+    <view class="content">
+        <input bindinput="codeInput" maxlength="4" placeholder="请输入验证码" placeholderClass="placeholdercolor" type="number"></input>
+        <button bindtap="getverifycode" class="code" data-id="2" disabled="{{codeDisabled}}">{{codeContent}}</button>
+    </view>
+    <view bindtap="mobilelogin" class="login-in">登录</view>
+</view>

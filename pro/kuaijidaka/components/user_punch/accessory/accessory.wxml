@@ -1,0 +1,11 @@
+<template name="accessory">
+    <view class="accessory-box">
+        <view catchtap="previewAccessory" class="accessory-box-pc" data-index="{{index}}" data-url="{{item.document_url}}" wx:for="{{document_list}}" wx:key="{{item.document_url}}">
+            <view class="{{item.accessoryType}}">
+                <span class="ico"></span>
+            </view>
+            <view class="accessory-name">{{item.document_name}}</view>
+            <view catchtap="delAccessory" class="ico del-accessory" data-index="{{index}}" wx:if="{{needDel}}"></view>
+        </view>
+    </view>
+</template>

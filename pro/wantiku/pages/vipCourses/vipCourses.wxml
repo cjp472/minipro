@@ -1,0 +1,22 @@
+<import src="/template/toLoading/toLoading.wxml"></import>
+<import src="/template/vipCourselist/vipCourselist.wxml"></import>
+<view class="vip-course container {{theme}}" wx:if="{{!Review}}">
+    <view class="no-content" wx:if="{{empty}}">
+        <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/empty_vip_{{theme}}@2x.png"></image>
+        <view class="text">暂无VIP课程</view>
+    </view>
+    <view class="vipCourselist-top"></view>
+    <template is="vipCourselist" data="{{webcastCourseList:webcastCourseList,IOS:IOS}}"></template>
+    <template is="toLoadingSign" data="{{isLoadMore:isLoadMore}}"></template>
+    <view class="weChat-btn">
+        <button hoverClass="none" id="analyze_xiaoneng" openType="contact" sessionFrom="{{XNConfigInfo.sessionFrom}}">
+            <image mode="widthFix" src="/images/icon/vip_icon_weixinzixun@2x.png"></image>
+        </button>
+    </view>
+</view>
+<view class="vip-course container" wx:else>
+    <view class="no-content">
+        <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/empty_vip_{{theme}}@2x.png"></image>
+        <view class="text">课程已下线</view>
+    </view>
+</view>

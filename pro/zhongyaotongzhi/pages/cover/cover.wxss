@@ -1,0 +1,55 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text {
+    padding: 20rpx 10rpx;
+    color: #666;
+    font-size: 30rpx;
+}
+
+.cover-info {
+    width: 730rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pic-container {
+    width: 345rpx;
+    height: 134rpx;
+    margin: 10rpx;
+}
+
+.choose-pic,.select-pic {
+    width: 345rpx;
+    height: 134rpx;
+}
+
+.choose-pic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+}
+
+.upload {
+    width: 72rpx;
+    height: 64rpx;
+}
+
+.select-pic {
+    position: absolute;
+    z-index: -2;
+}
+
+.pic-overshadow {
+    width: 345rpx;
+    height: 134rpx;
+    background-color: #000;
+    opacity: 0.4;
+    position: absolute;
+    z-index: -1;
+}

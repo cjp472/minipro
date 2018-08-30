@@ -1,0 +1,4 @@
+<view class="picture-box-pc {{imgAlign}} {{applyType}}">
+    <image lazyLoad catchtap="previewImage" data-src="{{pictureUrl}}" mode="widthFix" src="{{pictureUrl+'?x-oss-process=image/resize,w_750'}}" style="width:{{pictureMaxWidth}}rpx;" wx:if="{{!editImg}}"></image>
+    <image lazyLoad catchtap="previewImage" data-src="{{pictureUrl}}" src="{{pictureUrl+'?x-oss-process=image/resize,w_750'}}" style="width:{{editedWidth}}rpx;height:{{editedHeight}}rpx;" wx:else></image>
+</view>

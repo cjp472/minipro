@@ -1,0 +1,25 @@
+<import src="../../common/nonet.wxml"></import>
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="top-back {{isUser?'user':''}}"></view>
+<view class="container">
+    <view class="header">
+        <view class="create-time">{{createTime}}</view>
+    </view>
+    <view class="headline">
+    {{informHeadline}}
+     </view>
+    <view class="theme-box">
+        <jdk-theme applyType="association-inform" catchpreview="markPreview" colorScheme="{{isUser?'user':'admin'}}" pc_content="{{pcContent}}"></jdk-theme>
+    </view>
+</view>
+<view class="visitors">
+    <view class="visitors-count">已有{{visitorsCount}}人查看</view>
+    <view class="visitors-list">
+        <view class="visitors-detail" wx:for="{{visitorsList}}" wx:key="{index}">
+            <image class="avatar" src="{{item.url}}"></image>
+            <view class="nickname">{{item.name}}</view>
+            <view class="visit-time">{{item.time}}</view>
+        </view>
+    </view>
+</view>
+<template is="nonet" data wx:if="{{!netWorkStatus}}"></template>

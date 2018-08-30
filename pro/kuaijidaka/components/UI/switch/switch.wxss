@@ -1,0 +1,57 @@
+@import "../../../__wuBaseWxss__/8.wxss";
+
+.switch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.switch__name {
+    font-size: 30rpx;
+    color: #8b97a4;
+    margin-right: 20rpx;
+}
+
+.switch__slideController--off {
+    width: 74rpx;
+    height: 42rpx;
+    background: #eee;
+    border: 1rpx solid #eaeaea;
+    border-radius: 200rpx;
+}
+
+.switch__slideController--on {
+    width: 74rpx;
+    height: 42rpx;
+    border-radius: 200rpx;
+    background: #22dd82;
+    border: 1rpx solid #22dd82;
+}
+
+.switch__slideController--on-admin {
+    width: 74rpx;
+    height: 42rpx;
+    border-radius: 200rpx;
+    background: #4f598f;
+    border: 1rpx solid #4f598f;
+}
+
+.switch__slideBall--off {
+    width: 42rpx;
+    height: 42rpx;
+    background: #fff;
+    position: relative;
+    left: 0;
+    transition: all 0.4s;
+    border-radius: 100%;
+}
+
+.switch__slideBall--on {
+    width: 42rpx;
+    height: 42rpx;
+    background: #fff;
+    position: relative;
+    left: 33rpx;
+    border-radius: 100%;
+    transition: all 0.4s;
+}

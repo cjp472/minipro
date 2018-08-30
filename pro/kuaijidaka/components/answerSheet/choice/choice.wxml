@@ -1,0 +1,90 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="col3" wx:if="{{selectType==0}}">
+    <question-title colorScheme="{{colorScheme}}" content="{{title}}" kind="{{selectType}}" wx:if="{{title}}">【问答题】</question-title>
+    <view class="mt20" wx:if="{{page=='question'&&essayAnswer}}">
+        <orderly-content-editor autoUpload="{{true}}" bind:checkBeforeSubmit="valueChange" isEdit="{{true}}" noButton="{{true}}" originSubmitData="{{essayAnswer}}" refresh="{{refresh}}"></orderly-content-editor>
+    </view>
+    <view class="mt20" wx:if="{{page=='result'}}">
+        <view class="title_bg" wx:if="{{essayAnswer.content||essayAnswer.voice_list.length>0||essayAnswer.picture_list.length>0||essayAnswer.video_list.length>0}}">
+            <view class="ico tit mb10"></view>
+            <text class="mb10 lh45 word-wrap">{{essayAnswer.content}}</text>
+            <view wx:if="{{essayAnswer.website&&essayAnswer.web_title}}">
+                <jdk-submit-link applyType="user-edit" index="0" linkTitle="{{essayAnswer.web_title}}" linkUrl="{{essayAnswer.website}}"></jdk-submit-link>
+            </view>
+            <view class="mb10" wx:if="{{essayAnswer.voice_list.length>0}}">
+                <jdk-silk-voice-group voices="{{essayAnswer.voice_list}}"></jdk-silk-voice-group>
+            </view>
+            <view class="mb10" wx:if="{{essayAnswer.picture_list.length>0||essayAnswer.video_list.length>0}}">
+                <thumbnail deleteBtn="{{false}}" imgArr="{{essayAnswer.picture_list}}" page="answer" videoArr="{{essayAnswer.video_list}}"></thumbnail>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="col3" wx:if="{{selectType==1}}">
+    <question-title colorScheme="{{colorScheme}}" content="{{title}}" kind="{{selectType}}" wx:if="{{title}}">【单选题】</question-title>
+    <radio-group bindchange="{{page=='question'?'radioChange':''}}" class="radio-group">
+        <label class="radio" wx:for="{{qsOption}}" wx:key="{{text}}">
+            <view class="check_bg" data-index="{{index}}">
+                <radio hidden checked="{{choice[index]==optionTag[index]}}" disabled="{{disabled}}" value="{{optionTag[index]}}"></radio>
+                <view class="check_button shrink_no {{choice[index]==optionTag[index]?'selected':''}}">{{optionTag[index]}}</view>
+                <view class="s_content">
+                    <choiceOption colorScheme="{{colorScheme}}" content="{{item}}"></choiceOption>
+                </view>
+            </view>
+        </label>
+    </radio-group>
+</view>
+<view class="qs_bg col3" wx:if="{{selectType==2}}">
+    <question-title colorScheme="{{colorScheme}}" content="{{title}}" kind="{{selectType}}" wx:if="{{title}}">【多选题】</question-title>
+    <checkbox-group bindchange="{{page=='question'?'checkboxChange':''}}">
+        <label class="checkbox" wx:for="{{qsOption}}" wx:key="{{text}}">
+            <checkbox hidden checked="{{choice[index]==optionTag[index]}}" disabled="{{disabled}}" value="{{optionTag[index]}}"></checkbox>
+            <view class="check_bg" data-index="{{index}}">
+                <view class="check_button shrink_no {{choice[index]==optionTag[index]?'selected':''}}">{{optionTag[index]}}</view>
+                <view class="s_content">
+                    <choiceOption colorScheme="{{colorScheme}}" content="{{item}}"></choiceOption>
+                </view>
+            </view>
+        </label>
+    </checkbox-group>
+</view>
+<view class="qs_bg col3" wx:if="{{selectType==4}}">
+    <question-title colorScheme="{{colorScheme}}" content="{{title}}" kind="{{selectType}}" wx:if="{{title}}">【不定项】</question-title>
+    <checkbox-group bindchange="{{page=='question'?'checkboxChange':''}}">
+        <label class="checkbox" wx:for="{{qsOption}}" wx:key="{{text}}">
+            <checkbox hidden checked="{{choice[index]==optionTag[index]}}" disabled="{{disabled}}" value="{{optionTag[index]}}"></checkbox>
+            <view class="check_bg" data-index="{{index}}">
+                <view class="check_button shrink_no {{choice[index]==optionTag[index]?'selected':''}}">{{optionTag[index]}}</view>
+                <view class="s_content">
+                    <choiceOption colorScheme="{{colorScheme}}" content="{{item}}"></choiceOption>
+                </view>
+            </view>
+        </label>
+    </checkbox-group>
+</view>
+<view class="qs_bg col3" wx:if="{{selectType==5}}">
+    <question-title colorScheme="{{colorScheme}}" content="{{blankTitle||title}}" kind="{{selectType}}" wx:if="{{blankTitle||title}}">【填空题】</question-title>
+    <view class="title_bg mt20" wx:if="{{page=='question'&&choice.length>0}}">
+        <view class="blanks-item mb10" wx:for="{{choice}}" wx:for-index="i">
+            <view class="blanks-order">{{i+1}}</view>
+            <input bindblur="saveTxt" bindconfirm="saveTxt" bindfocus="blankfocus" bindinput="saveTxt" cursorSpacing="100" data-chapter="{{chapter}}" data-choice="{{choice}}" data-index="{{i}}" data-qindex="{{index}}" disabled="{{disabled}}" value="{{item}}"></input>
+        </view>
+    </view>
+    <view wx:if="{{page=='result'}}">
+        <view class="title_bg mt20 blanks-answer" wx:for="{{choice}}" wx:key="{{item}}">
+            <view class="blanks-order">{{index+1}}</view>
+            <view class="ml20">
+                <view class="word-wrap">
+                    <text class="mr15" wx:if="{{item.length>0}}">{{item}}</text>
+                    <text class="right-icon" wx:if="{{blankAnswer[index].length>0&&item.length>0&&item==blankAnswer[index]}}"></text>
+                    <text style="color:#ff7676;" wx:else>✗</text>
+                </view>
+                <view class="word-wrap">正确答案：{{blankAnswer[index]||'无'}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="col3" wx:if="{{selectType==3||selectType==6||selectType==9||selectType==10}}">
+    <question-title colorScheme="{{colorScheme}}" content="{{title}}" kind="{{selectType}}" wx:if="{{title}}">{{selectType==6?'【中文测评】':'【英语测评】'}}</question-title>
+    <answer-eval-editor bind:fetchScore="fetchScore" evalRecord="{{evalRecord}}" evaluating="{{evaluating}}" wx:if="{{page=='question'}}"></answer-eval-editor>
+</view>

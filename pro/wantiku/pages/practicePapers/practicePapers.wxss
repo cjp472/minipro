@@ -1,0 +1,100 @@
+@import "../../template/modal/modal.template.wxss";
+
+.practice-papers-box {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: #ffffff;
+}
+
+.practice-papers-item {
+    width: 690rpx;
+    height: 224rpx;
+    background: url(http://img02.exam8.com/img2017/minapp/new_index/bg_list@2x.png);
+    background-size: 690rpx 224rpx;
+    margin: 0 auto;
+    margin-top: 20rpx;
+    padding: 30rpx 38rpx 0 34rpx;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.practice-papers-item .title {
+    font-size: 30rpx;
+    color: #4e4e4e;
+    height: 88rpx;
+    display: flex;
+    align-items: center;
+}
+
+.practice-papers-item .title text {
+    vertical-align: middle;
+}
+
+.practice-papers-item .bottom {
+    font-size: 24rpx;
+    color: #9a9a9a;
+    position: absolute;
+    bottom: 0;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.practice-papers-item .bottom text {
+    margin-right: 50rpx;
+}
+
+@font-face {
+    font-family:'iconfont';src:url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.eot');src:url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.eot?#iefix') format('embedded-opentype'),url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.woff') format('woff'),url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.ttf') format('truetype'),url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.svg#iconfont') format('svg');
+}
+
+.icon_fenxiangweixin:before {
+    content: "\e639";
+}
+
+.practice-papers-box .subject-class-list .class-one .subject-class-title {
+    padding-left: 0;
+    background: none;
+}
+
+.practice-papers-box .subject-class-info {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.practice-papers-box .subject-class-title .practice-class-title-text {
+    color: #4e4e4e;
+    font-size: 30rpx;
+    position: relative;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.practice .new-icon {
+    background: #fc5e5e;
+    font-size: 18rpx;
+    color: #ffffff;
+    display: inline-block;
+    padding: 0rpx 6rpx;
+    margin-right: 10rpx;
+    height: 28rpx;
+    margin-bottom: 6rpx;
+    vertical-align: middle;
+    border-radius: 4rpx;
+}
+
+.s_hongbao {
+    bottom: 59rpx;
+}
+
+.goBackIndex {
+    bottom: 214rpx;
+    right: 22rpx;
+}
+
+button .unlock-btn {
+    margin-right: 0;
+}

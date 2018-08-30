@@ -1,0 +1,464 @@
+.red .user-login-btn {
+    color: #ff5757;
+    border: 1px solid #ff5757;
+}
+
+.blue .user-login-btn {
+    color: #4380db;
+    border: 1px solid #4380db;
+}
+
+.green .user-login-btn {
+    color: #0e9900;
+    border: 1px solid #0e9900;
+}
+
+.Lightblue .user-login-btn {
+    color: #27c1f4;
+    border: 1px solid #27c1f4;
+}
+
+.purple .user-login-btn {
+    color: #a066e8;
+    border: 1px solid #a066e8;
+}
+
+.yellow .user-login-btn {
+    color: #db9b00;
+    border: 1px solid #db9b00;
+}
+
+.orange .user-login-btn {
+    color: #ff7e00;
+    border: 1px solid #ff7e00;
+}
+
+@font-face {
+    font-family:'iconfont';src:url('//at.alicdn.com/t/font_428828_g9ht9qc63kdquxr.eot');src:url('//at.alicdn.com/t/font_428828_g9ht9qc63kdquxr.eot?#iefix') format('embedded-opentype'),url('//at.alicdn.com/t/font_428828_g9ht9qc63kdquxr.woff') format('woff'),url('//at.alicdn.com/t/font_428828_g9ht9qc63kdquxr.ttf') format('truetype'),url('//at.alicdn.com/t/font_428828_g9ht9qc63kdquxr.svg#iconfont') format('svg');
+}
+
+.icon_wodeziliao:before {
+    content: "\e62d";
+}
+
+page {
+    background-color: #f2f3f4;
+}
+
+.mytop {
+    height: 300rpx;
+    background-color: #fff;
+    text-align: center;
+}
+
+.mytx image {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    margin: 55rpx 0rpx 10rpx 0rpx;
+}
+
+.myname {
+    font-size: 32rpx;
+}
+
+.remind-msg {
+    display: inline-block;
+    width: 14rpx;
+    height: 14rpx;
+    background-color: #FC5E5E;
+    border-radius: 20rpx;
+}
+
+.flex-row {
+    display: flex;
+    flex-flow: row nowrap;
+    background: #fff;
+    justify-content: space-between;
+    align-items: center;
+    height: 110rpx;
+    box-sizing: border-box;
+    padding: 0 0 0 30rpx;
+}
+
+.flex-rowl {
+    color: #4e4e4e;
+    font-size: 30rpx;
+    height: 110rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    line-height: 110rpx;
+    flex-grow: 1;
+}
+
+.flex-rowl image {
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+}
+
+.flex-rowl text {
+    vertical-align: middle;
+    margin-left: 30rpx;
+}
+
+.flex-rowr {
+    font-size: 30rpx;
+    color: #9a9a9a;
+    height: 110rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    line-height: 110rpx;
+    padding-right: 30rpx;
+}
+
+.flex-rowr image {
+    width: 16rpx;
+    height: 28rpx;
+    vertical-align: middle;
+}
+
+.flex-rowr text {
+    margin-right: 20rpx;
+    vertical-align: middle;
+}
+
+.user-out {
+    text-align: center;
+    color: #999999;
+    font-size: 30rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    background: #ffffff;
+    margin-top: 16rpx;
+}
+
+.user-login {
+    height: 260rpx;
+    background: #ffffff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0 30rpx;
+    align-items: center;
+}
+
+.user-login-img {
+    width: 140rpx;
+    height: 140rpx;
+    margin-right: 34rpx;
+}
+
+.user-login-success {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-login-success text {
+    font-size: 34rpx;
+    color: #4e4e4e;
+    vertical-align: middle;
+}
+
+.user-login-success image {
+    width: 16rpx;
+    height: 28rpx;
+    vertical-align: middle;
+}
+
+.user-login-img image {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 50%;
+}
+
+.new-icon-yijian {
+    width: 32rpx;
+    height: auto;
+}
+
+.user-login-info .text {
+    font-size: 26rpx;
+    color: #9a9a9a;
+    margin-top: 30rpx;
+}
+
+.user-login-btn {
+    width: 186rpx;
+    height: 58rpx;
+    line-height: 58rpx;
+    border-radius: 10rpx;
+    text-align: center;
+    font-size: 26rpx;
+    margin-bottom: 1rpx;
+}
+
+.user-login-btn {
+    color: #6fce29;
+    border: 1px solid #6fce29;
+}
+
+.blue .user-login-btn {
+    color: #4380db;
+    border: 1px solid #4380db;
+}
+
+.red .user-login-btn {
+    color: #ff5757;
+    border: 1px solid #ff5757;
+}
+
+.green .user-login-btn {
+    color: #0e9900;
+    border: 1px solid #0e9900;
+}
+
+.orange .user-login-btn {
+    color: #ff7e00;
+    border: 1px solid #ff7e00;
+}
+
+.Lightblue .user-login-btn {
+    color: #27c1f4;
+    border: 1px solid #27c1f4;
+}
+
+.yellow .user-login-btn {
+    color: #db9b00;
+    border: 1px solid #db9b00;
+}
+
+.flex-rowl .icon_wodeziliao {
+    vertical-align: middle;
+    color: #9a9a9a;
+    margin-left: 1rpx;
+    font-size: 28rpx;
+}
+
+.themes {
+    background: #fff;
+    padding: 0 30rpx 30rpx;
+    overflow: hidden;
+}
+
+.theme-cont {
+    display: flex;
+    flex-direction: row;
+    margin-top: 16rpx;
+    padding: 24rpx;
+    background: #fff;
+    box-shadow: 0 6rpx 24rpx 0 #EDEDED;
+    border-radius: 10rpx;
+    align-items: center;
+}
+
+.theme-pic {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 10rpx;
+}
+
+.theme-info {
+    margin-left: 24rpx;
+    font-size: 28rpx;
+    color: #9A9A9A;
+    flex: 1;
+}
+
+.btn-area {
+    width: 126rpx;
+}
+
+.theme-name {
+    font-size: 32rpx;
+    color: #4E4E4E;
+}
+
+.theme-text {
+    margin-top: 14rpx;
+}
+
+.highlight {
+    margin: 0 4rpx;
+}
+
+.highlight-wantiku {
+    color: #6FCE29;
+}
+
+.highlight-green {
+    color: #1B9B0B;
+}
+
+.highlight-blue {
+    color: #4380db;
+}
+
+.highlight-red {
+    color: #F15454;
+}
+
+.highlight-orange {
+    color: #F07D0C;
+}
+
+.highlight-Lightblue {
+    color: #27c1f4;
+}
+
+.highlight-yellow {
+    color: #D39A10;
+}
+
+.highlight-purple {
+    color: #9C66DE;
+}
+
+.btn {
+    display: inline-block;
+    line-height: 50rpx;
+    width: 126rpx;
+    height: 50rpx;
+    text-align: center;
+    font-size: 28rpx;
+    border-radius: 100rpx;
+}
+
+.btn-dis {
+    background: #ccc;
+    border: 1rpx solid #ccc;
+    color: #fff;
+}
+
+.button-wrapper {
+    margin-top: 30rpx;
+    font-size: 28rpx;
+    color: #7A7A7A;
+}
+
+.button-wrapper view {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.button-wrapper .iconfont {
+    margin-left: 10rpx;
+    font-size: 14rpx;
+    color: #ccc;
+}
+
+.login-btn-wantiku,.btn-wantiku {
+    border: 2rpx solid #6FCE29;
+    color: #6FCE29;
+}
+
+.login-btn-green,.btn-green {
+    border: 2rpx solid #1B9B0B;
+    color: #1B9B0B;
+}
+
+.login-btn-blue,.btn-blue {
+    border: 2rpx solid #4380db;
+    color: #4380db;
+}
+
+.login-btn-red,.btn-red {
+    border: 2rpx solid #F15454;
+    color: #F15454;
+}
+
+.login-btn-orange,.btn-orange {
+    border: 2rpx solid #F07D0C;
+    color: #F07D0C;
+}
+
+.login-btn-Lightblue,.btn-Lightblue {
+    border: 2rpx solid #27c1f4;
+    color: #27c1f4;
+}
+
+.login-btn-yellow,.btn-yellow {
+    border: 2rpx solid #D39A10;
+    color: #D39A10;
+}
+
+.login-btn-purple,.btn-purple {
+    border: 2rpx solid #9C66DE;
+    color: #9C66DE;
+}
+
+.login-cont {
+    display: flex;
+    flex-direction: row;
+    padding: 44rpx 30rpx;
+    background: #fff;
+    align-items: center;
+}
+
+.login-cont-success {
+    flex-direction: column;
+    text-align: center;
+}
+
+.avatar {
+    display: inline-block;
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 50%;
+}
+
+.nick-name {
+    line-height: 2;
+    font-size: 34rpx;
+    color: #4E4E4E;
+    width: 100%;
+}
+
+.nick-name text {
+    line-height: 2;
+    position: relative;
+}
+
+.nick-name text:before {
+    line-height: 2;
+    content: "\e61f";
+    position: absolute;
+    top: 0;
+    right: -32rpx;
+    font-family: "iconfont"!important;
+    font-size: 26rpx;
+    font-style: normal;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    color: #9A9A9A;
+}
+
+.login-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 34rpx;
+    font-size: 26rpx;
+    color: #9A9A9A;
+}
+
+.login-btn {
+    line-height: 58rpx;
+    width: 186rpx;
+    height: 58rpx;
+    text-align: center;
+    font-size: 26rpx;
+    border-radius: 10rpx;
+}
+
+.login-info .text-box {
+    margin-top: 20rpx;
+}
+
+.separation-line {
+    height: 16rpx;
+    padding: 0;
+    background: #F6F6F6;
+}

@@ -1,0 +1,183 @@
+.card-head {
+    box-sizing: border-box;
+    width: 100%;
+    height: 82rpx;
+    padding: 10rpx 30rpx 0 30rpx;
+    line-height: 72rpx;
+    background: #f5f5f5;
+    font-size: 32rpx;
+    color: #2a2e3d;
+}
+
+.card-icon {
+    display: inline-block;
+    float: left;
+    width: 32rpx;
+    height: 32rpx;
+    margin-top: 20rpx;
+    margin-right: 18rpx;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.card-title {
+    font-weight: bold;
+    clear: both;
+}
+
+.more-icon {
+    display: inline-block;
+    float: right;
+    width: 24rpx;
+    height: 32rpx;
+    margin-top: 20rpx;
+}
+
+.card-more {
+    float: right;
+    font-size: 26rpx;
+    color: #7d829a;
+}
+
+.card-box {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 0 30rpx;
+    background: #f5f5f5;
+}
+
+.card-list {
+    box-sizing: border-box;
+    float: left;
+    width: 335rpx;
+    height: 384rpx;
+    border-radius: 8rpx;
+    margin-top: 9rpx;
+    margin-bottom: 9rpx;
+    background: #fff;
+}
+
+.card-list:nth-child(odd) {
+    float: left;
+}
+
+.card-list:nth-child(even) {
+    float: right;
+}
+
+.card-list-img {
+    display: block;
+    width: 100%;
+    height: 189rpx;
+    background: #e6e6e6;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+}
+
+.card-list-txt {
+    padding: 0 20rpx;
+}
+
+.card-list-title {
+    height: 64rpx;
+    line-height: 64rpx;
+    font-size: 28rpx;
+    color: #2a2e3d;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-teacher {
+    display: inline-block;
+    float: left;
+    width: 88rpx;
+    height: 131rpx;
+}
+
+.card-teacher-avatar {
+    display: inline-block;
+    float: left;
+    width: 52rpx;
+    height: 52rpx;
+    border-radius: 50%;
+    margin: 28rpx 0 10rpx 18rpx;
+    background: #e1e2eb;
+}
+
+.card-teacher-name {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    height: 22rpx;
+    line-height: 22rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+    text-align: center;
+}
+
+.card-lesson-info {
+    position: relative;
+    display: inline-block;
+    float: right;
+    width: auto;
+    min-width: 150rpx;
+    height: 131rpx;
+}
+
+.card-lesson-num {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 22rpx;
+    line-height: 22rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.card-lesson-price {
+    position: absolute;
+    top: 50rpx;
+    right: 0;
+    display: inline-block;
+    height: 30rpx;
+    line-height: 30rpx;
+    font-size: 40rpx;
+    color: #ef533d;
+    font-weight: bold;
+}
+
+.little {
+    font-size: 26rpx;
+    font-weight: normal;
+}
+
+.card-lesson-sign {
+    position: absolute;
+    top: 90rpx;
+    right: 0;
+    display: inline-block;
+    height: 22rpx;
+    line-height: 22rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.signed {
+    position: absolute;
+    top: 12rpx;
+    right: 0;
+    width: 114rpx;
+    height: 99rpx;
+}

@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "邀请好友一起来打卡",
+    "usingComponents": {
+        "jdk-guide-card": "/components/guide-card/guide-card"
+    }
+}

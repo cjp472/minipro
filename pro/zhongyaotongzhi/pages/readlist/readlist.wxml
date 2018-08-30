@@ -1,0 +1,86 @@
+<form bindsubmit="postFormId" reportSubmit="true">
+    <view class="error" wx:if="{{showLoadError}}">
+        <image class="error-icon" src="/images/error.png"></image>
+        <view class="error-text">加载失败，请检查网络</view>
+        <button bindtap="refresh" class="error-refresh" formType="submit">重新加载</button>
+    </view>
+    <view class="error" wx:if="{{dataNotFound}}">
+        <image class="error-icon" src="/images/error.png"></image>
+        <view class="error-text">通知不存在，可能已经被删除</view>
+        <button bindtap="toIndex" class="error-refresh">返回首页</button>
+    </view>
+    <view>
+        <view wx:if="{{!commentEditing}}">
+            <view class="notice-record">
+                <view class="notice-record-header">
+                    <button bindtap="changeRecordsType" class="notice-record-header-item {{recordsType=='visit'?'selected':'unselected'}}" data-type="visit" formType="submit">
+                        <view class="notice-record-header-item-text">
+                            <view class="count">{{notice.view_count}}</view>
+                            <view>人已读</view>
+                        </view>
+                    </button>
+                    <view class="notice-record-header-item-divider"></view>
+                    <button bindtap="changeRecordsType" class="notice-record-header-item {{recordsType=='unread'?'selected':'unselected'}}" data-type="unread" formType="submit">
+                        <view class="notice-record-header-item-text">
+                            <view class="count">{{notice.unread_count==0&&!notice.mp_gname?'?':notice.unread_count}}</view>
+                            <view>人未读</view>
+                        </view>
+                    </button>
+                </view>
+                <view class="notice-record-content">
+                    <view class="notice-record-content-item {{recordsType=='visit'?'selected':'unselected'}}" wx:if="{{recordsType=='visit'}}">
+                        <view class="notice-record-empty" wx:if="{{visitRecords.length==0}}">已读为空</view>
+                        <view class="notice-record-content-list-item" wx:for="{{visitRecords}}">
+                            <view bindtap="{{item.mp_id?'toCard':''}}" class="record-info-header {{item.mp_id?'is-contact':''}}" data-id="{{item.mp_id}}">
+                                <image class="record-avatar" src="{{item.head_img}}"></image>
+                                <view class="nickname-notice-time">
+                                    <view class="nickname">{{item.name}}</view>
+                                    <view class="notice-time">{{item.stamp}}</view>
+                                </view>
+                                <view class="btn-join">查看名片</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="notice-record-content-item {{recordsType=='unread'?'selected':'unselected'}}" wx:if="{{recordsType=='unread'}}">
+                        <view class="notice-record-empty" wx:if="{{unreadRecords.length==0&&!notice.mp_gname&&notice.is_owner}}">
+                            <view bindtap="toContact" class="btn-contact">关联群通讯录</view>
+                            <view>您还没有关联群通讯录，所以暂时无法读取到未读名单。请先关联一个群通讯录。</view>
+                        </view>
+                        <view class="notice-record-empty" wx:elif="{{unreadRecords.length==0&&!notice.mp_gname&&!notice.is_owner}}">需要发起人绑定群通讯录才能看到未读情况</view>
+                        <view class="notice-record-empty" wx:elif="{{unreadRecords.length==0}}">未读为空</view>
+                        <view class="notice-record-content-list-item" wx:for="{{unreadRecords}}">
+                            <view bindtap="toCard" class="record-info-header {{item.mp_id?'is-contact':''}}" data-id="{{item.mp_id}}">
+                                <image class="record-avatar" src="{{item.head_img}}"></image>
+                                <view class="nickname-notice-time">
+                                    <view class="nickname">{{item.name}}</view>
+                                </view>
+                                <view class="btn-join">查看名片</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</form>
+<view class="unauthorized" wx:if="{{unauthorized}}">
+    <image class="unauth-img" src="/images/unauto.png"></image>
+    <view class="unauth-title">- Oops！您不小心拒绝了微信授权！ -</view>
+    <view class="unauth-desc">请允许我们获取您的基础信息（昵称与头像）</view>
+    <view class="unauth-desc">才能正常使用</view>
+    <view bindtap="reAuthorize" class="unauth-btn">重新授权</view>
+</view>
+<view catchtouchmove="move" class="modal-image-text" wx:if="{{modal.isShow}}">
+    <view bindtap="{{!buttonClicked?'modalClick':''}}" class="modal-mask"></view>
+    <view class="modal-content">
+        <view class="modal-header">{{modal.title}}</view>
+        <view class="modal-body">
+            <view>{{modal.desc}}</view>
+            <image mode="widthFix" src="{{modal.src}}"></image>
+        </view>
+        <view class="modal-footer">
+            <view bindtap="{{!buttonClicked?'modalClick':''}}" class="modal-btn modal-cancel width50" data-id="0" wx:if="{{modal.cancel}}">{{modal.cancel}}</view>
+            <view bindtap="{{!buttonClicked?'modalClick':''}}" class="modal-btn modal-ok {{modal.cancel?'width50':''}}" data-id="1">{{modal.ok}}</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,18 @@
+{
+    "navigationBarTitleText": "",
+    "backgroundColor": "#4f598f",
+    "enablePullDownRefresh": true,
+    "enableOnReachBottom": true,
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4f598f",
+    "usingComponents": {
+        "jdk-navi": "/components/navi/navi",
+        "jdk-submit": "/components/user-submit/submit/submit",
+        "jdk-theme": "/components/topic/topic",
+        "foot-loading": "/components/footLoading/footLoading",
+        "home-tools": "/components/home-tools/home-tools",
+        "home-select": "/components/home-select/home-select",
+        "share-modal": "/components/shareModal/shareModal",
+        "modal-input": "/components/modalInput/modalInput"
+    }
+}

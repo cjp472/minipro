@@ -1,0 +1,152 @@
+@import "../../__wuBaseWxss__/8.wxss";
+
+@import "../../__wuBaseWxss__/6.wxss";
+
+@import "../../__wuBaseWxss__/9.wxss";
+
+.home-tools__container {
+    width: 100%;
+    background-color: #fff;
+}
+
+.home-tools {
+    width: 690rpx;
+    margin: 0 auto;
+    height: 168rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1rpx solid #edf0f3;
+}
+
+.home-tools__cube {
+    margin: 0;
+    background-color: #fff;
+    line-height: normal;
+    text-align: center;
+    position: relative;
+    flex: 1;
+}
+
+.red-dot {
+    width: 14rpx;
+    height: 14rpx;
+    border-radius: 50%;
+    background-color: #ff7474;
+    position: absolute;
+    top: 6rpx;
+    right: 14rpx;
+}
+
+.home-tools__ico {
+    width: 72rpx;
+    height: 72rpx;
+    border-radius: 50%;
+    background-color: rgba(79,89,143,0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 10rpx;
+}
+
+.user .home-tools__ico {
+    background-color: rgba(34,221,130,0.1);
+}
+
+.home-tools__ico .iconfont {
+    font-size: 40rpx;
+    color: #4f598f;
+}
+
+.user .home-tools__ico .iconfont {
+    color: #22dd82;
+}
+
+.home-tools__items {
+    font-size: 24rpx;
+    color: #8b97a4;
+}
+
+.share-window {
+    position: relative;
+    z-index: 100000;
+    display: block;
+}
+
+.share-window__shade {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 88;
+}
+
+.share-window__content {
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    width: 600rpx;
+    margin-left: -300rpx;
+    margin-top: -133rpx;
+    border-radius: 8rpx;
+}
+
+.share-window__ico-box {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 40rpx 70rpx 30rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.share-window__ico {
+    font-size: 44rpx;
+    color: #c4c8cc;
+    margin: 0 30rpx;
+}
+
+.share-window__text {
+    border: none;
+    margin: 0;
+    line-height: 78rpx;
+    background-color: #fff;
+    overflow: visible;
+    color: #3c4856;
+    font-size: 26rpx;
+}
+
+.share-window__line {
+    height: 88rpx;
+    border-bottom: 1rpx solid #d9e1e9;
+    display: flex;
+    align-items: center;
+    color: #3c4856;
+    font-size: 26rpx;
+}
+
+.share-window__invite {
+    border: none;
+}
+
+button.share-window__line {
+    padding: 0;
+    background-color: white;
+}
+
+.share-window__share {
+    border-radius: 0;
+}
+
+.fz24 {
+    font-size: 24rpx;
+}
+
+.col8 {
+    color: #888;
+}

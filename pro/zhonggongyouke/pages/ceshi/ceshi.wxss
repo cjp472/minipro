@@ -1,0 +1,34 @@
+.swiper-tab {
+    width: 100%;
+    line-height: 80rpx;
+    border-bottom: 2rpx solid #777;
+}
+
+.tab-item {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    font-size: 40rpx;
+    color: #777;
+}
+
+.on {
+    color: blue;
+    border-bottom: 5rpx solid blue;
+}
+
+.swiper {
+    background: #dfdfdf;
+}
+
+.barrage {
+    background: red;
+}
+
+.barraging {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: green;
+}

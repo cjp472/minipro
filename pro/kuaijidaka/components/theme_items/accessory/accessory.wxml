@@ -1,0 +1,9 @@
+<view class="{{applyType}}">
+    <view bindtap="previewDoc" class="{{accessoryItem.type}}-box-pc accessory-box" data-content="{{accessoryItem.content}}">
+        <view class="{{accessoryItem.type}} accessory-left">
+            <span class="ico"></span>
+        </view>
+        <view class="{{accessoryItem.type}}-name accessory-name">{{name}}</view>
+        <view catchtap="delAccessory" class="ico del-accessory" wx:if="{{applyType==='user-edit'}}"></view>
+    </view>
+</view>

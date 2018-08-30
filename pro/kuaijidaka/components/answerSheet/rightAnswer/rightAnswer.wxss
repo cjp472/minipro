@@ -1,0 +1,42 @@
+.analysis-answer {
+    padding: 20rpx 0;
+    border-bottom: 1px solid #eef0f3;
+    font-size: 28rpx;
+    line-height: 30rpx;
+}
+
+.analysis-answer .item-box {
+    line-height: 60rpx;
+    display: flex;
+    align-items: center;
+}
+
+.analysis-answer .item {
+    margin-right: 20rpx;
+    display: flex;
+}
+
+.analysis-answer .tips {
+    color: #8d97a3;
+}
+
+.analysis-answer .answer {
+    color: #ee7e7e;
+}
+
+.analysis-answer .answer.right {
+    color: #6ada8b;
+}
+
+.analysis-answer .count {
+    color: #8d97a3;
+}
+
+.analysis-answer .count .num {
+    color: #3e4855;
+    margin: 0 5rpx;
+}
+
+.ml10 {
+    margin-left: 10rpx;
+}

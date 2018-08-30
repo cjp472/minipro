@@ -1,0 +1,25 @@
+<template name="dialog">
+    <view class="public del-public" wx:if="{{styleSheet[0].state}}">
+        <view class="i"></view>
+        <view class="content">
+            <view class="h2">
+                <text>{{styleSheet[0].txt}}</text>
+            </view>
+            <view class="btn btn50">
+                <text bindtap="cancle">取消</text>
+                <text bindtap="submit">确定</text>
+                <view class="online"></view>
+            </view>
+        </view>
+    </view>
+    <action-sheet bindchange="actionSheetbindchange" class="action-sheet" hidden="{{styleSheet[1].actionSheetHidden}}">
+        <action-sheet-item catchtap="subDelComment" class="{{item.color}}" wx:for="{{styleSheet[1].actionSheetItems}}" wx:key="unique">{{item.txt}}</action-sheet-item>
+        <action-sheet-cancel catchtap="cancelDelComment" class="cancel">取消<span></span>
+        </action-sheet-cancel>
+    </action-sheet>
+    <action-sheet bindchange="actionSheetbindchange" class="action-sheet" hidden="{{styleSheet[2].actionSheetHidden}}">
+        <action-sheet-item catchtap="subDelRemark" class="{{item.color}}" wx:for="{{styleSheet[2].actionSheetItems}}" wx:key="unique">{{item.txt}}</action-sheet-item>
+        <action-sheet-cancel catchtap="cancelDelRemark" class="cancel">取消<span></span>
+        </action-sheet-cancel>
+    </action-sheet>
+</template>

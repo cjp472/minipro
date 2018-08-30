@@ -1,0 +1,42 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/subject/subject",
+        "pages/user/me",
+        "pages/user/userinfo",
+        "lib/hardcore/pages/user/password-login",
+        "lib/hardcore/pages/user/register",
+        "lib/hardcore/pages/user/bind-phone",
+        "lib/hardcore/pages/subject/subject-list",
+        "lib/hardcore/pages/subject/mark",
+        "lib/hardcore/pages/search/search",
+        "lib/hardcore/pages/short-comment/list",
+        "lib/hardcore/pages/review/list",
+        "lib/hardcore/pages/review/detail"
+    ],
+    "window": {
+        "navigationBarTitleText": "豆瓣评分",
+        "navigationBarBackgroundColor": "#42BD56",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#F9F9F9"
+    },
+    "tabBar": {
+        "color": "#AAAAAA",
+        "selectedColor": "#42BD56",
+        "backgroundColor": "#FFFFFF",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "电影",
+                "iconPath": "assets/tabbar/movie.png",
+                "selectedIconPath": "assets/tabbar/movie_selected.png"
+            },
+            {
+                "pagePath": "pages/user/me",
+                "text": "我的",
+                "iconPath": "assets/tabbar/me.png",
+                "selectedIconPath": "assets/tabbar/me_selected.png"
+            }
+        ]
+    }
+}

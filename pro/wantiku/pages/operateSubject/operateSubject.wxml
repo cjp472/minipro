@@ -1,0 +1,32 @@
+<view class="{{iPhoneX?'iPhoneX':''}}">
+    <view bindtap="getToChoose" class="list-subject{{index+1==list.length?' b-none':''}}" data-id="{{item.SubjectId}}" data-name="{{item.SubjectName}}" data-parentname="{{item.SubjectParentName}}" wx:for="{{list}}" wx:key="{{index}}">
+        <image class="list-subject-img" mode="aspectFill" src="{{item.ImageUrl}}"></image>
+        <view class="list-subject-right">
+            <view class="list-subject-title">
+                <text class="text-icon">{{typeName}}</text>
+                <text>{{item.SubjectName}}</text>
+            </view>
+            <view class="list-subject-time" wx:if="{{item.DurationStr}}">
+                <text class="iconfont icon_time"></text>
+                <text>课时：{{item.DurationStr}}</text>
+            </view>
+            <view style="height: 61rpx;" wx:if="{{!item.DurationStr}}"></view>
+            <view class="list-subject-num">
+                <text class="iconfont icon_renshu1"></text>
+                <text>{{item.UserCountStr}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="more-look{{list.length<5?' more-look1':''}}" wx:if="{{list.length}}">
+        <text bindtap="bindChoose" class="more-look-text">查看更多考试</text>
+    </view>
+    <view style="height: 62rpx"></view>
+    <view class="share-btn">
+        <button class="share-btn-text" hoverClass="active" openType="share">
+            <view>
+                <text class="iconfont icon_fenxiang2"></text>
+                <text style="margin-top: 10rpx">分享</text>
+            </view>
+        </button>
+    </view>
+</view>

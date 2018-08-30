@@ -1,0 +1,51 @@
+.link {
+    position: relative;
+    margin: 30rpx 30rpx 0 0;
+    height: 88rpx;
+}
+
+.link .link-jump {
+    float: left;
+    width: 568rpx;
+    height: 88rpx;
+}
+
+.link .link-jump .link-left {
+    float: left;
+    width: 88rpx;
+    background-color: #539ef2;
+    border-top-left-radius: 8rpx;
+    border-bottom-left-radius: 8rpx;
+}
+
+.link .link-jump .link-left .link-book {
+    background-position: -232rpx -595rpx;
+    width: 32rpx;
+    height: 38rpx;
+    margin: 25rpx 28rpx;
+}
+
+.link .link-jump .link-title {
+    float: left;
+    width: 440rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background-color: #edf0f3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-top-right-radius: 8rpx;
+    border-bottom-right-radius: 8rpx;
+    font-size: 24rpx;
+    color: #8b97a4;
+    padding: 0 20rpx;
+}
+
+.link .del-link {
+    width: 40rpx;
+    height: 40rpx;
+    background-position: 0 -476rpx;
+    position: absolute;
+    top: 24rpx;
+    right: 66rpx;
+}

@@ -1,0 +1,252 @@
+page {
+    background-color: #f5f5f5;
+}
+
+scroll-view {
+    background-color: #f5f5f5;
+}
+
+.btn-box {
+    box-sizing: border-box;
+    width: 100%;
+    height: 140rpx;
+    padding: 30rpx;
+    background: #fff;
+}
+
+.btn-box .btn-box-small {
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    width: 330rpx;
+    height: 80rpx;
+    margin: 0;
+    padding: 0;
+    line-height: 80rpx;
+    border: none!important;
+    border-radius: 10rpx;
+    background: #f5f5f5;
+    text-align: center;
+    font-size: 30rpx;
+    color: #2a2e3d;
+}
+
+.btn-box .btn-box-small image {
+    display: inline-block;
+    float: left;
+    width: 40rpx;
+    height: 40rpx;
+    margin-top: 20rpx;
+}
+
+.btn-box-small-l image {
+    margin-left: 47rpx;
+    margin-right: 13rpx;
+}
+
+.btn-box-small-r {
+    margin-left: 30rpx!important;
+}
+
+.btn-box-small-r image {
+    margin-left: 77rpx;
+    margin-right: 20rpx;
+}
+
+.btn-box .btn-box-small text {
+    display: inline-block;
+    float: left;
+}
+
+.live-list {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 30rpx 0 30rpx;
+    background-color: #f5f5f5;
+}
+
+.list {
+    position: relative;
+    margin-top: 20rpx;
+    padding: 30rpx 27rpx 30rpx 30rpx;
+    border-radius: 8rpx;
+    background: #fff;
+}
+
+.cheap-tag {
+    position: absolute;
+    bottom: 160rpx;
+    right: -6rpx;
+    width: 115rpx;
+    height: 45rpx;
+}
+
+.cheap-text {
+    position: absolute;
+    bottom: 165rpx;
+    right: 0rpx;
+    min-width: 109rpx;
+    height: 40rpx;
+    padding: 0 5rpx;
+    line-height: 40rpx;
+    font-size: 20rpx;
+    color: #fff;
+    text-align: center;
+    background: #ff412e;
+    border-top-left-radius: 20rpx;
+    border-bottom-left-radius: 20rpx;
+}
+
+.title-box {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 50rpx;
+    max-height: 100rpx;
+    line-height: 50rpx;
+    font-weight: bold;
+    font-size: 32rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.tag {
+    display: inline-block;
+    float: left;
+    box-sizing: border-box;
+    width: auto;
+    height: 30rpx;
+    line-height: 30rpx;
+    margin-top: 10rpx;
+    margin-right: 8rpx;
+    padding: 0 8rpx;
+    border: 1rpx solid #ff8e92;
+    border-radius: 5rpx;
+    text-align: center;
+    font-weight: normal;
+    font-size: 20rpx;
+    color: #ff8e92;
+}
+
+.tag2 {
+    margin-right: 15rpx;
+}
+
+.date {
+    display: inline-block;
+    width: auto;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 23rpx;
+    color: #a3a7b6;
+}
+
+.date image {
+    display: inline-block;
+    float: left;
+    width: 18rpx;
+    height: 18rpx;
+    margin: 11rpx 6rpx 0 0;
+}
+
+.status-info {
+    height: 134rpx;
+    position: relative;
+}
+
+.teacher {
+    float: left;
+    width: 88rpx;
+    height: 134rpx;
+    margin: 29rpx 15rpx 0 0;
+}
+
+.avatar {
+    display: inline-block;
+    float: left;
+    width: 64rpx;
+    height: 64rpx;
+    margin-left: 12rpx;
+    border-radius: 50%;
+    background: #e4e4ed;
+}
+
+.name {
+    display: inline-block;
+    float: left;
+    margin-top: 10rpx;
+    width: 100%;
+    height: 22rpx;
+    line-height: 22rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+    text-align: center;
+}
+
+.one-line {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: 46rpx;
+    line-height: 46rpx;
+    font-size: 30rpx;
+    color: #f99a4a;
+    text-align: right;
+}
+
+.gray {
+    color: #a1a7c7;
+}
+
+.pic {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 150rpx;
+    height: 130rpx;
+}
+
+.pic image {
+    width: 150rpx;
+    height: 130rpx;
+}
+
+.two-line {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100rpx;
+    text-align: right;
+}
+
+.price {
+    height: 56rpx;
+}
+
+.old-price {
+    margin-right: 22rpx;
+    font-size: 26rpx;
+    color: #7d829a;
+    text-decoration: line-through;
+}
+
+.new-price {
+    font-size: 48rpx;
+    color: #ef533d;
+}
+
+.new-price text {
+    font-size: 26rpx;
+}
+
+.state {
+    height: 41rpx;
+    line-height: 41rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.yellow {
+    color: #f99a4a;
+}

@@ -1,0 +1,63 @@
+<template name="pronun-audio">
+    <view class="pronun-audio" wx:if="{{voice.voice_url}}">
+        <audio binderror="getAudioError" id="{{voice.voice_url}}" src="{{voice.voice_url}}"></audio>
+        <view class="audio-player">
+            <view class="audio-title">{{voice.voice_name||'领读音频'}}</view>
+            <view class="audio-voice" wx:if="{{waitting||false}}">
+                <view class="line">
+                    <view></view>
+                    <view></view>
+                    <view></view>
+                    <view></view>
+                    <view></view>
+                    <view></view>
+                </view>
+                <view class="circlebg"></view>
+            </view>
+            <text class="current-postition">{{currentPositionFormatted||''}}</text>
+            <text class="duration">{{durationFormatted||''}}</text>
+            <view bindtap="playAudio" class="btn-play ico" data-index="{{index}}" data-src="{{voice.voice_url}}" data-title="{{voice_name}}" hoverClass="btn-hover-class" size="mini" wx:if="{{status!==1}}"></view>
+            <view bindtap="pauseAudio" class="btn-pause ico" data-src="{{voice.voice_url}}" data-title="{{voice_name}}" hoverClass="btn-hover-class" size="mini" wx:if="{{status===1}}"></view>
+            <movable-area class="audio-slider">
+                <movable-view bindtouchend="seekAudioEnd" bindtouchstart="seekAudioStart" class="audio-slider-handle" direction="horizontal" x="{{sliderHandlePosition||0}}"></movable-view>
+                <view class="past-time" style="width: {{sliderHandlePosition}}px;"></view>
+            </movable-area>
+        </view>
+    </view>
+</template>
+<template name="jdk-audio">
+    <view class="jdk-audio">
+        <audio binderror="getAudioError" id="{{voice_url}}" src="{{voice_url}}"></audio>
+        <view class="audio-player">
+            <view class="audioLoading" wx:if="{{status===4}}">
+                <view class="loading-ico"></view>
+            </view>
+            <block wx:else>
+                <view bindtap="playAudio" class="btn-play" data-index="{{index}}" data-src="{{voice_url}}" data-title="{{voice_name}}" hoverClass="btn-hover-class" size="mini" wx:if="{{status!==1}}">
+                    <view class="ico"></view>
+                </view>
+                <view bindtap="pauseAudio" class="btn-pause" data-src="{{voice_url}}" data-title="{{voice_name}}" hoverClass="btn-hover-class" size="mini" wx:if="{{status===1}}">
+                    <view class="ico"></view>
+                </view>
+            </block>
+            <view class="audio-title">{{voice_name}}</view>
+            <view class="audio-voice" wx:if="{{waitting||false}}">
+                <view class="line">
+                    <view></view>
+                    <view></view>
+                    <view></view>
+                    <view></view>
+                    <view></view>
+                    <view></view>
+                </view>
+                <view class="circlebg"></view>
+            </view>
+            <movable-area class="audio-slider">
+                <movable-view bindtouchend="seekAudioEnd" bindtouchstart="seekAudioStart" class="audio-slider-handle" direction="horizontal" x="{{sliderHandlePosition||0}}"></movable-view>
+                <view class="past-time" style="width: {{sliderHandlePosition}}px;"></view>
+            </movable-area>
+            <text class="current-postition">{{currentPositionFormatted||''}}</text>
+            <text class="duration">{{durationFormatted||''}}</text>
+        </view>
+    </view>
+</template>

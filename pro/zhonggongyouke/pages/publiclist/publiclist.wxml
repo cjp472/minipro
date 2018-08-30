@@ -1,0 +1,54 @@
+<template name="publiclist">
+    <view class="public-list-box" wx:if="{{coursemenu.showtype==1}}">
+        <view class="public-des" wx:if="{{coursemenu.menu_hide==true}}">
+            <text class="txt-1">{{coursemenu.chapter_num}}课时  </text>
+            <text class="txt-2">每课时约15分钟</text>
+        </view>
+        <view class="p-t-33">
+            <view class="public-list" data-chapter_id="{{item.chapter_id}}" style="min-height: 70rpx;" wx:for="{{coursemenu.menu_list}}" wx:key="*menu_list">
+                <view class="public-list-item" wx:if="{{item.index<10}}">0{{item.index}}</view>
+                <view class="public-list-item" wx:else>{{item.index}}</view>
+                <view class="public-list-des" style="min-height: 70rpx;">
+                    <image class="public-list-tip" src="/resources/public/top-1.png" wx:if="{{index==0}}"></image>
+                    <image class="public-list-tip public-list-tip-3" src="/resources/public/top4.png" wx:elif="{{item.index==coursemenu.chapter_num}}"></image>
+                    <image class="public-list-tip" src="/resources/public/top-2.png" wx:else></image>
+                    <view class="public-list-title">{{item.name}}</view>
+                    <view class="public-list-bottom {{item.index==coursemenu.chapter_num?'border-none':''}}" style="height: 28rpx;"></view>
+                </view>
+                <view style="clear:both;"></view>
+            </view>
+        </view>
+    </view>
+    <view class="public-list-box" wx:if="{{coursemenu.showtype==2}}">
+        <view class="public-des" wx:if="{{coursemenu.menu_hide==true}}">
+      {{coursemenu.chapter_num}}课时 每课时约15分钟 | 已学{{coursemenu.has_study}}课时，未学{{coursemenu.not_study}}课时
+    </view>
+        <view class="p-t-33">
+            <view class="public-list" wx:for="{{coursemenu.menu_list}}" wx:key="*menu_list">
+                <view class="public-list-item" wx:if="{{item.index<10}}">0{{item.index}}</view>
+                <view class="public-list-item" wx:else>{{item.index}}</view>
+                <view class="public-list-des">
+                    <image class="public-list-tip" src="/resources/public/top-1.png" wx:if="{{item.index==1}}"></image>
+                    <image class="public-list-tip public-list-tip-3" src="/resources/public/top4.png" wx:elif="{{item.index==coursemenu.chapter_num}}"></image>
+                    <image class="public-list-tip" src="/resources/public/top-2.png" wx:else></image>
+                    <view bindtap="seedetail" class="public-list-title" data-chapter_id="{{item.chapter_id}}" data-course_id="{{coursemenu.course_id}}" data-url="{{item.video_url}}">{{item.name}}</view>
+                    <view class="public-list-bottom {{item.index==coursemenu.chapter_num?'border-none':''}}">
+                        <view bindtap="seedetail" class="public-list-learn" data-chapter_id="{{item.chapter_id}}" data-course_id="{{coursemenu.course_id}}" data-url="{{item.video_url}}" wx:if="{{item.is_study==true}}">
+                            <image class="public-list-img" src="/resources/public/learned.png"></image>
+                            <text class="learned">已学习</text>
+                        </view>
+                        <view bindtap="seedetail" class="public-list-learn" data-chapter_id="{{item.chapter_id}}" data-course_id="{{coursemenu.course_id}}" data-url="{{item.video_url}}" wx:if="{{item.is_study==false}}">
+                            <image class="public-list-img" src="/resources/public/un-learn.png"></image>
+              未学习
+            </view>
+                        <view bindtap="seedoc" class="doc" data-url="{{item.material}}" wx:if="{{item.material!=''}}">
+                            <image class="doc-img" src="/resources/live/doc.png"></image>
+              查看讲义
+            </view>
+                    </view>
+                </view>
+                <view style="clear:both;"></view>
+            </view>
+        </view>
+    </view>
+</template>

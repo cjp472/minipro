@@ -1,0 +1,136 @@
+<import src="../shared/actionSheet/actionSheet.wxml"></import>
+<import src="../shared/globalMsg/globalMsg.wxml"></import>
+<view class="container  {{actionSheet.showActionSheet||posterBox?'no-scroll':''}} {{posterBox?'blur':''}}">
+    <go-to-home-page down="{{true}}" wx:if="{{showGoToIndex}}"></go-to-home-page>
+    <view class="sound player-is-{{player.state.paused?'paused':'playing'}}">
+        <view class="sound-intro">
+            <view class="sound-title">
+                <text class="sound-title-text">{{player.sound.title||player.sound.track_title||''}}</text>
+            </view>
+            <view class="sound-info">
+                <image class="sound-image" src="{{player.sound.coverLarge||playPage.albumInfo.coverLarge}}"></image>
+                <view class="sound-playTime">
+                    <view class="playtimes-wrap">
+                        <icon class="icon icon-sound-playTimes"></icon>
+                        <text class="text-playTimes">{{player.sound.calcPlaytimes}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="share-container">
+                <view class="btn-share-wrap">
+                    <button plain class="btn-share" openType="share">
+                        <icon class="icon-share icon-to-wxq"></icon>
+                    </button>
+                    <button plain bindgetuserinfo="wechatLogin" class="btn-login btn-share" lang="zh_CN" openType="getUserInfo" wx:if="{{!isLogin}}">
+                        <icon bindanimationiteration="onAniIteration" class="icon-share icon-to-pyq {{aniIteration?'pulse':''}}"></icon>
+                    </button>
+                    <button plain bindtap="createPoster" class="btn-share" wx:else>
+                        <icon animationstart="onAnimationstart" bindanimationiteration="onAniIteration" class="icon-share icon-to-pyq {{aniIteration?'pulse':''}}"></icon>
+                    </button>
+                </view>
+            </view>
+            <view class="play-status-wrap" wx:if="{{isPaid&&!currItemIsFree&&(!isLogin||!currItemBoughtStatus)}}">
+                <view catchtap="toConfirmPayment" class="to-buy">立即购买</view>
+                <view class="play-status-tip">收听完整版请</view>
+            </view>
+            <view class="process-panel">
+                <view bindtap="{{player.tapSeekBar}}" class="player-slider">
+                    <view class="player-inner">
+                        <view class="player-load" style="width: {{player.state.downloadPercent}}%;"></view>
+                        <view class="player-play" style="width: {{currentPosition/player.state.duration*100}}%">
+                            <icon bindtouchend="{{player.touchendHandler}}" bindtouchmove="{{player.touchmoveHandler}}" bindtouchstart="{{player.touchstartHandler}}" class="player-dot {{player.playerCtrlHolded?'on-hold':''}}"></icon>
+                        </view>
+                    </view>
+                </view>
+                <view class="time">
+                    <text class="time-left">{{player.state.calcCurrentPosition||'00:00'}}</text>
+                    <text class="time-right">{{player.sound.calcDuration}}</text>
+                </view>
+                <view catchtap="{{player.tapSeekBar}}" class="player-slider-transparent"></view>
+                <view class="player-ctrl">
+                    <view class="list-wrap">
+                        <icon catchtap="{{player.tapPlaylistBtn}}" class="icon icon-sound-list" src="../../images/icon-sound-list.png"></icon>
+                        <text>播放列表</text>
+                    </view>
+                    <view class="ctrl-center player-is-{{player.state.paused?'paused':'playing'}}">
+                        <icon class="icon icon-prev inStart" wx:if="{{player.inStart}}"></icon>
+                        <icon catchtap="{{player.tapPrevBtn}}" class="icon icon-prev" wx:else></icon>
+                        <form bindsubmit="collectNoticeId" class="icon icon-sound-play player-playBtn" reportSubmit="true" wx:if="{{isLogin}}">
+                            <button plain catchtap="{{player.tapPlayBtn}}" class="icon icon-sound-play player-playBtn" formType="submit"></button>
+                        </form>
+                        <icon catchtap="{{player.tapPlayBtn}}" class="icon icon-sound-play player-playBtn" wx:else></icon>
+                        <icon catchtap="{{player.tapPauseBtn}}" class="icon icon-sound-pause player-pauseBtn"></icon>
+                        <icon class="icon icon-next inEnd" wx:if="{{player.inEnd}}"></icon>
+                        <icon catchtap="{{player.tapNextBtn}}" class="icon icon-next" wx:else></icon>
+                    </view>
+                    <picker bindcancel="handleCloseTimeCancel" bindchange="handleCloseTimeChange" class="timer" range="{{closeTimeArray}}" value="{{index}}">
+                        <view class="picker">
+                            <icon class="icon icon-sound-close-time"></icon>
+                            <text>定时关闭</text>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class="user-info">
+                <view bindtap="toAlbumDetail" class="user-info-left" data-album-id="{{player.sound.albumId}}">
+                    <image class="user-logo" src="{{player.sound.albumImage}}"></image>
+                    <view class="album-title">
+            {{player.sound.albumTitle}}
+            <view class="sub-count">{{playPage.countInfo.albumSubscribes[currItemAlbumId]}}人收藏</view>
+                    </view>
+                </view>
+                <view bindtap="subscribe" class="btn-subscribe btn-unsubscribe" data-album-id="{{currItemAlbumId}}" wx:if="{{isFavorite}}">已收藏</view>
+                <view bindtap="subscribe" class="btn-subscribe" data-album-id="{{currItemAlbumId}}" wx:else>
+                    <text class="plus">+</text>收藏
+          </view>
+            </view>
+            <view class="sound-brief">
+                <text class="brief-title">主播 {{player.sound.nickname}}</text>
+                <rich-text class="brief-cont" nodes="{{player.sound.intro}}"></rich-text>
+            </view>
+        </view>
+    </view>
+    <template is="globalMsg" data="{{globalMsg:globalMsg}}" wx:if="{{globalMsg}}"></template>
+    <template is="actionSheet" data="{{actionSheet:actionSheet,player:player}}"></template>
+</view>
+<view bindtap="closeBox" class="pop-up-box-container" wx:if="{{isBoxShowing}}">
+    <view catchtap="nothing" class="pop-up-box-wrap">
+        <view class="box-hd">
+            <view catchtap="closeBox" class="icon icon-close-box" style="background:linear-gradient(to top right, #FFFFFF 0%, #FFFFFF 50%, rgba(245,245,245,.8) 50%, rgba(245,245,245,.8) 100%);">
+                <image src="../../images/icon-delete.png"></image>
+            </view>
+            <text>请前往喜马拉雅FM 公众号购买</text>
+        </view>
+        <view class="box-bd">
+            <view class="box-bd-item" style="white-space: normal;line-height: 1.8;">基于微信小程序平台的运营规范，喜马拉雅lite小程序暂不支持购买，请微信搜索公众号‘喜马拉雅FM’完成购买</view>
+        </view>
+        <view class="box-ft">
+            <view bindtap="closeBox" class="btn btn-to-pay btn-to-pay-wx">知道了</view>
+        </view>
+    </view>
+</view>
+<view bindtap="closePosterBox" class="pop-box poster-box" hidden="{{!posterBox}}">
+    <view class="pop-content poster-content">
+        <view class="poster-preview-wrap">
+            <view class="poster-preview">
+                <image catchtap="nothing" class="poster" src="{{posterPath}}" style="width:{{canvasW/2}}px;height:{{canvasH/2}}px;"></image>
+                <button plain catchtap="savePoster" class="btn-save-poster {{posterSuccess?'posterSuccess':''}}">保存图片</button>
+            </view>
+        </view>
+        <canvas canvasId="poster" catchtap="nothing" class="poster" style=" margin-top:100px;opacity: 0;width:{{canvasW}}px;height:{{canvasH}}px"></canvas>
+    </view>
+</view>
+<view class="pop-box authorize-box" wx:if="{{authorizeBox}}">
+    <view class="pop-content authorize-box-content">
+        <image bindtap="closeAuthorizeBox" class="close" src="../../images/icon-delete.png"></image>
+        <view class="app-box-pic-wrap">
+      微信授权
+    </view>
+        <view class="app-box-text">
+            <text>请在设置界面打开“保存到相册”</text>
+        </view>
+        <view class="btn-know-area">
+            <button plain bindopensetting="toSetting" class="btn-know" openType="openSetting">去设置</button>
+        </view>
+    </view>
+</view>

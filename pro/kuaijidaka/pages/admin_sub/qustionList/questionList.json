@@ -1,0 +1,12 @@
+{
+    "navigationBarTitleText": "",
+    "backgroundColor": "#4f598f",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 100,
+    "navigationBarBackgroundColor": "#4f598f",
+    "usingComponents": {
+        "jdk-theme": "/components/topic/topic",
+        "question-list": "/components/answerSheet/adminModel/adminModel"
+    }
+}

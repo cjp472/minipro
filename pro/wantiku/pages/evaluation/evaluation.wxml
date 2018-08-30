@@ -1,0 +1,22 @@
+<view class="container {{theme}}">
+    <view class="pj-title">
+        <text>评价该课程</text>
+    </view>
+    <form bindsubmit="formsubmit">
+        <view class="pj-star">
+            <view bindtap="chooseStar" class="star">
+                <view class="{{star>0?'starhv-list':'star-list'}}" data-id="1"></view>
+                <view class="{{star>1?'starhv-list':'star-list'}}" data-id="2"></view>
+                <view class="{{star>2?'starhv-list':'star-list'}}" data-id="3"></view>
+                <view class="{{star>3?'starhv-list':'star-list'}}" data-id="4"></view>
+                <view class="{{star>4?'starhv-list':'star-list'}}" data-id="5"></view>
+            </view>
+        </view>
+        <view class="pj-cont">
+            <textarea autoFocus="true" class="pj-text" maxlength="140" name="evaluation" placeholder="请输入您要评价的内容" placeholderClass="pj-contm"></textarea>
+        </view>
+        <button class="pj-submit" formType="submit">
+        提交
+    </button>
+    </form>
+</view>

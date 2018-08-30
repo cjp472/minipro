@@ -1,0 +1,65 @@
+.root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comment-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.comment-header button {
+    background-color: #fff;
+    padding: 15rpx 30rpx;
+    margin: 20rpx 30rpx;
+    border: 1rpx solid #ccc;
+    border-radius: 10rpx;
+    color: #404040;
+    font-size: 30rpx;
+}
+
+.comment-header .finish {
+    color: #12b7f5;
+}
+
+.comment-info {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 30rpx;
+}
+
+.text {
+    color: #ccc;
+    font-size: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+textarea {
+    width: 100%;
+    height: 200rpx;
+    color: #000;
+    font-size: 30rpx;
+}
+
+.placeholder {
+    color: #9a9a9a;
+}
+
+.comment-footer {
+    margin-bottom: 80rpx;
+}
+
+.ads {
+    color: #666;
+    font-size: 24rpx;
+    text-align: center;
+    padding-bottom: 10rpx;
+}

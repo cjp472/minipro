@@ -1,0 +1,38 @@
+<import src="/template/deblocking/deblocking_template.wxml"></import>
+<view class="practice {{theme}} {{iPhoneX?'iphoneX':''}}">
+    <scroll-view class="practice-box {{progress.ExamSiteId==0?'hei100':''}}" scrollY="true">
+        <form bindsubmit="formSubmit" reportSubmit="true">
+            <view class="subject-class-list">
+                <view bindtap="bindCourse" class="subject-class {{node.style}}" data-level="{{node.siteLevel}}" data-parentid="{{node.parentId}}" data-rootid="{{node.rootId}}" data-siteid="{{node.siteId}}" style="display:{{node.display?'block':'none'}}" wx:for="{{treeData}}" wx:for-item="node" wx:key="siteId">
+                    <view class="subject-class-title">
+                        <view class="subject-class-title-text">
+                            <text>{{node.siteName}}</text>
+                        </view>
+                        <button catchtap="catchtapSubmit" class="subject-class-video" data-siteid="{{node.siteId}}" formType="submit" hoverClass="none"></button>
+                    </view>
+                    <view class="subject-class-info">
+                        <text class="iconfont icon_star_selected {{item==1?'active':''}}" wx:for="{{node.starCount}}" wx:key="starCount-key"></text>
+                        <text>{{node.userTotalQuestions}}/{{node.totalQuestions}}道</text>
+                    </view>
+                </view>
+            </view>
+        </form>
+    </scroll-view>
+    <form bindsubmit="formSubmit" reportSubmit="true">
+        <button class="practice-continue" data-siteid="{{progress.ExamSiteId}}" formType="submit" hoverClass="none" wx:if="{{progress.ExamSiteId!=0}}">
+            <view class="text">继续学习：{{ExamSiteNameList}}</view>
+            <view class="iconfont icon_arrow_right"></view>
+        </button>
+    </form>
+    <view bindtap="goBackIndex" class="goBackIndex" wx:if="{{IsShare==1}}">
+        <text class="iconfont icon_home"></text>
+    </view>
+    <form bindsubmit="formSubmitHongBao" reportSubmit="{{true}}">
+        <button animation="{{s_animationData}}" class="s_hongbao {{hbanmationState?'hide':''}}" formType="submit" hoverClass="none" wx:if="{{ifHongb&&IsShare==1&&buyState}}">
+            <image class="s_hongbaoImage" src="http://img02.exam8.com/img2017/minapp/group/hongbaox.png"></image>
+        </button>
+    </form>
+    <view bindtap="shareBoxBackground" class="share_practice_box" wx:if="{{sharePractice}}">
+        <template is="deblockingTemplate" data="{{theme:theme,courseShareName:courseShareName}}"></template>
+    </view>
+</view>

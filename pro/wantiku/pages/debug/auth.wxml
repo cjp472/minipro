@@ -1,0 +1,10 @@
+<view>
+    <view>
+        <button bindtap="bindLogin" type="default">获取用户登录code</button>
+        <text class="debug">{{code}}</text>
+    </view>
+    <view>
+        <button bindtap="bindAuth" type="default">发送登录请求</button>
+        <text class="debug">{{res}}</text>
+    </view>
+</view>

@@ -1,0 +1,57 @@
+<view wx:if="{{kind==3||kind==6||kind==9||kind==10}}">
+    <view class="title_bg" wx:if="{{contentJson.voice.voice_url}}">
+        <view>
+            <slot></slot>
+        </view>
+        <view class="mt20">
+            <jdk-theme-audio colorScheme="{{colorScheme}}" voice="{{contentJson.voice}}"></jdk-theme-audio>
+        </view>
+    </view>
+    <view class="title_bg mt20 mb20 word-wrap" wx:if="{{contentJson.text}}">
+        <slot></slot>
+        <view class="mt10">{{contentJson.text}}</view>
+    </view>
+    <view class="title_bg" wx:if="{{contentJson.notes}}">
+        <text class="mb10 block col9">备注:</text>
+        <text class="word-wrap">{{contentJson.notes}}</text>
+    </view>
+</view>
+<view class="lh45 col3" wx:if="{{kind==5}}">
+    <view class="{{haveBg?'title_bg':'fz28'}}" wx:if="{{contentJson}}">
+        <rich-text nodes="{{'【填空题】'+contentJson.text}}" style="display:inline-block;line-height:75rpx;white-space:pre-line;"></rich-text>
+    </view>
+</view>
+<view class="lh45 col3" wx:if="{{kind==0||kind==1||kind==2||kind==4}}">
+    <view class="{{haveBg?'title_bg':'fz28'}}" wx:if="{{contentJson.text||contentJson.media}}">
+        <view class="{{contentJson.media.length==0?'':'mb20'}}" wx:if="{{contentJson.text}}">
+            <text class="word-wrap">
+                <slot></slot>{{contentJson.text}}</text>
+        </view>
+        <block wx:for="{{contentJson.media}}" wx:for-item="it" wx:key="{{type}}">
+            <view wx:if="{{it.type=='picture'}}">
+                <view class="{{index!=contentJson.media.length-1?'mb20':''}}">
+                    <view catchtap="previewImg" class="{{i!=it.content.length-1?'mb20':''}}" data-url="{{item.picture_url}}" wx:for="{{it.content}}" wx:for-index="i" wx:key="{{picture_url}}">
+                        <image lazyLoad mode="widthFix" src="{{item.picture_url}}" style="width:100%;display:block;"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="{{index!=contentJson.media.length-1?'mb20':''}}" wx:if="{{it.type=='voice'||it.type=='recording'}}">
+                <view class="{{i!=it.content.length-1?'mb20':''}}" wx:for="{{it.content}}" wx:for-index="i" wx:key="{{item}}">
+                    <jdk-theme-audio colorScheme="{{colorScheme}}" voice="{{item}}"></jdk-theme-audio>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<view wx:if="{{kind==-1}}">
+    <view wx:if="{{contentJson.text}}">
+        <text class="word-wrap">
+            <slot></slot>{{contentJson.text}}</text>
+    </view>
+    <view class="aimg-list" wx:if="{{imgList.length>0||videoList.length>0}}">
+        <thumbnail imgArr="{{imgList}}" videoArr="{{videoList}}"></thumbnail>
+    </view>
+    <view class="mt20" wx:for="{{voiceList}}" wx:key="{{item.type}}">
+        <jdk-theme-audio colorScheme="{{colorScheme}}" voice="{{item.content[0]}}"></jdk-theme-audio>
+    </view>
+</view>

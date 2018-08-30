@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "打卡日历",
+    "backgroundColor": "#22dd82",
+    "enablePullDownRefresh": true,
+    "enableOnReachBottom": true,
+    "usingComponents": {
+        "jdk-logo": "/components/logo/logo",
+        "jdk-guide-card": "/components/guide-card/guide-card"
+    }
+}

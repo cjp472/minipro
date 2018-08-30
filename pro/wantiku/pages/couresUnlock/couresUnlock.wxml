@@ -1,0 +1,23 @@
+<view class="container  {{theme}}  {{isButtonClickState?'filter-blur':''}}  ">
+    <view class="prompt-info">
+        <text class="line"></text>
+        <text class="text-box">添加完成后即可解锁</text>
+        <text class="line"></text>
+    </view>
+    <view class="account-cont">
+        <image class="photosAlbum" src="{{MasterIfno.qrCode}}"></image>
+        <view class="account-number">
+            
+           微信号： <text>{{MasterIfno.weChat}}</text>
+        </view>
+    </view>
+    <view class="btn-cont">
+        <view bindtap="copyAccountTap" class="copy-button">
+            <text class="iconfont icon_weixin2"></text>添加老师微信号</view>
+    </view>
+</view>
+<view bindtap="onChangeModal" class="modal-mask" wx:if="{{showModal}}">
+    <view class="modal-bd">
+        <image src="{{imgData.imgUrl}}" style="width:{{imgData.imgWidth}}; height:{{imgData.imgHeight}}"></image>
+    </view>
+</view>

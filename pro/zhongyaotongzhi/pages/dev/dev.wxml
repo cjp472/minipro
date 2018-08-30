@@ -1,0 +1,72 @@
+<view>
+    <view class="notice-header">
+        <button bindtap="changeType" class="notice-header-item {{type=='most'?'selected':'unselected'}}" data-type="most">
+            <view class="notice-header-item-text">热门通知</view>
+            <image class="notice-header-item-icon" src="/images/top_arrow.png"></image>
+        </button>
+        <button bindtap="changeType" class="notice-header-item {{type=='latest'?'selected':'unselected'}}" data-type="latest">
+            <view class="notice-header-item-text">最近通知</view>
+            <image class="notice-header-item-icon" src="/images/top_arrow.png"></image>
+        </button>
+    </view>
+    <view class="notice-content">
+        <view class="notice-content-item {{type=='most'?'selected':'unselected'}}" wx:if="{{type=='most'&&mostNotices!=null}}">
+            <view bindtap="{{!buttonClicked?'toDetail':''}}" class="notice-list-item" data-nid="{{item.nid}}" wx:for="{{mostNotices}}" wx:key="nid">
+                <image class="cover" mode="aspectFill" src="{{item.bg_img}}"></image>
+                <view class="cover-overshadow"></view>
+                <view class="cover-info">
+                    <view class="cover-top">
+                        <label wx:if="{{item.status==1}}">违规</label>
+                        <view catchtap="{{!buttonClicked?'setStatus':''}}" class="{{item.status==0?'warn':'normal'}}" data-index="{{index}}" data-nid="{{item.nid}}" data-status="{{item.status}}">{{item.status==0?'设置为违规':'设置为正常'}}</view>
+                    </view>
+                    <view>
+                        <view class="notice-list-item-title">{{item.title}}</view>
+                        <view class="notice-list-item-time">{{item.create_time}}</view>
+                    </view>
+                </view>
+                <view class="notice-list-item-bottom info-row">
+                    <view class="info-row">
+                        <view class="notice-list-item-count info-row">
+                            <image src="/images/visit.png"></image>
+                            <view>{{item.view_count}}</view>
+                        </view>
+                        <view class="notice-list-item-count info-row">
+                            <image src="/images/comment_gray.png"></image>
+                            <view>{{item.com_count}}</view>
+                        </view>
+                    </view>
+                    <view class="notice-list-item-name">{{item.sign_name}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="notice-content-item {{type=='latest'?'selected':'unselected'}}" wx:if="{{type=='latest'&&latestNotices!=null}}">
+            <view bindtap="{{!buttonClicked?'toDetail':''}}" class="notice-list-item" data-nid="{{item.nid}}" wx:for="{{latestNotices}}" wx:key="nid">
+                <image class="cover" mode="aspectFill" src="{{item.bg_img}}"></image>
+                <view class="cover-overshadow"></view>
+                <view class="cover-info">
+                    <view class="cover-top">
+                        <label wx:if="{{item.status==1}}">违规</label>
+                        <view catchtap="{{!buttonClicked?'setStatus':''}}" class="{{item.status==0?'warn':'normal'}}" data-index="{{index}}" data-nid="{{item.nid}}" data-status="{{item.status}}">{{item.status==0?'设置为违规':'设置为正常'}}</view>
+                    </view>
+                    <view>
+                        <view class="notice-list-item-title">{{item.title}}</view>
+                        <view class="notice-list-item-time">{{item.create_time}}</view>
+                    </view>
+                </view>
+                <view class="notice-list-item-bottom info-row">
+                    <view class="info-row">
+                        <view class="notice-list-item-count info-row">
+                            <image src="/images/visit.png"></image>
+                            <view>{{item.view_count}}</view>
+                        </view>
+                        <view class="notice-list-item-count info-row">
+                            <image src="/images/comment_gray.png"></image>
+                            <view>{{item.com_count}}</view>
+                        </view>
+                    </view>
+                    <view class="notice-list-item-name">{{item.sign_name}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

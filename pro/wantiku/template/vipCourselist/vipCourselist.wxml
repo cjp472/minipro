@@ -1,0 +1,58 @@
+<template name="vipCourselist">
+    <view catchtap="onCourseItemJs" class="vip-course-item" data-CourseName="{{item.CourseName}}" data-IsCollection="{{item.IsCollection}}" data-course-id="{{item.WebcastCourseId}}" wx:for="{{webcastCourseList}}" wx:key="vipCourseList-key">
+        <view class="group-corner-flag" wx:if="{{item.TuanVipPrice&&!IOS}}">拼团</view>
+        <view class="vip-course-active" wx:if="{{item.IsCollection}}">
+            <text>{{item.CollectionMark}}</text>
+        </view>
+        <view class="title">
+            <view class="icon" wx:if="{{item.IsRecommend==1}}">荐</view>
+            <text>{{item.CourseName}}</text>
+        </view>
+        <view class="time text-hidden flex-row">
+            <text class="iconfont icon_time1"></text>
+            <text>{{item.BeginCourseDateStr}}-{{item.EndCourseDateStr}}</text>
+            <text wx:if="{{!item.IsCollection}}"> ({{item.CourseQuantityStr}})</text>
+        </view>
+        <view class="bottom flex-row">
+            <view class="bottoml flex-row">
+                <view class="teacher" wx:for="{{item.WebcastTeacherList}}" wx:key="teacherlist-ke">
+                    <image mode="widhFix" src="{{item.TeacherUrl}}"></image>
+                    <view class="name">{{item.TeacherName}}</view>
+                </view>
+            </view>
+            <view class="bottomr {{IOS?'btm':''}}">
+                <view class="price-box {{item.IsCollection?'price-location':''}}" wx:if="{{!IOS}}">
+                    <view class="pay-end" wx:if="{{item.SaleInfo!=''}}">{{item.SaleInfo}}</view>
+                    <view class="price  group-price-box" wx:if="{{item.TuanVipPrice&&item.SaleInfo==''}}">
+                        <view class="old-price">
+                            <view>￥</view>
+                            <view>{{item.CoursePrice+(item.NeedBook?item.CourseBookPrice:'')}}</view>
+                        </view>
+                        <view class="group-price">
+                            <text class="group-price-symbol">￥</text>
+                            <text>{{item.TuanVipPrice}}</text>
+                        </view>
+                    </view>
+                    <view class="price" wx:if="{{!item.TuanVipPrice||item.SaleInfo!=''}}">
+                        <view>
+                            <block wx:if="{{item.CollectionLowestPrice&&item.CollectionLowestPrice!=item.CoursePrice}}">
+                                <text class="group-price-symbol">￥</text>
+                                <text>{{item.CollectionLowestPrice}}</text>
+                                <text class="group-price-line">-</text>
+                            </block>
+                            <text class="group-price-symbol" wx:if="{{item.CollectionLowestPrice==item.CoursePrice||item.CollectionLowestPrice==0}}">￥</text>
+                            <text>{{item.CoursePrice+(item.NeedBook?item.CourseBookPrice:'')}}</text>
+                        </view>
+                    </view>
+                </view>
+                <block wx:if="{{item.SaleState==''&&!item.IsCollection}}">
+                    <view class="pay-person" wx:if="{{item.IsLimit==1&&item.SaleInfo==''}}">仅{{IOS?'限':'售'}}{{item.TotalCount}}{{IOS?'人':'席'}},还剩
+              <text style="color:#ff7e00">{{item.RemindCount}}</text>{{IOS?'人':'席位'}}</view>
+                    <view class="pay-person" wx:else>已有
+              <text style="color:#ff7e00;">{{item.SoldCount}}</text>人{{IOS?'报名':'购买'}}</view>
+                </block>
+                <view class="pay-person" wx:else>{{item.SaleState}}</view>
+            </view>
+        </view>
+    </view>
+</template>

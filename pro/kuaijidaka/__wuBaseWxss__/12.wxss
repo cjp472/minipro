@@ -1,0 +1,28 @@
+.ico {
+    background: url(https://cdn-qiye.jingdaka.com/images/sprites_admin.png?v=47);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+}
+
+.all-bg {
+    background: url(https://cdn-qiye.jingdaka.com/images/bg_pos_admin.png);
+    background-repeat: repeat-x;
+    background-size: 10rpx;
+}
+
+.success .count {
+    color: #4f598f;
+}
+
+.error .count {
+    color: #4f598f;
+}
+
+.public .content .btn text {
+    font-size: 36rpx;
+    color: #4f598f;
+}
+
+.main-green-bg-color {
+    background-color: #4f598f!important;
+}

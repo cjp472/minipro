@@ -1,0 +1,23 @@
+<view class="capacity-report-box {{theme}} {{iPhoneX?'iphoneX':''}}">
+    <scroll-view class="capacity-report-cont" scrollY="{{true}}">
+        <view class="capacity-report-canvas">
+            <canvas canvasId="myCanvas"></canvas>
+            <view class="capacity-report-share" wx:if="{{false}}">
+                <view class="iconfont icon_fenxiang1"></view>
+            </view>
+        </view>
+        <view class="pagers-subject-cart-cont-title">
+           {{PaperName}}
+        </view>
+        <view class="pagers-subject-cart-cont-list">
+            <view catchtap="onAnswerCartJs" class="pagers-subject-cart-cont-item {{trainAnswerBtn[item.QuestionState]}}" data-question-id="{{item.RealQuestionId}}" wx:for="{{AnswerCardList}}" wx:key="AnswerCard-key">
+                <view>{{item.QuestionNumber}}</view>
+            </view>
+        </view>
+        <view style="height:30rpx;"></view>
+    </scroll-view>
+    <view class="capacity-report-bar">
+        <view catchtap="onAllAnalysisJs" class="capacity-report-bar-btn">查看全部解析</view>
+        <view catchtap="onErrorAnalysisJs" class="capacity-report-bar-btn">查看错题解析</view>
+    </view>
+</view>

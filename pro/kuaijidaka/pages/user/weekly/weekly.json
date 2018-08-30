@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "排行榜",
+    "backgroundColor": "#22dd82",
+    "enableOnReachBottom": true,
+    "usingComponents": {
+        "foot-loading": "/components/footLoading/footLoading",
+        "jdk-permission-checker": "/components/permission-checker/permission-checker",
+        "jdk-guide-card": "/components/guide-card/guide-card"
+    }
+}

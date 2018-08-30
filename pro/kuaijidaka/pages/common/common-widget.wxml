@@ -1,0 +1,35 @@
+<template name="need_add_group">
+    <view class="no-permission" wx:if="{{auth.permit_type==3&&auth.need_password==1}}">
+        <view class="shade"></view>
+        <view class="no-permission-back">
+            <view class="highlight">
+                <view class="no-permission-pic"></view>
+                <view class="official-tip">
+                    <view>请加入课程群，</view>
+                    <view>并点击群内课程链接进入学习</view>
+                </view>
+                <view class="admin-tip" wx:if="true">
+                    <view class="tip-text">课程管理员提示</view>
+                    <text>{{auth.remark}}</text>
+                </view>
+                <view catchtap="backHome" class="btn2 {{true?'no-tip':''}}">返回首页</view>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="need_password">
+    <view class="public password-public" wx:if="{{auth.permit_type==1&&auth.need_password==1}}">
+        <view class="i"></view>
+        <view class="content2">
+            <view class="h2">
+                <text>请输入课程密码</text>
+            </view>
+            <view class="pwdtip" wx:if="{{auth.remark.length>0}}">提示：{{auth.remark}}</view>
+            <view class="p">
+                <input bindinput="inputPwd" class="inputext" type="text"></input>
+            </view>
+            <view catchtap="pwdSub" class="confirm">确认</view>
+            <view catchtap="backHome" class="backHome">回到首页</view>
+        </view>
+    </view>
+</template>

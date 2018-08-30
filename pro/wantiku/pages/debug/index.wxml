@@ -1,0 +1,6 @@
+<view>
+    <navigator openType="navigate" url="../debug/auth">登录调试页</navigator>
+</view>
+<view>
+    <navigator openType="navigate" url="../debug/error">错误日志页</navigator>
+</view>

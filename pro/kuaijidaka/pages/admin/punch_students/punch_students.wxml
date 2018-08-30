@@ -1,0 +1,69 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="top">
+    <view class="manager-search-box clearfix">
+        <input bindconfirm="search" bindfocus="focusInput" class="{{inputing?'focusInput':''}}" confirmType="search" placeholder="搜索学员" placeholderClass="placeholderStyle" value="{{keyword}}"></input>
+        <cover-view class="ico search" wx:if="{{!inputing}}"></cover-view>
+        <view catchtap="cancelSearch" class="cancel" wx:if="{{inputing}}">取消</view>
+    </view>
+    <view class="calendar-list" wx:if="{{courseType==0}}">
+        <view class="weeks">
+            <view class="week {{weeksUnit.weekSelect}}" wx:for="{{calendar_list}}" wx:for-index="weeks_idx" wx:for-item="weeksUnit" wx:key="unique">{{weeksUnit.week}}</view>
+        </view>
+        <view class="days">
+            <view bindtap="dayClick" class="day {{daysUnit.grid}} {{daysUnit.weekSelect}} {{daysUnit.state}} {{daysUnit.isToday}}" data-dayInfo="{{daysUnit}}" wx:for="{{calendar_list}}" wx:for-index="days_idx" wx:for-item="daysUnit" wx:key="unique">
+                <view class="dd">{{daysUnit.dd}}</view>
+                <view class="ico"></view>
+                <span></span>
+            </view>
+        </view>
+    </view>
+    <view class="homework-list" wx:elif="{{courseType==1}}">
+        <view catchtap="getHomework" class="left-ico ico" data-step="1" wx:if="{{currentHomeworkIndex!=0}}"></view>
+        <view class="homework-title">
+            <view>{{currentHomework.title}}</view>
+        </view>
+        <view catchtap="getHomework" class="right-ico ico" data-step="-1" wx:if="{{currentHomeworkIndex!=totalHomeworkCount-1}}"></view>
+    </view>
+    <view class="check">
+        <view catchtap="showAlready" class="alreadyPunch {{checkAlready?'choose':''}}">
+      {{courseType==0?'已打卡':'已交作业'}}
+    </view>
+        <view catchtap="showNot" class="notPunch {{!checkAlready?'choose':''}}">
+      {{courseType==0?'未打卡':'未交作业'}}
+    </view>
+        <view catchtap="showAllList" class="allList">
+            <text>{{teamName}}</text>
+            <view class="listIco ico {{isShowAllList?'up':''}}"></view>
+        </view>
+        <view class="groupList {{isShowAllList?' ':'hideAll'}}">
+            <view catchtap="checkGroup" class="item {{teamName===item?'chosenTeam':''}}" data-teamName="{{item}}" wx:if="{{theGroupList.length>0}}" wx:for="{{theGroupList}}" wx:key="index">{{item}}</view>
+            <view class="item noGroup" wx:if="{{!theGroupList.length>0}}">暂无分组</view>
+        </view>
+        <view catchtouchmove catchtap="hideMask" class="mask" wx:if="{{isShowAllList}}"></view>
+    </view>
+    <view class="th clearfix">
+        <view class="info">学员信息<text wx:if="{{1}}"> {{user_list.length>499?'499+':user_list.length}} 人</text>
+        </view>
+        <view catchtap="remindPunchCard" class="remind" wx:if="{{showRemind}}">手动提醒打卡</view>
+        <view class="punchTime">
+            <block wx:if="{{courseType==0}}">
+        {{checkAlready?'打卡时间':'最近打卡'}}
+      </block>
+            <block wx:elif="{{courseType==1}}">
+        {{checkAlready?'提交时间':'最近提交'}}
+      </block>
+        </view>
+    </view>
+</view>
+<view class="userListContainer {{courseType==1?'homeworkType':''}}" style="height:{{user_list.length*141>784?784:user_list.length*141}}rpx">
+    <view class="userList {{index==0?'first':''}} clearfix" wx:for="{{user_list}}" wx:key="unique">
+        <view class="number">{{index+1}}</view>
+        <view catchtap="goToRecords" data-userid="{{item.UserId}}">
+            <image class="avatar" src="{{item.AvatarUrl}}"></image>
+            <view class="userName">{{item.UserName}}</view>
+        </view>
+        <view class="lastDate">{{item.LastDate}}</view>
+    </view>
+</view>
+<view class="noPunch" wx:if="{{checkAlready&&user_list.length==0}}"></view>
+<view class="i" wx:if="{{inputing}}"></view>

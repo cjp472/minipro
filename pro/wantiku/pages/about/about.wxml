@@ -1,0 +1,24 @@
+<view class="container {{theme}}">
+    <view class="logo">
+        <image src="{{logoImg}}"></image>
+        <view>
+            <text>{{logoName}}</text>
+        </view>
+    </view>
+    <view class="text1">
+        <text>科学通关，懒人必备</text>
+    </view>
+    <view class="text2">
+        <text wx:if="{{isAllPackage}}">N类合一，考证通关大杀器</text>
+        <text wx:if="{{!isAllPackage}}">考证通关大杀器</text>
+    </view>
+    <view class="banben">
+        <text>{{company}}</text>
+        <view style="margin-top:5rpx;">
+            <text style="font-size:18rpx;">{{website}}</text>
+        </view>
+        <view style="margin-top:5rpx;">
+            <text style="font-size:18rpx;">4000-888-566</text>
+        </view>
+    </view>
+</view>

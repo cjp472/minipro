@@ -1,0 +1,27 @@
+<form bindsubmit="saveGroupCard" reportSubmit="true">
+    <view bindtap="changeCover">
+        <image class="cover" mode="aspectFill" src="{{cover}}"></image>
+        <view class="cover-overshadow"></view>
+        <view class="cover-info">点击更换背景图</view>
+    </view>
+    <view class="group-info">
+        <view class="group-info-item first name">
+            <view class="label">群名称</view>
+            <input bindinput="inputName" name="name" placeholder="请输入群名称" placeholderClass="placeholder" type="text" value="{{name}}"></input>
+            <icon catchtap="clearName" class="clear" size="15" type="clear" wx:if="{{!nameEmpty}}"></icon>
+        </view>
+        <view class="group-info-item summary">
+            <view class="label">群简介</view>
+            <textarea autoHeight="true" bindinput="inputSummary" maxlength="-1" name="summary" placeholder="请输入群简介" placeholderClass="placeholder" value="{{summary}}"></textarea>
+            <icon catchtap="clearSummary" class="clear" size="15" type="clear" wx:if="{{!summaryEmpty}}"></icon>
+        </view>
+    </view>
+    <view class="group-info">
+        <view class="group-info-item first verify">
+            <view class="label">加入是否需要审核</view>
+            <switch bindchange="changeVerify" checked="{{verify}}" color="#1677d2" type="switch"></switch>
+        </view>
+    </view>
+    <button class="button" formType="submit">保存</button>
+    <view bindtap="deleteGroupCard" class="button red" wx:if="{{is_self}}">删除该通讯录</view>
+</form>

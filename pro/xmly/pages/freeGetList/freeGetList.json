@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "free-get-album": "/components/freeGetAlbum/freeGetAlbum"
+    }
+}

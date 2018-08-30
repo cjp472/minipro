@@ -1,0 +1,89 @@
+<template name="voice-player">
+    <view wx:for="{{voices}}" wx:for-item="voice" wx:key="tempPath">
+        <view class="add_voice">
+            <view hidden="{{voice.isPlaying}}">
+                <view class="voice por" hoverClass="btn-hover-class">
+                    <form reportSubmit catchsubmit="{{startPlay}}" data-index="{{index}}" data-name="{{name}}">
+                        <view class="ico btns"></view>
+                        <view class="span" style="width:{{voice.time*5}}rpx;">
+                            <view class="schedule"></view>
+                            <view class="speed" style="width:0;">
+                                <span>
+                                    <em></em>
+                                </span>
+                            </view>
+                        </view>
+                        <view class="time">{{voice.time}}"</view>
+                        <button class="shade_button" formType="submit" hoverClass="none" plain="true"></button>
+                    </form>
+                </view>
+            </view>
+            <view hidden="{{!voice.isPlaying}}">
+                <view catchtap="{{stopPlay}}" class="voice play" data-index="{{index}}" data-name="{{name}}" hoverClass="btn-hover-class">
+                    <view class="ico btns"></view>
+                    <view class="span" style="width:{{voice.time*5}}rpx;">
+                        <view class="schedule"></view>
+                        <view class="speed" style="width:{{voice.speedStyle}}rpx;">
+                            <span>
+                                <em></em>
+                            </span>
+                        </view>
+                    </view>
+                    <view class="time">{{voice.time}}"</view>
+                </view>
+            </view>
+            <view catchtap="{{deleteTempVoice}}" class="ico del_voice" data-index="{{index}}" data-name="{{name}}" wx:if="{{!noDeleting}}"></view>
+            <span catchtap="uploadVoice" class="btn-upload-voice" data-index="{{index}}" data-voiceobj="{{voice}}" wx:if="{{voice.success===false}}">
+                <view class="ico"></view>
+          重新上传
+        </span>
+        </view>
+    </view>
+</template>
+<template name="start-stop-record">
+    <action-sheet class="recording-sheet" hidden="{{notReadyToRecord}}">
+        <view class="selectRecording">
+            <view class="second">
+                <view class="tip-when-record" hidden="{{recordedVoiceTime<49}}">{{59-recordedVoiceTime}} 秒后将自动开始下一条录音</view>
+                <text>{{recordedVoiceTime}}" / 59"</text>
+            </view>
+            <block wx:if="{{!isRecording}}">
+                <view class="tag">
+                    <text>点击一下开始录音</text>
+                </view>
+                <view catchtap="{{startRecord}}" class="recordplay">
+                    <view class="ico"></view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="tag">
+                    <text>点击一下结束录音</text>
+                </view>
+                <view catchtap="{{stopRecord}}" class="recordstop">
+                    <view class="ico"></view>
+                </view>
+            </block>
+        </view>
+    </action-sheet>
+</template>
+<template name="btn-add-voice-notext">
+    <form reportSubmit catchsubmit="{{tapHandler}}">
+        <view catchtap="{{tapHandler}}" class="add_vo por {{voiceStyle}}">
+            <text class="ico"></text>
+            <button class="shade_button" formType="submit" hoverClass="none" plain="true"></button>
+        </view>
+    </form>
+</template>
+<template name="btn-add-voice">
+    <view class="add_vo {{voiceStyle}}">
+        <view class="laud_button">
+            <form reportSubmit bindsubmit="{{tapHandler}}">
+                <span>
+                    <view class="ico"></view>
+                    <text>添加语音</text>
+                </span>
+                <button class="shade_button" formType="submit" hoverClass="none" plain="true"></button>
+            </form>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,63 @@
+<view class="content_bg {{colorTheme}}" wx:if="{{page==='home'}}">
+    <view class="user_info">
+        <view class="photo">
+            <image mode="aspectFill" src="{{courseInfo.share_avatar}}" style="width:100%;height:100%;display:block;"></image>
+        </view>
+        <view style="font-size: 28rpx;font-weight: 600;margin-bottom:10rpx;">{{courseInfo.share_nick}}</view>
+        <view style="font-size: 32rpx;">向你分享了一个课程</view>
+        <view class="user_data">
+            <view class="beyond_1 title">
+                <view class="left"></view>
+                <view class="center">{{courseInfo.course_name}}</view>
+                <view class="right"></view>
+            </view>
+            <view class="s_title">
+                <text></text>
+                <view style="margin:0 30rpx;">这些人也在参加</view>
+                <text></text>
+            </view>
+            <view class="user_data_share">
+                <view class="share_photo" wx:if="{{courseInfo.join_users.length>0}}" wx:for="{{courseInfo.join_users}}" wx:key="*this">
+                    <image mode="aspectFill" src="{{item}}" style="width:100%;height:100%;display:block;"></image>
+                </view>
+                <view style="font-size:28rpx;" wx:if="{{courseInfo.join_users.length===0}}">暂时无人参加</view>
+            </view>
+            <login-button btnStyle="background:linear-gradient(to right, #91EBA9, #1FC874);color:#fff;border-radius:500px;margin-top:30rpx;" catch:loginSuccess="loginSuccess" colorTheme="{{colorTheme}}" wx:if="{{colorTheme!='admin'}}">我要参加</login-button>
+            <login-button btnStyle="background:linear-gradient(to right, #ADB9FF, #7878E0);color:#fff;border-radius:500px;margin-top:30rpx;" catch:loginSuccess="loginSuccess" colorTheme="{{colorTheme}}" wx:if="{{colorTheme=='admin'}}">我要参加</login-button>
+        </view>
+    </view>
+</view>
+<view class="content_bg content_bg2 {{colorTheme==='admin'?'admin_top_bg':'user_top_bg'}}" wx:if="{{page==='detail'}}">
+    <view class="from-user">
+        <view class="ico ico-quote-left"></view>
+        <text>好友向你分享了一个学习成果</text>
+        <view class="ico ico-recommend"></view>
+    </view>
+    <view class="punch_user_data">
+        <view class="jing_xuan ico" wx:if="{{submitInfo.is_top}}"></view>
+        <view class="user_info_top">
+            <view class="photo">
+                <image mode="aspectFill" src="{{submitInfo.submit_avatar}}" style="width:100%;height:100%;display:block;"></image>
+            </view>
+            <text>{{submitInfo.submit_user}}</text>
+        </view>
+        <view class="beyond_1 col3 fz28">{{submitInfo.submit_content}}</view>
+        <view catchtap="showTips" class="voice_player" wx:if="{{submitInfo.voice_count>0}}">
+            <view class="ico play_voice"></view>
+        </view>
+        <view class="img_list">
+            <view catchtap="showTips" class="img_item" wx:if="{{submitInfo.video_count>0}}">
+                <view class="ico video_play"></view>
+                <image mode="aspectFill" src="{{imgList[2]}}" style="width:100%;height:100%;display:block;"></image>
+            </view>
+            <view catchtap="showTips" class="img_item" wx:if="{{submitInfo.picture_count>0&&index<2}}" wx:for="{{imgList}}" wx:key="{{item}}">
+                <image mode="aspectFill" src="{{item}}" style="width:100%;height:100%;display:block;"></image>
+            </view>
+        </view>
+    </view>
+    <login-button catch:loginSuccess="loginSuccess" colorTheme="{{colorTheme}}">查看全文</login-button>
+    <view class="punch_btn">
+        <login-button btnStyle="background:#fff;color:#8b97a4;" catch:loginSuccess="loginSuccess" colorTheme="{{colorTheme}}">为他点赞</login-button>
+    </view>
+    <jdk-logo></jdk-logo>
+</view>

@@ -1,0 +1,328 @@
+.content {
+    margin-bottom: 0!important;
+}
+
+.bottom-back-btn {
+    position: fixed;
+    bottom: 60rpx;
+    right: 30rpx;
+    width: 112rpx;
+    height: 112rpx;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 26rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -3px 6px 0px rgba(238,238,238,0.4);
+    z-index: 9;
+}
+
+.bottom-back-btn view {
+    margin-top: 8rpx;
+}
+
+.user-back {
+    background-color: #22dd82;
+}
+
+.admin-back {
+    background-color: #4f598f;
+}
+
+.inform-content {
+    margin: 40rpx 30rpx 0 30rpx;
+    border-radius: 10rpx;
+    padding: 30rpx 30rpx 0 30rpx;
+    background-color: #fff;
+}
+
+.inform-content .course-name.admin {
+    height: 30rpx;
+    font-size: 30rpx;
+    color: #4f598f;
+    margin-bottom: 30rpx;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.inform-content .course-name.user {
+    height: 30rpx;
+    font-size: 30rpx;
+    color: #22dd82;
+    margin-bottom: 30rpx;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.inform-content .course-name .ico {
+    background-position: -180rpx 0;
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 20rpx;
+}
+
+.inform-content .homework-title {
+    height: 30rpx;
+    font-size: 30rpx;
+    color: #3c4856;
+    padding-bottom: 30rpx;
+    border-bottom: 1rpx solid #d9e1e9;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.inform-content .homework-title .ico {
+    background-position: -120rpx -641rpx;
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 20rpx;
+}
+
+.inform-content .day {
+    height: 30rpx;
+    font-size: 30rpx;
+    color: #3c4856;
+    padding-bottom: 30rpx;
+    border-bottom: 1rpx solid #d9e1e9;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.inform-content .day .ico {
+    background-position: -210rpx 0;
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 20rpx;
+}
+
+.inform-operation {
+    margin: 30rpx 0;
+    height: 60rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inform-operation .time {
+    width: 280rpx;
+    font-size: 22rpx;
+    color: #8b97a4;
+    line-height: 60rpx;
+    margin-right: 44rpx;
+}
+
+.inform-operation .edit-button {
+    width: 74rpx;
+    height: 58rpx;
+    position: relative;
+    padding-left: 70rpx;
+    font-size: 24rpx;
+    color: #8b97a4;
+    line-height: 58rpx;
+    border: 1rpx solid #e0e3e7;
+    border-radius: 6rpx;
+    margin-right: 20rpx;
+}
+
+.inform-operation .edit-button .ico {
+    background-position: -119rpx 0;
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    top: 15rpx;
+    left: 30rpx;
+}
+
+.inform-operation .share-button {
+    width: 74rpx;
+    height: 58rpx;
+    position: relative;
+    padding: 0 0 0 70rpx!important;
+    font-size: 24rpx;
+    color: #8b97a4;
+    line-height: 58rpx;
+    border: 1rpx solid #e0e3e7;
+    border-radius: 6rpx;
+    margin: 0!important;
+    box-sizing: content-box!important;
+    text-align: left!important;
+    background-color: #fff;
+}
+
+.inform-operation .share-button::after {
+    transform: scale(0)!important;
+}
+
+.inform-operation .share-button .ico {
+    background-position: -113rpx -717rpx;
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    top: 15rpx;
+    left: 30rpx;
+}
+
+.visitors {
+    margin: 0 30rpx 30rpx 30rpx;
+    padding: 0 30rpx;
+    background-color: #f8fafb;
+}
+
+.visitors .visitors-count {
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid #d9e1e9;
+    font-size: 24rpx;
+    color: #8b97a4;
+}
+
+.visitors .visitors-list {
+    padding-top: 30rpx;
+}
+
+.visitors .visitors-list .visitors-detail {
+    height: 60rpx;
+    padding-bottom: 30rpx;
+    display: flex;
+    line-height: 60rpx;
+}
+
+.visitors .visitors-list .visitors-detail .avatar {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    margin-right: 20rpx;
+}
+
+.visitors .visitors-list .visitors-detail .nickname {
+    font-size: 24rpx;
+    color: #3c4856;
+    width: 280rpx;
+    margin-right: 60rpx;
+}
+
+.visitors .visitors-list .visitors-detail .visit-time {
+    font-size: 24rpx;
+    color: #8b97a5;
+}
+
+.no-permission .shade {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #e9f4ee;
+    z-index: 88;
+}
+
+.no-permission .no-permission-back {
+    background: url(http://jingdaka.oss-cn-shanghai.aliyuncs.com/images/img_pwdbg.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 750rpx;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.no-permission .highlight {
+    background: #fff;
+    border-radius: 8rpx;
+    z-index: 99999;
+    position: fixed;
+    top: 30rpx;
+    left: 30rpx;
+    width: 690rpx;
+}
+
+.no-permission {
+    position: relative;
+    z-index: 1000;
+    display: block;
+}
+
+.no-permission-pic {
+    background: url(http://jingdaka.oss-cn-shanghai.aliyuncs.com/images/img_nohomework.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 196rpx;
+    height: 280rpx;
+    margin-top: 200rpx;
+    margin-bottom: 40rpx;
+}
+
+.official-tip {
+    font-size: 36rpx;
+    color: #8b97a4;
+    text-align: center;
+    margin-bottom: 80rpx;
+}
+
+.admin-tip {
+    position: relative;
+}
+
+.admin-tip .tip-text {
+    font-size: 28rpx;
+    color: #8897a5;
+    text-align: center;
+    height: 30rpx;
+    line-height: 30rpx;
+    margin-bottom: 36rpx;
+}
+
+.admin-tip .tip-text::before {
+    content: '';
+    width: 120rpx;
+    height: 1rpx;
+    position: absolute;
+    top: 14rpx;
+    left: 90rpx;
+    background-color: #dde2e8;
+}
+
+.admin-tip .tip-text::after {
+    content: '';
+    width: 120rpx;
+    height: 1rpx;
+    position: absolute;
+    top: 14rpx;
+    right: 90rpx;
+    background-color: #dde2e8;
+}
+
+.admin-tip text {
+    font-size: 28rpx;
+    color: #8897a5;
+    width: 510rpx;
+    margin: 0 90rpx;
+    word-break: break-all;
+    text-align: center;
+    display: block;
+    height: 80rpx;
+    line-height: 40rpx;
+}
+
+.no-permission .btn {
+    margin: 190rpx 225rpx 80rpx 225rpx;
+    height: 88rpx;
+    font-size: 26rpx;
+    color: #fff;
+    background: #22dd82;
+    border-radius: 8rpx;
+    line-height: 88rpx;
+    text-align: center;
+}
+
+.no-permission .btn.no-tip {
+    margin-top: 80rpx;
+    margin-bottom: 416rpx;
+}
+
+.edit-share {
+    display: flex;
+}

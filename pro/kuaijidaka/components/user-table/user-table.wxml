@@ -1,0 +1,25 @@
+<form reportSubmit bindsubmit="getFormId">
+    <view class="btn">
+        <view catchtap="goDiscovery" class="navigator" hoverClass="none" wx:if="{{showDiscovery}}">
+            <view class="laud_button">
+                <view class="iconfont {{current==='discovery'?'icon-faxianxuanzhong':'icon-faxianweixuan'}}"></view>
+                <text class="{{current==='discovery'?'selected':''}}">发现</text>
+                <button class="shade_button" formType="submit" hoverClass="none" plain="true"></button>
+            </view>
+        </view>
+        <view catchtap="goCard" class="navigator" hoverClass="none">
+            <view class="laud_button">
+                <view class="iconfont {{current==='my-card'?'icon-wodedaqia':'icon-wodedaqia-moren'}}"></view>
+                <text class="{{current==='my-card'?'selected':''}}">课程列表</text>
+                <button class="shade_button" formType="submit" hoverClass="none" plain="true"></button>
+            </view>
+        </view>
+        <button bindgetuserinfo="goCenter" class="navigator clear-button-style" hoverClass="selected" openType="getUserInfo">
+            <view class="laud_button">
+                <view class="iconfont {{current==='user-center'?'icon-gerenzhongxin':'icon-gerenzhongxin-moren'}}"></view>
+                <text class="{{current==='user-center'?'selected':''}}">个人中心</text>
+                <button class="shade_button" formType="submit" hoverClass="none" plain="true"></button>
+            </view>
+        </button>
+    </view>
+</form>

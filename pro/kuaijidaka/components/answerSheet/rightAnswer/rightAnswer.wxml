@@ -1,0 +1,33 @@
+<view class="analysis-answer">
+    <view class="item-box">
+        <view class="item" wx:if="{{questionInfo.kind==1||questionInfo.kind==2}}">
+            <view class="tips">您的答案 </view>
+            <view class="answer ml10 {{questionInfo.standard_answer&&questionInfo.answer_content!=questionInfo.standard_answer?'':'right'}}">
+            {{questionInfo.answer_content}}
+            </view>
+        </view>
+        <view class="item" wx:if="{{questionInfo.kind==4}}">
+            <view class="tips">您的答案 </view>
+            <view class="answer ml10 {{questionInfo.answer_score<=0?'':'right'}}">{{questionInfo.answer_content}}</view>
+        </view>
+        <view class="item" wx:if="{{questionInfo.kind==1||questionInfo.kind==2||questionInfo.kind==4}}">
+            <view class="tips">正确答案 </view>
+            <view class="answer ml10 right" wx:if="{{!!questionInfo.standard_answer}}"> {{questionInfo.standard_answer}}</view>
+            <view class="answer ml10" wx:if="{{!questionInfo.standard_answer}}"> 无</view>
+        </view>
+    </view>
+    <view class="item-box" wx:if="{{showTimes}}">
+        <view class="item">
+            <view class="tips">共计作答</view>
+            <view class="count">
+                <text class="num">{{questionInfo.answer_times}}</text>次
+            </view>
+        </view>
+        <view class="item">
+            <view class="tips">错误</view>
+            <view class="count">
+                <text class="num">{{questionInfo.wrong_answer_times}}</text>次
+            </view>
+        </view>
+    </view>
+</view>

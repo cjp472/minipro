@@ -1,0 +1,19 @@
+<view animation="{{animationBG}}" class="sign-bg" hidden="{{bgHide}}"></view>
+<view animation="{{animationIN}}" class="sign-bg-in">
+    <view class="sign-pic">
+        <view class="offButton-top laud_button">
+            <form reportSubmit bindsubmit="offButton">
+                <button class="shade_button" formType="submit" hoverClass="none"></button>
+            </form>
+        </view>
+        <image binderror="binderror" bindload="imgLoad" mode="widthFix" src="{{imgSrc}}" style="width:100%;display:block;"></image>
+        <view class="flex-center" wx:if="{{!!imgSrc}}">
+            <view catchtap="offButton" class="s-button" wx:if="{{customOn!='1'}}">关闭</view>
+            <view catchtap="downLoadImg" class="s-button {{customOn!='1'?'s-button2':''}}">保存图片</view>
+            <button catchtap="openModalBox" class="s-button s-button2" wx:if="{{customOn==='1'}}">分享</button>
+        </view>
+    </view>
+</view>
+<view animation="{{animation}}" class="{{tipType}}" hidden="{{bgHide}}">{{errorMessage}}</view>
+<jdk-modal bind:modalConfirm="modalConfirm" confirmText="知道了" containerCancel="{{false}}" content="{{modalContent}}" sessionFrom="{{'sign_submitid_'+submitId}}" title="温馨提示" type="concat" wx:if="{{showModal}}"></jdk-modal>
+<jdk-modal bind:modalConfirm="settingConfirm" confirmText="重新授权" content="{{settingContent}}" title="提示" type="openSetting" wx:if="{{showSetting}}"></jdk-modal>

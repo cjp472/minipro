@@ -1,0 +1,119 @@
+.accessory-box .accessory-box-pc {
+    width: 100%;
+    height: 86rpx;
+    margin-bottom: 30rpx;
+    position: relative;
+}
+
+.accessory-box .accessory-box-pc .doc,.accessory-box .accessory-box-pc .docx {
+    float: left;
+    width: 86rpx;
+    height: 86rpx;
+    text-align: center;
+    border-bottom-left-radius: 10rpx;
+    border-top-left-radius: 10rpx;
+    background-color: #539ef2;
+    position: relative;
+}
+
+.accessory-box .accessory-box-pc .doc span,.accessory-box .accessory-box-pc .docx span {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -140rpx -1008rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.accessory-box .accessory-box-pc .accessory-name {
+    float: left;
+    padding-left: 30rpx;
+    width: 480rpx;
+    height: 86rpx;
+    line-height: 86rpx;
+    vertical-align: middle;
+    font-size: 24rpx;
+    color: #8b97a4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-top-right-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+    background-color: #edf0f3;
+}
+
+.accessory-box .accessory-box-pc .pdf {
+    float: left;
+    width: 86rpx;
+    height: 86rpx;
+    text-align: center;
+    border-bottom-left-radius: 10rpx;
+    border-top-left-radius: 10rpx;
+    background-color: #f25353;
+    position: relative;
+}
+
+.accessory-box .accessory-box-pc .pdf span {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -142rpx -1056rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.accessory-box .accessory-box-pc .ppt,.accessory-box .accessory-box-pc .pptx {
+    float: left;
+    width: 86rpx;
+    height: 86rpx;
+    text-align: center;
+    border-bottom-left-radius: 10rpx;
+    border-top-left-radius: 10rpx;
+    background-color: #f25353;
+    position: relative;
+}
+
+.accessory-box .accessory-box-pc .ppt span,.accessory-box .accessory-box-pc .pptx span {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -190rpx -1008rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.accessory-box .accessory-box-pc .xlsx,.accessory-box .accessory-box-pc .xls {
+    float: left;
+    width: 86rpx;
+    height: 86rpx;
+    text-align: center;
+    border-bottom-left-radius: 10rpx;
+    border-top-left-radius: 10rpx;
+    background-color: #30ca7c;
+    position: relative;
+}
+
+.accessory-box .accessory-box-pc .xlsx span,.accessory-box .accessory-box-pc .xls span {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -240rpx -1008rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.del-accessory {
+    width: 40rpx;
+    height: 40rpx;
+    background-position: 0 -476rpx;
+    position: absolute;
+    top: 23rpx;
+    right: -16rpx;
+}

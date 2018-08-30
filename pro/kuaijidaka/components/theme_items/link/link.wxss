@@ -1,0 +1,78 @@
+@import "../../../__wuBaseWxss__/8.wxss";
+
+.link-box {
+    position: relative;
+    height: 88rpx;
+    margin-bottom: 30rpx;
+    border-radius: 8rpx;
+}
+
+.link-box.read-reading,.link-box.read-punching {
+    margin-bottom: 0;
+    border: solid 1rpx #e0e3e7;
+    width: 568rpx;
+}
+
+.link-box.user-edit {
+    margin-left: 30rpx;
+}
+
+.link-box .link-jump {
+    float: left;
+    width: 568rpx;
+    height: 88rpx;
+    border-radius: 8rpx;
+}
+
+.link-box .link-jump .link-left {
+    float: left;
+    width: 88rpx;
+    height: 88rpx;
+    background-color: #539ef2;
+    border-top-left-radius: 8rpx;
+    border-bottom-left-radius: 8rpx;
+}
+
+.link-box .link-jump .link-left .link-book {
+    background-position: -232rpx -595rpx;
+    width: 32rpx;
+    height: 38rpx;
+    margin: 25rpx 28rpx;
+}
+
+.link-box .link-jump .link-title {
+    float: left;
+    width: 440rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background-color: #edf0f3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-top-right-radius: 8rpx;
+    border-bottom-right-radius: 8rpx;
+    font-size: 24rpx;
+    color: #8b97a4;
+    padding: 0 20rpx;
+}
+
+.link-box.read-reading .link-jump .link-title,.link-box.read-punching .link-jump .link-title {
+    background-color: #fff;
+}
+
+.inform-pop-up.link-box .link-jump {
+    width: 540rpx!important;
+}
+
+.inform-pop-up.link-box .link-jump .link-title {
+    width: 410rpx;
+}
+
+.ico.del-link {
+    width: 40rpx;
+    height: 40rpx;
+    background-position: 0 -476rpx;
+    position: absolute;
+    top: 24rpx;
+    right: 66rpx;
+}

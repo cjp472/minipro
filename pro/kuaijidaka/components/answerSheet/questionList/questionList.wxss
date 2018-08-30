@@ -1,0 +1,206 @@
+.qs_bg {
+    background: #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-top: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.scroll-bg {
+    width: 100%;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 28rpx;
+}
+
+.red-dot-bg {
+    width: 10rpx;
+    height: 60rpx;
+}
+
+.red-dot {
+    width: 8rpx;
+    height: 8rpx;
+    background: #ff7474;
+    border-radius: 100%;
+    display: inline-block;
+    position: absolute;
+    left: 1rpx;
+    top: 14rpx;
+}
+
+.col9 {
+    color: #9fa9b4;
+}
+
+.h60 {
+    height: 60rpx;
+}
+
+.lh60 {
+    line-height: 60rpx;
+}
+
+.w140 {
+    width: 140rpx;
+}
+
+.w_100 {
+    width: 100%;
+}
+
+.pd30 {
+    padding: 30rpx;
+}
+
+.pd0-30 {
+    padding: 0 30rpx 30rpx;
+}
+
+.pd030 {
+    padding: 0 30rpx;
+}
+
+.pdt1 {
+    padding-top: 1rpx;
+}
+
+.pdt50 {
+    padding-top: 50rpx;
+}
+
+.mt20 {
+    margin-top: 20rpx;
+}
+
+.mr50 {
+    margin-right: 50rpx;
+}
+
+.mb20 {
+    margin-bottom: 20rpx;
+}
+
+.mb140 {
+    margin-bottom: 140rpx;
+}
+
+.fz28 {
+    font-size: 28rpx;
+}
+
+.bg_f {
+    background: #fff;
+}
+
+.bg_green {
+    background: #22dd82;
+}
+
+.tac {
+    text-align: center;
+}
+
+.bdt1 {
+    border-top: 1rpx solid #ecf0f3;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+.active {
+    color: #22dd82;
+    border-top: 5rpx solid #22dd82;
+    transition: all 0.5s;
+}
+
+.noActive {
+    color: #9fa9b4;
+    border-top: 5rpx solid rgba(0,0,0,0);
+}
+
+.line-bg {
+    width: 100%;
+    height: 60rpx;
+    border-top: 1rpx solid #ecf0f3;
+}
+
+.por {
+    position: relative;
+}
+
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-shrink-no {
+    flex-shrink: 0;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+.analysis-box {
+    margin: 0 30rpx;
+    margin-top: 20rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 0 30rpx;
+    border-radius: 10rpx;
+}
+
+.analysis-title {
+    color: #3e4855;
+    font-size: 32rpx;
+    padding: 30rpx 0;
+    border-bottom: 1px solid #eef0f3;
+}
+
+.analysis-content {
+    padding: 20rpx 0;
+    font-size: 28rpx;
+    color: #3e4855;
+}
+
+.analysis-content .title {
+    font-size: 32rpx;
+    margin-bottom: 20rpx;
+}
+
+.list-empty {
+    background-color: #fff;
+    padding: 150rpx 0 200rpx;
+    margin: 0 30rpx;
+    border-radius: 10rpx;
+}
+
+.list-empty .empty-box {
+    background-image: url('http://static3topen.jingdaka.com/images/wrongQuestionEmpty.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 340rpx;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.list-empty .tips {
+    width: 100%;
+    text-align: center;
+    margin-top: -50rpx;
+    color: #8d97a4;
+    font-size: 32rpx;
+}

@@ -1,0 +1,56 @@
+<import src="../shared/globalMsg/globalMsg.wxml"></import>
+<view class="cell">
+    <view class="cell-hd">节目</view>
+    <view class="cell-bd">{{title}}</view>
+</view>
+<view class="cell">
+    <view class="cell-hd">集数</view>
+    <view class="cell-bd" wx:if="{{estimatedTrackCount>0}}">预计更新{{estimatedTrackCount}}集（已更新{{trackCount}}集）</view>
+    <view class="cell-bd" wx:else>已更新{{trackCount}}集</view>
+</view>
+<view class="cell">
+    <view class="cell-hd">价格</view>
+    <view class="cell-bd">
+        <text class="price">￥{{price}}</text>
+    </view>
+</view>
+<view class="rules">
+    <view class="rules-hd">说明</view>
+    <view class="rules-bd">
+        <view class="rule-item">1. 如果主播中途停止更新将退还喜点</view>
+        <view class="rule-item">2. 小程序不支持退款与优惠券</view>
+        <view class="rule-item">3. 更多服务请下载喜马拉雅App</view>
+    </view>
+</view>
+<view class="btn-area">
+    <view bindtap="toPay" class="btn btn-to-pay btn-to-pay-wx">微信支付</view>
+    <view bindtap="toPay" class="btn btn-to-pay btn-to-pay-xd none">喜点余额支付</view>
+</view>
+<template is="globalMsg" data="{{globalMsg:globalMsg}}" wx:if="{{globalMsg}}"></template>
+<view catchtap="closeBox" class="pop-up-box-container" wx:if="{{isBoxShowing}}">
+    <view catchtap="nothing" class="pop-up-box-wrap">
+        <view class="box-hd">
+            <image class="xmlogo" src="../../images/paysuccess@3x.png"></image>
+            <text>购买成功</text>
+        </view>
+        <view class="box-bd">
+            <view class="box-bd-item">您可以在<text class="mybought">我的已购</text>里面查看购买的专辑</view>
+        </view>
+        <view bindtap="closeBox" class="btm-close">
+            <text class="close">×</text>
+        </view>
+    </view>
+</view>
+<view bindtap="closeContactBox" class="app-box share-box" wx:if="{{isContactShowing}}">
+    <view catchtap="nothing" class="app-box-main">
+        <image bindtap="closeContactBox" class="close" src="../../images/icon-delete.png"></image>
+        <view class="tit-pay">温馨提示</view>
+        <view class="pay-tips">
+            <view>基于微信小程序平台的运营规范，喜马拉雅小程序ios端暂不支持购买，
+        请前往喜马拉雅公众号购买，回复【66】获得公众号链接</view>
+        </view>
+        <view class="btn-know-area">
+            <button plain bindtap="closeContactBox" class="btn-item btn-share" openType="contact">确定</button>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,12 @@
+{
+    "navigationBarTitleText": "",
+    "usingComponents": {
+        "sold-out": "/components/page-status/page-status",
+        "jdk-theme": "/components/topic/topic",
+        "jdk-submit": "/components/user-submit/submit/submit",
+        "jdk-modal": "/components/modal/modal",
+        "suspend-button": "/components/suspend-button/suspend-button",
+        "jdk-guide-card": "/components/guide-card/guide-card",
+        "share-modal": "/components/shareModal/shareModal"
+    }
+}

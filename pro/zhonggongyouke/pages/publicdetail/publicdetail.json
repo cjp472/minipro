@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "课程详情",
+    "disableScroll": true,
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "public-component": "/pages/publiclist/publiclist"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "navigationBarTitleText": "我的",
+    "enablePullDownRefresh": true,
+    "enableOnReachBottom": true,
+    "component": true,
+    "usingComponents": {
+        "suspend-button": "/components/suspend-button/suspend-button",
+        "user-table": "/components/user-table/user-table",
+        "foot-loading": "/components/footLoading/footLoading",
+        "jdk-modal": "/components/modal/modal"
+    }
+}

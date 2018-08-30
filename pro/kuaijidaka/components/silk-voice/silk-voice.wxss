@@ -1,0 +1,237 @@
+@import "../../__wuBaseWxss__/8.wxss";
+
+.silk-voice--small {
+    display: inline-block;
+}
+
+.silk-voice__container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.silk-voice {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: #22dd82;
+    box-sizing: border-box;
+    height: 68rpx;
+    border-radius: 8rpx;
+    margin-top: 10rpx;
+    margin-bottom: 0;
+}
+
+.silk-voice--theme-admin {
+    background: #6bdbcd;
+}
+
+.silk-voice--small {
+    height: 48rpx;
+}
+
+.silk-voice__play-button {
+    display: inline-block;
+}
+
+.silk-voice__play-button--hover {
+    opacity: 0.3;
+}
+
+.silk-voice--small .silk-voice__play-button {
+    margin: -3rpx 5rpx 0;
+}
+
+.duration-bar {
+    display: inline-block;
+    margin-top: -2rpx;
+    height: 4rpx;
+    background: #16c786;
+    border-radius: 2rpx;
+}
+
+.duration-bar__progress-bar {
+    height: 100%;
+    background: #eafff5;
+    position: relative;
+    border-radius: 2rpx;
+    vertical-align: middle;
+}
+
+.duration-bar__progress-dot {
+    position: absolute;
+    width: 8rpx;
+    height: 8rpx;
+    border-radius: 50%;
+    top: -1rpx;
+    right: -3rpx;
+    background: #fff;
+}
+
+.silk-voice__duration-text {
+    font-size: 26rpx;
+    color: #fff;
+    width: 80rpx;
+    text-align: center;
+    display: inline-block;
+}
+
+.silk-voice--small .silk-voice__duration-text {
+    width: 30rpx;
+    padding-right: 20rpx;
+}
+
+.silk-voice__status-indicator {
+    display: none;
+    margin-left: 8rpx;
+    vertical-align: middle;
+}
+
+.silk-voice--listened {
+    display: inline-block;
+}
+
+.loading {
+    position: relative;
+    display: inline-block;
+    top: -17rpx;
+    margin-left: 10rpx;
+}
+
+.loading__leaf {
+    position: absolute;
+    left: 16rpx;
+    top: 0;
+    width: 2rpx;
+    height: 32rpx;
+}
+
+.loading__leaf:before,.loading__leaf:after {
+    content: '';
+    display: block;
+    height: 50%;
+    background: #666;
+    border-radius: 5rpx;
+}
+
+.loading__circle {
+    position: absolute;
+    top: 8rpx;
+    left: 8rpx;
+    width: 16rpx;
+    height: 16rpx;
+    background: rgba(237,240,243,1);
+    border-radius: 16rpx;
+}
+
+.loading__leaf:nth-child(2) {
+    -webkit-transform: rotate(30deg);
+}
+
+.loading__leaf:nth-child(3) {
+    -webkit-transform: rotate(60deg);
+}
+
+.loading__leaf:nth-child(4) {
+    -webkit-transform: rotate(90deg);
+}
+
+.loading__leaf:nth-child(5) {
+    -webkit-transform: rotate(120deg);
+}
+
+.loading__leaf:nth-child(6) {
+    -webkit-transform: rotate(150deg);
+}
+
+.loading__leaf:nth-child(1):before {
+    -webkit-animation: load 1.2s linear 0s infinite;
+}
+
+.loading__leaf:nth-child(2):before {
+    -webkit-animation: load 1.2s linear 0.1s infinite;
+}
+
+.loading__leaf:nth-child(3):before {
+    -webkit-animation: load 1.2s linear 0.2s infinite;
+}
+
+.loading__leaf:nth-child(4):before {
+    -webkit-animation: load 1.2s linear 0.3s infinite;
+}
+
+.loading__leaf:nth-child(5):before {
+    -webkit-animation: load 1.2s linear 0.4s infinite;
+}
+
+.loading__leaf:nth-child(6):before {
+    -webkit-animation: load 1.2s linear 0.5s infinite;
+}
+
+.loading__leaf:nth-child(1):after {
+    -webkit-animation: load 1.2s linear 0.6s infinite;
+}
+
+.loading__leaf:nth-child(2):after {
+    -webkit-animation: load 1.2s linear 0.7s infinite;
+}
+
+.loading__leaf:nth-child(3):after {
+    -webkit-animation: load 1.2s linear 0.8s infinite;
+}
+
+.loading__leaf:nth-child(4):after {
+    -webkit-animation: load 1.2s linear 0.9s infinite;
+}
+
+.loading__leaf:nth-child(5):after {
+    -webkit-animation: load 1.2s linear 1s infinite;
+}
+
+.loading__leaf:nth-child(6):after {
+    -webkit-animation: load 1.2s linear 1.1s infinite;
+}
+
+@-webkit-keyframes load {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.del_voice {
+    width: 40rpx;
+    height: 40rpx;
+    background-position: 0 -476rpx;
+    margin-left: 20rpx;
+}
+
+.btn-upload-voice {
+    font-size: 24rpx;
+    display: inline-block;
+    height: 68rpx;
+    line-height: 68rpx;
+    margin-left: 20rpx;
+    color: #ff7474;
+}
+
+.btn-upload-voice .ico {
+    width: 40rpx;
+    height: 60rpx;
+    background-position: 0 -580rpx;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -10rpx;
+}
+
+.voice-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.voice-container.user-edit {
+    margin-left: 30rpx;
+}

@@ -1,0 +1,12 @@
+{
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "免费听节目",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#fff",
+    "usingComponents": {
+        "albumRecommend": "/components/albumRecommend/albumRecommend",
+        "go-to-home-page": "/components/goToHomePage/goToHomePage",
+        "clock": "/components/clock/clock"
+    }
+}

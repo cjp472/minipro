@@ -1,0 +1,17 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<jdk-guide-card codeImg="{{codeImg}}" courseId="{{courseId}}" scene="{{denyReason}}" tips="{{tips}}" wx:if="{{denyReason===1||denyReason===2}}"></jdk-guide-card>
+<view class="password-bg" wx:if="{{denyReason===3}}">
+    <view class="bg-inner">
+        <view class="bg-inner-fff">
+            <view class="password">
+                <view class="h2">请输入课程密码</view>
+                <view class="tips" wx:if="{{tips}}">提示：{{tips}}</view>
+                <input bindblur="inputPassword" bindconfirm="inputPassword" bindinput="inputPassword" class="input" placeholder="输入密码" placeholderStyle="color: #8b97a4;" type="text"></input>
+                <view catchtap="checkPassword" class="button">确认</view>
+                <button catchtap="openModalBox" class="button-getPass" wx:if="{{is_custom_on==1&&!!codeImg}}">点击获取课程密码</button>
+                <navigator class="goHome {{222?'mt420':''}}" openType="redirect" url="/pages/user/my/my">回到首页</navigator>
+            </view>
+        </view>
+    </view>
+</view>
+<jdk-modal bind:modalConfirm="modalConfirm" confirmText="知道了" containerCancel="{{false}}" content="{{modalContent}}" sessionFrom="{{'qrcode_courseid_'+courseId}}" title="温馨提示" type="concat" wx:if="{{showModal}}"></jdk-modal>

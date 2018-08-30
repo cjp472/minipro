@@ -1,0 +1,20 @@
+<view>
+    <image class="banner" src="https://cdn-xcx-qunsou.weiyoubot.cn/xcx/2017-09-12/abd43171-cdf6-4b20-b416-2124fccb9028.jpg"></image>
+    <view class="desc">
+        <view class="gray">- 以下方式均可在线预约 -</view>
+        <view class="item">
+            <label>访问微友助手官网：</label>
+            <text selectable="true">weiyoubot.cn</text>
+        </view>
+        <view class="item">
+            <label>微信搜索关注公众号：</label>
+            <text selectable="true">微友助手</text>
+        </view>
+        <view class="item">
+            <label>联系客服QQ：</label>
+            <text selectable="true">2150947416</text>
+        </view>
+        <image class="qrcode" src="https://cdn-xcx-qunsou.weiyoubot.cn/xcx/2017-09-12/276ebbda-98c7-4a3a-bb42-7e24faadd035.jpg"></image>
+        <view class="gray f26">请截图上传微信后扫码关注 </view>
+    </view>
+</view>

@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "我的",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "jdk-logo": "/components/logo/logo",
+        "foot-loading": "/components/footLoading/footLoading",
+        "jdk-modal": "/components/modal/modal",
+        "suspend-button": "/components/suspend-button/suspend-button",
+        "user-table": "/components/user-table/user-table"
+    }
+}

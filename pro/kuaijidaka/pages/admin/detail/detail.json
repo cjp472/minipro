@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "",
+    "backgroundColor": "#4f598f",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4f598f",
+    "usingComponents": {
+        "jdk-submit": "/components/user-submit/submit/submit",
+        "share-modal": "/components/shareModal/shareModal"
+    }
+}

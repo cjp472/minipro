@@ -1,0 +1,116 @@
+@import "../../__wuBaseWxss__/8.wxss";
+
+.home-select {
+    width: 690rpx;
+    margin: 0 30rpx;
+}
+
+.home-select__bar {
+    height: 96rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-select__count {
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color: #3c4856;
+    font-weight: bold;
+}
+
+.home-select__ico {
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -77rpx -301rpx;
+    margin-right: 10rpx;
+}
+
+.home-select__blue {
+    color: #4f598f;
+}
+
+.home-select__slider {
+    font-size: 24rpx;
+    color: #8b97a4;
+}
+
+.home-select__box {
+    background-color: #fff;
+    border-radius: 8rpx;
+    padding: 30rpx;
+    margin-bottom: 10rpx;
+}
+
+.home-select__input {
+    height: 68rpx;
+    border-radius: 8rpx;
+    border: solid 1rpx #e1e3e7;
+    padding: 0 20rpx;
+    margin-bottom: 20rpx;
+}
+
+.home-select__order {
+    display: flex;
+    font-size: 24rpx;
+    color: #8d97a4;
+}
+
+.choosed {
+    color: #3e4856;
+    font-weight: bold;
+}
+
+.home-select__order-type {
+    margin-right: 60rpx;
+    position: relative;
+}
+
+.home-select__order-type:first-of-type {
+    margin-right: 90rpx;
+}
+
+.home-select__order-type:last-of-type {
+    margin-right: 0;
+}
+
+.home-select__up-triangle {
+    width: 0;
+    height: 0;
+    border: 12rpx solid transparent;
+    border-bottom: 12rpx solid #c3c7cd;
+    position: absolute;
+    top: -10rpx;
+    right: -34rpx;
+}
+
+.home-select__up-triangle--emphasis {
+    width: 0;
+    height: 0;
+    border: 12rpx solid transparent;
+    border-bottom: 12rpx solid #8d97a4;
+    position: absolute;
+    top: -10rpx;
+    right: -34rpx;
+}
+
+.home-select__down-triangle {
+    width: 0;
+    height: 0;
+    border: 12rpx solid transparent;
+    border-top: 12rpx solid #c3c7cd;
+    position: absolute;
+    bottom: -9rpx;
+    right: -34rpx;
+}
+
+.home-select__down-triangle--emphasis {
+    width: 0;
+    height: 0;
+    border: 12rpx solid transparent;
+    border-top: 12rpx solid #8d97a4;
+    position: absolute;
+    bottom: -9rpx;
+    right: -34rpx;
+}

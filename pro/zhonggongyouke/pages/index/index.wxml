@@ -1,0 +1,82 @@
+<view class="swiper">
+    <swiper autoplay="{{bannerset.autoplay}}" circular="{{bannerset.circular}}" duration="{{bannerset.duration}}" indicatorActiveColor="{{bannerset.color}}" indicatorDots="{{bannerset.indicatorDots}}" interval="{{bannerset.interval}}" nextMargin="{{bannerset.nextMargin}}rpx" previousMargin="{{bannerset.previousMargin}}rpx">
+        <swiper-item wx:for="{{bannerList}}" wx:key="*banner">
+            <view bindtap="clickBanner" class="banner" data-banner_id="{{item.banner_id}}" data-url="{{item.jump_url}}">
+                <image src="{{item.banner_img}}" title="{{item.banner_name}}"></image>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="btn-box">
+    <navigator class="btn-box-small btn-box-small-l" url="/pages/offcn/offcn">
+        <image src="/resources/quickly.png"></image>
+        <text>快速了解优课</text>
+    </navigator>
+    <button class="btn-box-small btn-box-small-r" openType="contact" size="mini">
+        <image src="/resources/work.png"></image>
+        <text>选课咨询</text>
+    </button>
+</view>
+<view class="live-list">
+    <view bindtap="toDetail" class="list" data-goods_id="{{item.goods_id}}" wx:for="{{lessonList}}" wx:key="*list">
+        <image class="cheap-tag" src="/resources/zhuli/tag.png" wx:if="{{item.status=='normal'&&item.is_active==1}}"></image>
+        <view class="cheap-text" wx:if="{{item.status=='normal'&&item.is_active==1}}">
+            <text wx:if="{{platform==2}}">￥{{item.lowest_price}}限时购</text>
+            <text wx:if="{{platform==1}}">限时特惠</text>
+        </view>
+        <view class="title-box">
+            <text class="tag">{{item.civil_type}}</text>
+            <text class="tag tag2">{{item.course_series}}</text>
+      {{item.name}}
+    </view>
+        <view class="date">
+            <image src="/resources/time.png"></image>
+      {{item.time_section}} | {{item.chapter_num}}课时
+    </view>
+        <view class="status-info">
+            <view class="teacher" wx:for="{{item.teachers}}" wx:key="*teacher">
+                <image class="avatar" src="{{item.avatar}}"></image>
+                <view class="name" data="{{item.teacher_id}}">{{item.name}}</view>
+            </view>
+            <view class="one-line" wx:if="{{item.status=='upcoming'}}">
+        即将开售
+      </view>
+            <view class="one-line gray" wx:elif="{{item.status=='full'}}">
+        已报满
+      </view>
+            <view class="one-line gray" wx:elif="{{item.status=='stop'}}">
+        已停售
+      </view>
+            <view class="pic" wx:elif="{{item.status=='buy'}}">
+                <image src="/resources/already_registered.png"></image>
+            </view>
+            <view class="two-line" wx:else>
+                <view class="price">
+                    <text class="old-price" wx:if="{{item.original_price&&item.original_price!=0&&item.original_price>item.price&&platform==2}}">￥{{item.original_price}}</text>
+                    <text class="new-price" wx:if="{{platform==2}}">
+                        <text>￥</text>{{item.price}}</text>
+                </view>
+                <view class="state" wx:if="{{item.sell_num||item.countdown_num}}">
+                    <text wx:if="{{item.countdown_num}}">距离停售<text class="yellow">{{item.countdown_num}}天</text> | </text>
+                    <text wx:if="{{item.is_show_surplus==true}}">剩余席位{{item.surplus_num}}</text>
+                    <text wx:if="{{item.is_show_surplus==false&&item.sell_num}}">{{item.sell_num}}人已报</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view hidden="{{!showLoading}}">
+    <view class="loadingTip" hidden="{{!page.hasNext}}">
+        <image class="loadingTipImg" src="/resources/loading.gif"></image>
+        <text>加载中...</text>
+    </view>
+    <view class="loadingTip" hidden="{{page.hasNext}}">
+    没有更多了
+  </view>
+</view>
+<view hidden="{{showLoading}}">
+    <view class="loadingTip" hidden="{{!page.hasNext}}">
+        <image class="loadingTipImg" src="/resources/loading.gif"></image>
+        <text>加载中...</text>
+    </view>
+</view>

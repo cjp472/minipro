@@ -1,0 +1,44 @@
+<template name="courseList">
+    <view class="subject-class-list" wx:if="{{treeData.length>0}}">
+        <block wx:for="{{treeData}}" wx:key="item.siteId">
+            <view style="height:2rpx"></view>
+            <view bindtap="bindCourse" class="subject-class {{item.style}} {{item.needBuy?'disable':''}}" data-level="{{item.siteLevel}}" data-parentid="{{item.parentId}}" data-rootid="{{item.rootId}}" data-siteid="{{item.siteId}}" style="display:{{item.display?'block':'none'}}">
+                <view class="subject-class-title">
+                    <view class="subject-class-title-text">
+                        <text>{{item.siteName}}</text>
+                    </view>
+                    <button catchtap="bindPractice" class="subject-class-video {{item.needBuy&&item.siteLevel===1?'shop-icon':''}}" data-needBuy="{{item.needBuy}}" data-siteLevel="{{item.siteLevel}}" data-siteid="{{item.siteId}}" hoverClass="none">
+                        <block wx:if="{{item.needBuy&&item.siteLevel===1}}">
+                            <text class="iconfont home_icon_goumai"></text>
+                            <text>购买</text>
+                        </block>
+                    </button>
+                </view>
+                <view class="subject-class-info">
+                    <text>{{item.totalQuestions}}道</text>
+                </view>
+            </view>
+        </block>
+        <view class="paper-bottom-space"></view>
+    </view>
+    <view class="practice-papers-box subject-class-list" wx:if="{{paperData.papers.length>0}}">
+        <view class="subject-class class-one {{paperData.BuyStatus?'disable':''}}" hoverClass="" wx:for="{{paperData.papers}}" wx:key="item">
+            <view class="subject-class-title">
+                <view class="practice-class-title-text">
+                    <text>
+                        <text class="new-icon" wx:if="{{item.IsNew==1}}">NEW</text>{{item.PaperName}}</text>
+                </view>
+                <view catchtap="bindPractice" class="subject-class-video {{paperData.BuyStatus?'shop-icon':''}}" data-needBuy="{{paperData.BuyStatus}}" data-siteid="{{item.PaperId}}">
+                    <block wx:if="{{paperData.BuyStatus}}">
+                        <text class="iconfont home_icon_goumai"></text>
+                        <text>购买</text>
+                    </block>
+                </view>
+            </view>
+            <view class="subject-class-info">
+                <text>{{item.total}}道</text>
+            </view>
+        </view>
+        <view class="paper-bottom-space"></view>
+    </view>
+</template>

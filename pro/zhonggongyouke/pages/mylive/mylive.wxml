@@ -1,0 +1,53 @@
+<view class="container">
+    <view class="tab-box m-t-19">
+        <view bindtap="selected1" class="{{selected1?'tab on':'tab'}}">
+            <text class="tab-title">待上课</text>
+            <text class="tab-line"></text>
+        </view>
+        <view bindtap="selected2" class="{{selected2?'tab on':'tab'}}">
+            <text class="tab-title">已结课</text>
+            <text class="tab-line"></text>
+        </view>
+    </view>
+    <view class="{{selected1?'show':'hide'}}">
+        <view class="bg-white" style="height:100vh" wx:if="{{liveWaitStudyLength==0}}">
+            <image class="bg-img" src="/resources/bg_no_live.png"></image>
+            <view class="bg-des">暂时没有待上直播课</view>
+            <navigator class="bg-go" openType="switchTab" url="/pages/index/index">去逛逛</navigator>
+        </view>
+        <view wx:if="{{liveWaitStudyLength>0}}">
+            <view bindtap="mylivelist" class="list" data-goods_id="{{item.goods_id}}" data-type="1" wx:for="{{liveWaitStudy}}" wx:key="*liveWaitStudy">
+                <view class="title">{{item.name}}</view>
+                <view class="time-range">
+                    <view class="time-icon">
+                        <image src="/resources/time.png"></image>
+                    </view>{{item.time_section}} | {{item.chapter_num}}课时</view>
+                <view class="teacher" wx:if="{{item.teachers.length>0}}">授课老师：<text wx:for="{{item.teachers}}" wx:key="*teachers">{{item.name}} </text>
+                </view>
+                <view class="time-class">第{{item.will_study_chapter_id}}课时：{{item.will_study_time_section}}</view>
+                <view class="info-btn begin" wx:if="{{item.status=='in_class'}}">正在直播</view>
+                <view class="info-btn already-on" wx:if="{{item.status=='upcoming'}}">即将开始</view>
+            </view>
+        </view>
+    </view>
+    <view class="over-class {{selected2?'show':'hide'}}">
+        <view class="bg-white" style="height:100vh" wx:if="{{liveFinishCourseLength==0}}">
+            <image class="bg-img" src="/resources/bg_no_live.png"></image>
+            <view class="bg-des">暂时没有结课直播课</view>
+            <navigator class="bg-go" openType="switchTab" url="/pages/index/index">去逛逛</navigator>
+        </view>
+        <view class="bg-white" wx:if="{{liveFinishCourseLength>0}}">
+            <view bindtap="mylivelist" class="list" data-goods_id="{{item.goods_id}}" data-type="2" wx:for="{{liveFinishCourse}}" wx:key="*liveFinishCourse">
+                <view class="title bold">{{item.name}}</view>
+                <view class="time-range">
+                    <view class="time-icon">
+                        <image src="/resources/time.png"></image>
+                    </view>{{item.time_section}} | {{item.chapter_num}}课时，<text wx:if="{{item.is_all_finish==false}}">已结束{{item.finish_chapter}}课时</text>
+                    <text wx:if="{{item.is_all_finish==true}}">全部已结束</text>
+                </view>
+                <view class="teacher" wx:if="{{item.teachers.length>0}}">授课老师：<text wx:for="{{item.teachers}}" wx:key="*teachers2">{{item.name}} </text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

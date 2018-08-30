@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "课程二维码",
+    "navigationBarBackgroundColor": "#4f598f",
+    "usingComponents": {
+        "jdk-modal": "/components/modal/modal"
+    }
+}

@@ -1,0 +1,86 @@
+.ico {
+    background: url(https://cdn-qiye.jingdaka.com/images/sprites.png?v=42);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    display: inline-block;
+}
+
+.admin-ico {
+    background: url(https://cdn-qiye.jingdaka.com/images/sprites_admin.png?v=48);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    display: inline-block;
+}
+
+.admin-ico2 {
+    background: url(http://static3topen.jingdaka.com/images/sprites_admin2.png);
+    background-repeat: no-repeat;
+    background-size: 750rpx;
+    display: inline-block;
+}
+
+.admin .ico {
+    background: url(https://cdn-qiye.jingdaka.com/images/sprites_admin.png?v=48);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    display: inline-block;
+}
+
+.ico-to-play {
+    width: 60rpx;
+    height: 56rpx;
+    margin: 0 10rpx;
+    background-position: 0 -419rpx;
+}
+
+.ico-playing {
+    width: 60rpx;
+    height: 56rpx;
+    margin: 0 10rpx;
+    background-position: -60rpx -420rpx;
+}
+
+.ico-has-played {
+    width: 37rpx;
+    height: 30rpx;
+    background-position: -240rpx -1108rpx;
+}
+
+.manager-ico-has-played {
+    background: url(http://static3topen.jingdaka.com/images/sprites_admin.png?v=41);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    display: inline-block;
+    width: 37rpx;
+    height: 30rpx;
+    background-position: -240rpx -1108rpx;
+}
+
+.ico--remedy {
+    height: 60rpx;
+    width: 35rpx;
+    background-position: -90rpx -1145rpx;
+}
+
+.ico--attention {
+    width: 30rpx;
+    height: 30rpx;
+    background-position: -10rpx -1647rpx;
+    vertical-align: middle;
+    margin-bottom: 5rpx;
+}
+
+.clear-button-style {
+    padding: 0;
+    text-align: left;
+    border: none;
+    border-radius: 0;
+    box-sizing: content-box;
+    position: static;
+}
+
+.clear-button-style::before,.clear-button-style::after {
+    content: '';
+    width: 0;
+    height: 0;
+}

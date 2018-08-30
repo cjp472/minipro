@@ -1,0 +1,69 @@
+<view class="finePapers-box  {{theme}}">
+    <view class="finePapers-img">
+        <image src="{{fineInfoData.TipUrl}}"></image>
+    </view>
+    <view class="finePapers-validity"></view>
+    <view class="remaining-days">
+        <view class="expireexpire-time   {{fineInfoData.OrderState?'expireexpire-time-success':' '}} ">
+            <text class="iconfont  icon_time1"></text>
+            <text>有效期至：{{expireexpireTime}}</text>
+        </view>
+        <view class="fine-active-box">
+            <view class="fine-active" wx:if="{{!fineInfoData.OrderState&&SaleDiscount!=0}}">
+                <text>大促{{SaleDiscount}}折</text>
+            </view>
+        </view>
+    </view>
+    <form bindsubmit="{{fineInfoData.OrderState?'formSubmit':' '}}" reportSubmit="true">
+        <view class="questions-wrap" wx:for="{{fineCourseInfo}}" wx:key="{{item.AreaId}}">
+            <view class="questions-main">
+                <view class="questions-title   {{fineInfoData.OrderState?'questions-title-success':' '}}">{{item.PaperName}}</view>
+                <view class="questions-info {{fineInfoData.OrderState?'questions-info-success':' '}}">
+                    <text class="lable-text">难度{{item.DifficultyFactor}}</text>
+                    <text>{{item.ExamUserCount}}人做过</text>
+                </view>
+            </view>
+            <button class="questions-side-btn" data-areaId="{{item.AreaId}}" data-average="{{item.Average}}" data-paperId="{{item.PaperStatisticsEntity.PaperId}}" formType="submit" hoverClass="none">
+                <view class="do-exercise-icon  {{fineInfoData.OrderState?'success-do-exercise-icon':''}}"></view>
+            </button>
+        </view>
+        <view class="finePapersBottom"></view>
+    </form>
+    <view class="fine-pay-bottom-box">
+        <view class="fine-pay-bottom" style="padding-left:{{!IOS?'0':'30'}}rpx;box-sizing:border-box;" wx:if="{{!fineInfoData.OrderState}}">
+            <view class="pay-price-symbol" wx:if="{{!IOS}}">
+                <text>￥</text>{{fineInfoData.Price}}
+      </view>
+            <view class="pay-person">
+                <view class="number">
+                    <view class="pay-text">
+                        <view class="pay-text-day">距离{{IOS?'报名截止':'停售'}}
+                <text>{{remainingDays}}</text>天</view>
+                        <view>仅{{IOS?'限':'售'}}{{fineInfoData.LimitCount}}{{IOS?'人':'席'}}，还剩
+                <text>{{fineInfoData.RemainCount}}</text>位
+              </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="payCourseJs" class="pay-btn" wx:if="{{fineInfoData.RemainCount&&!IOS}}">
+                <text>购买</text>
+            </view>
+            <view class="pay-btn" wx:if="{{fineInfoData.RemainCount&&IOS}}">
+                <button hoverClass="none" openType="contact" sessionFrom="{{XNConfigInfo.sessionFrom}}">
+          报名
+        </button>
+            </view>
+            <view class="pay-btn-end" wx:if="{{!fineInfoData.RemainCount}}">
+                <text>已售罄</text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="goBackIndex" class="goBackIndex" wx:if="{{IsShare==1}}">
+        <text class="iconfont icon_home"></text>
+    </view>
+    <form bindsubmit="formSubmitHongBao" reportSubmit="{{true}}">
+        <button animation="{{s_animationData}}" class="s_hongbao {{hbanmationState?'hide':''}}" formType="submit" hoverClass="" wx:if="{{ifHongb&&IsShare==1&&buyState}}">
+            <image class="s_hongbaoImage" src="http://img02.exam8.com/img2017/minapp/group/hongbaox.png"></image>
+        </button>
+    </form>
+</view>

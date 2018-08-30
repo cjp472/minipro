@@ -1,0 +1,21 @@
+<import src="/lib/hardcore/templates/search-bar"></import>
+<import src="/lib/hardcore/templates/subject"></import>
+<view class="container">
+    <template is="search-button" data="{{type:'movie'}}"></template>
+    <view class="subject-column-list">
+        <view class="column subject-column" wx:for="{{columns}}" wx:for-item="column" wx:key="{{column.name}}">
+            <view class="header">
+                <view class="left-icon"></view>
+                <text class="title">{{column.title}}</text>
+                <navigator class="right-button more-btn" data-column="{{column.name}}" url="/lib/hardcore/pages/subject/subject-list?mode=column&column={{column.name}}&type=movie">更多<view class="right-icon"></view>
+                </navigator>
+            </view>
+            <view class="items-container horizontal">
+                <view class="item" wx:for="{{column.items}}" wx:for-item="subject" wx:key="{{subject.id}}">
+                    <template is="subject" data="{{subject:subject}}"></template>
+                </view>
+                <view class="loading" wx:if="{{loading[column.name]}}"></view>
+            </view>
+        </view>
+    </view>
+</view>

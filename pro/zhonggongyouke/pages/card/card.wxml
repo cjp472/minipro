@@ -1,0 +1,35 @@
+<template name="card">
+    <view wx:for="{{courselist}}" wx:key="*this">
+        <view bindtap="goList" class="card-head" data-category_id="{{item.category_id}}" data-mername="{{item.name}}" url="/pages/interview/interview">
+            <image class="card-icon" src="/resources/public/menu-1.png" wx:if="{{item.category_id==1}}"></image>
+            <image class="card-icon" src="/resources/public/menu-2.png" wx:if="{{item.category_id==2}}"></image>
+            <image class="card-icon" src="/resources/public/menu-3.png" wx:if="{{item.category_id==3}}"></image>
+            <image class="card-icon" src="/resources/public/menu-4.png" wx:if="{{item.category_id==4}}"></image>
+            <text class="card-title">{{item.name}}</text>
+            <image class="more-icon" src="/resources/public/more-icon.png" wx:if="{{item.items.length==4}}"></image>
+            <text class="card-more" wx:if="{{item.items.length==4}}">更多</text>
+        </view>
+        <view class="card-box">
+            <view bindtap="toDetail" class="card-list" data-goods_id="{{item.goods_id}}" url="/pages/publicdetail/publicdetail" wx:for="{{item.items}}" wx:key="*this">
+                <image class="card-list-img" src="{{item.banner_img}}"></image>
+                <view class="card-list-txt">
+                    <view class="card-list-title">{{item.name}}</view>
+                    <view class="card-teacher" wx:for="{{item.teachers}}" wx:key="*this">
+                        <image class="card-teacher-avatar" src="{{item.avatar}}"></image>
+                        <text class="card-teacher-name">{{item.name}}</text>
+                    </view>
+                    <view class="card-lesson-info" wx:if="{{item.is_buy==false}}">
+                        <text class="card-lesson-num">{{item.chapter_num}}课时</text>
+                        <text class="card-lesson-price">
+                            <text class="little">￥</text>{{item.price}}</text>
+                        <text class="card-lesson-sign">{{item.sell_num}}人已报</text>
+                    </view>
+                    <view class="card-lesson-info" wx:else>
+                        <image class="signed" src="/resources/already_registered.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="clear"></view>
+    </view>
+</template>

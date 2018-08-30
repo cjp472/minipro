@@ -1,0 +1,19 @@
+<view class="modal">
+    <view class="mask"></view>
+    <view class="body">
+        <view class="title">
+      {{title}}
+    </view>
+        <view class="tips">
+      {{tips}}
+    </view>
+        <view class="content">
+            <input bindblur="inputValue" bindconfirm="inputValue" bindinput="inputValue" class="input" placeholder="{{placeholder}}" placeholderClass="placeholder" value="{{inputValue}}"></input>
+        </view>
+        <view class="buttons">
+            <text bindtap="cancel" class="button button--cancel">取消</text>
+            <text bindtap="confirm" class="button button--confirm">确定</text>
+            <view class="line"></view>
+        </view>
+    </view>
+</view>

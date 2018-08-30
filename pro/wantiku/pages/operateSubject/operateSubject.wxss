@@ -1,0 +1,111 @@
+.list-subject {
+    display: flex;
+    padding: 30rpx 0 30rpx 0;
+    border-bottom: 1rpx solid #ebebeb;
+    margin-left: 30rpx;
+}
+
+.list-subject-img {
+    width: 216rpx;
+    height: 138rpx;
+    border-radius: 8rpx;
+}
+
+.list-subject .icon_time {
+    font-size: 20rpx;
+    margin-right: 10rpx;
+    color: #ccc;
+}
+
+.list-subject-right {
+    margin: 0 0 0 30rpx;
+}
+
+.list-subject-title {
+    font-size: 30rpx;
+    color: #4e4e4e;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 470rpx;
+}
+
+.list-subject-title .text-icon {
+    display: inline-block;
+    color: #fc5e5e;
+    border: 1rpx solid #fc5e5e;
+    padding: 0 8rpx;
+    font-size: 20rpx;
+    margin-right: 10rpx;
+    border-radius: 4rpx;
+    position: relative;
+    top: -2rpx;
+}
+
+.b-none {
+    border: none;
+}
+
+.share-btn-text {
+    font-size: 20rpx;
+}
+
+.list-subject-time {
+    font-size: 22rpx;
+    color: #9a9a9a;
+    margin-top: 27rpx;
+}
+
+.list-subject-num {
+    font-size: 22rpx;
+    color: #9a9a9a;
+    margin-top: 9rpx;
+}
+
+.list-subject-num .icon_renshu1 {
+    font-size: 20rpx;
+    margin-right: 10rpx;
+    color: #ccc;
+}
+
+.more-look {
+    width: 750rpx;
+    text-align: center;
+    margin-top: 68rpx;
+    color: #6fce29;
+}
+
+.more-look1 {
+    position: fixed;
+    bottom: 68rpx;
+}
+
+.more-look-text {
+    display: inline-block;
+    width: 300rpx;
+    height: 80rpx;
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 80rpx;
+    border-radius: 44rpx;
+    border: 1rpx solid #6fce29;
+}
+
+.share-btn {
+    position: fixed;
+    bottom: 62rpx;
+    right: 30rpx;
+    width: 98rpx;
+    height: 98rpx;
+    text-align: center;
+    border-radius: 49rpx;
+    color: #fff;
+    background-color: #6fce29;
+    box-shadow: 0rpx 4rpx 16rpx #dddddd;
+}
+
+.share-btn .icon_fenxiang2 {
+    display: block;
+    font-size: 30rpx;
+    margin-top: 20rpx;
+}

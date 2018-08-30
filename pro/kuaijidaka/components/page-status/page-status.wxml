@@ -1,0 +1,8 @@
+<view class="h80 bg_green"></view>
+<view class="w_100 h_100 pd30 poa border-box">
+    <view class="w_100 h_100 bg_white bd_rdus4 flex_c_t pdt200 border-box">
+        <image mode="widthFix" src="{{imgSrc}}" style="width:427rpx"></image>
+        <text class="col-8b97a4">{{titleMsg}}</text>
+        <navigator class="col-3B4755 fz26 p_button" url="/pages/user/my/my">{{doSometing}}</navigator>
+    </view>
+</view>

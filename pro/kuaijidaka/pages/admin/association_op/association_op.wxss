@@ -1,0 +1,138 @@
+.top-back {
+    width: 100vw;
+    height: 138rpx;
+    background-color: #4f598f;
+}
+
+.top-back.user {
+    background-color: #22dd82;
+}
+
+.container {
+    margin: -95rpx 30rpx 0rpx 30rpx;
+    width: 690rpx;
+    border-radius: 8rpx;
+    background-color: #fff;
+}
+
+.container .header {
+    margin: 0 30rpx;
+    padding: 30rpx 0;
+    width: 630rpx;
+    height: 64rpx;
+    position: relative;
+    border-bottom: 1rpx solid #d9e1e9;
+}
+
+.container .header .manager-name {
+    font-size: 30rpx;
+    color: #3c4856;
+    margin-bottom: 12rpx;
+    font-weight: bold;
+}
+
+.container .header .create-time {
+    font-size: 22rpx;
+    color: #8b97a4;
+}
+
+.share-button-no-ico::after {
+    transform: scale(0)!important;
+}
+
+.share-button {
+    width: 74rpx;
+    height: 60rpx;
+    position: absolute;
+    top: 30rpx;
+    right: 0rpx;
+    padding: 0 0 0 70rpx!important;
+    font-size: 24rpx;
+    color: #8b97a4;
+    line-height: 60rpx;
+    border: solid 2rpx rgba(224,227,231,1);
+    border-radius: 4rpx;
+    margin: 0!important;
+    box-sizing: content-box!important;
+    text-align: left!important;
+    background-color: #fff;
+}
+
+.share-button::after {
+    transform: scale(0)!important;
+}
+
+.share-button .ico {
+    background-position: -113rpx -717rpx;
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    top: 15rpx;
+    left: 30rpx;
+}
+
+.container .headline {
+    font-size: 30rpx;
+    color: #4f598f;
+    margin: 30rpx 30rpx 0 30rpx;
+    position: relative;
+}
+
+.container .headline .ico {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-position: -154rpx -750rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.container .headline.user {
+    color: #22dd82;
+}
+
+.visitors {
+    margin: 0 30rpx 30rpx 30rpx;
+    padding: 0 30rpx;
+    background-color: #f8fafb;
+}
+
+.visitors .visitors-count {
+    padding: 20rpx 0;
+    font-size: 24rpx;
+    color: #8b97a4;
+}
+
+.visitors .visitors-list {
+    padding-top: 30rpx;
+}
+
+.visitors .visitors-list .visitors-detail {
+    height: 60rpx;
+    padding-bottom: 30rpx;
+    display: flex;
+    line-height: 60rpx;
+}
+
+.visitors .visitors-list .visitors-detail .avatar {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    margin-right: 20rpx;
+}
+
+.visitors .visitors-list .visitors-detail .nickname {
+    font-size: 24rpx;
+    color: #3c4856;
+    width: 280rpx;
+    margin-right: 60rpx;
+}
+
+.visitors .visitors-list .visitors-detail .visit-time {
+    font-size: 24rpx;
+    color: #8b97a5;
+}
+
+.theme-box {
+    padding: 0 30rpx;
+}

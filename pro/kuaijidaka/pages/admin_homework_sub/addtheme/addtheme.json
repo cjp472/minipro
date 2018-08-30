@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "新建作业主题",
+    "navigationBarBackgroundColor": "#4f598f",
+    "usingComponents": {
+        "hybrid-content-editor": "/components/hybrid-content-editor/hybrid-content-editor"
+    }
+}

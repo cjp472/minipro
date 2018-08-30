@@ -1,0 +1,6 @@
+<template name="toLoadingSign">
+    <view class="weui-loadmore" wx:if="{{!isLoadMore}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore_tips">正在加载</view>
+    </view>
+</template>

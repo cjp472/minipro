@@ -1,0 +1,391 @@
+.calendar-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30rpx;
+    background: #fff;
+    padding-bottom: 22rpx;
+}
+
+.calendar-list .weeks {
+    display: flex;
+    width: 100%;
+}
+
+.calendar-list .weeks .week {
+    width: 14.28%;
+    height: 77rpx;
+    line-height: 77rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.calendar-list .days {
+    display: flex;
+    width: 100%;
+}
+
+.calendar-list .days .day {
+    width: 14.28%;
+    height: 77rpx;
+    line-height: 77rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #cfcfcf;
+    position: relative;
+}
+
+.calendar-list .days .grid {
+    color: #3c4856;
+}
+
+.calendar-list .days .select-date-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar-list .days .select-date-bg .dd {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    background-color: #edf0f3;
+    text-align: center;
+    line-height: 50rpx;
+}
+
+.calendar-list .days .grid span {
+    background: url(http://static3topen.jingdaka.com/images/sprites.png?v=39);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    width: 30rpx;
+    height: 30rpx;
+    display: block;
+    position: absolute;
+    right: 10rpx;
+    top: 5rpx;
+    z-index: 80;
+}
+
+.calendar-list .days .not-bg span {
+    background: none;
+}
+
+.calendar-list .days .ok-bg span {
+    background-position: -180rpx -60rpx;
+}
+
+.calendar-list .days .theme_bg strong {
+    width: 8rpx;
+    height: 8rpx;
+    border-radius: 8rpx;
+    background: #ff7474;
+    position: absolute;
+    left: 50%;
+    margin-left: -4rpx;
+    top: 65rpx;
+    z-index: 80;
+}
+
+.calendar-list .days .today .ico {
+    background-position: -250rpx -130rpx;
+    width: 50rpx;
+    height: 50rpx;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -25rpx;
+    margin-left: -25rpx;
+    z-index: 70;
+}
+
+.top {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.manager-search-box {
+    width: 750rpx;
+    height: 98rpx;
+    background-color: #4f598f;
+}
+
+.manager-search-box input {
+    float: left;
+    width: 650rpx;
+    height: 68rpx;
+    line-height: 68rpx;
+    margin: 15rpx 30rpx;
+    background-color: #3f497f;
+    position: relative;
+    border-radius: 12rpx;
+    color: #8b97a4;
+    padding-left: 40rpx;
+}
+
+.manager-search-box .focusInput {
+    width: 560rpx;
+}
+
+.placeholderStyle {
+    font-size: 28rpx;
+    color: #8b97a4;
+}
+
+.manager-search-box .search {
+    background-position: -40rpx -594rpx;
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 29rpx;
+    right: 42rpx;
+    z-index: 99;
+}
+
+.manager-search-box .close {
+    background-position: -182rpx -594rpx;
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 29rpx;
+    right: 132rpx;
+    z-index: 99;
+}
+
+.manager-search-box .cancel {
+    float: right;
+    font-size: 29rpx;
+    color: #edf0f3;
+    height: 98rpx;
+    line-height: 98rpx;
+    margin-right: 30rpx;
+}
+
+.check {
+    width: 750rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    background-color: #fff;
+    border-top: 1rpx solid #edf0f3;
+    position: relative;
+}
+
+.mask {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 999rpx;
+    background-color: rgba(0,0,0,.5);
+}
+
+.check .alreadyPunch {
+    height: 88rpx;
+    box-sizing: border-box;
+    margin-left: 50rpx;
+    margin-right: 60rpx;
+    font-size: 30rpx;
+    color: #8b97a4;
+    float: left;
+}
+
+.check .notPunch {
+    height: 88rpx;
+    box-sizing: border-box;
+    font-size: 30rpx;
+    color: #8b97a4;
+    float: left;
+}
+
+.check .allList {
+    font-size: 24rpx;
+    color: #8b97a4;
+    float: right;
+    margin-right: 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.hideAll {
+    height: 0!important;
+}
+
+.listIco {
+    background-position: -210rpx -30rpx;
+    width: 30rpx;
+    height: 30rpx;
+    transform: rotate(90deg);
+}
+
+.up {
+    transform: rotate(-90deg)!important;
+}
+
+.groupList {
+    position: absolute;
+    top: 100%;
+    background-color: #fff;
+    height: 400rpx;
+    width: 100%;
+    border-top: 1rpx solid #edf0f3;
+    z-index: 2;
+    overflow: scroll;
+}
+
+.groupList .item {
+    width: 100%;
+    text-align: center;
+    font: 400 30rpx/120rpx 'microsoft yahei';
+    border-bottom: 2rpx solid #d9e1e9;
+}
+
+.chosenTeam {
+    color: #4f598f;
+}
+
+.noGroup {
+    line-height: 400rpx!important;
+}
+
+.check .choose {
+    color: #4f598f;
+    border-bottom: 4rpx solid #4f598f;
+}
+
+.th {
+    width: 750rpx;
+    height: 61rpx;
+    line-height: 61rpx;
+    font-size: 24rpx;
+    color: #8b97a5;
+    background-color: #edf0f3;
+}
+
+.th .info,.remind {
+    margin-left: 60rpx;
+    float: left;
+}
+
+.remind {
+    color: #4f598f;
+}
+
+.th .punchTime {
+    float: right;
+    margin-right: 30rpx;
+}
+
+.userListContainer {
+    margin-top: 422rpx;
+}
+
+.userListContainer.homeworkType {
+    margin-top: 336rpx;
+}
+
+.userList {
+    border-top: 1rpx solid #eff2f5;
+    width: 750rpx;
+    height: 140rpx;
+    line-height: 140rpx;
+    background-color: #fff;
+}
+
+.userList.first {
+    border: none;
+}
+
+.userList .number {
+    float: left;
+    font-size: 28rpx;
+    color: #8b97a5;
+    margin: 0 30rpx;
+}
+
+.userList .avatar {
+    float: left;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 80rpx;
+    margin: 30rpx 30rpx 30rpx 0;
+}
+
+.userList .userName {
+    float: left;
+    font-size: 30rpx;
+    color: #3c4856;
+}
+
+.userList .lastDate {
+    float: right;
+    margin-right: 30rpx;
+    font-size: 30rpx;
+    color: #8b97a5;
+}
+
+.noPunch {
+    background: url(http://static3t.jingdaka.com/images/img_noPunch.png);
+    background-repeat: no-repeat;
+    background-size: 187rpx;
+    height: 332rpx;
+    margin-top: 140rpx;
+    margin-left: 282rpx;
+}
+
+.i {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 98rpx;
+    left: 0;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 88;
+}
+
+.homework-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 40rpx;
+    padding: 25rpx 30rpx;
+    background-color: #fff;
+}
+
+.homework-list .homework-title {
+    position: relative;
+    padding: 10rpx 20rpx;
+    font-size: 30rpx;
+    color: #3c4856;
+    border: 2rpx solid #d9e1e9;
+    border-radius: 40rpx;
+    background-color: #edf0f3;
+}
+
+.homework-list .ico {
+    position: absolute;
+    width: 30rpx;
+    height: 30rpx;
+    background-position: -210rpx -30rpx;
+}
+
+.homework-list .ico.left-ico {
+    top: 30rpx;
+    left: 20rpx;
+    transform: rotate(180deg);
+}
+
+.homework-list .ico.right-ico {
+    top: 30rpx;
+    right: 20rpx;
+}
+
+.homework-list .homework-title .ico {
+    top: 10rpx;
+    right: 10rpx;
+    transform: rotate(90deg);
+}

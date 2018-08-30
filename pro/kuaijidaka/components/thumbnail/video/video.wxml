@@ -1,0 +1,34 @@
+<view class="{{width>140||height>140?'m10-10-0':'m25-25-0'}} por" style="width:{{width}}rpx;height:{{height}}rpx;" wx:if="{{applyScene=='hybrid-theme'}}">
+    <view catchtap="{{disable?'':'_bindplay'}}" class="w_100 h_100 poa z2 oh" data-index="{{index}}" hidden="{{!hiddenVideo}}">
+        <image lazyLoad binderror="binderror" bindload="bindload" mode="{{mode}}" src="{{poster+'?x-oss-process=image/resize,w_500'}}" style="width:100%;height:100%;background:#222;" wx:if="{{poster!=''}}"></image>
+        <view class="play_icon poa {{width>140?'play_icon_big':''}}"></view>
+    </view>
+    <view class="{{hiddenVideo?'hiddenVideo':'size100'}} poa z1 oh" wx:if="{{updateVideo}}">
+        <video controls autoplay="{{autoplay}}" bindended="_bindended" bindpause="_bindpause" customCache="{{false}}" direction="{{direction}}" id="{{videoId}}" objectFit="contain" src="{{playUrl}}" style="width:100%;height:100%;"></video>
+    </view>
+    <view catchtap="deleteItem" class="delete ico" data-index="{{index}}" data-src="{{url}}" wx:if="{{deleteBtn}}"></view>
+</view>
+<view class="{{width>140||height>140?'m10-10-0':'m25-25-0'}} por {{applyScene}}" style="width:{{width}}rpx;" wx:if="{{applyScene=='single-video'||applyScene=='read-reading'||applyScene=='read-punching'}}">
+    <view catchtap="{{disable?'':'videoPlay'}}" class="w_100 oh image-box" data-index="{{index}}">
+        <image lazyLoad binderror="binderror" bindload="bindload" mode="widthFix" src="{{poster+'?x-oss-process=image/resize,w_360'}}" style="width:100%;background:#222;" wx:if="{{poster!=''}}"></image>
+        <view class="play_icon poa {{width>140?'play_icon_big':''}}"></view>
+    </view>
+    <view class="poa z2" wx:if="{{updateVideo}}">
+        <video controls autoplay="{{autoplay}}" bindfullscreenchange="screenChange" class="{{hiddenVideo}}" customCache="{{false}}" data-index="{{index}}" direction="{{direction}}" id="{{videoId}}" objectFit="contain" src="{{playUrl}}" style="width:0;height:0;position:relative;">
+            <cover-view catchtap="exitFullScreen" class="offVideo">×</cover-view>
+        </video>
+    </view>
+    <view catchtap="deleteItem" class="delete_icon poa z3" data-index="{{index}}" wx:if="{{deleteBtn}}"></view>
+</view>
+<view class="{{width>140||height>140?'m10-10-0':'m25-25-0'}} por" style="width:{{width}}rpx;height:{{height}}rpx;" wx:if="{{applyScene=='normal'}}">
+    <view catchtap="{{disable?'':'videoPlay'}}" class="w_100 h_100 oh poa z2" data-index="{{index}}">
+        <image lazyLoad binderror="binderror" bindload="bindload" mode="{{mode}}" src="{{poster+'?x-oss-process=image/resize,w_150'}}" style="width:100%;height:100%;background:#222;" wx:if="{{poster!=''}}"></image>
+        <view class="play_icon poa {{width>140?'play_icon_big':''}}"></view>
+    </view>
+    <view class="poa z1" wx:if="{{updateVideo}}">
+        <video controls autoplay="{{autoplay}}" bindfullscreenchange="screenChange" class="{{hiddenVideo}}" customCache="{{false}}" data-index="{{index}}" direction="{{direction}}" id="{{videoId}}" objectFit="contain" src="{{playUrl}}" style="width:0;height:0;position:relative;">
+            <cover-view catchtap="exitFullScreen" class="offVideo">×</cover-view>
+        </video>
+    </view>
+    <view catchtap="deleteItem" class="delete_icon poa z3" data-index="{{index}}" wx:if="{{deleteBtn}}"></view>
+</view>

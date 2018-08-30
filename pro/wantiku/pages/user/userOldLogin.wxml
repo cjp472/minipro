@@ -1,0 +1,90 @@
+<view class="{{theme}}">
+    <view wx:if="{{effect.selectNextIndex==0}}">
+        <view class="user-login-header" style="height:340rpx">
+            <view class="user-login-logo">
+                <view class="user-logo-name">
+                    <text>请输入密码</text>
+                </view>
+            </view>
+        </view>
+        <view class="user-login-number">
+            <form bindsubmit="login">
+                <view class="input-box">
+                    <view class="input-list">
+                        <input bindinput="inputPassword" hidden="{{effect.userInput=='password'}}" name="password" placeholder="输入密码" placeholderClass="input-inherit" type="text" value="{{input}}"></input>
+                        <input bindinput="inputPassword" focus="{{pwdFocus}}" hidden="{{effect.userInput=='text'}}" name="password" placeholder="输入密码" placeholderClass="input-inherit" type="password" value="{{input}}"></input>
+                    </view>
+                    <view catchtap="userInputStatic" class="input-password">
+                        <image mode="widthFix" src="/images/userLogin/icon-{{effect.userInput}}.png"></image>
+                    </view>
+                </view>
+                <view animation="{{loginTipAnimate}}" class="user-login-error">
+                {{loginTipText}}
+            </view>
+                <button class="pj-submit phone {{loginClick?'':'initial'}} analyze_login" disabled="{{!loginClick}}" formType="submit">登录</button>
+                <view bindtap="sendCode" class="user-register-code-new analyze_forget">
+                    忘记密码
+                </view>
+            </form>
+        </view>
+    </view>
+    <view animation="{{verCodePageAnimate}}" wx:if="{{effect.selectNextIndex==1}}">
+        <view class="user-login-header">
+            <view class="user-login-logo">
+                <view class="user-logo-name">
+                    <text>输入验证码</text>
+                </view>
+                <view>
+                    <text>验证码已发送至 {{mobileStr}}</text>
+                </view>
+                <view bindtap="resendCode" class="user-register-code {{reSendSec>0?'code-wait':''}} analyze_resend">
+                    {{reSendSec>0?reSendSec+'s后重发':'发送验证码'}}
+                </view>
+            </view>
+        </view>
+        <view class="user-login-number" style="padding-top:60rpx;">
+            <form>
+                <view bindtap="onFocus" class="user-login-input-code">
+                    <view class="{{userInputCode.length==0?'nocode':''}}">{{userInputCode[0]}}</view>
+                    <view class="{{userInputCode.length<=1?'nocode':''}}">{{userInputCode[1]}}</view>
+                    <view class="{{userInputCode.length<=2?'nocode':''}}">{{userInputCode[2]}}</view>
+                    <view class="{{userInputCode.length<=3?'nocode':''}}">{{userInputCode[3]}}</view>
+                    <view class="{{userInputCode.length<=4?'nocode':''}}">{{userInputCode[4]}}</view>
+                    <view class="{{userInputCode.length<=5?'nocode':''}}">{{userInputCode[5]}}</view>
+                </view>
+                <view class="user-hide-input">
+                    <input bindinput="userKeydown" focus="{{inputFocus}}" maxlength="6" name="verCode" type="number"></input>
+                </view>
+                <view animation="{{verCodeTipAnimate}}" class="user-login-error">
+                    <text>{{verCodeTipText}}</text>
+                </view>
+            </form>
+        </view>
+    </view>
+    <view animation="{{resetPageAnimate}}" wx:if="{{effect.selectNextIndex==2}}">
+        <view class="user-login-header">
+            <view class="user-login-logo">
+                <view class="user-logo-name">
+                    <text>设置账号密码</text>
+                </view>
+            </view>
+        </view>
+        <view class="user-login-number">
+            <form bindsubmit="reset_pwd">
+                <view class="input-box">
+                    <view class="input-list">
+                        <input bindinput="resetInput" hidden="{{effect.userInputReset=='password'}}" name="password" placeholder="输入密码" placeholderClass="input-inherit" type="text" value="{{inputReset}}"></input>
+                        <input bindinput="resetInput" focus="{{resetFocus}}" hidden="{{effect.userInputReset=='text'}}" name="password" placeholder="输入密码" placeholderClass="input-inherit" type="password" value="{{inputReset}}"></input>
+                    </view>
+                    <view bindtap="userInputStaticReset" class="input-password">
+                        <image mode="widthFix" src="/images/userLogin/icon-{{effect.userInputReset}}.png"></image>
+                    </view>
+                </view>
+                <view animation="{{resetTipAnimate}}" class="user-login-error">
+            {{resetTipText}}
+            </view>
+                <button class="pj-submit phone {{resetClick?'':'initial'}} analyze_reset" disabled="{{!resetClick}}" formType="submit">完成</button>
+            </form>
+        </view>
+    </view>
+</view>

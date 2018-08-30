@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "群通知",
+    "navigationBarBackgroundColor": "#4f598f",
+    "enableOnReachBottom": true,
+    "usingComponents": {
+        "jdk-theme": "/components/topic/topic"
+    }
+}

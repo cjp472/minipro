@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "评论",
+    "usingComponents": {
+        "orderly-content-editor": "/components/orderly-content-editor/orderly-content-editor"
+    }
+}

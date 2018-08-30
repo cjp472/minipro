@@ -1,0 +1,28 @@
+.container {
+    padding: 0 30rpx;
+    padding-top: 20rpx;
+    padding-bottom: 50rpx;
+}
+
+.list {
+    padding-bottom: 18rpx;
+}
+
+.list .question {
+    line-height: 58rpx;
+    color: #2a2e3d;
+    font-size: 30rpx;
+    font-weight: 700;
+}
+
+.list .answer {
+    color: #7d829a;
+    font-size: 26rpx;
+    line-height: 40rpx;
+    padding-bottom: 0rpx;
+    text-align: justify;
+}
+
+.list text {
+    color: #ef533d;
+}

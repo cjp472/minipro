@@ -1,0 +1,52 @@
+<view class="header--message" wx:if="{{page==='message'||page==='records'||page==='center'}}">
+    <view class="title {{isAdmin?'title--admin':''}}" wx:if="{{page==='center'}}">
+        <view class="ico ico--title"></view>
+        <text class="beyond_1">{{submitData.title}}</text>
+    </view>
+    <view class="time">
+        <view class="ico ico--time {{submitData.course_type===1?'ico--title':''}}"></view>
+        <text class="beyond_1" wx:if="{{submitData.course_type===0}}">第{{submitData.course_started_days}}天</text>
+        <text class="beyond_1" wx:elif="{{submitData.course_type===1}}">{{submitData.course_calendar_title}}</text>
+        <text class="beyond_1" wx:else>第{{submitData.course_sequence||submitData.sequence}}课</text>
+    </view>
+    <view class="score score--{{scoreLevel}}" wx:if="{{submitData.avg_score}}">
+        <span class="ico score__ico"></span>
+        <text class="score__text">{{submitData.avg_score}}</text>
+    </view>
+    <navigator hoverStopPropagation catchtap="stopPropagation" class="button--edit button--study" hoverClass="btn-hover-class" openType="{{page===detail?'redirect':'navigate'}}" url="{{URLPunchcard}}" wx:if="{{submitData.category==3&&self}}">
+        <view class="practice_edit">再次学习</view>
+    </navigator>
+    <navigator hoverStopPropagation catchtap="stopPropagation" class="button--edit" hoverClass="btn-hover-class" openType="{{page===detail?'redirect':'navigate'}}" url="{{URLPunchcard}}" wx:elif="{{editable}}">
+        <view class="ico button__ico--edit" wx:if="{{submitData.category!=1}}"></view>
+        <view class="practice_edit" wx:if="{{submitData.category==1}}">再次练习</view>
+    </navigator>
+</view>
+<view catchtap="stopPropagation" class="header" wx:else>
+    <navigator hoverStopPropagation class="avatar__container" hoverClass="btn-hover-class" url="{{submitData.is_hide||submitData.course_type===2&&!self&&!isAdmin||page==='overview'?'':URLRecords}}">
+        <image backgroundSize="cover" class="avatar" src="{{submitData.avatar_url}}"></image>
+    </navigator>
+    <view class="info">
+        <view class="username">{{submitData.user_name}}</view>
+        <view class="score score--{{scoreLevel}}" wx:if="{{submitData.avg_score}}">
+            <span class="ico score__ico"></span>
+            <text class="score__text">{{submitData.avg_score}}</text>
+        </view>
+        <view class="how-long" wx:if="{{submitData.submit_count&&!submitData.is_bind_partner}}">{{submitData.course_type===2?'已解锁'+submitData.submit_count+'课时':submitData.course_type===1?'已完成'+submitData.submit_count+'个作业':'已打卡'+submitData.submit_count+'次'}}</view>
+        <view class="how-long" wx:if="{{submitData.is_bind_partner}}">{{'今日已学'+(submitData.lesson_count||0)+'课件'}}</view>
+    </view>
+    <view class="praises" wx:if="{{page==='overview'&&submitData.praise>0}}">
+        <view class="ico"></view>
+        <text>赞{{submitData.praise}}</text>
+    </view>
+    <view hoverStopPropagation catchtap="showMoreOperation" class="operation" wx:if="{{operationAvailable&&page!=='overview'}}">
+        <view class="ico operation__ico"></view>
+    </view>
+    <navigator hoverStopPropagation catchtap="stopPropagation" class="button--edit button--study" hoverClass="btn-hover-class" openType="{{page===detail?'redirect':'navigate'}}" url="{{URLPunchcard}}" wx:if="{{submitData.category===3&&self}}">
+        <view class="practice_edit">再次学习</view>
+    </navigator>
+    <navigator hoverStopPropagation catchtap="stopPropagation" class="button--edit" hoverClass="btn-hover-class" openType="{{page===detail?'redirect':'navigate'}}" url="{{URLPunchcard}}" wx:elif="{{editable&&page!=='overview'}}">
+        <view class="ico button__ico--edit" wx:if="{{submitData.category!=1}}"></view>
+        <text class="retry__text" wx:if="{{submitData.category!=1&&isEval}}">重测</text>
+        <view class="practice_edit" wx:if="{{submitData.category==1}}">再次练习</view>
+    </navigator>
+</view>

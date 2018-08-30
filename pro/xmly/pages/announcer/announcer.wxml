@@ -1,0 +1,50 @@
+<import src="../shared/player/player.wxml"></import>
+<view class="container {{player.sound.title?'container-footer-empty':''}} {{actionSheet.showActionSheet?'no-scroll':''}}">
+    <view class="announcer">
+        <image class="announcer-avatar" src="{{announcer.avatar_url}}"></image>
+        <view class="announcer-info">
+            <view>
+                <text class="announcer-name">{{announcer.nickname}}</text>
+            </view>
+            <view>
+                <view class="announcer-verified" wx:if="{{announcer.is_verified}}">认证</view>
+                <view class="announcer-vdesc">{{announcer.vdesc}}</view>
+            </view>
+            <view class="announcer-number">
+                <text>关注 {{announcer.following_count}}</text>
+                <view class="announcer-numberGap"></view>
+                <text>粉丝 {{announcer.follower_count}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="gap"></view>
+    <view class="albums">
+        <block wx:if="{{albums.length}}">
+            <view class="albums-title">专辑作品</view>
+            <view bindtap="toAlbumDetail" class="album" data-album-id="{{album.id}}" wx:for="{{albums}}" wx:for-item="album" wx:key="{{album.id}}">
+                <image lazyLoad class="album-cover" src="{{album.cover_url_large}}"></image>
+                <view class="album-info">
+                    <view class="album-title">{{album.album_title}}</view>
+                    <view class="album-intro">{{album.album_intro}}</view>
+                    <view class="album-playcount">
+                        <icon class="icon icon-playCount"></icon>
+                        <text>{{album.play_count}}</text>
+                        <icon class="icon icon-tracksCounts"></icon>
+                        <text class="text-sub-info">{{album.include_track_count}}集</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="noAlbums" wx:else>
+            <image src="../../images/noSound.png"></image>
+            <text>TA还没有发过声音</text>
+        </view>
+    </view>
+    <view class="loading-wrap" wx:if="{{isLoading}}">
+        <text class="loading-text">正在火速加载中...</text>
+    </view>
+    <view class="loading-wrap" wx:if="{{isAll}}">
+        <text class="loading-text">已经到头啦...</text>
+    </view>
+    <template is="player" data="{{player:player,actionSheet:actionSheet}}"></template>
+</view>

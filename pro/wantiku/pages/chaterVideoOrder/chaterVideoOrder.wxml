@@ -1,0 +1,64 @@
+<view class="video-order {{theme}}">
+    <form bindsubmit="formSubmit" reportSubmit="true">
+        <scroll-view class="video-order-cont" scrollY="{{true}}">
+            <view class="video-order-title">
+                <text>{{BuyInfo}}</text>
+            </view>
+            <view class="video-order-pay-time-title">
+                <text class="text">购买时长</text>
+                <text class="triangle" wx:if="{{SaleDiscount>0}}">限时优惠</text>
+            </view>
+            <view class="video-order-pay-time-cont">
+                <view bindtap="choosePayTime" class="pay-time-type {{Quantity==item.Quantity?'active':''}}" data-index="{{index}}" data-quantity="{{item.Quantity}}" wx:for="{{quantityDetials}}" wx:key="quantityDetials-key">
+                    <view>
+                        <view class="month">{{item.QuantityName}}</view>
+                        <view class="discount" wx:if="{{SaleDiscount>0}}">{{SaleDiscountCache}}折</view>
+                        <block wx:else>
+                            <view class="discount" wx:if="{{item.Discount!=1}}">{{item.Discount*10}}折</view>
+                        </block>
+                    </view>
+                    <view class="triangle"></view>
+                    <view class="iconfont icon_yiyuyue"></view>
+                </view>
+            </view>
+            <view class="video-order-pay-time-end">
+                <text>有效期至：{{endTime}}</text>
+            </view>
+            <view bindtap="checkboxBtn" class="video-order-pay-all" wx:if="{{TotalChapters>1}}">
+                <view class="checkbox-btn flex-row {{checkboxBtnState?'active':''}}">
+                    <view class="iconfont icon_yiyuyue"></view>
+                </view>
+                <view>
+          {{DiscountName1}}
+          <text wx:if="{{DiscountName2!==null}}"> ，{{DiscountName2}}</text>
+                </view>
+            </view>
+            <view bindtap="checkboxBtn" class="video-order-pay-all" wx:if="{{options.type=='Frequency'&&BuyState!=1}}">
+                <view class="checkbox-btn flex-row {{checkboxBtnState?'active':''}}">
+                    <view class="iconfont icon_yiyuyue"></view>
+                </view>
+                <view>
+          {{DiscountName1}}
+        </view>
+            </view>
+        </scroll-view>
+        <view class="detail-bottom flex-row">
+            <view class="price">￥
+        <text>{{TotalPriceDiscount}}</text>
+            </view>
+            <view class="pay-person">
+                <view class="number">
+                    <block wx:if="{{checkboxBtnState}}">
+                        <text wx:if="{{TotalChapters}}">共{{TotalChapters}}章，</text>
+                    </block>
+                    <block wx:if="{{DiscountPriceEnd>0.001}}">
+          已优惠<text>￥{{DiscountPriceEnd}}</text>
+                    </block>
+                </view>
+            </view>
+            <button class="pay-btn" formType="submit">
+                <text>购买</text>
+            </button>
+        </view>
+    </form>
+</view>

@@ -1,0 +1,125 @@
+@import "../../../__wuBaseWxss__/9.wxss";
+
+@import "../../../__wuBaseWxss__/8.wxss";
+
+.content {
+    padding: 20rpx 30rpx;
+    clear: both;
+}
+
+.only-admin {
+    font-size: 28rpx;
+    color: #8d97a4;
+}
+
+.content__text-box {
+    margin-bottom: 20rpx;
+}
+
+.content__text {
+    width: 100%;
+    font-size: 28rpx;
+    word-wrap: break-word;
+    line-height: 32rpx;
+}
+
+.content__text--whole {
+    font-size: 28rpx;
+    color: #5093d2;
+}
+
+.flex-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-center-column {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fz28 {
+    font-size: 28rpx;
+}
+
+.mb10 {
+    margin-bottom: 10rpx;
+}
+
+.ml-10 {
+    margin-left: -10rpx;
+}
+
+.col-c4856 {
+    color: #3c4856;
+}
+
+.col-8b97a4 {
+    color: #8b97a4;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.star_score {
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -134rpx -990rpx;
+}
+
+.star_score2 {
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -200rpx -990rpx;
+}
+
+.card-stars {
+    margin-top: -10rpx;
+}
+
+.essay_aswer {
+    margin-top: 30rpx;
+    border: solid 1rpx #eee;
+    border-radius: 6rpx;
+    padding: 20rpx 10rpx;
+}
+
+.voice_player {
+    width: 292rpx;
+    height: 68rpx;
+    background-color: #22dd82;
+    border-radius: 8rpx;
+    margin-top: 20rpx;
+    font-size: 26rpx;
+    color: #fff;
+    padding: 0 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.play_voice {
+    width: 34rpx;
+    height: 30rpx;
+    background-position: -13rpx -435rpx;
+}
+
+.beyond_3 {
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.score-result__text {
+    text-align: center;
+    font-size: 28rpx;
+    color: #FED814;
+    line-height: 44rpx;
+}

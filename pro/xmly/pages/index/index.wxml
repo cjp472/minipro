@@ -1,0 +1,99 @@
+<import src="../shared/player/player.wxml"></import>
+<view class="container container-index {{player.sound.title?'container-footer-empty':''}} {{actionSheet.showActionSheet?'no-scroll':''}}">
+    <view bindtap="toSearch" class="searchLink">
+        <input disabled class="searchLink-input" placeholder="好好说话" placeholderStyle="color:#999"></input>
+        <image class="searchLink-icon" src="../../images/icon-search.png"></image>
+    </view>
+    <swiper autoplay circular bindchange="onSwiperChange" class="index-swiper" indicatorDots="{{false}}" interval="5000" nextMargin="80rpx" previousMargin="80rpx">
+        <block wx:if="{{home.focusImages}}">
+            <block wx:for="{{home.focusImages}}">
+                <swiper-item bindtap="toAlbumDetail" data-album-id="{{item.albumId}}" wx:if="{{item.type==2}}">
+                    <view class="swiper-img {{swiperCurrent==index?'scale-big':'scale-small'}}">
+                        <image binderror="handleImageLoaded" bindload="handleImageLoaded" bindtap="bannerAnalytics" class="slide-image" data-sort="{{index+1}}" mode="aspectFit" src="{{item.pic}}"></image>
+                    </view>
+                </swiper-item>
+                <swiper-item bindtap="toSoundPage" data-track-id="{{item.trackId}}" wx:if="{{item.type==3}}">
+                    <view class="swiper-img {{swiperCurrent==index?'scale-big':'scale-small'}}">
+                        <image binderror="handleImageLoaded" bindload="handleImageLoaded" bindtap="bannerAnalytics" class="slide-image" data-sort="{{index+1}}" mode="aspectFit" src="{{item.pic}}"></image>
+                    </view>
+                </swiper-item>
+                <swiper-item bindtap="tofreeGetList" data-sort="{{item.index+1}}" data-track-id="{{item.trackId}}" wx:if="{{item.type==4}}">
+                    <view class="swiper-img {{swiperCurrent==index?'scale-big':'scale-small'}}">
+                        <image binderror="handleImageLoaded" bindload="handleImageLoaded" bindtap="bannerAnalytics" class="slide-image" data-sort="{{index+1}}" mode="aspectFit" src="{{item.pic}}"></image>
+                    </view>
+                </swiper-item>
+            </block>
+        </block>
+    </swiper>
+    <view class="album-list-wrap">
+        <view class="recommend">
+            <view bindtap="toRank" class="recommend-item" hoverClass="btn-hover">
+                <image class="recommend-icon" src="../../images/icon-rank.png"></image>
+                <text>榜单</text>
+            </view>
+            <view bindtap="toChannel" class="recommend-item" data-cate="3" data-catename="听小说" hoverClass="btn-hover">
+                <image class="recommend-icon" src="../../images/icon-fiction.png"></image>
+                <text>听小说</text>
+            </view>
+            <view catchtap="tofreeGetList" class="recommend-item" data-action-type="main_icon" hoverClass="btn-hover">
+                <image class="recommend-icon" src="../../images/icon-forfree.png"></image>
+                <image class="recommend-icon-tip" src="../../images/icon_new_tip.png"></image>
+                <text>免费领</text>
+            </view>
+            <view bindtap="toChannel" class="recommend-item" data-cate="12" data-catename="听相声" hoverClass="btn-hover">
+                <image class="recommend-icon" src="../../images/icon-crosstalk.png"></image>
+                <text>听相声</text>
+            </view>
+            <view bindtap="toPaidRank" class="recommend-item" data-cate="6" data-catename="听知识" hoverClass="btn-hover">
+                <image class="recommend-icon" src="../../images/icon-story.png"></image>
+                <text>听知识</text>
+            </view>
+        </view>
+        <view class="gap"></view>
+        <view class="free-get-category" data-name="{{freeGetAlbum.category_name}}" wx:if="{{AssistanceAlbumList.length>0}}">
+            <view class="category-header" style="margin-bottom:2rpx">
+        {{freeGetAlbum.category_name}}
+        <view catchtap="tofreeGetList" class="category-more" data-action-type="more_btn" hoverClass="btn-hover">更多
+          <icon class="icon icon-arrow-right"></icon>
+                </view>
+            </view>
+            <free-get-album album="{{album}}" indexReport="{{true}}" isIndex="{{false}}" listIndex="{{index+1}}" wx:for="{{AssistanceAlbumList}}" wx:for-item="album" wx:key="{{album.id}}"></free-get-album>
+        </view>
+        <view class="categories">
+            <view class="category" data-name="{{paid.category_name}}" wx:if="{{0&&paid}}">
+                <view class="category-header">
+          {{paid.category_name}}
+          <view bindtap="toPaidRank" class="category-more" data-cate="{{paid.category_id}}" data-catename="{{paid.category_name}}" hoverClass="btn-hover">更多
+            <icon class="icon icon-arrow-right"></icon>
+                    </view>
+                </view>
+                <album album="{{album}}" category_name="{{item.category_name}}" ispaid="1" noBorderBottom="{{index==2?true:false}}" wx:for="{{paid.paid_albums}}" wx:for-item="album" wx:key="{{album.id}}"></album>
+            </view>
+            <view class="category" data-name="{{item.category_name}}" wx:for="{{home.categories}}" wx:key="{{item.category_id}}">
+                <view class="category-header">
+          {{item.category_name}}
+          <view bindtap="toChannel" class="category-more" data-cate="{{item.category_id}}" data-catename="{{item.category_name}}" hoverClass="btn-hover">更多
+            <icon class="icon icon-arrow-right"></icon>
+                    </view>
+                </view>
+                <view class="index-albums">
+                    <view class="index-album" wx:for="{{item.albums}}" wx:for-item="album" wx:key="{{album.id}}">
+                        <album album="{{album}}" category_name="{{item.category_name}}" class="component-album" noBorderBottom="{{index==2?true:false}}" vertical="{{true}}"></album>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <template is="player" data="{{player:player,actionSheet:actionSheet}}"></template>
+    <view bindtap="hideAdvBox" class="popup-box" wx:if="{{showAdvBox}}">
+        <view catchtap="tofreeGetList" class="popup-main" data-action-type="adv">
+            <image catchtap="hideAdvBox" class="close" mode="widthFix" src="../../images/icon-close-circle.png"></image>
+            <image class="adv-img" mode="widthFix" src="{{advertisementImg}}"></image>
+        </view>
+    </view>
+    <view class="miniprogram" wx:if="{{miniProgram.length>0}}">
+        <navigator appId="{{item.longTitle}}" class="swiper-img" path="{{item.url}}" target="miniProgram" wx:for="{{miniProgram}}" wx:key="{{index}}">
+            <image bindtap="adAnalytics" class="slide-image" data-app-id="{{item.longTitle}}" mode="aspectFit" src="{{item.pic}}"></image>
+        </navigator>
+    </view>
+</view>

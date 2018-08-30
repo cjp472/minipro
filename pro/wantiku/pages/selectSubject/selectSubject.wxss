@@ -1,0 +1,423 @@
+@import "../chooseSchoolType/chooseSchoolType.wxss";
+
+.wantiku .kcbtn2 {
+    background: #6fce29;
+    color: #fff;
+}
+
+.wantiku .subject_icon {
+    color: #6fce29;
+}
+
+.wantiku .icon-icon_arrow_you {
+    color: #6fce29;
+}
+
+.wantiku .current_choose_bigtestname {
+    color: #6fce29;
+}
+
+.blue .kcbtn2 {
+    background: #4380db;
+    color: #fff;
+}
+
+.blue .subject_icon {
+    color: #4380db;
+}
+
+.blue .icon-icon_arrow_you {
+    color: #4380db;
+}
+
+.blue .current_choose_bigtestname {
+    color: #4380db;
+}
+
+.red .kcbtn2 {
+    background: #ff5757;
+    color: #fff;
+}
+
+.red .subject_icon {
+    color: #ff5757;
+}
+
+.red .icon-icon_arrow_you {
+    color: #ff5757;
+}
+
+.red .current_choose_bigtestname {
+    color: #ff5757;
+}
+
+.green .kcbtn2 {
+    background: #0e9900;
+    color: #fff;
+}
+
+.green .subject_icon {
+    color: #0e9900;
+}
+
+.green .icon-icon_arrow_you {
+    color: #0e9900;
+}
+
+.green .current_choose_bigtestname {
+    color: #0e9900;
+}
+
+.orange .kcbtn2 {
+    background: #ff7e00;
+    color: #fff;
+}
+
+.orange .subject_icon {
+    color: #ff7e00;
+}
+
+.orange .icon-icon_arrow_you {
+    color: #ff7e00;
+}
+
+.orange .current_choose_bigtestname {
+    color: #ff7e00;
+}
+
+.Lightblue .kcbtn2 {
+    background: #27c1f4;
+    color: #fff;
+}
+
+.Lightblue .subject_icon {
+    color: #27c1f4;
+}
+
+.Lightblue .icon-icon_arrow_you {
+    color: #27c1f4;
+}
+
+.Lightblue .current_choose_bigtestname {
+    color: #27c1f4;
+}
+
+.yellow .kcbtn2 {
+    background: #db9b00;
+    color: #fff;
+}
+
+.yellow .subject_icon {
+    color: #db9b00;
+}
+
+.yellow .icon-icon_arrow_you {
+    color: #db9b00;
+}
+
+.yellow .current_choose_bigtestname {
+    color: #db9b00;
+}
+
+.purple .kcbtn2 {
+    background: #a066e8;
+    color: #fff;
+}
+
+.purple .subject_icon {
+    color: #a066e8;
+}
+
+.purple .icon-icon_arrow_you {
+    color: #a066e8;
+}
+
+.purple .current_choose_bigtestname {
+    color: #a066e8;
+}
+
+.subject_icon {
+    font-size: 38rpx;
+    color: #6fce29;
+}
+
+.icon-icon_yijian {
+    font-size: 40rpx;
+}
+
+.icon-icon_zhongjiweisheng1 {
+    font-size: 40rpx;
+}
+
+.icon-icon_chujihuiji {
+    font-size: 36rpx;
+}
+
+.icon-icon_jiaoshizige {
+    font-size: 45rpx;
+}
+
+.icon-icon_jiaoshizhaopin {
+    font-size: 40rpx;
+}
+
+.icon-icon_sifakaoshi {
+    font-size: 40rpx;
+}
+
+.icon-icon_renli {
+    font-size: 37rpx;
+}
+
+.icon-icon_yinhangzhaopin {
+    font-size: 40rpx;
+}
+
+.icon-icon_kaoyan {
+    font-size: 37rpx;
+}
+
+.icon-icon_jijincongye {
+    font-size: 36rpx;
+}
+
+.icon-icon_yinhangcongye {
+    font-size: 36rpx;
+}
+
+.icon-icon_zhuchehuiji {
+    font-size: 36rpx;
+}
+
+.icon-icon_chujijingjishi {
+    font-size: 37rpx;
+}
+
+.icon-icon_erjian {
+    font-size: 36rpx;
+}
+
+.icon-icon_weishengzige {
+    font-size: 36rpx;
+}
+
+.icon-icon_zhongjiweisheng {
+    font-size: 36rpx;
+}
+
+.icon-icon_zhongjishehuigo {
+    font-size: 36rpx;
+}
+
+.icon-icon_hushi1 {
+    font-size: 40rpx;
+}
+
+.icon-icon_yaoshi {
+    font-size: 38rpx;
+}
+
+.icon-icon_zikao-box,.icon-icon_chengrengaokao-box,.icon-icon_chengrengaokao_-box,.icon-icon_kaoyan-box {
+    height: 164rpx;
+}
+
+.icon-icon_zhongjiweisheng1_size {
+    margin-top: -8rpx;
+    font-size: 24rpx;
+}
+
+.icon-icon_zhongjiweisheng_size {
+    margin-top: -8rpx;
+    font-size: 24rpx;
+}
+
+.icon-icon_moren {
+    font-size: 48rpx;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    padding-top: 110rpx;
+    top: 0;
+    z-index: 9;
+    background: #fff;
+    height: 140rpx;
+}
+
+.title text {
+    font-size: 42rpx;
+    color: #4c4c4c;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 32rpx;
+}
+
+.kcbtn {
+    height: 88rpx;
+    width: 630rpx;
+    font-size: 30rpx;
+    color: #7a7a7a;
+    background: #f8f8f8;
+    border-radius: 100px;
+    text-align: center;
+    margin: 0 auto 50rpx auto;
+    line-height: 88rpx;
+}
+
+.kcbtn1 {
+    background: #f5f5f5;
+    color: #666;
+}
+
+.kemu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.btm-icon {
+    width: 750rpx;
+    height: 128rpx;
+    background-image: url('http://img02.exam8.com/img2017/minapp/icon/xk-icon.png');
+    background-size: 100%;
+    position: fixed;
+    bottom: 0;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.current_text_box {
+    height: 244rpx;
+    width: 650rpx;
+    margin: 0rpx 50rpx 0rpx 50rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 28rpx;
+    color: #666;
+    background: #fff;
+    box-shadow: 0 6px 24px 0 #ededed;
+    border-radius: 10px;
+}
+
+.distance {
+    height: 30rpx;
+}
+
+.current_test {
+    font-size: 28rpx;
+    color: #7a7a7a;
+    height: 30rpx;
+    width: 200rpx;
+    text-align: center;
+    line-height: 30rpx;
+    margin-top: 30rpx;
+    margin-bottom: 31rpx;
+}
+
+.current_choose_test {
+    display: flex;
+    justify-content: center;
+    font-size: 28rpx;
+    color: #666;
+    flex-direction: row;
+}
+
+.jiange {
+    height: 30rpx;
+    width: 100%;
+}
+
+.current_Big_testname,.current_choose_bigtestname {
+    height: 120rpx;
+    width: 200rpx;
+    font-size: 24rpx;
+    color: #7a7a7a;
+    text-align: center;
+    border-radius: 15rpx;
+}
+
+.cut_off_rulebox {
+    height: 120rpx;
+    width: 1rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cut_off_rule {
+    width: 1rpx;
+    height: 42rpx;
+    background: #ebebeb;
+}
+
+.current_Big_testname {
+    margin-right: 45rpx;
+}
+
+.current_choose_bigtestname {
+    font-size: 28rpx;
+    color: #6fce29;
+    line-height: 120rpx;
+    margin-left: 45rpx;
+}
+
+.current_Big_testname_image {
+    margin-top: 20rpx;
+}
+
+.colum_subject {
+    font-size: 28rpx;
+    color: #4e4e4e;
+    margin: 0 30rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.current_Big_testname_image {
+    margin-bottom: 17rpx;
+}
+
+.no_pub_subject {
+    margin-top: 70rpx;
+}
+
+.no_pub_subject1 {
+    margin-top: 100rpx;
+}
+
+.pub_subject {
+    width: 100%;
+    color: #4e4e4e;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    height: 160rpx;
+}
+
+.sub_content_line {
+    height: 2rpx;
+    width: 39rpx;
+    background: #ccc;
+}
+
+.monopackSingle_choseSubject {
+    height: 50rpx;
+    width: 100%;
+    text-align: center;
+    font-size: 42rpx;
+    color: #4e4e4e;
+    margin-top: 90rpx;
+}
+
+.public_subject .kcbtn1:last-child {
+    margin: 0 auto;
+}

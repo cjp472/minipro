@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "",
+    "backgroundColor": "#22dd82",
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "result-score": "/components/answerSheet/resultScore/resultScore",
+        "day-sign": "/components/daySign/daySign"
+    }
+}

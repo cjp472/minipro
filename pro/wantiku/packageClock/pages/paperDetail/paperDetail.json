@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "主题详情",
+    "disableScroll": true,
+    "usingComponents": {
+        "paperTemplate": "../../components/paperTemplate/paperTemplate"
+    }
+}

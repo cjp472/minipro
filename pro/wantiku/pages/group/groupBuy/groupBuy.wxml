@@ -1,0 +1,125 @@
+<import src="/template/groupBuy/groupBuy_templet.wxml"></import>
+<scroll-view class="group-buy-container" scrollY="{{GrouponStyle112[grouponStyleKeyState]&&IsShowCouponPopup?false:true}}" wx:if="{{isHongb}}">
+    <view class="group-buy-cont" style="background:url({{backgroundImageUrl?backgroundImageUrl:'http://img02.exam8.com/img2017/minapp/group/huodongbg-new.png'}}) no-repeat top left #fce9dd;background-size: 750rpx 494rpx; min-height: 100%;position: relative;padding-top: 4rpx;box-sizing: border-box;" wx:if="{{loadSuccess}}">
+        <block wx:if="{{ReceivePageText||ReceivePageTextForIos}}">
+            <view class="group-buy-banner-title" wx:if="{{!loading}}">
+                <block wx:if="{{isIos}}">
+          {{ReceivePageTextForIos==null?'':ReceivePageTextForIos}}
+        </block>
+                <block wx:else>
+          {{ReceivePageText}}
+        </block>
+            </view>
+        </block>
+        <view class="group-buy-info point">
+            <view class="group-buy-point-cont" wx:if="{{GrouponStyle122[grouponStyleKeyState]}}">
+                <view class="group-buy-point flex-row">
+                    <view class="line"></view>
+                    <view class="text">{{GrouponSuccessPrice>0.0001?'拼团成功':'立即领取'}}</view>
+                    <view class="line"></view>
+                </view>
+                <view class="group-buy-point-text">{{GrouponSuccessPrice>0.0001?'￥'+GrouponSuccessPrice:'立即领取'}}即可打开{{GrouponSuccessPrice>0.0001?'价值'+GrouponPrice+'元':''}}资料包</view>
+            </view>
+            <view class="group-buy-point-cont" wx:if="{{GrouponStyle134[grouponStyleKeyState]}}">
+                <view class="group-buy-point flex-row">
+                    <view class="line"></view>
+                    <view class="text">购买成功</view>
+                    <view class="line"></view>
+                </view>
+                <view class="group-buy-point-text">资料包已开启</view>
+            </view>
+            <scroll-view scrollX class="group-buy-doc-cont" wx:if="{{GrouponStyle122[grouponStyleKeyState]||GrouponStyle134[grouponStyleKeyState]}}">
+                <view class="group-buy-doc-box" style="width:{{GoodsList.length*256}}rpx">
+                    <view class="group-buy-doc-detail {{GrouponStyle134[grouponStyleKeyState]?'success':''}}" wx:for="{{GoodsList}}" wx:key="key-goodsList">
+                        <image src="{{item.ImageUrl}}"></image>
+                        <view class="text">{{item.GoodsName}}</view>
+                        <view class="pay-success">
+                            <image src="http://img02.exam8.com/img2017/minapp/group/xuanzhong.png"></image>
+                        </view>
+                    </view>
+                    <view style="clear:both;"></view>
+                </view>
+            </scroll-view>
+            <template is="groupBuyUser" data="{{UserList:UserList}}" wx:if="{{!GrouponStyle134[grouponStyleKeyState]&&!GrouponStyle122[grouponStyleKeyState]}}"></template>
+            <view class="group-status-text" wx:if="{{( GrouponStyle112[grouponStyleKeyState]||GrouponStyle111[grouponStyleKeyState] )&&!loading}}">
+                <view>
+                    <view class="h1">还剩{{RemaindCouponer}}人即可开启{{GrouponSuccessPrice>0.0001?'￥'+GrouponPrice:''}}资料包</view>
+                    <view class="h2">{{times}}后结束</view>
+                </view>
+            </view>
+            <view class="group-buy-point-cont" wx:if="{{GrouponStyle132[grouponStyleKeyState]||GrouponStyle121[grouponStyleKeyState]||GrouponStyle232[grouponStyleKeyState]}}">
+                <view class="group-buy-point end flex-row">
+                    <view class="line"></view>
+                    <view class="text">拼团已结束</view>
+                    <view class="line"></view>
+                </view>
+            </view>
+            <button class="group-buy-button {{GrouponStyle112[grouponStyleKeyState]&&IsShowCouponPopup?'':'weChat'}}" hoverClass="" openType="share" wx:if="{{GrouponStyle112[grouponStyleKeyState]}}">
+                <text class="iconfont icon_weixin1"></text>
+                <text>邀请微信群好友一起领取</text>
+            </button>
+            <button catchtap="onConponBuyJs" class="group-buy-button" data-buyState="2" hoverClass="" wx:if="{{GrouponStyle122[grouponStyleKeyState]}}">
+                <text>{{GrouponSuccessPrice>0.0001?'￥'+GrouponSuccessPrice:'立即'}}获取</text>
+            </button>
+            <button catchtap="onCheckMaterialJs" class="group-buy-button" hoverClass="" wx:if="{{GrouponStyle134[grouponStyleKeyState]}}">
+                <text>立即查看</text>
+            </button>
+            <form bindsubmit="onAddGrouponJs" reportSubmit="{{true}}" wx:if="{{GrouponStyle111[grouponStyleKeyState]}}">
+                <button class="group-buy-button" formType="submit" hoverClass="">
+                    <text>立即领取</text>
+                </button>
+            </form>
+            <form bindsubmit="onOppenGrouponJs" reportSubmit="{{true}}" wx:if="{{GrouponStyle121[grouponStyleKeyState]||GrouponStyle132[grouponStyleKeyState]}}">
+                <button class="group-buy-button" formType="submit" hoverClass="">
+                    <text>领取我的资料包</text>
+                </button>
+            </form>
+            <block wx:if="{{GrouponStyle112[grouponStyleKeyState]}}">
+                <button catchtap="onConponBuyJs" class="user-pay" data-buyState="1" hoverClass="none" wx:if="{{!systemIos}}">不差钱,￥{{GrouponPrice}}直接开启</button>
+            </block>
+        </view>
+        <view class="group-buy-rule group-buy-person" wx:if="{{GrouponStyle134[grouponStyleKeyState]||GrouponStyle122[grouponStyleKeyState]}}">
+            <view class="group-buy-rule-title"> 拼团好友</view>
+            <template is="groupBuyUser" data="{{UserList:UserList,bottom:true}}"></template>
+        </view>
+        <view class="group-buy-rule">
+            <view class="group-buy-rule-title">
+        活动规则
+      </view>
+            <block wx:if="{{ifGrouponRule}}">
+                <view class="group-buy-rule-cont " wx:for="{{grouponRule}}" wx:key="{{grouponRule.length}}">
+                    <view class="text">{{item}}</view>
+                </view>
+            </block>
+            <view class="group-buy-rule-cont " wx:if="{{!ifGrouponRule}}">
+                <view class="text">1、活动期间，用户可以邀请好友拼团领取资料，满4人拼团成功后，每人即可{{GrouponSuccessPrice>0.0001?'使用优惠价购买'+GrouponSuccessPrice+'元':'开启'}}资料包</view>
+                <view class="text">2、购买的资料将发至手机号绑定的万题库账号，可在小程序内直接观看</view>
+                <view class="text">3、每次拼团行为发起后，24小时内有效，超出24小时没有集齐4人则拼团失败</view>
+                <view class="text">4、每次拼团活动，仅可与同一好友拼团一次</view>
+                <view class="text">5、万题库保留法律范围内允许的对活动的解释权</view>
+            </view>
+        </view>
+    </view>
+    <view catchtap="onGroupEmptyJs" class="group-buy-popup" wx:if="{{GrouponStyle112[grouponStyleKeyState]&&IsShowCouponPopup}}">
+        <view catchtap="onGroupOthers" class="group-buy-popup-cont">
+            <view class="h1">你收到了一份{{GrouponSuccessPrice>0.0001?'￥'+GrouponPrice:''}}资料包</view>
+            <view class="h2">还剩{{RemaindCouponer}}人拼团即可{{GrouponSuccessPrice>0.0001?'￥'+GrouponSuccessPrice:''}}开启</view>
+            <view class="group-buy-popup-doc">
+                <image src="http://img02.exam8.com/img2017/minapp/group/newbg_ziliao2.png"></image>
+                <view class="text">{{ReceivePageGoodsName==''?GoodsName:ReceivePageGoodsName}}</view>
+            </view>
+            <button class="group-buy-button weChat" hoverClass="" openType="share">
+                <text class="iconfont icon_weixin1"></text>
+                <text>邀请微信群好友一起领取</text>
+            </button>
+            <button catchtap="onConponBuyJs" class="h1 user-pay" data-buyState="1" hoverClass="none" wx:if="{{!systemIos}}">不差钱,￥{{GrouponPrice}}直接开启</button>
+        </view>
+    </view>
+</scroll-view>
+<view class="noContent" wx:else>
+    <view class="pintuan-text"></view>
+    <view class="pintuan-bg"></view>
+</view>
+<view bindtap="goBackIndex" class="goBackIndex" wx:if="{{IsShare==1}}">
+    <text class="iconfont icon_home"></text>
+</view>

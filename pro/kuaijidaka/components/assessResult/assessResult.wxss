@@ -1,0 +1,164 @@
+@import "../../__wuBaseWxss__/8.wxss";
+
+.assess-li .assess-li-score {
+    float: left;
+    color: #fff;
+    padding: 30rpx 0;
+}
+
+.assess-li .assess-li-score .total-score {
+    float: left;
+}
+
+.assess-li .assess-li-score .total-score span {
+    display: inline-block;
+    width: 120rpx;
+    height: 170rpx;
+}
+
+.assess-li .assess-li-score .total-score .ico {
+    background-position: -10rpx -930rpx;
+}
+
+.assess-li .assess-li-score .total-score .total {
+    display: block;
+    margin-top: 20rpx;
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+    font-size: 44rpx;
+}
+
+.assess-li .assess-li-score .total-score .content {
+    display: block;
+    margin-top: 4rpx;
+    width: 100%;
+    text-align: center;
+    font-size: 24rpx;
+}
+
+.assess-li .assess-li-score .score-display {
+    float: left;
+    margin-left: 42rpx;
+    color: #8b97a4;
+}
+
+.assess-li .assess-li-score .score-display .score-name1 {
+    margin-top: 20rpx;
+}
+
+.assess-li .assess-li-score .score-display .score-name2 {
+    margin-top: 30rpx;
+}
+
+.assess-li .assess-li-score .score-display .score-name3 {
+    margin-top: 30rpx;
+}
+
+.assess-li .assess-li-score .score-display label {
+    display: block;
+    font-size: 24rpx;
+    height: 24rpx;
+    line-height: 24rpx;
+    vertical-align: middle;
+}
+
+.assess-li .assess-li-score .score-display label view {
+    position: relative;
+    display: inline-block;
+    margin: 0 20rpx 0 10rpx;
+    width: 280rpx;
+    height: 10rpx;
+    border-radius: 10rpx;
+    background-color: #f8fafb;
+}
+
+.assess-li .assess-li-score .score-display label .selected {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    margin: 0 0 0 0!important;
+    max-width: 280rpx;
+    width: 0;
+    height: 10rpx;
+    border-radius: 10rpx;
+    background-color: #22dd82;
+}
+
+.assess-li .assess-li-content {
+    clear: both;
+    margin-top: 28rpx;
+    padding: 20rpx 19rpx 0;
+    border: 1rpx solid #eee;
+    border-radius: 10rpx;
+}
+
+.assess-li .assess-li-content.no-content {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.assess-li .assess-li-content .rich-text {
+    font-size: 28rpx;
+    word-wrap: break-word;
+    line-height: 32rpx;
+}
+
+.col8 {
+    color: #8b97a4;
+}
+
+.mt20 {
+    margin-top: 20rpx;
+}
+
+.pd020 {
+    padding: 0 20rpx;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+.assess-fail text {
+    display: block;
+    color: #8b97a4;
+    text-align: center;
+}
+
+.assess-fail .again {
+    width: 200rpx;
+    height: 68rpx;
+    margin: 40rpx auto;
+    background-color: #22dd82;
+    border-radius: 8rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 68rpx;
+    font-size: 28rpx;
+}
+
+.assess-chinese {
+    display: flex;
+    justify-content: space-between;
+    margin: 30rpx 0;
+}
+
+.score-item {
+}
+
+.assess-tips {
+    width: 260rpx;
+    height: 36rpx;
+    background: rgba(248,250,251,1);
+    border-radius: 4rpx;
+    border: 1rpx solid rgba(236,240,243,1);
+    font-size: 20rpx;
+    color: #8b97a4;
+    text-align: center;
+    line-height: 36rpx;
+    margin: 14rpx 0;
+}

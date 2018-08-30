@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "课程列表",
+    "enablePullDownRefresh": true,
+    "enableOnReachBottom": true,
+    "navigationBarBackgroundColor": "#4f598f",
+    "usingComponents": {
+        "foot-loading": "/components/footLoading/footLoading",
+        "jdk-modal": "/components/modal/modal"
+    }
+}

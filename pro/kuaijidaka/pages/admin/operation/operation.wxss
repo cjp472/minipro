@@ -1,0 +1,426 @@
+@import "../../../__wuBaseWxss__/12.wxss";
+
+page {
+    padding-bottom: 200rpx;
+}
+
+.operation-bar {
+    width: 630rpx;
+    height: 98rpx;
+    padding: 0 30rpx;
+    margin: 30rpx 30rpx 0;
+    line-height: 98rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8fafb;
+    border-radius: 10rpx;
+}
+
+.operation-bar .miniapp-name {
+    font-size: 30rpx;
+    color: #8b97a4;
+}
+
+.operation-bar .right {
+    display: flex;
+}
+
+.operation-bar .inform {
+    color: #4f598f;
+    font-size: 26rpx;
+    padding-left: 40rpx;
+    position: relative;
+    line-height: 36rpx;
+    margin-right: 40rpx;
+}
+
+.operation-bar .inform .ico {
+    background-position: -250rpx -482rpx;
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -20rpx;
+}
+
+.operation-bar .create-course {
+    color: #4f598f;
+    font-size: 26rpx;
+    padding-left: 40rpx;
+    position: relative;
+    line-height: 36rpx;
+}
+
+.operation-bar .create-course .ico {
+    background-position: -160rpx -90rpx;
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -20rpx;
+}
+
+.list {
+    border-radius: 10rpx;
+    border-top: 1rpx solid #eee;
+    border-bottom: 1rpx solid #eee;
+    margin: 30rpx 30rpx 30rpx 30rpx;
+}
+
+.list .course-number {
+    font-size: 28rpx;
+    color: #8b97a4;
+    margin-left: 40rpx;
+}
+
+.list .list-top {
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    height: 90rpx;
+    display: flex;
+    background: #fff;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+}
+
+.list .list-top .left {
+    color: #3c4856;
+    font-size: 28rpx;
+    position: relative;
+}
+
+.list .item {
+    position: relative;
+    margin-top: 30rpx;
+    background: #fff;
+    border-radius: 10rpx;
+}
+
+.list .item:nth-child(2) {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.list .items .li {
+    border-top: 1rpx solid #eee;
+    height: 92rpx;
+    padding: 30rpx 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.list .items .li .course-stick {
+    font-size: 20rpx;
+    color: #8b97a4;
+    width: 86rpx;
+    height: 36rpx;
+    background-color: #f8fafb;
+    border-radius: 8rpx;
+    border: solid 1rpx rgba(224,227,231,1);
+    position: absolute;
+    top: 40rpx;
+    right: 40rpx;
+    text-align: center;
+    line-height: 36rpx;
+}
+
+.list .item .operating {
+    width: 200rpx;
+    height: 90rpx;
+    display: block;
+    position: absolute;
+    right: 0rpx;
+    bottom: 0rpx;
+}
+
+.list .item .operating .ico {
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -100rpx -180rpx;
+    margin: 20rpx 0 20rpx 120rpx;
+}
+
+.list .items .title {
+    color: #3c4856;
+    font-size: 34rpx;
+    height: 68rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    white-space: nowrap;
+    width: 80%;
+}
+
+.list .end-time .title {
+    color: #c7c7c7;
+}
+
+.list .items .bottom {
+    color: #999;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list .end-time .bottom {
+    color: #c7c7c7;
+}
+
+.list .items .bottom .left {
+    font-size: 28rpx;
+}
+
+.list .items .bottom .left .count {
+    color: #3c4856;
+}
+
+.list .end-time .bottom .left .count {
+    color: #c7c7c7;
+}
+
+.list .items .bottom .left .date {
+    color: #3c4856;
+}
+
+.list .end-time .bottom .left .date {
+    color: #c7c7c7;
+}
+
+.list .items .bottom .right text {
+    font-size: 22rpx;
+    background: #c2c7cd;
+    color: #fff;
+    height: 40rpx;
+    width: 108rpx;
+    line-height: 40rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    display: block;
+}
+
+.list .items .bottom .right text.bgwhite {
+    background: #fff;
+}
+
+.list .item .battom-nav {
+    height: 40rpx;
+    border-bottom: 1rpx solid #eee;
+    padding: 20rpx 30rpx;
+    background: #f9fafc;
+    border-bottom-left-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+}
+
+.list .item .battom-nav .dl {
+    float: left;
+    position: relative;
+    padding-left: 36rpx;
+    display: flex;
+    align-items: center;
+}
+
+.list .item .battom-nav .dl.ranking {
+    width: 130rpx;
+}
+
+.list .item .battom-nav .dl.qrcode {
+    width: 170rpx;
+}
+
+.list .item .battom-nav .dl.edit {
+    width: 130rpx;
+}
+
+.list .item .battom-nav .dl .ico {
+    width: 30rpx;
+    height: 30rpx;
+    display: block;
+    position: absolute;
+    left: 0rpx;
+}
+
+.list .item .battom-nav .ranking .ico {
+    background-position: 0 -30rpx;
+}
+
+.list .item .battom-nav .qrcode .ico {
+    background-position: -250rpx -420rpx;
+}
+
+.list .item .battom-nav .edit .ico {
+    background-position: -120rpx 0;
+}
+
+.list .item .battom-nav .dl text {
+    font-size: 26rpx;
+    color: #8b97a4;
+}
+
+.list .item .battom-nav .dl .strong {
+    width: 1rpx;
+    height: 23rpx;
+    background: #eeeeee;
+    position: absolute;
+    top: 10rpx;
+    z-index: 9;
+}
+
+.list .item .battom-nav .dl.ranking .strong {
+    left: 140rpx;
+}
+
+.list .item .battom-nav .dl.qrcode .strong {
+    left: 188rpx;
+}
+
+.user-in-btn {
+    position: fixed;
+    bottom: 128rpx;
+    right: 30rpx;
+    width: 112rpx;
+    height: 112rpx;
+    border-radius: 50%;
+    background-color: #4f598f;
+    color: #fff;
+    font-size: 26rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -3px 6px 0px rgba(238,238,238,0.4);
+    z-index: 99;
+}
+
+.user-in-btn view {
+    width: 65rpx;
+    line-height: 32rpx;
+    text-align: center;
+}
+
+.btn {
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0px -3px 6px 0px rgba(238,238,238,0.4);
+    background: #fff;
+    height: 98rpx;
+    width: 100%;
+}
+
+.btn .url {
+    width: 50%;
+    float: left;
+    text-align: center;
+    line-height: 22rpx;
+}
+
+.btn .url .ico {
+    width: 50rpx;
+    height: 50rpx;
+    margin: 12rpx auto 0 auto;
+}
+
+.btn .my-card .ico {
+    background-position: 0 -130rpx;
+}
+
+.btn .my-card.selected .ico {
+    background-position: -50rpx -130rpx;
+}
+
+.btn .my-user .ico {
+    background-position: -100rpx -130rpx;
+}
+
+.btn .my-user.selected .ico {
+    background-position: -150rpx -130rpx;
+}
+
+.btn .url text {
+    color: #3c4856;
+    font-size: 20rpx;
+}
+
+.btn .url.selected text {
+    color: #4f598f;
+}
+
+.footer {
+    margin-bottom: 100rpx;
+}
+
+.footer-fixed {
+    position: fixed;
+    left: 30rpx;
+    bottom: 98rpx;
+    width: 690rpx;
+    margin-bottom: 0;
+}
+
+.li .bottom .right {
+    position: relative;
+}
+
+.massage {
+    width: 30rpx;
+    height: 30rpx;
+    background-position: -269rpx 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.bottom-box {
+    width: 100vw;
+    height: 150rpx;
+    margin-bottom: 100rpx;
+}
+
+.bottom-box .tip {
+    font-size: 26rpx;
+    color: #8b97a4;
+    text-align: center;
+}
+
+.bottom-box .no-more {
+    background-position: -191rpx -746rpx;
+    width: 100rpx;
+    height: 100rpx;
+    margin-left: 325rpx;
+}
+
+.dialog-title {
+    font-size: 36rpx;
+    text-align: left;
+    margin-bottom: 20rpx;
+}
+
+.dialog-body {
+    padding: 0 40rpx;
+}
+
+.dialog-text {
+    font-size: 28rpx;
+    color: #999;
+    margin-bottom: 40rpx;
+    line-height: 40rpx;
+}
+
+.dialog-body input {
+    height: 88rpx;
+    line-height: 88rpx;
+    border-radius: 8rpx;
+    background-color: #edf0f3;
+    padding-left: 20rpx;
+}

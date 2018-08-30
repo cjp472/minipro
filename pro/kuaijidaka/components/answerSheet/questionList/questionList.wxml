@@ -1,0 +1,38 @@
+<view class="pd030" wx:if="{{listArray.length>0}}">
+    <view class="qs_bg por w_100">
+        <view class="mb20" wx:if="{{listArray.length>1}}">
+            <view class="line-bg"></view>
+            <scroll-view scrollWithAnimation scrollX class="scroll-bg" scrollIntoView="{{'tabId'+scrollTo}}">
+                <view class="por" style="width:{{100*listArray.length/5+'%'}};">
+                    <view class="flex-start fz28" style="width:100%">
+                        <view animation="{{animationData}}" catchtap="setIndex" class="{{select==index?'active':'noActive'}} lh60 flex-shrink-no flex-center" data-index="{{index}}" id="{{'tabId'+index}}" style="{{index!=0?'margin-left:50rpx;':''}}" wx:for="{{listArray}}" wx:key="{{item}}">
+                            <view>第{{index+1}}题</view>
+                            <view class="por red-dot-bg" wx:if="{{!item.finish&&submited>0}}">
+                                <text class="red-dot"></text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="pd0-30" wx:if="{{listArray.length>0}}">
+            <view wx:if="{{select==index}}" wx:for="{{listArray}}" wx:key="{{item}}">
+                <choice answerContent="{{item.answer?item.answer:''}}" catch:answer="answer" chapter="{{chapter}}" disabled="{{showAnswer}}" evalRecord="{{item.evalRecord?item.evalRecord:evalRecord}}" index="{{index}}" page="{{showAnswer?'result':'question'}}" pictureList="{{item.picture_list?item.picture_list:[]}}" qsId="{{item.question_id}}" qsList="{{item.items}}" selectType="{{item.kind}}" standardAnswer="{{item.standard_answer?item.standard_answer:'[]'}}" title="{{item.question_content}}" videoList="{{item.video_list?item.video_list:[]}}" voiceList="{{item.voice_list?item.voice_list:[]}}" website="{{item.website?item.website:[]}}" webtitle="{{item.web_title?item.web_title:[]}}"></choice>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="analysis-box" wx:if="{{showAnswer&&listArray.length>0}}">
+    <view class="analysis-title">试题解析</view>
+    <right-answer question="{{listArray[select]}}" showTimes="{{true}}"></right-answer>
+    <view class="analysis-content">
+        <view class="title">解析</view>
+        <question-title content="{{listArray[select].analysis}}" haveBg="{{false}}" kind="-1" wx:if="{{listArray[select].analysis.length>22}}"></question-title>
+        <text class="fz28 col9" wx:else>无</text>
+    </view>
+</view>
+<view class="list-empty" wx:if="{{listArray.length==0}}">
+    <view class="empty-box"></view>
+    <view class="tips">恭喜你，已掌握本节知识点</view>
+</view>
+<footer-tab allQsNum="{{allQsNum}}" bind:back="goBack" bind:next="next" bind:previous="previous" bind:submit="submit" chapter="{{chapter}}" chapterNum="{{chapterNum}}" finish="{{finish}}" index="{{index}}" length="{{listArray.length}}" page="{{page}}" qsNum="{{qsNum}}" showAnswer="{{showAnswer}}" wx:if="{{listArray.length>0}}"></footer-tab>

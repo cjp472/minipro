@@ -1,0 +1,214 @@
+<form bindsubmit="postFormId" reportSubmit="true">
+    <view class="error" wx:if="{{showLoadError}}">
+        <image class="error-icon" src="/images/error.png"></image>
+        <view class="error-text">加载失败，请检查网络</view>
+        <button bindtap="refresh" class="error-refresh" formType="submit">重新加载</button>
+    </view>
+    <view class="error" wx:if="{{dataNotFound}}">
+        <image class="error-icon" src="/images/error.png"></image>
+        <view class="error-text">通知不存在，可能已经被删除</view>
+        <button bindtap="toIndex" class="error-refresh">返回首页</button>
+    </view>
+    <view class="no-group-member" wx:if="{{notice.notGroup&&!notice.is_owner}}">
+        <view class="notice-header">
+            <view class="cover">
+                <image binderror="bannerError" mode="aspectFill" src="{{notice.bg_img}}"></image>
+            </view>
+            <view class="notice-info">
+                <view class="text-tips">该内容仅限</view>
+                <view class="text-tips">群成员可见</view>
+                <view class="buttons">
+                    <view bindtap="toIndex" class="btn">返回首页</view>
+                    <view bindtap="toCreate" class="btn btn-right">我也要发布</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="illegal" wx:elif="{{illegal}}">
+        <view class="notice-header">
+            <view class="cover">
+                <image binderror="bannerError" mode="aspectFill" src="https://cdn-xcx-qunsou.weiyoubot.cn/notice_bg/v2_02.jpg"></image>
+            </view>
+            <view class="notice-info">
+                <icon size="80" type="warn"></icon>
+                <view class="illegal-title">已停止阅读该通知</view>
+                <view class="text-desc">通知内容被多人投诉，为维护绿色上网环境，已停止阅读该通知。</view>
+                <view class="buttons">
+                    <view bindtap="toIndex" class="btn">返回首页</view>
+                    <view bindtap="toCreate" class="btn btn-right">我也要发布</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="wrapper" wx:elif="{{notice!=null}}">
+        <view wx:if="{{!commentEditing}}">
+            <view class="notice-header">
+                <view class="header-tips" wx:if="{{readInfo.total>2000}}">
+                    <icon color="#fff" size="15" type="warn"></icon>
+                    <view>该条信息阅读人数较多，请自行核实内容准确和真实性</view>
+                </view>
+                <view bindtap="showPic" class="cover" data-index="100">
+                    <image binderror="bannerError" mode="aspectFill" src="{{notice.bg_img}}"></image>
+                </view>
+                <view class="notice-info">
+                    <text class="title" selectable="true">{{notice.title}}</text>
+                    <view bindlongpress="copyNid" class="owner-time">
+                        <image class="avatar" src="{{notice.head_img}}"></image>
+                        <view class="name">{{notice.sign_name}}</view>
+                        <view class="time">{{notice.create_time}}</view>
+                    </view>
+                    <text class="content" selectable="true">{{notice.content}}</text>
+                    <view class="pics {{notice.pics.length==1?'one':''}} {{notice.pics.length==2?'two':''}}">
+                        <view bindtap="showPic" class="pic" data-index="{{index}}" wx:for="{{notice.pics}}" wx:key="{{item}}">
+                            <image mode="{{notice.pics.length==1?'widthFix':'aspectFill'}}" src="{{item}}"></image>
+                        </view>
+                    </view>
+                    <view bindtap="openLocation" class="notice-info-item address" wx:if="{{notice.address}}">
+                        <image src="/images/address_selected.png"></image>
+                        <view class="label">活动地址：{{notice.address}}</view>
+                    </view>
+                    <view class="notice-info-item" wx:if="{{notice.alert_status}}">
+                        <image src="/images/remind_time.png"></image>
+                        <view class="label">提醒时间：{{alert_time}}<label bindtap="showStatusModal" class="alert-recv" wx:if="{{!notice.is_owner&&!overdue}}">{{notice.alert_recv?'您已开启提醒':'您已关闭提醒'}}</label>
+                        </view>
+                    </view>
+                    <view class="notice-info-item" wx:if="{{notice.group_only}}">
+                        <image src="/images/visible.png"></image>
+                        <view class="label" wx:if="{{!shareError}}">限「
+              <open-data openGid="{{notice.open_gid}}" type="groupName"></open-data>」群成员可见</view>
+                        <view class="label" style="color:red;" wx:if="{{shareError}}">您还未成功转发到微信群</view>
+                    </view>
+                    <view class="notice-info-item" wx:if="{{notice.mp_gid}}">
+                        <image src="/images/relationed.png"></image>
+                        <view class="label" wx:if="{{notice.mp_gname}}">
+              已关联群通讯录「{{notice.mp_gname}}」
+              <label bindtap="toGroupCard" class="join">{{notice.mp_join?'点击进入':'点击加入'}}</label>
+                        </view>
+                        <view class="label" wx:else>关联的群通讯录已被删除，请重新关联。</view>
+                    </view>
+                    <view class="report-panel">
+                        <label>举报 | 建议</label>
+                        <button class="contact" formType="submit" openType="contact" sessionFrom="{{contactUserInfo}}">进入客服会话</button>
+                    </view>
+                    <view class="notice-share">
+                        <button bindtap="{{canShare?'':'shareWx'}}" class="sharewx" formType="submit" openType="share">
+                            <image src="/images/share_wx.png"></image>
+                            <view>分享到微信群</view>
+                        </button>
+                        <button bindtap="{{!buttonClicked?'shareWxCircle':''}}" class="sharewxcircle" formType="submit">
+                            <image src="/images/share_wx_circle.png"></image>
+                            <view>生成分享图片</view>
+                        </button>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="{{!buttonClicked?'toList':''}}" class="read-bar" wx:if="{{readInfo}}">
+                <view class="user-head-panel">
+                    <image class="{{index==0?'first-head':''}}" src="{{item.head_img}}" wx:for="{{readInfo.readlist}}" wx:key="{{item.head_img}}"></image>
+                </view>
+                <view class="user-count">
+          {{readInfo.total}}人已读<image src="/images/arrow_right_blue.png"></image>
+                </view>
+            </view>
+            <block wx:if="{{adsList.length>0}}">
+                <import src="/tmp/tmp.wxml"></import>
+                <view style="margin-top: 30rpx;">
+                    <template is="ads" data="{{adsList:adsList,swiper:swiper,radius:true}}"></template>
+                </view>
+            </block>
+            <view class="comment-panel" wx:if="{{commentRecords}}">
+                <view class="comment-header">
+          留言区（{{com_count}}）
+          <button bindtap="message" class="comment" formType="submit">
+                        <image src="/images/comment.png"></image>写留言</button>
+                </view>
+                <view class="comment-content">
+                    <view class="notice-record-empty" wx:if="{{commentRecords.length==0}}">还没人留言，赶紧转发邀请好友来留言吧~</view>
+                    <view class="notice-record-content-list-item" wx:for="{{commentRecords}}" wx:for-index="idx" wx:key="{{item.cid}}">
+                        <view bindtap="{{item.mp_id?'toCard':''}}" class="record-info-header {{item.mp_id?'is-contact':''}}" data-id="{{item.mp_id}}">
+                            <image class="record-avatar" src="{{item.head_img}}"></image>
+                            <view class="nickname-notice-time">
+                                <view class="nickname">{{item.name}}<image src="/images/card_icon.png" wx:if="{{item.mp_id}}"></image>
+                                </view>
+                                <view class="notice-time">{{item.stamp}}</view>
+                            </view>
+                            <button catchtap="deleteRecord" class="delete" data-index="{{idx}}" formType="submit" wx:if="{{notice.is_owner||item.is_owner}}">
+                                <image src="/images/delete_gray.png"></image>
+                            </button>
+                        </view>
+                        <view class="record-info-bottom">
+                            <text class="text" selectable="true">{{item.comment}}</text>
+                        </view>
+                        <view class="info-bottom-opt">
+                            <button bindtap="{{!buttonClicked?'toComment':''}}" class="btn-comment btn-opt" data-index="{{idx}}" formType="submit">
+                                <image src="/images/comment_gray.png"></image>评论
+              </button>
+                            <view class="comments" wx:if="{{item.reply.length>0}}">
+                                <view bindtap="clickComment" class="comment-item {{commentClickRecordIndex==idx&&commentClickCommentIndex==commentIndex?'clicked':''}}" data-comment-index="{{commentIndex}}" data-record-index="{{idx}}" wx:for="{{item.reply}}" wx:for-index="commentIndex" wx:for-item="comment">
+                                    <view class="user">{{comment.name}}{{comment.reply_to.length>0?'回复'+comment.reply_name:''}}：</view>
+                                    <text>{{comment.content}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="notice-footer">
+                <button bindtap="{{!buttonClicked?notice.is_owner?'toEdit':'toCreate':''}}" class="notice-footer-item" formType="submit">
+                    <image class="notice-footer-item-icon" src="/images/create.png"></image>
+                    <view class="notice-footer-item-text">{{notice.is_owner?'修改内容':'我也要发布'}}</view>
+                </button>
+                <view class="notice-footer-divider"></view>
+                <button bindtap="{{!buttonClicked?'shareWxCircle':''}}" class="notice-footer-item" formType="submit">
+                    <image class="notice-footer-item-icon" src="/images/share.png"></image>
+                    <view class="notice-footer-item-text">分享</view>
+                </button>
+                <button bindtap="{{canShare?'':'shareWx'}}" class="notice-footer-button" formType="submit" openType="share">转发到微信群</button>
+            </view>
+        </view>
+        <view class="comment-view" wx:else>
+            <view class="comment-view-title">留言</view>
+            <textarea autoFocus="true" bindinput="inputComment" bindtap="changeFocus" class="comment-view-input" focus="{{focus}}" maxlength="-1" placeholder="请输入留言内容" placeholderClass="placeholder" value="{{defaultComment}}"></textarea>
+            <view class="comment-view-button-container">
+                <button bindtap="cancelComment" class="comment-view-cancel" formType="submit">取消</button>
+                <view class="comment-view-divider"></view>
+                <button bindtap="postComment" class="comment-view-confirm" formType="submit">确定</button>
+            </view>
+        </view>
+    </view>
+    <view catchtouchmove="move" class="modal" wx:if="{{!overdue&&notice.alert_time&&!notice.is_owner&&!alertRecv}}">
+        <view bindtap="{{!buttonClicked?'modalClose':''}}" class="modal-mask" data-id="0"></view>
+        <view class="modal-content">
+            <view class="modal-header">提示</view>
+            <view class="modal-body">
+                <view>该通知会在如下时间提醒您：</view>
+                <view style="font-weight: 900; margin-top: 10rpx;">{{alert_time}}</view>
+            </view>
+            <view class="modal-footer">
+                <button bindtap="{{!buttonClicked?'modalClose':''}}" class="modal-btn modal-cancel width50" data-id="0" formType="submit">不用提醒</button>
+                <button bindtap="{{!buttonClicked?'modalClose':''}}" class="modal-btn modal-ok width50" data-id="1" formType="submit">好的</button>
+            </view>
+        </view>
+    </view>
+</form>
+<view class="unauthorized" wx:if="{{unauthorized}}">
+    <image class="unauth-img" src="/images/unauto.png"></image>
+    <view class="unauth-title">- Oops！您不小心拒绝了微信授权！ -</view>
+    <view class="unauth-desc">请允许我们获取您的基础信息（昵称与头像）</view>
+    <view class="unauth-desc">才能正常使用</view>
+    <view bindtap="reAuthorize" class="unauth-btn">重新授权</view>
+</view>
+<view catchtouchmove="move" class="modal-image-text" wx:if="{{modal.isShow}}">
+    <view bindtap="{{!buttonClicked?'modalClick':''}}" class="modal-mask"></view>
+    <view class="modal-content">
+        <view class="modal-header">{{modal.title}}</view>
+        <view class="modal-body">
+            <view>{{modal.desc}}</view>
+            <image mode="widthFix" src="{{modal.src}}"></image>
+        </view>
+        <view class="modal-footer">
+            <view bindtap="{{!buttonClicked?'modalClick':''}}" class="modal-btn modal-cancel width50" data-id="0" wx:if="{{modal.cancel}}">{{modal.cancel}}</view>
+            <view bindtap="{{!buttonClicked?'modalClick':''}}" class="modal-btn modal-ok {{modal.cancel?'width50':''}}" data-id="1">{{modal.ok}}</view>
+        </view>
+    </view>
+</view>

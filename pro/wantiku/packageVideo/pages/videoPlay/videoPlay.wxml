@@ -1,0 +1,95 @@
+<view bindtap="toggleTeacherWechatHide" class="live-player {{theme}} {{iPhoneX?'iPhoneX':''}}">
+    <view bindtap="showHideBtn" class="live-video {{switchVideoState?'':'small'}}" hidden="{{hideVideoState=='2'}}">
+        <view class="no-ppt" wx:if="{{imgSrc==''}}">
+            <view>
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/video_icon_jiazai_{{theme}}@2x.png"></image>
+            </view>
+            <view class="text">文档正在加载中，请稍等</view>
+        </view>
+        <image mode="widthFix" src="{{imgSrc=='#'?'http://img02.exam8.com/img2017/minapp/video/noPPT.jpg':imgSrc}}" wx:if="{{imgSrc!=''}}"></image>
+    </view>
+    <view bindtap="showHideBtn" class="live-small-video {{switchVideoState?'':'big'}}" hidden="{{hideVideoState=='1'||videoState}}">
+        <video autoplay="{{autoPlay}}" bindfullscreenchange="getVideoFullState" controls="{{!switchVideoState}}" id="live-video" objectFit="cover" src="{{videoSrc}}">
+            <cover-view bindtap="switchVideo" class="switch-video-box" hidden="{{iOS}}">
+                <cover-view class="switch-video coverbtn" hidden="{{VideoFullState}}">切换</cover-view>
+            </cover-view>
+        </video>
+    </view>
+    <view class="teacher-ppt {{switchVideoState?'':'hide'}}">
+        <canvas canvasId="teacherPPT" id="teacher-ppt"></canvas>
+    </view>
+    <view class="live-chat-box">
+        <view class="live-info flex-row" hidden="{{!userNumber}}">
+            <text class="iconfont icon_renshu"></text>
+            <text>{{userNumber}}人在线</text>
+        </view>
+        <scroll-view bindscroll="StopChatScroll" bindscrolltolower="keepChatScroll" class="live-chat-cont" id="chat-scroll" lowerThreshold="100" scrollIntoView="{{scrollView}}" scrollWithAnimation="{{true}}" scrollY="{{true}}">
+            <view class="live-chat {{item.userrole?'student':''}}" id="livechat{{idx}}" wx:for="{{chatMsg}}" wx:for-index="idx" wx:key="live-chat-key">
+                <text>
+                    <text class="name">{{item.name}}</text>
+                    <text style="color: #9a9a9a;">：</text>
+                    <text style="word-break:break-all" wx:if="{{item.imgSrc==''}}">{{item.msg}}</text>
+                </text>
+                <image class="live-chat-image" hidden="{{item.imgSrc==''}}" mode="widthFix" src="{{item.imgSrc}}" style="width:{{item.imgWidth}}rpx"></image>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="live-chat-input flex-row  {{keyWordTop?'keyword':''}}">
+        <view class="input-text-cont  flex-row" hidden="{{!keyWordTop}}">
+            <view bindtap="inputChatimg" class="input-text one" data-text="1">扣
+        <span>①</span>
+            </view>
+            <view bindtap="inputChatimg" class="input-text two" data-text="2">扣
+        <span>②</span>
+            </view>
+        </view>
+        <view class="input-box">
+            <view bindtap="inputFocusTrue" class="input-box-cover"></view>
+            <input bindblur="hideKeyWord" bindconfirm="sendMsg" bindfocus="showKeyWord" bindinput="getUserMessage" confirmType="send" focus="{{!keyWordState}}" placeholder="{{!keyWordTop?'点击参与互动':'说点什么...'}}" placeholderStyle="color:#9a9a9a;" type="text" value="{{msg}}"></input>
+        </view>
+        <view bindtap="sendMsg" class="post-message" hidden="{{!keyWordTop}}">发送</view>
+        <view class="icon-box" hidden="{{keyWordTop}}">
+            <button class="iconfont icon_zixun" hoverClass="" openType="contact" sessionFrom="{{XNConfigInfo.sessionFrom}}"></button>
+        </view>
+        <view class="icon-box" hidden="{{keyWordTop}}">
+            <button class="iconfont icon_fenxiang" hoverClass="" openType="share"></button>
+        </view>
+    </view>
+    <view catchtap="toggleTeacherWechatShow" class="weChat-btn" hidden="{{keyWordTop}}">
+        <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/video_icon_jiaweixin_{{theme}}@2x.png"></image>
+    </view>
+    <view bindtap="scrollViewToDom" class="noread-message" hidden="{{scrollViewState||keyWordTop||noReadMessageNum==0}}">
+        <text>{{noReadMessageNum}}条未读消息</text>
+        <text class="iconfont icon_arrow_down"></text>
+    </view>
+    <view bindtap="switchVideo" class="switch-video-box" hidden="{{iOS}}">
+        <view class="switch-video">切换</view>
+    </view>
+    <view bindtap="hideVideo" class="hide-small-btn {{hideVideoIconState?'hidetop':''}} {{iOS?'iOS':''}}" hidden="{{videoState||keyWordTop||lateHide}}">
+        <view class="iconfont {{hideVideoIconState?'icon_xianshi':'icon_yincang'}}"></view>
+    </view>
+    <view catchtap="catchtap" class="wechat-cont {{toggleTeacherWechatState?'':'show'}}">
+        <view class="teacher-avator">
+            <image src="{{teacherWeacht.avatar}}"></image>
+        </view>
+        <view class="teacher-name">
+            <text>{{teacherWeacht.masterName}}</text>
+        </view>
+        <view class="teacher-wechat-number">
+            <text>微信：{{teacherWeacht.weChat}}</text>
+        </view>
+        <view class="wechat-cont-btn-box flex-row">
+            <view catchtap="saveTeacherImg" class="wechat-cont-btn">
+                <text class="iconfont icon_erweima"></text>
+                <text>保存二维码</text>
+            </view>
+            <view catchtap="clipboard" class="wechat-cont-btn">
+                <text class="iconfont icon_weixin"></text>
+                <text>复制微信号</text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="switchVideo" class="switch-btn {{switchVideoState?'small':'big'}} {{hideVideoIconState?'none':''}}" hidden="{{!iOS}}">
+        <text class="iconfont hebingxingzhuang"></text>
+    </view>
+</view>

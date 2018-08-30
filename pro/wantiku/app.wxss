@@ -1,0 +1,1603 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('//at.alicdn.com/t/font_428828_972ncq7jhoh.eot');
+    src: url('//at.alicdn.com/t/font_428828_972ncq7jhoh.eot?#iefix') format('embedded-opentype'),url('//at.alicdn.com/t/font_428828_972ncq7jhoh.woff') format('woff'),url('//at.alicdn.com/t/font_428828_972ncq7jhoh.ttf') format('truetype'),url('//at.alicdn.com/t/font_428828_972ncq7jhoh.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont"!important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon_suo:before {
+    content: "\e647";
+}
+
+.icon_weixin2:before {
+    content: "\e642";
+}
+
+.icon_jishi:before {
+    content: "\e608";
+}
+
+.icon_duigou:before {
+    content: "\e60c";
+}
+
+.icon_pingfen:before {
+    content: "\e60d";
+}
+
+.icon_tuodong:before {
+    content: "\e60e";
+}
+
+.icon_datika:before {
+    content: "\e612";
+}
+
+.icon_star:before {
+    content: "\e613";
+}
+
+.icon_star_selected:before {
+    content: "\e614";
+}
+
+.bg_liubianxing_selec:before {
+    content: "\e619";
+}
+
+.bg_liubianxing:before {
+    content: "\e61a";
+}
+
+.icon_play:before {
+    content: "\e61b";
+}
+
+.icon_suspend:before {
+    content: "\e61c";
+}
+
+.icon_fenxiang1:before {
+    content: "\e61d";
+}
+
+.icon_delete:before {
+    content: "\e61e";
+}
+
+.icon_arrow_right:before {
+    content: "\e61f";
+}
+
+.icon_arrow_down:before {
+    content: "\e620";
+}
+
+icon_fenxiang .icon_goumaichenggong1:before {
+    content: "\e624";
+}
+
+.icon_end:before {
+    content: "\e601";
+}
+
+.icon_yiyuyue:before {
+    content: "\e603";
+}
+
+.icon_fenxiang:before {
+    content: "\e604";
+}
+
+.icon_yuyue:before {
+    content: "\e605";
+}
+
+.icon_zixun:before {
+    content: "\e606";
+}
+
+.icon_time1:before {
+    content: "\e607";
+}
+
+.icon_yincang:before {
+    content: "\e609";
+}
+
+.icon_xianshi:before {
+    content: "\e60a";
+}
+
+.icon_renshu:before {
+    content: "\e60b";
+}
+
+.icon_zixun1:before {
+    content: "\e60f";
+}
+
+.icon_erweima:before {
+    content: "\e610";
+}
+
+.icon_weixin:before {
+    content: "\e611";
+}
+
+.icon_set:before {
+    content: "\e615";
+}
+
+.xiaochengxu:before {
+    content: "\e616";
+}
+
+.hebingxingzhuang:before {
+    content: "\e617";
+}
+
+.icon_tips:before {
+    content: "\e621";
+}
+
+.home_icon_goumai:before {
+    content: "\e622";
+}
+
+.icon_duihao:before {
+    content: "\e623";
+}
+
+.icon_renshu1:before {
+    content: "\e62b";
+}
+
+.icon_fenxiang2:before {
+    content: "\e62c";
+}
+
+.icon_wodeziliao:before {
+    content: "\e62d";
+}
+
+.icon_youke:before {
+    content: "\e62e";
+}
+
+.icon_weixin1:before {
+    content: "\e62f";
+}
+
+.icon_home:before {
+    content: "\e631";
+}
+
+.icon_home_red:before {
+    content: "\e632";
+}
+
+.icon_xiala:before {
+    content: "\e633";
+}
+
+.icon_closex:before {
+    content: "\e635";
+}
+
+.icon_weixin_fenxiang:before {
+    content: "\e636";
+}
+
+.icon_dizhi:before {
+    content: "\e637";
+}
+
+.icon_goumaichenggong:before {
+    content: "\e638";
+}
+
+.icon_fenxiangweixin:before {
+    content: "\e639";
+}
+
+.icon_pintuanchenggon:before {
+    content: "\e63b";
+}
+
+.icon_gaopinkaodian:before {
+    content: "\e63c";
+}
+
+.icon_gaopincuoti:before {
+    content: "\e63d";
+}
+
+.icon_guanbi:before {
+    content: "\e63e";
+}
+
+.icon_qiehuan:before {
+    content: "\e63f";
+}
+
+.icon_weixin2:before {
+    content: "\e642";
+}
+
+.icon_suo:before {
+    content: "\e647";
+}
+
+.icon_arrow_down1:before {
+    content: "\e648";
+}
+
+.icon_arrow_up:before {
+    content: "\e649";
+}
+
+.ic_gengduo:before {
+    content: "\e651";
+}
+
+.ic_shuaxinx:before {
+    content: "\e652";
+}
+
+.ic_tiku:before {
+    content: "\e657";
+}
+
+.ic_kecheng:before {
+    content: "\e654";
+}
+
+.ic_fenxiang:before {
+    content: "\e655";
+}
+
+.ic_dingwei:before {
+    content: "\e656";
+}
+
+.ic_tiku:before {
+    content: "\e657";
+}
+
+.ic_kecheng:before {
+    content: "\e658";
+}
+
+.icon_tab_dizhi:before {
+    content: "\e659";
+}
+
+.ic_dingwei:before {
+    content: "\e656";
+}
+
+.icon_gaopinkaodian:before {
+    content: "\e63c";
+}
+
+.btn_dianzan_n:before {
+    content: "\e65b";
+}
+
+.btn_dianzan_s:before {
+    content: "\e65c";
+}
+
+.icon_zhuti:before {
+    content: "\e65a";
+}
+
+.icon_naozhong:before {
+    content: "\e65f";
+}
+
+.icon_jianjie:before {
+    content: "\e660";
+}
+
+.icon_jiaqun:before {
+    content: "\e661";
+}
+
+.blue .subject-class-list .class-one .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/blue/icon_yijijiahao@2x.png');
+}
+
+.blue .subject-class-list .class-one.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/blue/icon_yijijianhao@2x.png');
+}
+
+.blue .subject-class-list .class-one.open .subject-class-info {
+    border-left: 1rpx solid #4380db;
+}
+
+.blue .subject-class-list .class-one.circle .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/blue/icon_three.png');
+}
+
+.blue .subject-class-list .class-two .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/blue/icon_erjijiahao@2x.png');
+}
+
+.blue .subject-class-list .class-two.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/blue/icon_erjijianhao@2x.png');
+}
+
+.blue .subject-class-list .class-two.open .subject-class-info {
+    border-left: 1rpx solid #4380db;
+}
+
+.blue .subject-class-list .class-three .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/blue/icon_three.png');
+}
+
+.blue .subject-class-info {
+    border-left: 1rpx solid #4380db;
+}
+
+.blue .subject-class-list .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/blue/icon_video.png');
+}
+
+.blue.practice .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/blue/icon_zuoti@2x.png');
+}
+
+.blue.practice.error .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/blue/icon_chakancuoti@2x.png');
+}
+
+.blue .share_practice_box .share_practice .share_image {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/wantiku/icon_jiesuo_blue@2x.png');
+}
+
+.blue .share_practice_box .share_practice .share_btn {
+    background: #4380db;
+}
+
+.blue .share_practice_box .share_practice .share_btn {
+    background: #4380db;
+}
+
+.orange .subject-class-list .class-one .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/orange/icon_yijijiahao@2x.png');
+}
+
+.orange .subject-class-list .class-one.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/orange/icon_yijijianhao@2x.png');
+}
+
+.orange .subject-class-list .class-one.open .subject-class-info {
+    border-left: 1rpx solid #ff7e00;
+}
+
+.orange .subject-class-list .class-one.circle .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/orange/icon_three.png');
+}
+
+.orange .subject-class-list .class-two .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/orange/icon_erjijiahao@2x.png');
+}
+
+.orange .subject-class-list .class-two.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/orange/icon_erjijianhao@2x.png');
+}
+
+.orange .subject-class-list .class-two.open .subject-class-info {
+    border-left: 1rpx solid #ff7e00;
+}
+
+.orange .subject-class-list .class-three .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/orange/icon_three.png');
+}
+
+.orange .subject-class-info {
+    border-left: 1rpx solid #ff7e00;
+}
+
+.orange .subject-class-list .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/orange/icon_video.png');
+}
+
+.orange.practice .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/orange/icon_zuoti@2x.png');
+}
+
+.orange.practice.error .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/orange/icon_chakancuoti@2x.png');
+}
+
+.orange .share_practice_box .share_practice .share_image {
+    background-image: url("http://img02.exam8.com/img2017/minapp/config/wantiku/icon_jiesuo_orange@2x.png");
+}
+
+.orange .share_practice_box .share_practice .share_btn {
+    background: #ff7e00;
+}
+
+.orange .share_practice_box .share_practice .share_btn {
+    background: #ff7e00;
+}
+
+.green .subject-class-list .class-one .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/green/icon_yijijiahao@2x.png');
+}
+
+.green .subject-class-list .class-one.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/green/icon_yijijianhao@2x.png');
+}
+
+.green .subject-class-list .class-one.open .subject-class-info {
+    border-left: 1rpx solid #36aa2a;
+}
+
+.green .subject-class-list .class-one.circle .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/green/icon_three.png');
+}
+
+.green .subject-class-list .class-two .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/green/icon_erjijiahao@2x.png');
+}
+
+.green .subject-class-list .class-two.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/green/icon_erjijianhao@2x.png');
+}
+
+.green .subject-class-list .class-two.open .subject-class-info {
+    border-left: 1rpx solid #36aa2a;
+}
+
+.green .subject-class-list .class-three .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/green/icon_three.png');
+}
+
+.green .subject-class-info {
+    border-left: 1rpx solid #36aa2a;
+}
+
+.green .subject-class-list .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/green/icon_video.png');
+}
+
+.green.practice .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/green/icon_zuoti@2x.png');
+}
+
+.green.practice.error .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/green/icon_chakancuoti@2x.png');
+}
+
+.green .share_practice_box .share_practice .share_image {
+    background-image: url("http://img02.exam8.com/img2017/minapp/config/wantiku/icon_jiesuo_green@2x.png");
+}
+
+.green .share_practice_box .share_practice .share_btn {
+    background: #36aa2a;
+}
+
+.green .share_practice_box .share_practice .share_btn {
+    background: #36aa2a;
+}
+
+.Lightblue .subject-class-list .class-one .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/Lightblue/icon_yijijiahao@2x.png');
+}
+
+.Lightblue .subject-class-list .class-one.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/Lightblue/icon_yijijianhao@2x.png');
+}
+
+.Lightblue .subject-class-list .class-one.open .subject-class-info {
+    border-left: 1rpx solid #27c1f4;
+}
+
+.Lightblue .subject-class-list .class-one.circle .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/Lightblue/icon_three.png');
+}
+
+.Lightblue .subject-class-list .class-two .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/Lightblue/icon_erjijiahao@2x.png');
+}
+
+.Lightblue .subject-class-list .class-two.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/Lightblue/icon_erjijianhao@2x.png');
+}
+
+.Lightblue .subject-class-list .class-two.open .subject-class-info {
+    border-left: 1rpx solid #27c1f4;
+}
+
+.Lightblue .subject-class-list .class-three .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/Lightblue/icon_three.png');
+}
+
+.Lightblue .subject-class-info {
+    border-left: 1rpx solid #27c1f4;
+}
+
+.Lightblue .subject-class-list .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/Lightblue/icon_video.png');
+}
+
+.Lightblue.practice .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/Lightblue/icon_zuoti@2x.png');
+}
+
+.Lightblue.practice.error .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/Lightblue/icon_chakancuoti@2x.png');
+}
+
+.Lightblue .share_practice_box .share_practice .share_image {
+    background-image: url("http://img02.exam8.com/img2017/minapp/config/wantiku/icon_jiesuo_lightblue@2x.png");
+}
+
+.Lightblue .share_practice_box .share_practice .share_btn {
+    background: #27c1f4;
+}
+
+.Lightblue .share_practice_box .share_practice .share_btn {
+    background: #27c1f4;
+}
+
+.red .subject-class-list .class-one .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/red/icon_yijijiahao2@2x.png');
+}
+
+.red .subject-class-list .class-one.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/red/icon_yijijianhao@2x.png');
+}
+
+.red .subject-class-list .class-one.open .subject-class-info {
+    border-left: 1rpx solid #ff5757;
+}
+
+.red .subject-class-list .class-one.circle .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/red/icon_three.png');
+}
+
+.red .subject-class-list .class-two .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/red/icon_erjijiahao@2x.png');
+}
+
+.red .subject-class-list .class-two.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/red/icon_erjijianhao@2x.png');
+}
+
+.red .subject-class-list .class-two.open .subject-class-info {
+    border-left: 1rpx solid #ff5757;
+}
+
+.red .subject-class-list .class-three .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/red/icon_three.png');
+}
+
+.red .subject-class-info {
+    border-left: 1rpx solid #ff5757;
+}
+
+.red .subject-class-list .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/red/icon_video.png');
+}
+
+.red.practice .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/red/icon_zuoti@2x.png');
+}
+
+.red.practice.error .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/red/icon_chakancuoti@2x.png');
+}
+
+.red .share_practice_box .share_practice .share_image {
+    background-image: url("http://img02.exam8.com/img2017/minapp/config/wantiku/icon_jiesuo_red@2x.png");
+}
+
+.red .share_practice_box .share_practice .share_btn {
+    background: #ff5757;
+}
+
+.red .share_practice_box .share_practice .share_btn {
+    background: #ff5757;
+}
+
+.purple .subject-class-list .class-one .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/purple/icon_yijijiahao@2x.png');
+}
+
+.purple .subject-class-list .class-one.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/purple/icon_yijijianhao@2x.png');
+}
+
+.purple .subject-class-list .class-one.open .subject-class-info {
+    border-left: 1rpx solid #a066e8;
+}
+
+.purple .subject-class-list .class-one.circle .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/purple/icon_three.png');
+}
+
+.purple .subject-class-list .class-two .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/purple/icon_erjijiahao@2x.png');
+}
+
+.purple .subject-class-list .class-two.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/purple/icon_erjijianhao@2x.png');
+}
+
+.purple .subject-class-list .class-two.open .subject-class-info {
+    border-left: 1rpx solid #a066e8;
+}
+
+.purple .subject-class-list .class-three .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/purple/icon_three.png');
+}
+
+.purple .subject-class-info {
+    border-left: 1rpx solid #a066e8;
+}
+
+.purple .subject-class-list .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/purple/icon_video.png');
+}
+
+.purple.practice .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/purple/icon_zuoti@2x.png');
+}
+
+.purple.practice.error .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/purple/icon_chakancuoti@2x.png');
+}
+
+.purple .share_practice_box .share_practice .share_image {
+    background-image: url("http://img02.exam8.com/img2017/minapp/config/wantiku/icon_jiesuo_purple@2x.png");
+}
+
+.purple .share_practice_box .share_practice .share_btn {
+    background: #a066e8;
+}
+
+.purple .share_practice_box .share_practice .share_btn {
+    background: #a066e8;
+}
+
+.yellow .subject-class-list .class-one .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/yellow/icon_yijijiahao@2x.png');
+}
+
+.yellow .subject-class-list .class-one.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/yellow/icon_yijijianhao@2x.png');
+}
+
+.yellow .subject-class-list .class-one.open .subject-class-info {
+    border-left: 1rpx solid #db9b00;
+}
+
+.yellow .subject-class-list .class-one.circle .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/yellow/icon_three.png');
+}
+
+.yellow .subject-class-list .class-two .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/yellow/icon_erjijiahao@2x.png');
+}
+
+.yellow .subject-class-list .class-two.open .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/yellow/icon_erjijianhao@2x.png');
+}
+
+.yellow .subject-class-list .class-two.open .subject-class-info {
+    border-left: 1rpx solid #db9b00;
+}
+
+.yellow .subject-class-list .class-three .subject-class-title {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/yellow/icon_three.png');
+}
+
+.yellow .subject-class-info {
+    border-left: 1rpx solid #db9b00;
+}
+
+.yellow .subject-class-list .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/yellow/icon_video.png');
+}
+
+.yellow.practice .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/yellow/icon_zuoti@2x.png');
+}
+
+.yellow.practice.error .subject-class-list .subject-class .subject-class-video {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/yellow/icon_chakancuoti@2x.png');
+}
+
+.yellow .share_practice_box .share_practice .share_image {
+    background-image: url("http://img02.exam8.com/img2017/minapp/config/wantiku/icon_jiesuo_yellow@2x.png");
+}
+
+.yellow .share_practice_box .share_practice .share_btn {
+    background: #db9b00;
+}
+
+.red .papers-share-btn {
+    background: #ff5757;
+}
+
+.blue .papers-share-btn {
+    background: #4380db;
+}
+
+.green .papers-share-btn {
+    background: #0e9900;
+}
+
+.Lightblue .papers-share-btn {
+    background: #27c1f4;
+}
+
+.orange .papers-share-btn {
+    background: #ff7e00;
+}
+
+.yellow .papers-share-btn {
+    background: #db9b00;
+}
+
+.purple .papers-share-btn {
+    background: #a066e8;
+}
+
+.icon_tips:before {
+    content: "\e621";
+}
+
+.home_icon_goumai:before {
+    content: "\e622";
+}
+
+.red .video-boximage .video-boximage-unlock-text text {
+    color: #ff5757;
+}
+
+.blue .video-boximage .video-boximage-unlock-text text {
+    color: #4380db;
+}
+
+.green .video-boximage .video-boximage-unlock-text text {
+    color: #0e9900;
+}
+
+.Lightblue .video-boximage .video-boximage-unlock-text text {
+    color: #27c1f4;
+}
+
+.orange .video-boximage .video-boximage-unlock-text text {
+    color: #ff7e00;
+}
+
+.yellow .video-boximage .video-boximage-unlock-text text {
+    color: #db9b00;
+}
+
+.purple .video-boximage .video-boximage-unlock-text text {
+    color: #a066e8;
+}
+
+.red .questions-side-btn .success-do-exercise-icon {
+    background: url('http://img02.exam8.com/img2017/minapp/config/red/icon_zuoti@2x.png') no-repeat no-repeat;
+    background-size: 100%;
+}
+
+.blue .questions-side-btn .success-do-exercise-icon {
+    background: url('http://img02.exam8.com/img2017/minapp/config/blue/icon_zuoti@2x.png') no-repeat no-repeat;
+    background-size: 100%;
+}
+
+.green .questions-side-btn .success-do-exercise-icon {
+    background: url('http://img02.exam8.com/img2017/minapp/config/green/icon_zuoti@2x.png') no-repeat no-repeat;
+    background-size: 100%;
+}
+
+.Lightblue .questions-side-btn .success-do-exercise-icon {
+    background: url('http://img02.exam8.com/img2017/minapp/config/Lightblue/icon_zuoti@2x.png') no-repeat no-repeat;
+    background-size: 100%;
+}
+
+.orange .questions-side-btn .success-do-exercise-icon {
+    background: url('http://img02.exam8.com/img2017/minapp/config/orange/icon_zuoti@2x.png') no-repeat no-repeat;
+    background-size: 100%;
+}
+
+.yellow .questions-side-btn .success-do-exercise-icon {
+    background: url('http://img02.exam8.com/img2017/minapp/config/yellow/icon_zuoti@2x.png') no-repeat no-repeat;
+    background-size: 100%;
+}
+
+.purple .questions-side-btn .success-do-exercise-icon {
+    background: url('http://img02.exam8.com/img2017/minapp/config/purple/icon_zuoti@2x.png') no-repeat no-repeat;
+    background-size: 100%;
+}
+
+view,text,textarea {
+    font-family: 'PingFang SC','Microsoft Yahei';
+}
+
+a {
+    color: inherit;
+}
+
+.container {
+    width: 100%;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}
+
+.text-hidden {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.flex-row {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+button::after {
+    border: 0;
+}
+
+.debug {
+    word-wrap: break-all;
+}
+
+.subject-class-list {
+    width: 720rpx;
+    margin-left: 30rpx;
+}
+
+.subject-class-title {
+    color: #4e4e4e;
+    font-size: 30rpx;
+    padding-left: 38rpx;
+    position: relative;
+}
+
+.subject-class-title .subject-class-title-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80%;
+}
+
+.subject-class-info {
+    color: #9a9a9a;
+    font-size: 24rpx;
+    padding-top: 18rpx;
+    border-left: 1rpx solid #80db3c;
+    padding-left: 38rpx;
+    margin-left: 16rpx;
+    margin-top: -1rpx;
+    padding-bottom: 50rpx;
+}
+
+.subject-class-info text {
+    margin-right: 28rpx;
+}
+
+.subject-class {
+    position: relative;
+    padding-right: 30rpx;
+}
+
+.subject-class-list .class-one {
+    border-bottom: 1rpx solid #ebebeb;
+}
+
+.subject-class-list .class-one .subject-class-title {
+    background: url('http://img02.exam8.com/img2017/minapp/new_index/icon_yijijiahao@2x.png') no-repeat;
+    background-size: 32rpx 34rpx;
+    background-position: 0 4rpx;
+    padding-left: 50rpx;
+    margin-top: 30rpx;
+}
+
+.subject-class-list .class-one .subject-class-none {
+    background: none;
+    background-size: 32rpx 34rpx;
+    background-position: 0 4rpx;
+    padding-left: 50rpx;
+    margin-top: 30rpx;
+}
+
+.subject-class-list .class-one .subject-class-info {
+    border: 0;
+    padding-bottom: 30rpx;
+}
+
+.subject-class-list .class-one.open {
+    border-bottom: 0;
+}
+
+.subject-class-list .class-one.open .subject-class-title {
+    background: url('http://img02.exam8.com/img2017/minapp/new_index/icon_yijijianhao@2x.png') no-repeat;
+    background-size: 32rpx 34rpx;
+    background-position: 0 4rpx;
+    padding-left: 50rpx;
+    margin-top: 30rpx;
+}
+
+.subject-class-list .class-one.open .subject-class-info {
+    padding-bottom: 50rpx;
+    border-left: 1rpx solid #80db3c;
+    padding-left: 37rpx;
+}
+
+.subject-class-list .class-one.circle .subject-class-title {
+    background: url('http://img02.exam8.com/img2017/minapp/new_index/icon_three.png') no-repeat;
+    background-size: 16rpx 16rpx;
+    background-position: 11rpx 12rpx;
+    padding-left: 50rpx;
+}
+
+.subject-class-list .class-two .subject-class-title {
+    background: url('http://img02.exam8.com/img2017/minapp/new_index/icon_erjijiahao@2x.png') no-repeat;
+    background-size: 30rpx 30rpx;
+    background-position: 0rpx 5rpx;
+    padding-left: 50rpx;
+}
+
+.subject-class-list .class-two .subject-class-info {
+    padding-bottom: 50rpx;
+}
+
+.subject-class-list .class-two.open {
+    border-bottom: 0;
+}
+
+.subject-class-list .class-two.last {
+    border-bottom: 1rpx solid #eee;
+}
+
+.subject-class-list .class-two.last .subject-class-info {
+    border: 0;
+}
+
+.subject-class-list .class-two.open .subject-class-title {
+    background: url('http://img02.exam8.com/img2017/minapp/new_index/icon_erjijianhao@2x.png') no-repeat;
+    background-size: 30rpx 30rpx;
+    background-position: 0rpx 5rpx;
+    padding-left: 50rpx;
+}
+
+.subject-class-list .class-two.open .subject-class-info {
+    padding-bottom: 50rpx;
+    border-left: 1rpx solid #80db3c;
+}
+
+.subject-class-list .class-two.circle .subject-class-title {
+    background: url('http://img02.exam8.com/img2017/minapp/new_index/icon_erjijianhao@2x.png') no-repeat;
+    background-size: 30rpx 30rpx;
+    background-position: 0rpx 5rpx;
+    padding-left: 50rpx;
+}
+
+.subject-class-list .subject-class-video {
+    width: 80rpx;
+    height: 100rpx;
+    right: -24rpx;
+    top: 0;
+    background: url('http://img02.exam8.com/img2017/minapp/new_index/icon_video.png') no-repeat;
+    background-size: 36rpx 36rpx;
+    background-position: 20rpx 0;
+    position: absolute;
+    z-index: 999;
+}
+
+.subject-class .subject-class-title .icon_video_disabled {
+    width: 80rpx;
+    height: 100rpx;
+    background: url('http://img02.exam8.com/img2017/minapp/new_index/icon_video_disabled@2x.png') no-repeat;
+    background-size: 36rpx 36rpx;
+    background-position: 20rpx 0;
+    position: absolute;
+    right: -24rpx;
+    top: 0;
+}
+
+.subject-class .subject-class-title .icon_suo {
+    background: none;
+    position: absolute;
+    z-index: 999;
+    width: 80rpx;
+    height: 100rpx;
+    right: -24rpx;
+    top: 0;
+    text-align: center;
+    display: block;
+    font-size: 34rpx;
+}
+
+.wantiku .subject-class .subject-class-title .icon_suo {
+    color: #6fce29;
+}
+
+.blue .subject-class .subject-class-title .icon_suo {
+    color: #4380db;
+}
+
+.red .subject-class .subject-class-title .icon_suo {
+    color: #ff5757;
+}
+
+.green .subject-class .subject-class-title .icon_suo {
+    color: #0e9900;
+}
+
+.orange .subject-class .subject-class-title .icon_suo {
+    color: #ff7e00;
+}
+
+.Lightblue .subject-class .subject-class-title .icon_suo {
+    color: #27c1f4;
+}
+
+.yellow .subject-class .subject-class-title .icon_suo {
+    color: #db9b00;
+}
+
+.purple .subject-class .subject-class-title .icon_suo {
+    color: #a066e8;
+}
+
+.subject-class-list .class-three .subject-class-title {
+    background: url('http://img02.exam8.com/img2017/minapp/new_index/icon_three.png') no-repeat;
+    background-size: 16rpx 16rpx;
+    background-position: 9rpx 12rpx;
+    padding-left: 50rpx;
+}
+
+.subject-class-list .class-three .subject-class-info {
+    padding-bottom: 50rpx;
+}
+
+.subject-class-list .class-three.last {
+    border-bottom: 1rpx solid #eee;
+}
+
+.subject-class-list .class-three.last .subject-class-info {
+    border: 0;
+}
+
+.subject-class-list .subject-class.disable .subject-class-video {
+    width: 80rpx;
+    height: 100rpx;
+    background: url('http://img02.exam8.com/img2017/minapp/new_index/icon_video_disabled@2x.png') no-repeat;
+    background-size: 36rpx 36rpx;
+    background-position: 20rpx 0;
+    position: absolute;
+    right: -24rpx;
+    top: 0;
+}
+
+.subject-class-list .subject-class.disable .subject-class-title {
+    color: #ccc;
+}
+
+.subject-class-list .subject-class.disable .subject-class-info {
+    color: #ccc;
+}
+
+.subject-class-list .subject-class.disabled .subject-class-title {
+    color: #ccc;
+}
+
+.subject-class-list .subject-class.disabled .subject-class-info {
+    color: #ccc;
+}
+
+.practice .subject-class-list .subject-class .subject-class-video {
+    width: 80rpx;
+    height: 100rpx;
+    background-image: url('http://img02.exam8.com/img2017/minapp/user_icon/icon_zuoti@2x.png');
+    background-repeat: no-repeat;
+    background-size: 33rpx 37rpx;
+    background-position: 20rpx 0;
+    position: absolute;
+    right: -24rpx;
+    top: 0;
+}
+
+.practice .subject-class-list .subject-class.disable .subject-class-video {
+    width: 80rpx;
+    height: 100rpx;
+    background-image: url('http://img02.exam8.com/img2017/minapp/user_icon/icon_lianxi_hui@2x.png');
+    background-repeat: no-repeat;
+    background-size: 33rpx 37rpx;
+    background-position: 20rpx 0;
+    position: absolute;
+    right: -24rpx;
+    top: 0;
+}
+
+.practice .subject-class-list .subject-class .shop-icon {
+    width: 112rpx;
+    height: 42rpx;
+    border: 1rpx solid #ff7e00;
+    font-size: 22rpx;
+    color: #ff7e00;
+    text-align: center;
+    border-radius: 22rpx;
+    background: none;
+    align-items: center;
+    justify-content: center;
+    margin-right: 26rpx;
+}
+
+.practice .subject-class-info .icon_star_selected {
+    font-size: 24rpx;
+    display: inline-block;
+    margin-right: 8rpx;
+    color: #ddd;
+}
+
+.practice .subject-class-info .icon_star_selected:nth-child(5) {
+    margin-right: 40rpx;
+}
+
+.practice .subject-class-info .icon_star_selected:nth-child(1) {
+    margin-left: 4rpx;
+}
+
+.practice .subject-class-info .icon_star_selected.active {
+    color: #ffae05;
+}
+
+.practice .subject-class-info {
+    font-size: 24rpx;
+}
+
+.practice .subject-class-list .class-one.open .subject-class-info {
+    padding-bottom: 50rpx;
+    padding-left: 37rpx;
+}
+
+.practice.error .subject-class-list .subject-class .subject-class-video {
+    width: 80rpx;
+    height: 100rpx;
+    background-image: url('http://img02.exam8.com/img2017/minapp/user_icon/icon_chakancuoti@2x.png');
+    background-repeat: no-repeat;
+    background-size: 35rpx 36rpx;
+    background-position: 20rpx 0;
+    position: absolute;
+    right: -24rpx;
+    top: 0;
+}
+
+.papers-share-bar {
+    position: fixed;
+    bottom: 0;
+    height: 101rpx;
+    background: #fff;
+    width: 100%;
+    z-index: 99;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.papers-share-btn {
+    background: #6fce29;
+    color: #fff;
+    height: 70rpx;
+    font-size: 32rpx;
+    line-height: 70rpx;
+    width: 320rpx;
+    margin: 0;
+    padding: 0;
+    border-radius: 10rpx;
+}
+
+button.papers-share-btn {
+    margin-right: 45rpx;
+    justify-content: center;
+    align-items: center;
+}
+
+button .iconfont {
+    font-size: 30rpx;
+    margin-right: 15rpx;
+}
+
+button.papers-share-btn::after {
+    border: 0;
+}
+
+.papers-share-icon {
+    position: absolute;
+    bottom: 130rpx;
+    background: url('http://img02.exam8.com/img2017/minapp/user_icon/icon_fenxiang@2x.png') no-repeat;
+    width: 102rpx;
+    height: 102rpx;
+    background-size: 102rpx 102rpx;
+    right: 20rpx;
+    z-index: 99;
+}
+
+button {
+    border: 0;
+    background: none;
+    padding: 0;
+    text-align: inherit;
+    line-height: inherit;
+    color: inherit;
+    border-radius: 0;
+}
+
+button::after {
+    border: 0;
+    width: inherit;
+    height: inherit;
+}
+
+.no-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 9;
+    width: 100%;
+    padding-top: 368rpx;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.no-content.history {
+    padding-top: 576rpx;
+}
+
+.no-content image {
+    width: 216rpx;
+    height: 204rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.no-content .text {
+    font-size: 26rpx;
+    color: #9a9a9a;
+    margin-top: 28rpx;
+}
+
+.english-listen {
+    position: fixed;
+    top: 132rpx;
+    width: 690rpx;
+    left: 30rpx;
+    background: #fff;
+    box-shadow: 0 2rpx 16rpx #e3e7e4;
+    z-index: 99;
+    height: 112rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10rpx;
+}
+
+.english-listen .listen-icon {
+    border-radius: 50%;
+    width: 66rpx;
+    height: 66rpx;
+    text-align: center;
+    background: #6fce29;
+    color: #fff;
+    line-height: 66rpx;
+}
+
+.english-listen .iconfont {
+    font-size: 25rpx;
+    width: 22rpx;
+    height: 26rpx;
+    margin: 0 auto;
+}
+
+.english-listen progress {
+    width: 388rpx;
+    margin-left: 26rpx;
+    margin-right: 30rpx;
+}
+
+.english-listen .listen-text {
+    font-size: 22rpx;
+    color: #4e4e4e;
+}
+
+.listen-hr {
+    padding-top: 130rpx;
+}
+
+.listen-icon.stop .icon_play {
+    width: 28rpx;
+    margin: 0 auto;
+}
+
+.papers-continue {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    text-align: center;
+    z-index: 999;
+}
+
+.papers-continue image {
+    width: 204rpx;
+    height: 204rpx;
+    margin-top: 240rpx;
+}
+
+.papers-continue-title {
+    font-size: 32rpx;
+    color: #4e4e4e;
+    margin-top: 48rpx;
+    padding-left: 20rpx;
+}
+
+.papers-continue-btn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 300rpx;
+}
+
+.papers-continue-btn view {
+    width: 238rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    border: 1rpx solid #ccc;
+    color: #6fce29;
+    border-radius: 10rpx;
+    font-size: 32rpx;
+}
+
+.papers-continue-btn view:last-child {
+    margin-left: 84rpx;
+    color: #fff;
+    background: #6fce29;
+    border: 1rpx solid #6fce29;
+}
+
+.papers-continue-btn view.goBackBtn {
+    margin-left: 0;
+    width: 360rpx;
+}
+
+.papers-resolve-cont image {
+    max-width: 640rpx;
+    display: block;
+    margin: 20rpx auto 0 auto;
+    width: auto;
+}
+
+.papers-yindao {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    z-index: 99;
+}
+
+.yindao-img {
+    width: 490rpx;
+    height: 300rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-40%);
+}
+
+.yindao-img image {
+    display: block;
+    width: 490rpx;
+    height: 300rpx;
+}
+
+.vip-nocontent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    background: #fff;
+}
+
+.vip-nocontent image {
+    width: 204rpx;
+    height: 204rpx;
+    display: inline-block;
+}
+
+.iphoneX .papers-bar {
+    bottom: 60rpx;
+}
+
+.iphoneX .papers-cont {
+    bottom: 160rpx;
+}
+
+.iphoneX .pagers-subject-cart-cont {
+    bottom: 170rpx;
+}
+
+.iphoneX .pagers-subject-cart-tabbtn {
+    bottom: 60rpx;
+}
+
+.iphoneX .practice-continue {
+    height: 150rpx;
+    padding-bottom: 60rpx;
+}
+
+.iphoneX .practice-box {
+    bottom: 150rpx;
+}
+
+.iphoneX .papers-share-bar {
+    bottom: 60rpx;
+}
+
+.iphoneX .capacity-report-bar {
+    bottom: 60rpx;
+}
+
+.iphoneX .capacity-report-cont {
+    bottom: 173rpx;
+}
+
+.subject-class .home_icon_goumai {
+    font-size: 23rpx;
+    margin-right: 8rpx;
+    display: inline-block;
+}
+
+.subject-class-list .subject-class.disable .subject-class-video.shop-icon {
+    width: 112rpx;
+    height: 42rpx;
+    border: 1rpx solid #ff7e00;
+    font-size: 22rpx;
+    color: #ff7e00;
+    text-align: center;
+    border-radius: 22rpx;
+    background-image: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 26rpx;
+}
+
+.s_hongbao {
+    display: block;
+    width: 116rpx;
+    height: 128rpx;
+    border-radius: 8px;
+    position: fixed;
+    bottom: 32rpx;
+    right: 17rpx;
+    z-index: 9999;
+    transition: all 0.3s linear;
+    transform: translate3d(0,0,0);
+}
+
+.s_hongbaoImage {
+    width: 116rpx;
+    height: 128rpx;
+    display: block;
+}
+
+.goBackIndex {
+    position: fixed;
+    width: 97rpx;
+    height: 97rpx;
+    background: rgba(255,255,255,0.9);
+    border: 1rpx solid #ccc;
+    text-align: center;
+    line-height: 97rpx;
+    border-radius: 50%;
+    z-index: 999;
+    box-sizing: border-box;
+}
+
+.goBackIndex .iconfont {
+    font-size: 40rpx;
+    color: #6fce29;
+}
+
+.share_practice_box {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 9999;
+    background: rgba(0,0,0,0.6);
+}
+
+.share_practice_box .share_practice {
+    height: 541rpx;
+    width: 534rpx;
+    background: #fff;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.share_practice_box .share_practice .share_text {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #4e4e4e;
+    line-height: 46rpx;
+}
+
+.share_practice_box .share_practice .share_btn {
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #fff;
+    height: 80rpx;
+    width: 420rpx;
+    border-radius: 100rpx;
+    background: #6fce29;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 54rpx;
+}
+
+.share_practice_box .share_practice .share_image {
+    height: 168rpx;
+    width: 169rpx;
+    margin-top: 50rpx;
+    margin-bottom: 44rpx;
+}
+
+.subject-class-list .paper-bottom-space {
+    height: 126rpx;
+    width: 750rpx;
+    position: relative;
+    right: 30rpx;
+}
+
+.questions-side-btn .do-exercise-icon {
+    background: url('http://img02.exam8.com/img2017/minapp/user_icon/icon_lianxi_hui@2x.png') no-repeat no-repeat;
+    background-size: 100%;
+}
+
+.questions-side-btn .success-do-exercise-icon {
+    background: url('http://img02.exam8.com/img2017/minapp/user_icon/icon_zuoti@2x.png') no-repeat no-repeat;
+    background-size: 100%;
+}

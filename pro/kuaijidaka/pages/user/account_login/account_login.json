@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "登录",
+    "backgroundColor": "#22dd82",
+    "usingComponents": {
+        "login-button": "/components/loginBtn/loginBtn"
+    }
+}

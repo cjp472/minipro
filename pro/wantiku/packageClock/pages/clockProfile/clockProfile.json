@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "打卡圈详情",
+    "usingComponents": {
+        "clockLog": "../../components/clockLog/clockLog"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "vodChapter": "../../components/vodChapter/vodChapter",
+        "vodChat": "../../components/vodChat/vodChat",
+        "vodQa": "../../components/vodQuestion/vodQuestion"
+    },
+    "enablePullDownRefresh": false
+}

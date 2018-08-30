@@ -1,0 +1,27 @@
+@import "../evaluation/evaluation.wxss";
+
+.feedBack-textarea {
+    width: 660rpx;
+    background: #f4f4f4;
+    margin: 30rpx auto;
+    font-size: 29rpx;
+    padding: 18rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    color: #666666;
+}
+
+.input-initral {
+    color: #cccccc;
+}
+
+.feedBack-input {
+    width: 660rpx;
+    background: #f4f4f4;
+    margin: 30rpx auto;
+    font-size: 29rpx;
+    padding: 18rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    color: #666666;
+}

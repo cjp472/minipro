@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "",
+    "backgroundColor": "#22dd82",
+    "usingComponents": {
+        "record-comment": "/components/answerSheet/recordComment/recordComment",
+        "day-sign": "/components/daySign/daySign",
+        "jdk-logo": "/components/logo/logo",
+        "jdk-actions": "/components/user-submit/actions/actions"
+    }
+}

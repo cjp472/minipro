@@ -1,0 +1,17 @@
+<view catchtap="{{page==='home'||page==='center'||page==='records'?'goDetail':''}}" class="{{self&&page==='home'&&!isAdmin?'submit--home-self':''}}">
+    <view class="split">
+        <span class="split__text">{{submitData.course_type===1?'我的作业':'我的打卡'}}</span>
+        <strong class="split__line"></strong>
+    </view>
+    <view hoverStopPropagation class="submit" hoverClass="{{page==='home'||page==='center'?'card-hover-class':''}}">
+        <view class="right-badge">
+            <view class="repair-card" wx:if="{{!!submitData.is_remedy_submit}}"></view>
+            <view class="stick" wx:if="{{isSticked==='notSet'&&submitData.top>0||isSticked===true}}">
+                <view class=".ico stick__ico"></view>
+            </view>
+        </view>
+        <header binddeletesubmit="debugEvent" catchsticksubmit="stickSubmit" page="{{page}}" submitData="{{submitData}}"></header>
+        <content data-obj="{{submitData}}" page="{{page}}" submitData="{{submitData}}"></content>
+        <actions catchaudioType="setAudioType" currentAudioType="{{currentAudioType}}" page="{{page}}" submitData="{{submitData}}" visible="{{submitData.show_range?'admin':'all'}}" wx:if="{{page!='answer'&&page!='overview'}}"></actions>
+    </view>
+</view>

@@ -1,0 +1,73 @@
+<import src="../shared/player/player.wxml"></import>
+<view class="container {{player.sound.title?'container-footer-empty':''}} {{actionSheet.showActionSheet?'no-scroll':''}}">
+    <view bindtap="toSearch" class="searchLink">
+        <input disabled class="searchLink-input" placeholder="好好说话" placeholderStyle="color:#999"></input>
+        <image class="searchLink-icon" src="../../../images/icon-search.png"></image>
+    </view>
+    <view class="history-wrap" wx:if="{{history_tags.length}}">
+        <view class="section-label">最近浏览</view>
+        <view class="history-tag-wrap">
+            <view bindtap="goChannel" class="tag-history line-ellipsis" data-cate="{{item.cate}}" data-catename="{{item.catename}}" data-tag="{{item.tag}}" wx:for="{{history_tags}}">{{item.tag}}</view>
+        </view>
+    </view>
+    <view class="categories">
+        <view class="category" wx:if="{{books}}">
+            <view bindtap="goChannel" class="category-title track-hotword-block" data-cate="3" data-catename="有声书" data-tag="有声书">
+                <image src="../../images/classify_ic_audiobook_n@3x.png"></image> 有声书
+      </view>
+            <view bindtap="goChannel" class="track-hotword-block" data-cate="3" data-catename="有声书" data-tag="{{item.keywordName}}" wx:for="{{books}}">{{item.keywordName}}</view>
+        </view>
+        <view class="category" wx:if="{{bestSellerBooks}}">
+            <view bindtap="goChannel" class="category-title track-hotword-block" data-cate="46" data-catename="畅销书" data-tag="畅销书">
+                <image src="../../images/classify_ic_bestseller_n@3x.png"></image>
+        畅销书
+      </view>
+            <view bindtap="goChannel" class="track-hotword-block" data-cate="46" data-catename="畅销书" data-tag="{{item.keywordName}}" wx:for="{{bestSellerBooks}}">{{item.keywordName}}</view>
+        </view>
+        <view class="category" wx:if="{{children}}">
+            <view bindtap="goChannel" class="category-title track-hotword-block" data-cate="6" data-catename="儿童" data-tag="儿童">
+                <image src="../../images/classify_ic_child_n@3x.png"></image>
+        儿童
+      </view>
+            <view bindtap="goChannel" class="track-hotword-block" data-cate="6" data-catename="儿童" data-tag="{{item.keywordName}}" wx:for="{{children}}">{{item.keywordName}}</view>
+        </view>
+        <view class="sub-category-wrap">
+            <view class="sub-category" wx:if="{{entertainment}}">
+                <view class="sub-category-title">娱乐</view>
+                <view class="sub-category-tag-wrap">
+                    <view bindtap="goChannel" class="sub-category-tag" data-cate="{{item.id}}" data-catename="{{item.categoryName}}" data-tag="{{item.categoryName}}" wx:for="{{entertainment}}">
+                        <image src="{{item.coverUrlLarge}}"></image>
+            {{item.categoryName}}
+          </view>
+                </view>
+            </view>
+            <view class="sub-category" wx:if="{{knowledge}}">
+                <view class="sub-category-title">知识</view>
+                <view class="sub-category-tag-wrap">
+                    <view bindtap="goChannel" class="sub-category-tag" data-cate="{{item.id}}" data-catename="{{item.categoryName}}" data-tag="{{item.categoryName}}" wx:for="{{knowledge}}">
+                        <image src="{{item.coverUrlLarge}}"></image>{{item.categoryName}}</view>
+                </view>
+            </view>
+            <view class="sub-category" wx:if="{{life}}">
+                <view class="sub-category-title">生活</view>
+                <view class="sub-category-tag-wrap">
+                    <view bindtap="goChannel" class="sub-category-tag" data-cate="{{item.id}}" data-catename="{{item.categoryName}}" data-tag="{{item.categoryName}}" wx:for="{{life}}">
+                        <image src="{{item.coverUrlLarge}}"></image>{{item.categoryName}}</view>
+                </view>
+            </view>
+            <view class="sub-category" wx:if="{{features}}">
+                <view class="sub-category-title">特色</view>
+                <view class="sub-category-tag-wrap">
+                    <view bindtap="goChannel" class="sub-category-tag" data-cate="{{item.id}}" data-catename="{{item.categoryName}}" data-tag="{{item.categoryName}}" wx:for="{{features}}">
+                        <image src="{{item.coverUrlLarge}}"></image>{{item.categoryName}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <template is="player" data="{{player:player,actionSheet:actionSheet}}"></template>
+    <view class="miniprogram" wx:if="{{miniProgram.length>0}}">
+        <navigator appId="{{item.longTitle}}" class="swiper-img" path="{{item.url}}" target="miniProgram" wx:for="{{miniProgram}}" wx:key="{{index}}">
+            <image bindtap="adAnalytics" class="slide-image" data-app-id="{{item.longTitle}}" mode="aspectFit" src="{{item.pic}}"></image>
+        </navigator>
+    </view>
+</view>

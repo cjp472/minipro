@@ -1,0 +1,79 @@
+<import src="./template/lesson.template.wxml"></import>
+<view class="container {{theme}}">
+    <template is="lessonTemplate" data="{{...courseInfo,...options}}" wx:if="{{courseInfo}}"></template>
+    <view class="info-cont">
+        <view class="user-list {{groupInfo.SuccessCount<=5?'justify-content-center':'justify-content-flex-start'}}">
+            <block wx:for="{{groupInfo.UserList}}" wx:key="UserList-key">
+                <view class="item-box {{item.IsMaster?'leader':''}}" wx:if="{{item.UserId}}">
+                    <image class="avatar" src="{{item.AvatarUrl?item.AvatarUrl:userDefaultfAvatar}}"></image>
+                    <text>{{item.NickName}}</text>
+                </view>
+                <view class="item-box" wx:else>
+                    <image class="avatar" src="http://img02.exam8.com/img2017/minapp/group/woren.png"></image>
+                    <text>{{item.NickName}}</text>
+                </view>
+            </block>
+        </view>
+        <form bindsubmit="joinGroupCache" reportSubmit="{{true}}">
+            <view class="status-cont">
+                <block wx:if="{{grounpStates11[grouponStyleKeyState]}}">
+                    <view class="text-box"> 仅剩 {{groupInfo.remainNumber}} 个名额，
+            <text class="timer-box">{{times}}</text>后结束</view>
+                    <button class="buttonTap" formType="submit">一键参团</button>
+                </block>
+                <block wx:if="{{grounpStates21[grouponStyleKeyState]}}">
+                    <button class="buttonTap" openType="share">邀请好友参团 {{times}} 后结束</button>
+                    <text class="gray-text">分享到微信群，成团率高达90%</text>
+                </block>
+                <block wx:if="{{grounpStates22[grouponStyleKeyState]}}">
+                    <view class="group-success">
+                        <text class="iconfont icon_pintuanchenggon"></text>
+                        <text>拼团成功</text>
+                    </view>
+                    <button bindtap="lookVipCourse" class="buttonTap">查看课程</button>
+                </block>
+                <block wx:if="{{grounpStates4[grouponStyleKeyState]}}">
+                    <view class="grounp-states">当前拼团已结束，已支付{{groupInfo.TuanVipPrice}}元将在1小时内退回微信钱包，请注意查收</view>
+                    <button bindtap="lookVipCourse" class="buttonTap">查看课程</button>
+                </block>
+                <block wx:if="{{grounpStates13[grouponStyleKeyState]}}">
+                    <view class="title">
+                        <text class="line"></text>拼团已结束
+            <text class="line"></text>
+                    </view>
+                    <button bindtap="lookVipCourse" class="buttonTap">查看课程</button>
+                </block>
+                <block wx:if="{{grounpStates3[grouponStyleKeyState]}}">
+                    <view class="text-box" wx:if="{{grounpStates31[grouponStyleKeyState]}}"> 仅剩 {{groupInfo.remainNumber}} 个名额，
+            <text class="timer-box">{{times}}</text>后结束</view>
+                    <view class="group-success" wx:if="{{grounpStates32[grouponStyleKeyState]}}">
+                        <text class="iconfont icon_pintuanchenggon"></text>
+                        <text>拼团成功</text>
+                    </view>
+                    <view class="title" wx:if="{{grounpStates33[grouponStyleKeyState]}}">
+                        <text class="line"></text>拼团已结束
+            <text class="line"></text>
+                    </view>
+                    <button class="buttonTap success-buy">已购买</button>
+                </block>
+            </view>
+        </form>
+    </view>
+    <view class="rule-cont">
+        <view class="rule-title">
+            <text class="line"></text>拼团须知
+      <text class="line"></text>
+        </view>
+        <view class="rule-text">
+            <text>
+                <text class="radius">•</text>好友参团</text>
+            <text>
+                <text class="radius">•</text>人满成团</text>
+            <text>
+                <text class="radius">•</text>{{refundDesc?refundDesc:'24小时人不满退款'}}</text>
+        </view>
+    </view>
+    <view bindtap="goBackIndex" class="goBackIndex" wx:if="{{IsShare==1}}">
+        <text class="iconfont icon_home"></text>
+    </view>
+</view>

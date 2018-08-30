@@ -1,0 +1,274 @@
+@import "../evaluation/evaluation.wxss";
+
+.user-login-logo {
+    text-align: center;
+}
+
+.user-login-logo image {
+    width: 140rpx;
+}
+
+.user-login-logo {
+    padding-top: 150rpx;
+    font-size: 26rpx;
+    color: #999999;
+}
+
+.user-logo-name {
+    padding: 6rpx 0 34rpx 0;
+    font-size: 32rpx;
+    color: #666666;
+}
+
+.user-login-phone {
+    padding-top: 130rpx;
+}
+
+.user-login-phone .phone,.user-login-number .phone {
+    font-size: 32rpx;
+    margin-top: 30rpx;
+}
+
+.other-phone {
+    text-align: center;
+    color: #6fce29;
+    font-size: 30rpx;
+    margin-top: 65rpx;
+}
+
+.user-login-number {
+    position: relative;
+}
+
+.user-login-number input {
+    width: 560rpx;
+    font-size: 34rpx;
+    height: 76rpx;
+    line-height: 76rpx;
+    padding-left: 12rpx;
+    box-sizing: border-box;
+    color: #333333;
+}
+
+.input-list {
+    width: 660rpx;
+    margin: 0 auto;
+    border-bottom: 1px solid #cccccc;
+}
+
+.input-inherit {
+    color: #cccccc;
+}
+
+.user-login-error {
+    width: 660rpx;
+    margin: 0 auto;
+    color: #ff3d3d;
+    font-size: 26rpx;
+    margin-top: 20rpx;
+    height: 26rpx;
+    transform: translateY(60rpx);
+    opacity: 0;
+}
+
+.user-login-error text {
+    position: relative;
+    left: 15rpx;
+}
+
+.user-login-header {
+    height: 412rpx;
+}
+
+.user-register-code {
+    width: 220rpx;
+    height: 65rpx;
+    line-height: 65rpx;
+    margin: 55rpx auto 0 auto;
+    border: 1px solid #d2d2d2;
+    border-radius: 34rpx;
+}
+
+.user-register-code-new {
+    color: #666666;
+    font-size: 26rpx;
+    text-align: center;
+    margin-top: 25rpx;
+}
+
+.input-password {
+    width: 34rpx;
+    position: absolute;
+    right: 50rpx;
+    top: 10rpx;
+    height: 66rpx;
+    z-index: 9;
+}
+
+.input-password image {
+    width: 100%;
+}
+
+.input-box {
+    position: relative;
+}
+
+.user-login-input-code {
+    display: flex;
+    flex-flow: row nowrap;
+    text-align: center;
+    justify-content: space-around;
+    font-size: 35rpx;
+    color: #666666;
+    width: 660rpx;
+    margin: 0 auto;
+}
+
+.wantiku .user-login-input-code view {
+    width: 12%;
+    border-bottom: 1px solid #6fce29;
+    height: 66rpx;
+    line-height: 66rpx;
+}
+
+.blue .user-login-input-code view {
+    width: 12%;
+    border-bottom: 1px solid #4380db;
+    height: 66rpx;
+    line-height: 66rpx;
+}
+
+.green .user-login-input-code view {
+    width: 12%;
+    border-bottom: 1px solid #0e9900;
+    height: 66rpx;
+    line-height: 66rpx;
+}
+
+.red .user-login-input-code view {
+    width: 12%;
+    border-bottom: 1px solid #ff5757;
+    height: 66rpx;
+    line-height: 66rpx;
+}
+
+.orange .user-login-input-code view {
+    width: 12%;
+    border-bottom: 1px solid #ff7e00;
+    height: 66rpx;
+    line-height: 66rpx;
+}
+
+.yellow .user-login-input-code view {
+    width: 12%;
+    border-bottom: 1px solid #db9b00;
+    height: 66rpx;
+    line-height: 66rpx;
+}
+
+.Lightblue .user-login-input-code view {
+    width: 12%;
+    border-bottom: 1px solid #27c1f4;
+    height: 66rpx;
+    line-height: 66rpx;
+}
+
+.purple .user-login-input-code view {
+    width: 12%;
+    border-bottom: 1px solid #a066e8;
+    height: 66rpx;
+    line-height: 66rpx;
+}
+
+.user-login-input-code view.nocode {
+    border-bottom: 1px solid #cccccc;
+}
+
+.user-hide-input {
+    position: absolute;
+    top: 80rpx;
+    width: 1rpx;
+    height: 1rpx;
+}
+
+.user-hide-input input {
+    width: 1rpx;
+    height: 1rpx;
+    opacity: 0;
+}
+
+.box-animated {
+    transform: translateX(-320rpx);
+}
+
+.code-wait {
+    color: #cccccc;
+    border: 1px solid #cccccc;
+}
+
+.code-wait::after {
+    border: 1px solid #cccccc;
+}
+
+.user-login-input-code view {
+    width: 12%;
+    border-bottom: 1px solid #6fce29;
+    height: 66rpx;
+    line-height: 66rpx;
+}
+
+.wantiku .other-phone {
+    text-align: center;
+    color: #6fce29;
+    font-size: 30rpx;
+    margin-top: 65rpx;
+}
+
+.red .other-phone {
+    text-align: center;
+    color: #ff5757;
+    font-size: 30rpx;
+    margin-top: 65rpx;
+}
+
+.green .other-phone {
+    text-align: center;
+    color: #0e9900;
+    font-size: 30rpx;
+    margin-top: 65rpx;
+}
+
+.orange .other-phone {
+    text-align: center;
+    color: #ff7e00;
+    font-size: 30rpx;
+    margin-top: 65rpx;
+}
+
+.Lightblue .other-phone {
+    text-align: center;
+    color: #27c1f4;
+    font-size: 30rpx;
+    margin-top: 65rpx;
+}
+
+.yellow .other-phone {
+    text-align: center;
+    color: #db9b00;
+    font-size: 30rpx;
+    margin-top: 65rpx;
+}
+
+.blue .other-phone {
+    text-align: center;
+    color: #4380db;
+    font-size: 30rpx;
+    margin-top: 65rpx;
+}
+
+.purple .other-phone {
+    text-align: center;
+    color: #a066e8;
+    font-size: 30rpx;
+    margin-top: 65rpx;
+}

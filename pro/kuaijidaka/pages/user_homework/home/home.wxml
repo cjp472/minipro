@@ -1,0 +1,136 @@
+<import src="../../common/nonet.wxml"></import>
+<import src="../../common/home-search-box.wxml"></import>
+<import src="../../common/jdk-tips.wxml"></import>
+<suspend-button scene="user-home" wx:if="{{courseDetail}}"></suspend-button>
+<view class="course-inform" wx:if="{{hasNotificationUnread}}">
+    <view catchtap="closeNotification" class="i"></view>
+    <view class="inform-content">
+        <view catchtap="closeNotification" class="ico"></view>
+        <view class="title">课程通知</view>
+        <view class="inform-hybrid">
+            <jdk-theme applyType="inform-pop-up" catchaudioType="setAudioType" catchpreview="markPreview" colorScheme="user" currentAudioType="{{currentAudioType}}" foldBack="white" hybrid_content="{{informDataApp}}" pc_content="{{informDataPc}}" title="{{topic.calendar_title}}"></jdk-theme>
+        </view>
+        <view class="operation">
+            <navigator class="detail" url="{{URLNotification}}">查看全文</navigator>
+        </view>
+    </view>
+</view>
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<jdk-permission-checker catchpermissionpass="onPermissionPass" codeImg="{{permissionChecker.permit_image}}" courseId="{{permissionChecker.courseId}}" denyReason="{{permissionChecker.denyReason}}" tips="{{permissionChecker.tips}}" wx:if="{{permissionChecker}}"></jdk-permission-checker>
+<view wx:if="{{courseDetail.shut_down===1}}">
+    <jdk-guide-card scene="{{5}}"></jdk-guide-card>
+</view>
+<view wx:elif="{{courseDetail.sold_out_status==2&&!courseDetail.is_submited}}">
+    <jdk-guide-card scene="{{3}}"></jdk-guide-card>
+</view>
+<view wx:elif="{{topic.course_id}}">
+    <view catchtap="hideSortOptions" class="container" wx:if="{{netWorkStatus}}">
+        <view class="homework-top">
+            <view catchtap="toggleHomework" class="homework-top__text" data-order="last" wx:if="{{topic.calendar_left!=0}}">上一次</view>
+            <view class="homework-top__text" wx:else></view>
+            <navigator class="homework-top__title" url="{{URLHomeworkList}}">
+                <view class="homework-top__title--current">{{topic.calendar_title}}</view>
+                <view class="iconfont icon-xiala1"></view>
+            </navigator>
+            <view catchtap="toggleHomework" class="homework-top__text" data-order="next" wx:if="{{topic.calendar_right!=0}}">下一次</view>
+            <view class="homework-top__text" wx:else></view>
+        </view>
+        <home-tools bind:markPreview="markPreview" courseParams="{{courseDetail}}" createdAt="{{submitListObj.my_submit.created_at}}" submitId="{{submitListObj.my_submit.submit_id}}" topicParams="{{topic}}" wx:if="{{courseDetail&&topic}}"></home-tools>
+        <view class="theme">
+            <view class="h50">
+                <view class="icon theme__title"></view>
+                <view class="theme__title-text">{{topic.category===3?'阅读说明':'主题'}}</view>
+            </view>
+            <jdk-theme applyType="topic" catchaudioType="setAudioType" catchfolded="_folded" catchpreview="markPreview" colorScheme="user" currentAudioType="{{currentAudioType}}" hybrid_content="{{topic.hybrid_content}}" pc_content="{{topic.pc_content}}" playRule="{{topic.play_rule||0}} " startReading="{{startReading}}" title="{{courseDetail.title}}" wx:if="{{topic.pc_content||topic.hybrid_content}}"></jdk-theme>
+        </view>
+        <view bindtap="toMsg" class="prompt-message" wx:if="{{selfMsg>0}}">
+            <span>
+                <text>{{selfMsg}}条新消息</text>
+            </span>
+        </view>
+        <view wx:if="{{homeworkHasStarted}}">
+            <jdk-submit catchaudioType="setAudioType" catchpreview="markPreview" currentAudioType="{{currentAudioType}}" page="home" submitData="{{submitListObj.my_submit}}" wx:if="{{submitListObj.my_submit.user_id}}"></jdk-submit>
+            <view class="go_card" wx:elif="{{!homeworkHasEnded}}">
+                <punch-button courseDetail="{{courseDetail}}" startReading="{{startReading}}" themeReadTime="{{topic.theme_min_read_limit}}" topic="{{topic}}" wx:if="{{courseDetail&&topic}}"></punch-button>
+                <view class="text">
+                    <text>{{homeworkStartTime}} 至 {{homeworkEndTime}}</text>
+                </view>
+            </view>
+            <view class="no_card" wx:else>
+                <view class="img"></view>
+                <view class="h2">
+                    <text>作业提交已超时!</text>
+                </view>
+                <view class="text">
+                    <text>先达到一个小目标是成功的一大步！</text>
+                </view>
+            </view>
+        </view>
+        <view class="future_card" wx:else>
+            <view class="icon"></view>
+            <view wx:if="{{countDown}}">
+                <text>离作业开始</text>（
+        <text class="countDown">{{homeworkStartTimeShort}}</text>）还有
+        <text class="countDown"> {{countDown}}</text>
+                <text>天</text>
+            </view>
+            <view wx:else>
+                <text>作业将于</text>（
+        <text class="countDown">{{homeworkStartTime}}</text>）开始
+      </view>
+            <view>
+                <text>敬请期待！</text>
+            </view>
+        </view>
+    </view>
+    <view class="user-title other-user-title" wx:if="{{!courseDetail.is_hide&&homeworkHasStarted}}">
+        <span>已提交：
+      <text>{{submitListObj.submit_count}}</text> 人</span>
+        <view catchtap="toggleSortOptions" class="sort-punchcard" wx:if="{{!topic.is_view||submitListObj.my_submit.user_id}}">{{orderTypeText[orderType]}}筛选
+      <view class="ico-arrow-down ico"></view>
+            <view catchtap="changeSortType" class="sort-options" hidden="{{sortOptionsHidden}}">
+                <view class="ico-triangle-up"></view>
+                <view catchtap="showSearchBox" class="sort-option-search">搜索
+          <view class="ico"></view>
+                </view>
+                <view class="sort-option" data-ordertype="{{orderTypes.DEFAULT}}">{{orderTypeText[orderTypes.DEFAULT]}}
+          <view class="ico" hidden="{{orderType!==orderTypes.DEFAULT}}"></view>
+                </view>
+                <view class="sort-option" data-ordertype="{{orderTypes.SCORE}}">{{orderTypeText[orderTypes.SCORE]}}
+          <view class="ico" hidden="{{orderType!==orderTypes.SCORE}}"></view>
+                </view>
+                <view class="sort-option" data-ordertype="{{orderTypes.PRAISE}}">{{orderTypeText[orderTypes.PRAISE]}}
+          <view class="ico" hidden="{{orderType!==orderTypes.PRAISE}}"></view>
+                </view>
+                <view class="sort-option {{topic.eval_state?'last':''}}" data-ordertype="{{orderTypes.TIME}}">{{orderTypeText[orderTypes.TIME]}}
+          <view class="ico" hidden="{{orderType!==orderTypes.TIME}}"></view>
+                </view>
+                <view class="sort-option last" data-ordertype="{{orderTypes.EVAL}}" wx:if="{{topic.eval_state}}">{{orderTypeText[orderTypes.EVAL]}}
+          <view class="ico" hidden="{{orderType!==orderTypes.EVAL}}"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{courseDetail.is_hide&&submitListObj.submit_list.length>0}}">
+        <view class="user-title">
+            <view class="user-line"></view>
+            <view class="user-line-txt">公开的作业</view>
+            <view class="user-line"></view>
+        </view>
+    </view>
+    <view class="user-list" id="userList" wx:if="{{!topic.is_view||topic.is_view&&submitListObj.my_submit.user_id}}">
+        <view class="ul" wx:if="{{submitListObj.submit_list.length>0}}">
+            <view wx:for="{{submitListObj.submit_list}}" wx:key="submit_id">
+                <jdk-submit catchaudioType="setAudioType" catchpreview="markPreview" currentAudioType="{{currentAudioType}}" page="home" submitData="{{item}}"></jdk-submit>
+            </view>
+            <foot-loading loadMore="{{isLoadingMore}}" noMore="{{noMore}}"></foot-loading>
+        </view>
+    </view>
+    <view class="locked" wx:if="{{!courseDetail.is_hide&&topic.is_view&&!submitListObj.my_submit.user_id}}">
+        <view class="lock-pic"></view>
+    </view>
+    <jdk-logo></jdk-logo>
+    <template is="nonet" data wx:if="{{!netWorkStatus}}"></template>
+    <template is="home-search-box" data="{{...searchBoxData}}" wx:if="{{searchBoxData.isShowSearchBox}}"></template>
+</view>
+<share-modal catchloginSuccess="loginSuccess" colorTheme="admin" courseId="{{courseId}}" page="home" wx:if="{{notLogin}}"></share-modal>

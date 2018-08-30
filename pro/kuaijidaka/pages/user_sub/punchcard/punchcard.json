@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "提交",
+    "usingComponents": {
+        "jdk-topic": "/components/topic/topic",
+        "orderly-content-editor": "/components/orderly-content-editor/orderly-content-editor",
+        "read-float": "/components/read-float/read-float"
+    }
+}

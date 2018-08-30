@@ -1,0 +1,20 @@
+<view class="ball-box" style="bottom:{{bottomPosition}}">
+    <navigator class="ball-main" style="background-color:{{bgColor}};" url="/pages/user/wrong_question_setting/wrong_question_setting" wx:if="{{ballList.length==0}}">
+        <view class="text">
+            {{titleArr[0]}}
+        </view>
+        <view class="text" wx:if="{{titleArr[1]}}">
+            {{titleArr[1]}}
+        </view>
+    </navigator>
+    <view class="ball-list" style="height:160rpx;" wx:else>
+        <view bindtap="tapChild" class="ball-main" data-index="{{index}}" style="background-color:{{item.bgColor}}" wx:for="{{ballList}}" wx:key="{{this}}">
+            <view class="text">
+                    {{item.titleArr[0]}}
+                </view>
+            <view class="text" wx:if="{{item.titleArr[1]}}">
+                    {{item.titleArr[1]}}
+                </view>
+        </view>
+    </view>
+</view>

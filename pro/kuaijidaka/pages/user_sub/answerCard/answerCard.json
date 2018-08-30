@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "答题卡",
+    "backgroundColor": "#22dd82",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false,
+    "usingComponents": {}
+}

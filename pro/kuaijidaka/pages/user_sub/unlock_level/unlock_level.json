@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "课时表",
+    "backgroundColor": "#22dd82",
+    "usingComponents": {
+        "jdk-logo": "/components/logo/logo",
+        "jdk-guide-card": "/components/guide-card/guide-card"
+    }
+}

@@ -1,0 +1,76 @@
+@import "../../__wuBaseWxss__/8.wxss";
+
+.hybridTheme-content {
+    width: 630rpx;
+    padding-top: 30rpx;
+    overflow: hidden;
+    border-radius: 8rpx;
+    position: relative;
+}
+
+.call.hybridTheme-content {
+    padding-top: 20rpx;
+}
+
+.topic.hybridTheme-content {
+    width: 690rpx!important;
+}
+
+.inform-pop-up.hybridTheme-content {
+    width: 540rpx!important;
+}
+
+.punch-card.hybridTheme-content,.eval-edit.hybridTheme-content {
+    width: 690rpx!important;
+}
+
+.whole-topic.folded {
+    height: 300rpx!important;
+    overflow: hidden;
+}
+
+.fold-box {
+    width: 690rpx;
+}
+
+.question .fold-box,.call .fold-box {
+    width: 630rpx;
+}
+
+.fold-box .fold-tip {
+    font-size: 24rpx;
+    color: #8b97a4;
+    margin: 30rpx auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fold-box .ico.down {
+    background-position: -37rpx -750rpx;
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 10rpx;
+}
+
+.fold-box .ico.up {
+    background-position: -5rpx -750rpx;
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 10rpx;
+}
+
+.mb-30 {
+    margin-bottom: 30rpx;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.green {
+    color: #22dd82;
+}

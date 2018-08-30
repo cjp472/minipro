@@ -1,0 +1,282 @@
+.clearfix:before,.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+    overflow: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.container {
+    padding-bottom: 30rpx;
+}
+
+.title-top {
+    background: #22dd82;
+    overflow: hidden;
+    padding: 0 75rpx 46rpx 75rpx;
+}
+
+.title-top .h2 {
+    float: left;
+    text-align: center;
+    margin-top: 30rpx;
+    position: relative;
+    left: 50%;
+}
+
+.title-top .h2 span {
+    position: relative;
+}
+
+.title-top .h2 text {
+    max-width: 562rpx;
+    line-height: 30rpx;
+    font-size: 30rpx;
+    color: #0c9653;
+    float: left;
+    position: relative;
+    right: 50%;
+    overflow: hidden;
+}
+
+.title-top .btn-status.ico {
+    width: 30rpx;
+    height: 30rpx;
+    background-position: 0 -60rpx;
+    margin: 0 auto;
+    float: left;
+    position: relative;
+    right: 50%;
+    margin-left: 8rpx;
+}
+
+.title-top.selected .btn-status.ico {
+    width: 30rpx;
+    height: 30rpx;
+    background-position: -30rpx -60rpx;
+    margin: 0 auto;
+    margin-left: 8rpx;
+}
+
+.title-top .title {
+    width: 550rpx;
+    text-align: left;
+    margin: 30rpx auto 0 auto;
+    font-size: 24rpx;
+    color: #0c9653;
+    line-height: 45rpx;
+}
+
+.title-top .show {
+    display: none;
+}
+
+.title-top.selected .show {
+    display: block;
+}
+
+.title-top .tit_left {
+    width: 30rpx;
+    height: 30rpx;
+    background-position: -120rpx -60rpx;
+    position: absolute;
+    left: 30rpx;
+    top: 120rpx;
+}
+
+.title-top .tit_right {
+    width: 30rpx;
+    height: 30rpx;
+    background-position: -150rpx -60rpx;
+    position: absolute;
+    right: 30rpx;
+    top: 120rpx;
+}
+
+.personal {
+    position: relative;
+    background: #fff;
+    margin: 0 30rpx;
+    border-radius: 10rpx;
+}
+
+.personal .user {
+    padding: 30rpx 30rpx 10rpx 30rpx;
+}
+
+.personal .user .img {
+    float: left;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.14),0px 4px 2px 0px rgba(0,0,0,0.04);
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 88rpx;
+    border: 4rpx solid #fff;
+}
+
+.personal .user .img image {
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 88rpx;
+}
+
+.personal .user .text {
+    float: left;
+    margin-left: 20rpx;
+    padding-top: 20rpx;
+}
+
+.personal .user .text .h2 {
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #3c4856;
+}
+
+.personal .user .text .evaluate {
+    float: left;
+    position: relative;
+}
+
+.personal .user .text .evaluate span {
+    width: 150rpx;
+    height: 30rpx;
+    display: block;
+    float: left;
+    margin-top: 10rpx;
+    margin-right: 50rpx;
+}
+
+.personal .user .text .evaluate1 span {
+    background-position: -150rpx -330rpx;
+}
+
+.personal .user .text .evaluate2 span {
+    background-position: 0 -360rpx;
+}
+
+.personal .user .text .evaluate3 span {
+    background-position: -150rpx -360rpx;
+}
+
+.personal .user .text .evaluate4 span {
+    background-position: 0 -390rpx;
+}
+
+.personal .user .text .evaluate5 span {
+    background-position: -150rpx -390rpx;
+}
+
+.personal .user .text .evaluate text {
+    font-size: 36rpx;
+    color: #ffd200;
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 5rpx;
+    position: absolute;
+    top: -5rpx;
+    left: 160rpx;
+}
+
+.personal .user .fr {
+    float: right;
+    margin-top: 10rpx;
+}
+
+.personal .user .fr .li {
+    width: 140rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border: 2rpx solid #eee;
+    padding: 0;
+    margin: 0 10rpx;
+    font-size: 24rpx;
+    color: #8b97a4;
+    padding-left: 26rpx;
+    float: left;
+    border-radius: 10rpx;
+}
+
+.personal .user .fr .li.selected {
+    border: 2rpx solid #fd5a15;
+    color: #fd5a15;
+}
+
+.personal .user .fr .li span {
+    position: relative;
+}
+
+.personal .user .fr .li .ico {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    left: -36rpx;
+    top: 50%;
+    margin-top: -13rpx;
+}
+
+.personal .user .fr .edit .ico {
+    background-position: -120rpx 0;
+}
+
+@import "15.wxss";
+
+.footer {
+    width: 750rpx;
+}
+
+.btn {
+    margin: 30rpx 30rpx 0 30rpx;
+}
+
+.btn button {
+    background: #22dd82;
+    color: #fff;
+    font-size: 36rpx;
+}
+
+.updated {
+    font-size: 22rpx;
+    display: block;
+}
+
+.twoline {
+    line-height: 30rpx!important;
+}
+
+.personal .user .fr .li {
+    width: 110rpx;
+}
+
+.detail-bottom .fr .li {
+    width: 110rpx;
+}
+
+.stick {
+    width: 75rpx;
+    height: 75rpx;
+    position: absolute;
+    z-index: 99;
+    top: -5rpx;
+    right: -5rpx;
+}
+
+.stick .ico {
+    width: 75rpx;
+    height: 75rpx;
+    background-position: 0 -520rpx;
+}
+
+.day {
+    float: left;
+    font-size: 22rpx;
+    color: #8b97a4;
+    margin-top: 10rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+}

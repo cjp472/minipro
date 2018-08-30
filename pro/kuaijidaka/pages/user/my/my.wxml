@@ -1,0 +1,132 @@
+<import src="../../common/dialog.wxml"></import>
+<import src="../../common/common-widget.wxml"></import>
+<jdk-modal bind:modalCancel="modalCancel" bind:modalConfirm="modalConfirm" confirmColor="{{modalOptions.confirmColor}}" confirmText="{{modalOptions.confirmText}}" content="{{modalOptions.content}}" contentColor="{{modalOptions.contentColor}}" needCancel="{{modalOptions.needCancel}}" title="{{modalOptions.title}}" wx:if="{{modalOptions.showModal}}"></jdk-modal>
+<suspend-button catch:suspendEvent="toDoTask" text="任务列表" wx:if="{{!notAuthorized}}"></suspend-button>
+<user-table current="my-card" stopBeforeLogin="{{notAuthorized}}"></user-table>
+<view class="container {{notAuthorized?'container--white':''}}">
+    <view wx:if="{{!notAuthorized}}">
+        <view class="list-li" wx:if="{{courses&&courses.length>0}}">
+            <view hoverClass="opcity5" wx:for="{{courses}}" wx:for-index="idx" wx:for-item="unit" wx:key="course_id">
+                <view class="item {{unit.state===3?'end-time':''}}">
+                    <form reportSubmit bindsubmit="checkCourseDetail" class="collect-form-id" data-course="{{unit}}" hoverClass="card-hover-class">
+                        <button formType="submit" style="padding:30rpx 0;">
+                            <view class="title">
+                                <text class="tit">{{unit.title}}</text>
+                            </view>
+                            <view class="bottom">
+                                <view class="left">
+                                    <block wx:if="{{unit.course_type==0}}">
+                                        <text class="count" wx:if="{{unit.state===3}}">共进行 <text class="digital">{{unit.days>0?unit.days:0}}</text> 天</text>
+                                        <text class="count" wx:elif="{{unit.days<0}}">尚未开始</text>
+                                        <text class="count" wx:else>已进行 <text class="digital">{{unit.days>0?unit.days:0}}</text> 天</text>
+                                    </block>
+                                    <text class="count" wx:if="{{unit.course_type==1}}">作业数 <text class="digital">{{unit.practice_count}}</text> 个</text>
+                                    <text class="count" wx:if="{{unit.course_type==2}}">总课时 <text class="digital">{{unit.practice_count}}</text> 课</text>
+                                </view>
+                                <view class="left">
+                                    <text class="count" wx:if="{{unit.course_type==0}}">您已打卡 <text class="digital">{{unit.user_submit_count}}</text> 次</text>
+                                    <text class="count" wx:if="{{unit.course_type==1}}">已提交 <text class="digital">{{unit.user_submit_count}}</text> 个</text>
+                                    <text class="count" wx:if="{{unit.course_type==2}}">已完成 <text class="digital">{{unit.user_submit_count}}</text> 课</text>
+                                </view>
+                                <view class="right" wx:if="{{unit.course_type==0}}">
+                                    <text class="end" wx:if="{{unit.state===3}}">已结束</text>
+                                    <text class="no-started" wx:if="{{unit.days<0}}">未开始</text>
+                                    <view class="massage ico" wx:if="{{unit.remind}}"></view>
+                                </view>
+                            </view>
+                        </button>
+                    </form>
+                    <view hoverStopPropagation class="bottom-nav">
+                        <view bindtap="goRankList" class="dl ranking" data-course="{{unit}}" hoverClass="card-btn-hover" wx:if="{{unit.is_hide==0}}">
+                            <view class="ico-container">
+                                <view class="ico"></view>
+                                <text>排行榜</text>
+                                <view class="strong"></view>
+                            </view>
+                        </view>
+                        <view bindtap="goInvitedFriends" class="dl invite" data-course="{{unit}}" hoverClass="card-btn-hover">
+                            <view class="ico-container">
+                                <view class="ico"></view>
+                                <text>邀请好友</text>
+                                <view class="strong"></view>
+                            </view>
+                        </view>
+                        <view bindtap="goCalendar" class="dl ruli" data-course="{{unit}}" hoverClass="card-btn-hover" wx:if="{{unit.course_type==0}}">
+                            <view class="ico-container">
+                                <view class="ico"></view>
+                                <text>打卡日历</text>
+                            </view>
+                        </view>
+                        <view bindtap="goUnlockCalendar" class="dl ruli" data-course="{{unit}}" hoverClass="card-btn-hover" wx:elif="{{unit.course_type==2}}">
+                            <view class="ico-container">
+                                <view class="ico"></view>
+                                <text>课时表</text>
+                            </view>
+                        </view>
+                        <view bindtap="goHomeworkList" class="dl homework" data-course="{{unit}}" hoverClass="card-btn-hover" wx:else>
+                            <view class="ico-container">
+                                <view class="ico"></view>
+                                <text>作业本</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="operating">
+                        <view bindtap="actionSheetTap" class="ico" data-idx="{{idx}}" hoverClass="card-btn-hover"></view>
+                    </view>
+                </view>
+            </view>
+            <foot-loading loadMore="{{hasMore}}" noMore="{{!hasMore}}" wx:if="{{courses.length>5}}"></foot-loading>
+        </view>
+        <view class="nodata" wx:else>
+            <view class="ico"></view>
+            <view>
+                <text>暂无内容</text>
+                <text class="strong">请点击群内链接来添加内容 </text>
+            </view>
+        </view>
+        <jdk-logo></jdk-logo>
+    </view>
+    <view class="container--login" wx:else>
+        <view class="title-top"></view>
+        <view class="relative">
+            <view class="logo">
+                <image class="img" src="{{companyLogo}}"></image>
+                <view class="h2">
+                    <text>{{companyName}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="login">
+            <form reportSubmit bindsubmit="getFormId" class="login__btn">
+                <button bindgetuserinfo="getUserInfo" formType="submit" openType="getUserInfo">登录</button>
+            </form>
+            <view class="p">
+                <text>同意微信授权，查看更多内容</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<action-sheet bindchange="actionSheetbindchange" class="action-sheet" hidden="{{actionSheetHidden}}" hoverClass="none">
+    <action-sheet-item bindtap="bind{{item.bindtap}}" wx:for="{{actionSheetItems}}" wx:key="unique">{{item.txt}}</action-sheet-item>
+    <action-sheet-cancel class="cancel">取消
+    <span></span>
+    </action-sheet-cancel>
+</action-sheet>
+<view class="public" wx:if="{{readyToInputPwd}}">
+    <view class="i"></view>
+    <view class="content">
+        <view class="h2">
+            <text>请输入课程密码</text>
+        </view>
+        <view class="pwdtip" wx:if="{{pwdtip.length>0}}">提示：{{pwdtip}}</view>
+        <view class="p">
+            <input bindinput="onInputingPwd" class="inputext" type="text"></input>
+        </view>
+        <view class="btn btn50">
+            <text bindtap="pwdCancle">取消</text>
+            <text bindtap="pwdSub">确定</text>
+            <view class="online"></view>
+        </view>
+    </view>
+</view>

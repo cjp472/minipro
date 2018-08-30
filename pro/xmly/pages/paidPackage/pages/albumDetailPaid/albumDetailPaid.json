@@ -1,0 +1,13 @@
+{
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "专辑详情",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#fff",
+    "disableScroll": false,
+    "usingComponents": {
+        "go-to-home-page": "/components/goToHomePage/goToHomePage",
+        "album-comment-item": "/components/albumComment/albumComment",
+        "share-activity-block": "../../components/shareActivity/shareActivity"
+    }
+}

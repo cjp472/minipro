@@ -1,0 +1,69 @@
+<view class="burning-box {{theme}}">
+    <view class="burning-top" wx:if="{{!questionsList.OrderState}}">
+        <view class="burning-top-text">
+            <view class="burning-title">阅后即焚</view>
+            <view class="burning-info-text">限售 {{questionsList.LimitCount}} 人还剩
+        <text>{{questionsList.RemainCount}} </text>席</view>
+        </view>
+        <view bindtap="payCourseJs" class="burning-buy" wx:if="{{questionsList.RemainCount&&!IOS}}">购买</view>
+        <button class="burning-buy" hoverClass="none" openType="contact" sessionFrom="{{XNConfigInfo.sessionFrom}}" wx:if="{{questionsList.RemainCount&&IOS}}">
+      专享
+    </button>
+        <view class="burning-buy-end" wx:if="{{!questionsList.RemainCount}}">已售罄</view>
+    </view>
+    <form bindsubmit="{{questionsList.OrderState?'formSubmit':' '}}" reportSubmit="true">
+        <button class="questions-side-btn" data-areaId="{{item.AreaId}}" data-average="{{item.Average}}" data-paperId="{{item.PaperStatisticsEntity.PaperId}}" formType="submit" hoverClass="none" wx:for="{{questionsList.Papers}}" wx:key="item">
+            <view class="burning-course">
+                <view class="burning-bottom-line">
+                    <view class="burning-sub-title {{questionsList.OrderState?'burning-buy-success':''}} ">
+                        <text class="burning-sub-title-text">{{item.PaperName}}</text>
+                        <text class="do-exercise-icon  {{questionsList.OrderState?'success-do-exercise-icon':' '}} "></text>
+                    </view>
+                    <view class="burning-time">
+                        <text class="iconfont  icon_time1  burning-time-icon"></text>
+                        <text class="burning-deadline">距离自动销毁还剩<text> {{burningDay}}</text>天<text> {{burningHr}}</text>时<text> {{burningMin}}</text>分</text>
+                    </view>
+                    <view class="burning-progress">
+                        <view class="burning-gif-line"></view>
+                        <image class="burning-gif-img" src="http://img02.exam8.com/img2017/minapp/user_icon/fire@2x.gif " style="margin-left:{{progress}};"></image>
+                    </view>
+                </view>
+            </view>
+        </button>
+        <form bindsubmit="downLoadFile" reportSubmit="true" wx:if="{{questionsList.OrderState&&questionsList.TopicAds}}">
+            <view wx:for="{{questionsList.TopicAds}}" wx:key="item">
+                <button class="add-blood-bag" data-TipHref="{{item.TipHref}}" data-TipText="{{item.TipText}}" formType="submit" hoverClass="none" id="{{index}}">
+                    <text class="add-blood-bag-text">{{item.TipText}}</text>
+                    <text class="iconfont icon_arrow_right"></text>
+                </button>
+            </view>
+        </form>
+    </form>
+    <view class="import-reminder" wx:if="{{!questionsList.OrderState}}">
+        <image src="{{questionsList.TipUrl}}" wx:if="{{questionsList.TipUrl}}"></image>
+        <image src="http://img02.exam8.com/img2017/minapp/course/new_bg_yuehoujifen.png" wx:if="{{!questionsList.TipUrl}}"></image>
+    </view>
+    <view class="dataloading_box" wx:if="{{showHId}}">
+        <view class="data_Loading">
+            <view class="data_loading_con">
+                <view class="Loading_text">
+                    <text>正在加载资料</text>
+                </view>
+                <view class="loading_cont">
+                    <text>共<text class="num">{{sumSize}}</text>{{unit}}</text>
+                </view>
+                <view>
+                    <progress class="pdf-progress" color="#6fce29" percent="{{pdfProgress}}" strokeWidth="4"></progress>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="goBackIndex" class="goBackIndex" wx:if="{{IsShare==1}}">
+        <text class="iconfont icon_home"></text>
+    </view>
+    <form bindsubmit="formSubmitHongBao" reportSubmit="{{true}}">
+        <button animation="{{s_animationData}}" class="s_hongbao {{hbanmationState?'hide':''}}" formType="submit" hoverClass="" wx:if="{{ifHongb&&IsShare==1&&buyState}}">
+            <image class="s_hongbaoImage" src="http://img02.exam8.com/img2017/minapp/group/hongbaox.png"></image>
+        </button>
+    </form>
+</view>

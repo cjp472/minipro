@@ -1,0 +1,54 @@
+<user-table current="discovery" showDiscovery="{{discoveryOn}}"></user-table>
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<jdk-modal bind:modalCancel="modalCancel" bind:modalConfirm="modalConfirm" confirmColor="{{modalOptions.confirmColor}}" confirmText="{{modalOptions.confirmText}}" content="{{modalOptions.content}}" contentColor="{{modalOptions.contentColor}}" needCancel="{{modalOptions.needCancel}}" title="{{modalOptions.title}}" wx:if="{{modalOptions.showModal}}"></jdk-modal>
+<view>
+    <block wx:if="{{!notAuthorized}}">
+        <block wx:if="{{discoveryOn&&(topBanner||discoveryCourseList.length>0)}}">
+            <view class="discovery__top-bar" wx:if="{{topBanner}}"></view>
+            <view>
+                <button bindgetuserinfo="getUserInfo" class="clear-button-style discovery__button-box" data-isbanner="{{true}}" openType="getUserInfo" wx:if="{{topBanner}}">
+                    <view class="discovery__top-banner" style="background-image: url(\"{{topBanner}}\");background-repeat: no-repeat;background-size: 690rpx 400rpx;"></view>
+                </button>
+                <view class="discovery__list">
+                    <view class="discovery__title {{topBanner?'':'no-top'}}">课程推荐</view>
+                    <button bindgetuserinfo="getUserInfo" class="clear-button-style" data-courseid="{{item.course_id}}" openType="getUserInfo" wx:for="{{discoveryCourseList}}" wx:key="{{item.course_id}}">
+                        <view class="discovery__items">
+                            <image class="discovery__cover" src="{{item.cover_url||'http://static3topen.jingdaka.com/images/discovery_course_cover.png'}}"></image>
+                            <view class="discovery__course-title">{{item.course_name}}</view>
+                            <view class="discovery__detail">
+                                <view>{{item.attend_amount}} 人参加</view>
+                                <view class="discovery__line">|</view>
+                                <view>{{item.submit_amount}}次打卡</view>
+                            </view>
+                        </view>
+                    </button>
+                    <foot-loading loadMore="{{!noMore}}" noMore="{{noMore}}" wx:if="{{discoveryCourseList.length>5}}"></foot-loading>
+                </view>
+            </view>
+        </block>
+        <view class="nodata" wx:else>
+            <view class="ico"></view>
+            <text class="discovery-no-data">
+    发现页暂无内容</text>
+        </view>
+    </block>
+    <view class="container--login" wx:else>
+        <view class="title-top"></view>
+        <view class="relative">
+            <view class="logo">
+                <image class="img" src="{{companyLogo}}"></image>
+                <view class="h2">
+                    <text>{{companyName}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="login">
+            <form reportSubmit bindsubmit="getFormId" class="login__btn">
+                <button bindgetuserinfo="getUserInfo2" formType="submit" openType="getUserInfo">登录</button>
+            </form>
+            <view class="p">
+                <text>同意微信授权，查看更多内容</text>
+            </view>
+        </view>
+    </view>
+</view>

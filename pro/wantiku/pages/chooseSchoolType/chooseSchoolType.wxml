@@ -1,0 +1,26 @@
+<view class="container {{theme}}">
+    <view class="sub_content_box">
+        <view class="sub_content_left">
+            <scroll-view scrollY="true" style="height:100%">
+                <view bindtap="clickchoose" class="sub_content_left_class   {{scrollIndex==index?'sub_content_left_active':' '}}" data-index="{{index}}" data-name="{{item.groupName}}" data-num="{{item.groupId}}" wx:for="{{list}}" wx:key="groupId">{{item.groupName}}</view>
+            </scroll-view>
+        </view>
+        <scroll-view bindscroll="bindscroll" bindscrolltoupper="bindscrolltoupper" class="sub_content_right" scrollTop="{{classScrollTop}}" scrollWithAnimation="{{true}}" scrollY="true">
+            <view class="sub_content_right_sbox" wx:for="{{minsubject}}" wx:for-index="groupIndex" wx:key="{{groupId}}">
+                <view class="sub_content_right_title">
+                    <view class="sub_content_right_title1"></view>
+                    <view class="sub_content_right_title2">{{item.groupName}}</view>
+                    <view class="sub_content_right_title3"></view>
+                </view>
+                <view class="sub_content_right_xiang">
+                    <view bindtap="chooseSubject" class="sub_content_right_xiangmu  {{storageSubjectParentName==cell.SubjectName?'active':' '}} {{listStyes[cell.SubjectParentId][cell.SubjectLevel]+'-box'}}" data-index="{{item.index}}" data-level="{{cell.SubjectLevel}}" data-parentid="{{cell.SubjectParentId}}" data-parentname="{{cell.SubjectName}}" wx:for="{{item.subjectList}}" wx:for-item="cell" wx:key="id">
+                        <view class="sub_content_right_xiangbox">
+                            <text class="iconfont  {{listStyes[cell.SubjectParentId][cell.SubjectLevel]}}"></text>
+                            <view class="{{listStyes[cell.SubjectParentId][cell.SubjectLevel]}}_size">{{cell.SubjectName}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+</view>

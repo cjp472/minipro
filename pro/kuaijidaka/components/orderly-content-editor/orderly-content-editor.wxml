@@ -1,0 +1,131 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="content">
+    <view class="enter">
+        <view wx:if="{{applyScene==='comments'}}">
+            <view class="set_up">
+                <view class="em"></view>
+                <text>点评</text>
+            </view>
+            <view catchtap="goDoodle" class="is_doodle" hoverClass="opcity5" wx:if="{{isdoodle&&userPiclist.length>0}}">点击按钮/打卡内容图片进行涂鸦点评</view>
+        </view>
+        <view class="ico tit" wx:else></view>
+        <view class="textarea {{!showRecorder?'recordNow':''}}">
+            <text class="fake-textarea" hidden="{{!showRecorderBox&&!showLinkBox&&!showSetting}}">{{fakeTextContent}}</text>
+            <textarea bindinput="valueChange" class="{{showRecorderBox||showLinkBox||showSetting?'fake-hide':''}} transform_r0" cursorSpacing="200" maxlength="-1" placeholder="{{textPlaceholder}}" placeholderClass="placeholder" placeholderStyle="z-index:0;" showConfirmBar="{{false}}" value="{{submitData.content}}"></textarea>
+        </view>
+        <view class="count">
+            <text>
+                <text class="{{textLength>MAX_TXT_LENGTH?'not-allowed':' '}}">{{textLength||submitData.content.length}}</text>/{{MAX_TXT_LENGTH}}</text>
+        </view>
+    </view>
+    <view wx:if="{{autoUpload}}">
+        <view wx:if="{{originData.linkList.length>0}}" wx:for="{{originData.linkList}}" wx:key="{{item.link}}">
+            <jdk-submit-link applyType="user-edit" bind:delLink="delLink" index="{{index}}" linkTitle="{{item.linkTitle}}" linkUrl="{{item.link}}"></jdk-submit-link>
+        </view>
+        <view wx:if="{{originData.document_list.length>0}}" wx:for="{{originData.document_list}}" wx:key="{{item.content}}">
+            <jdk-submit-accessory accessoryItem="{{item}}" applyType="user-edit" bind:delAccessory="delAccessory" index="{{index}}"></jdk-submit-accessory>
+        </view>
+        <view class="voice-player mt10">
+            <jdk-submit-audio applyType="user-edit" bind:delVoice="delVoice" bind:uploadFailRecorder="uploadFailRecorder" theme="{{applyScene==='comments'?'admin':''}}" voices="{{originData.voice_list}}"></jdk-submit-audio>
+        </view>
+        <jdk-submit-thumbnail bind:deleteImg="deleteImg" bind:deleteVideo="deleteVideo" deleteBtn="{{true}}" imgArr="{{originData.picture_list}}" videoArr="{{originData.video_list}}" wx:if="{{originData.video_list.length>0||originData.picture_list.length>0}}"></jdk-submit-thumbnail>
+    </view>
+    <view wx:if="{{!autoUpload}}">
+        <view wx:if="{{submitData.linkList.length>0}}" wx:for="{{submitData.linkList}}" wx:key="{{item.link}}">
+            <jdk-submit-link applyType="user-edit" bind:delLink="delLink" index="{{index}}" linkTitle="{{item.linkTitle}}" linkUrl="{{item.link}}"></jdk-submit-link>
+        </view>
+        <view wx:if="{{submitData.document_list.length>0}}" wx:for="{{submitData.document_list}}" wx:key="{{item.content}}">
+            <jdk-submit-accessory accessoryItem="{{item}}" applyType="user-edit" bind:delAccessory="delAccessory" index="{{index}}"></jdk-submit-accessory>
+        </view>
+        <view class="voice-player mt10 mb10">
+            <jdk-submit-audio applyType="user-edit" bind:delVoice="delVoice" bind:uploadFailRecorder="uploadFailRecorder" theme="{{applyScene==='comments'?'admin':''}}" voices="{{submitData.voice_list}}"></jdk-submit-audio>
+        </view>
+        <jdk-submit-thumbnail bind:deleteImg="deleteImg" bind:deleteVideo="deleteVideo" deleteBtn="{{true}}" imgArr="{{submitData.picture_list}}" videoArr="{{submitData.video_list}}" wx:if="{{submitData.video_list.length>0||submitData.picture_list.length>0}}"></jdk-submit-thumbnail>
+    </view>
+    <form reportSubmit bindsubmit="getFormId">
+        <view class="add {{applyScene}}">
+            <view catchtap="chooseVoice" class="add_vo por {{submitData.voice_list.length>=recordLimit?'no_click':''}}">
+                <view class="laud_button">
+                    <view class="ico"></view>
+                    <text class="text" wx:if="{{applyScene==='comments'||applyScene==='user-comments'}}">添加语音</text>
+                    <button class="shade_button" formType="submit" hoverClass="none" plain="true"></button>
+                </view>
+            </view>
+            <view catchtap="chooseVideo" class="add_video {{submitData.video_list.length+submitData.picture_list.length>=MAX_PIC_VIDEO_NUMBER?'no_click':''}}" wx:if="{{applyScene!=='comments'&&applyScene!=='user-comments'}}">
+                <view class="laud_button">
+                    <view class="ico"></view>
+                    <button class="shade_button" formType="submit" hoverClass="none" plain="true"></button>
+                </view>
+            </view>
+            <view catchtap="chooseImg" class="add_img {{submitData.video_list.length+submitData.picture_list.length>=MAX_PIC_VIDEO_NUMBER?'no_click':''}}" wx:if="{{applyScene!=='user-comments'}}">
+                <view class="laud_button">
+                    <view class="ico"></view>
+                    <text class="text" wx:if="{{applyScene==='comments'}}">添加图片</text>
+                    <button class="shade_button" formType="submit" hoverClass="none" plain="true"></button>
+                </view>
+            </view>
+            <view catchtap="chooseLink" class="add_link {{submitData.linkList.length>=MAX_LINK_NUMBER?'no_click':''}}" wx:if="{{!noButton&&applyScene!=='comments'&&applyScene!=='user-comments'}}">
+                <view class="laud_button">
+                    <view class="ico"></view>
+                    <button class="shade_button" formType="submit" hoverClass="none" plain="true"></button>
+                </view>
+            </view>
+        </view>
+    </form>
+</view>
+<view class="visible" wx:if="{{(applyScene==='calendar-submit'||applyScene==='homework-submit'||applyScene==='unlock-submit')&&isHide==0&&!noButton&&allowSetScope}}">
+    <text class="visible__title">打卡可见范围</text>
+    <view class="visible__options">
+        <view catchtap="toggleVisibleAll" class="{{submitData.show_range==0?'visible__ico--confirm':'visible__ico--cancel'}} ico"></view>
+        <text>所有人</text>
+    </view>
+    <view class="visible__options">
+        <view catchtap="toggleVisibleAdmin" class="{{submitData.show_range==1?'visible__ico--confirm':'visible__ico--cancel'}} ico"></view>
+        <text>仅管理员</text>
+    </view>
+</view>
+<form reportSubmit bindsubmit="postSubmit" class="form {{applyScene}}">
+    <view class="btn" wx:if="{{!noButton}}">
+        <span>
+            <button formType="submit"> {{submitText}} </button>
+        </span>
+    </view>
+</form>
+<view wx:if="{{showLinkBox}}">
+    <view class="link_window">
+        <view class="link_info">
+            <text class="head">链接地址</text>
+            <text class="tip">（微信公众号、简书）</text>
+            <input bindinput="saveLink" placeholder="http://"></input>
+            <view class="ico"></view>
+        </view>
+        <view catchtap="cancelLink" class="cancel">取消</view>
+        <view catchtap="postLink" class="confirm">确定</view>
+    </view>
+    <view class="linkLayer"></view>
+</view>
+<view class="recording-sheet" hidden="{{!showRecorderBox}}">
+    <view catchtap="outerClick" class="shade"></view>
+    <view class="selectRecording">
+        <view class="second">
+            <text>{{recordDuration}}" / 600"</text>
+        </view>
+        <view wx:if="{{!isRecording}}">
+            <view class="tag">
+                <text>点击一下开始录音</text>
+            </view>
+            <view catchtap="startRecord" class="recordplay">
+                <view class="ico"></view>
+            </view>
+        </view>
+        <view wx:else>
+            <view class="tag">
+                <text>点击一下结束录音</text>
+            </view>
+            <view catchtap="stopRecord" class="recordstop">
+                <view class="ico"></view>
+            </view>
+        </view>
+    </view>
+</view>
+<jdk-modal bind:modalConfirm="settingConfirm" confirmText="重新授权" content="{{settingContent}}" title="提示" type="openSetting" wx:if="{{showSetting}}"></jdk-modal>

@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "错题本列表",
+    "usingComponents": {
+        "setting-ball": "/components/setting-ball/setting-ball",
+        "jdk-logo": "/components/logo/logo",
+        "foot-loading": "/components/footLoading/footLoading"
+    }
+}

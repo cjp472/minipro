@@ -1,0 +1,10 @@
+<view class="container {{theme}}">
+    <view class="title">
+        <text class="{{button==1?m1:g1}}">你对什么感兴趣？</text>
+    </view>
+    <view class="flex">
+        <view bindtap="choose" class="flex-row {{item.style}}" data-id="{{item.groupId}}" data-name="{{item.groupName}}" hover="true" hoverClass="{{item.hoverStyle}}" wx:for="{{list}}" wx:key="groupId">
+            <text>{{item.groupName}}</text>
+        </view>
+    </view>
+</view>

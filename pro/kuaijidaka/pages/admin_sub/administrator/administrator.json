@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "我的",
+    "backgroundColor": "#4f598f",
+    "navigationBarBackgroundColor": "#4f598f",
+    "usingComponents": {
+        "jdk-submit": "/components/user-submit/submit/submit",
+        "foot-loading": "/components/footLoading/footLoading",
+        "jdk-modal": "/components/modal/modal"
+    }
+}

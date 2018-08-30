@@ -1,0 +1,112 @@
+<import src="/tmp/tmp.wxml"></import>
+<form bindsubmit="saveNotice" reportSubmit="true">
+    <view bindtap="{{!buttonClicked?'toCover':''}}" class="header">
+        <image class="cover" mode="aspectFill" src="{{cover}}"></image>
+        <view class="cover-overshadow"></view>
+        <view class="cover-info">点击更换背景图</view>
+    </view>
+    <view class="notice-info">
+        <view class="notice-info-item first title">
+            <input bindinput="inputTitle" name="title" placeholder="请输入标题" placeholderClass="placeholder" type="text" value="{{title}}"></input>
+            <icon catchtap="clearTitle" class="clear" size="15" type="clear" wx:if="{{!titleEmpty}}"></icon>
+        </view>
+        <view class="notice-info-item content">
+            <text class="textarea-empty {{textareaHide?'show':''}}">{{contentText}}</text>
+            <textarea bindinput="inputContent" bindtap="changeFocus" class="{{textareaHide?'hide':''}}" focus="{{focus}}" maxlength="-1" name="content" placeholder="请输入内容" placeholderClass="placeholder" value="{{content}}"></textarea>
+            <icon catchtap="clearContent" class="clear" size="15" type="clear" wx:if="{{!contentEmpty}}"></icon>
+        </view>
+        <view class="notice-images pics">
+            <view class="label">上传图片</view>
+            <view class="images-row">
+                <view class="pic" wx:for="{{pics}}" wx:key="{{index}}">
+                    <view bindtap="{{index==pics.length-1?'addPic':''}}">
+                        <image mode="aspectFill" src="{{item}}"></image>
+                    </view>
+                    <view bindtap="deletePic" class="delete" data-index="{{index}}" wx:if="{{index<pics.length-1}}">删除</view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="chooseLocation" class="notice-info-item address">
+            <image src="/images/address.png"></image>
+            <view class="label">{{address.length==0?'点击选择地址':address}}</view>
+        </view>
+        <view class="notice-info-item icon-item">
+            <image src="/images/setting_time.png"></image>
+            <view class="label">设置活动/会议提醒时间</view>
+            <switch bindchange="changeAlertStatus" checked="{{alertStatus}}" color="#1677d2" type="switch"></switch>
+        </view>
+        <view class="notice-info-item" wx:if="{{alertStatus}}">
+            <view class="label">提醒时间</view>
+            <view class="notice-info-row">
+                <picker bindchange="changeAlertDate" class="notice-alert-date" mode="date" value="{{alertDate}}">
+                    <view>{{alertDate}}</view>
+                </picker>
+                <picker bindchange="changeAlertTime" class="notice-alert-time" mode="time" value="{{alertTime}}">
+                    <view>{{alertTime}}</view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="notice-info">
+        <view class="notice-info-item first">
+            <view class="label">更改署名</view>
+            <input bindinput="inputName" name="name" placeholder="请输入署名" placeholderClass="placeholder" type="text" value="{{name}}"></input>
+            <icon catchtap="clearName" class="clear" size="15" type="clear" wx:if="{{!nameEmpty}}"></icon>
+        </view>
+    </view>
+    <view class="notice-info" wx:if="{{!nid&&showGroupOnly&&!mpName&&!cid}}">
+        <view class="notice-info-item first">
+            <view class="label">仅限群成员可见</view>
+            <switch bindchange="changeGroupOnly" checked="{{groupOnly}}" color="#1677d2" type="switch"></switch>
+        </view>
+    </view>
+    <view class="notice-info" wx:if="{{!mpName}}">
+        <view class="notice-info-item help">
+            <view class="label">是否要关联群通讯录<image bindtap="relationDialog" class="icon" src="../../images/help.png"></image>
+            </view>
+            <switch bindchange="changeContactStatus" checked="{{contactStatus}}" color="#1677d2" type="switch"></switch>
+        </view>
+        <view class="notice-info-item relation" wx:if="{{contactStatus}}">
+            <view bindtap="{{!buttonClicked?'relationDialog':''}}" wx:if="{{!groupCards.length}}">
+                <image class="icon" src="../../images/relation.png"></image>
+                <view class="label">您还没有创建或加入任何通讯录，点击开始 ></view>
+            </view>
+            <picker bindchange="{{!buttonClicked?'changeMode':''}}" range="{{groupCards}}" value="{{modeIndex}}" wx:if="{{groupCards.length&&!groupChecked}}">
+                <image class="icon" src="../../images/relation.png"></image>
+                <view class="label">点击选择您要关联的群通讯录</view>
+            </picker>
+            <picker bindchange="{{!buttonClicked?'changeMode':''}}" range="{{groupCards}}" value="{{modeIndex}}" wx:if="{{groupCards.length&&groupChecked}}">
+                <image class="icon" src="../../images/relation.png"></image>
+                <view class="label">已关联「{{groupChecked.name}}」点击更换</view>
+            </picker>
+        </view>
+        <view bindtap="{{!buttonClicked?'createCard':''}}" class="notice-info-item" wx:if="{{groupCards.length&&contactStatus}}">
+            <view class="create-group">或创建新的通讯录 ></view>
+        </view>
+    </view>
+    <view class="notice-info" wx:if="{{mpName}}">
+        <view class="notice-info-item first mp-notice">
+            <image class="icon" src="../../images/relation.png"></image>
+            <view class="label nowrap">已关联「{{mpName}}」</view>
+        </view>
+    </view>
+    <view class="footer">
+        <button class="button" formType="submit">保存</button>
+        <view class="f-text">点击保存表示已同意《微信公众平台服务协议》</view>
+        <button bindtap="{{!buttonClicked?'openNoticeBoard':''}}" class="relevance">
+      我有微信公众号，如何关联小程序？
+    </button>
+        <view bindtap="copyUrl" class="f-text" wx:if="{{isOwner}}">pages/detail/detail?nid={{nid}}</view>
+    </view>
+    <template is="noticeBoard" data="{{noticeBoard:noticeBoard}}"></template>
+</form>
+<view class="dialog" wx:if="{{relationDialog}}">
+    <view class="d-mask"></view>
+    <view class="d-content">
+        <view class="d-header">温馨提示</view>
+        <view class="d-body">
+      通过在微友名片里面创建一个群通讯录，收集群成员名单。<view>然后关联重要通知之后，可以很方便的查看<label class="blue">已读人员和未读人员</label>。</view>
+        </view>
+        <view bindtap="closeRelationDialog" class="d-footer">我知道了</view>
+    </view>
+</view>

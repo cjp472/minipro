@@ -1,0 +1,5 @@
+<view class="course-link" wx:if="{{courseName}}">
+    <view class="ico"></view>
+    <view class="course-link__name">{{courseName}}</view>
+    <view catchtap="toCourse" class="course-link__enter">进入课程</view>
+</view>

@@ -1,0 +1,96 @@
+<form bindsubmit="postFormId" reportSubmit="true">
+    <view class="notice-header">
+        <button bindtap="changeType" class="notice-header-item {{type=='owner'?'selected':'unselected'}}" data-type="owner" formType="submit">
+            <view class="notice-header-item-text">我发布的</view>
+            <image class="notice-header-item-icon" src="/images/top_arrow.png"></image>
+        </button>
+        <button bindtap="changeType" class="notice-header-item {{type=='join'?'selected':'unselected'}}" data-type="join" formType="submit">
+            <view class="notice-header-item-text">我收到的</view>
+            <image class="notice-header-item-icon" src="/images/top_arrow.png"></image>
+        </button>
+    </view>
+    <view class="notice-content">
+        <view class="error" wx:if="{{showLoadError}}">
+            <image class="error-icon" src="/images/error.png"></image>
+            <view class="error-text">加载失败，请检查网络</view>
+            <button bindtap="refresh" class="error-refresh" formType="submit">重新加载</button>
+        </view>
+        <view class="notice-content-item {{type=='owner'?'selected':'unselected'}}" wx:if="{{type=='owner'&&ownerNotices!=null}}">
+            <view class="empty" wx:if="{{ownerNotices.length==0}}">
+                <image class="empty-icon" src="/images/empty.png"></image>
+                <view class="empty-text">还没有发布过任何内容</view>
+                <view class="empty-text">点击下面的<span>我要发布</span>去发布内容吧</view>
+                <image class="empty-arrow" src="/images/empty_arrow.png"></image>
+            </view>
+            <view bindtap="{{!buttonClicked?'toDetail':''}}" class="notice-list-item" data-nid="{{item.nid}}" wx:for="{{ownerNotices}}" wx:key="nid">
+                <image binderror="bannerError" class="cover" data-index="{{index}}" data-type="owner" mode="aspectFill" src="{{item.bg_img}}"></image>
+                <view class="cover-overshadow"></view>
+                <view class="cover-info">
+                    <view class="notice-list-item-delete">
+                        <image catchtap="deleteNotice" data-nid="{{item.nid}}" src="/images/delete.png"></image>
+                    </view>
+                    <view>
+                        <view class="notice-list-item-title">{{item.title}}</view>
+                        <view class="notice-list-item-time">{{item.create_time}}</view>
+                    </view>
+                </view>
+                <view class="notice-list-item-bottom info-row">
+                    <view class="info-row">
+                        <view class="notice-list-item-count info-row">
+                            <image src="/images/visit.png"></image>
+                            <view>{{item.view_count}}</view>
+                        </view>
+                        <view class="notice-list-item-count info-row">
+                            <image src="/images/comment_gray.png"></image>
+                            <view>{{item.com_count}}</view>
+                        </view>
+                    </view>
+                    <view class="notice-list-item-name">{{item.sign_name}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="notice-content-item {{type=='join'?'selected':'unselected'}}" wx:if="{{type=='join'&&joinNotices!=null}}">
+            <view class="empty" wx:if="{{joinNotices.length==0}}">
+                <image class="empty-icon" src="/images/empty.png"></image>
+                <view class="empty-text">还没有收到过任何内容</view>
+                <view class="empty-text">点击下面的<span>我要发布</span>去发布内容吧</view>
+                <image class="empty-arrow" src="/images/empty_arrow.png"></image>
+            </view>
+            <view bindtap="{{!buttonClicked?'toDetail':''}}" class="notice-list-item" data-nid="{{item.nid}}" wx:for="{{joinNotices}}" wx:key="nid">
+                <image binderror="bannerError" class="cover" data-index="{{index}}" mode="aspectFill" src="{{item.bg_img}}"></image>
+                <view class="cover-overshadow"></view>
+                <view class="cover-info">
+                    <view class="notice-list-item-delete">
+                        <image catchtap="exitNotice" data-nid="{{item.nid}}" src="/images/delete.png"></image>
+                    </view>
+                    <view>
+                        <view class="notice-list-item-title">{{item.title}}</view>
+                        <view class="notice-list-item-time">{{item.create_time}}</view>
+                    </view>
+                </view>
+                <view class="notice-list-item-bottom info-row">
+                    <view class="info-row">
+                        <view class="notice-list-item-count info-row">
+                            <image src="/images/visit.png"></image>
+                            <view>{{item.view_count}}</view>
+                        </view>
+                        <view class="notice-list-item-count info-row">
+                            <image src="/images/comment_gray.png"></image>
+                            <view>{{item.com_count}}</view>
+                        </view>
+                    </view>
+                    <view class="notice-list-item-name">{{item.sign_name}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="notice-footer">
+        <button class="notice-footer-item" formType="submit">
+            <image class="notice-footer-item-icon" src="/images/contact.png"></image>
+            <view class="notice-footer-item-text">反馈建议</view>
+            <button class="contact" formType="submit" openType="contact" sessionFrom="{{contactUserInfo}}">进入客服会话</button>
+        </button>
+        <button bindtap="{{!buttonClicked?'toCreate':''}}" class="notice-footer-button" formType="submit">我要发布通知</button>
+    </view>
+    <image bindtap="{{!buttonClicked?'toDev':''}}" class="dev" src="/images/dev.png" wx:if="{{showDev}}"></image>
+</form>

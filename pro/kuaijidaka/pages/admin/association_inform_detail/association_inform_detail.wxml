@@ -1,0 +1,50 @@
+<import src="../../common/nonet.wxml"></import>
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="top-back {{isUser?'user':''}}"></view>
+<view class="container">
+    <view class="header">
+        <view class="manager-name">{{managerName}}</view>
+        <view class="create-time">{{createTime}}</view>
+        <view wx:if="{{!isUser}}">
+            <button class="share-button-no-ico left" openType="share">转发到群</button>
+            <view catchtap="shareToWX" class="share-button-no-ico right">微信通知</view>
+        </view>
+        <button class="share-button" openType="share" wx:if="{{isUser}}">
+            <view class="ico"></view>分享</button>
+    </view>
+    <view class="headline {{isUser?'user':''}}">
+    {{informHeadline}}
+    <view catchtap="deleteInform" class="ico" wx:if="{{showDelete}}"></view>
+    </view>
+    <view class="theme-box">
+        <jdk-theme applyType="association-inform" catchpreview="markPreview" colorScheme="{{isUser?'user':'admin'}}" hybrid_content="{{hybridContent}}"></jdk-theme>
+    </view>
+</view>
+<view class="visitors">
+    <view class="visitors-count">已有{{visitorsCount}}人查看</view>
+    <view class="visitors-list">
+        <view class="visitors-detail" wx:for="{{visitorsList}}">
+            <image class="avatar" src="{{item.url}}"></image>
+            <view class="nickname">{{item.name}}</view>
+            <view class="visit-time">{{item.time}}</view>
+        </view>
+    </view>
+</view>
+<view catchtap="toInformList" class="bottom-back-btn" wx:if="{{!isUser}}">
+    <text>返回</text>
+    <view>列表</view>
+</view>
+<template is="nonet" data wx:if="{{!netWorkStatus}}"></template>
+<view class="public del-public" style="{{alertDialog}}">
+    <view class="i"></view>
+    <view class="content">
+        <view class="h2">
+            <text>确定要删除群通知吗？</text>
+        </view>
+        <view class="btn btn50">
+            <text bindtap="cancleDel">取消</text>
+            <text bindtap="subDel">确定</text>
+            <view class="online"></view>
+        </view>
+    </view>
+</view>

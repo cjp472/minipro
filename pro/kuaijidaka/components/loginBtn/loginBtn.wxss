@@ -1,0 +1,20 @@
+.opcity5 {
+    opacity: .5;
+}
+
+button::after {
+    border: none;
+}
+
+.button {
+    height: 98rpx;
+    line-height: 98rpx;
+    border-radius: 10rpx;
+    flex-shrink: 0;
+    background: #22dd82;
+    color: #fff;
+}
+
+.button--admin {
+    background: #4f598f;
+}

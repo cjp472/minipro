@@ -1,0 +1,16 @@
+.text-box-pc {
+    width: 100%;
+    margin-bottom: 30rpx;
+    position: relative;
+}
+
+.text-box-pc .textarea {
+    width: 630rpx;
+    font-size: 30rpx;
+    color: #3c4856;
+    word-wrap: break-word;
+}
+
+.inform-pop-up .text-box-pc .textarea {
+    width: 540rpx!important;
+}

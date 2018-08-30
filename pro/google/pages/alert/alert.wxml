@@ -1,0 +1,8 @@
+<div class="container" wx:if="{{abnormalAccount}}">
+    <image class="abnormal-img" src="http://www.gstatic.com/qilin/drawtogether/siren.svg"></image>
+    <div class="abnormal-title">账户已标为异常状态</div>
+    <div class="abnormal-text">请联系猜画小歌客服进行后续账户处理</div>
+    <button class="button-large button-secondary button3" openType="contact">
+        <span class="center">联系客服</span>
+    </button>
+</div>

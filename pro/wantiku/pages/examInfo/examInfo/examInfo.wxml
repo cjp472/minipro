@@ -1,0 +1,388 @@
+<view class="{{theme}} {{iPhoneX?'iPhoneX':''}}">
+    <view class="fixed-top">
+        <view class="examInfo-title">
+            <view class="title">
+                <text>{{subjectName}}</text>
+            </view>
+            <view class="flex-row examInfo-cont">
+                <view class="examInfo-date">
+                    <text>{{examDate}}</text>
+                </view>
+                <view catchtap="onProvinceJs" class="flex-row examInfo-address">
+                    <view class="iconfont ic_dingwei"></view>
+                    <view>
+                        <text>{{isNationwide?'全国统一':province}}</text>
+                    </view>
+                    <view class="iconfont {{isNationwide?'':'icon_arrow_down1'}}"></view>
+                </view>
+            </view>
+        </view>
+        <view class="examInfo-space"></view>
+        <view class="flex-row nav-list">
+            <view bindtap="changePage" class="{{pageIndex==item.pageIndex?'active':''}}" data-nav-page-index="{{item.pageIndex}}" wx:for="{{navList}}" wx:key="{{item}}">
+                <text>{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+    <swiper bindchange="changeSwiper" class="examInfo-content" current="{{pageIndex}}">
+        <swiper-item>
+            <view class="paper-nocontent" wx:if="{{!SignUpDataPaperState&&!signUpDataLoading}}">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/icon_jiesuo_{{theme}}@2.png"></image>
+                <view>
+                    <text>报名即将上线</text>
+                </view>
+            </view>
+            <scroll-view class="scroll-box" scrollY="{{true}}" wx:if="{{signUpDataLoading}}">
+                <view class="scroll-cont">
+                    <block wx:if="{{signUpData.enrolltime_start!=''||signUpData.enrolltime_end!=''||signUpData.enrolltime_txt!=''}}">
+                        <view class="title">
+                            <text>报名时间</text>
+                        </view>
+                        <view class="cont">
+                            <view class="text" wx:if="{{signUpData.enrolltime_start!=''}}">
+                                <text>开始日期：{{signUpData.enrolltime_start}}</text>
+                            </view>
+                            <view class="text" wx:if="{{signUpData.enrolltime_end!=''}}">
+                                <text>结束日期：{{signUpData.enrolltime_end}}</text>
+                            </view>
+                            <view class="text">
+                                <text>{{signUpData.enrolltime_txt==''?'（报名时间描述，暂无）':signUpData.enrolltime_txt}}</text>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{signUpData.enroll_summary!=''}}">
+                        <view class="title">
+                            <text>报名方式</text>
+                        </view>
+                        <view class="cont">
+                            <button catchtap="onEnrollSummaryJs" class="text-button" hoverClass="none">{{signUpData.enroll_summary}}</button>
+                        </view>
+                    </block>
+                    <block wx:if="{{signUpData.enroll_title!=''}}">
+                        <view class="title">
+                            <text>报名入口</text>
+                        </view>
+                        <view class="cont">
+                            <button catchtap="onEnrollTitleJs" class="text-button-green" hoverClass="none">{{signUpData.enroll_title}}</button>
+                        </view>
+                    </block>
+                    <block wx:if="{{signUpData.condition_title!=''&&signUpData.condition_title.length!=0}}">
+                        <view class="title">
+                            <text>报考条件</text>
+                        </view>
+                        <view class="cont">
+                            <view class="text" wx:for="{{signUpData.condition_title}}" wx:key="key_condition_title">
+                                <text>{{item}}</text>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{signUpData.enroll_cost_title!=''||signUpData.enroll_cost!=''}}">
+                        <view class="title">
+                            <text>报名费用</text>
+                        </view>
+                        <view class="cont">
+                            <view class="text" wx:if="{{signUpData.enroll_cost!=''}}">
+                                <text>费用：¥ {{signUpData.enroll_cost}}</text>
+                            </view>
+                            <view class="text">
+                                <text>{{signUpData.enroll_cost_title==''?'说明：（报名费用说明，暂无）':signUpData.enroll_cost_title}}</text>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <view class="paper-nocontent" wx:if="{{!ExamArrangementPaperState&&!examArrangementLoading}}">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/icon_jiesuo_{{theme}}@2.png"></image>
+                <view>
+                    <text>考试安排即将上线</text>
+                </view>
+            </view>
+            <scroll-view bindchange="changeSwiper" class="scroll-box" scrollY="{{true}}" wx:if="{{examArrangementLoading}}">
+                <view class="scroll-cont">
+                    <block wx:if="{{examArrangementData.examtime_start!=''||examArrangementData.examtime_end!=''||examArrangementData.timePredicted!=''}}">
+                        <view class="title">
+                            <text>考试时间</text>
+                        </view>
+                        <view class="cont">
+                            <view class="text" wx:if="{{examArrangementData.examtime_start!=''}}">
+                                <text>开始日期：{{examArrangementData.examtime_start}}</text>
+                            </view>
+                            <view class="text" wx:if="{{examArrangementData.examtime_end!=''}}">
+                                <text>结束日期：{{examArrangementData.examtime_end}}</text>
+                            </view>
+                            <view class="text">
+                                <text>{{examArrangementData.timePredicted==''?'（考试时间描述，暂无）':examArrangementData.timePredicted}}</text>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{examArrangementData.detail_exam_title!=''}}">
+                        <view class="title">
+                            <text>考试内容</text>
+                        </view>
+                        <view class="cont">
+                            <view class="text">
+                                <text>{{examArrangementData.detail_exam_title}}</text>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{examArrangementData.detail_exam_method!=''}}">
+                        <view class="title">
+                            <text>考试方式</text>
+                        </view>
+                        <view class="cont">
+                            <view class="text">
+                                <text>{{examArrangementData.detail_exam_method}}</text>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{examArrangementData.detail_exam_title!=''||examArrangementData.detail_exam_title.length!=0}}">
+                        <view class="title">
+                            <text>考试大纲</text>
+                        </view>
+                        <view class="cont line16">
+                            <button catchtap="onDetailExamTitleJs" class="text-button" style="margin-bottom:16rpx;" wx:if="{{examArrangementData.detail_exam_title!=''}}">{{examArrangementData.detail_exam_title}}</button>
+                            <view class="text" wx:for="{{examArrangementData.examSyllabus_txt}}" wx:key="key_detail_exam_title">
+                                <text>{{item}}</text>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{examArrangementData.subject.length!=0}}">
+                        <view class="title">
+                            <text>考试科目</text>
+                        </view>
+                        <view class="cont">
+                            <view class="table-fixed-box">
+                                <view class="table fixed-table">
+                                    <view class="tr">
+                                        <view class="td">科目名称</view>
+                                    </view>
+                                    <view class="tr" wx:for="{{examArrangementData.subject}}" wx:key="key_ArrangementData_name">
+                                        <view class="td">
+                                            <text>{{item.name}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                                <scroll-view class="table-scroll" scrollX="{{true}}" style="padding-left:{{paddingLeft}}px">
+                                    <view class="table-box" style="width:{{tableWidth}}px">
+                                        <view class="table first-hide" id="table">
+                                            <view class="tr">
+                                                <view class="td">科目名称</view>
+                                                <view class="td" wx:if="{{bStartTime}}">开始时间</view>
+                                                <view class="td" wx:if="{{bEndTime}}">结束时间</view>
+                                                <view class="td" wx:if="{{bExamContent}}">考试内容</view>
+                                                <view class="td" wx:if="{{bExamQuestionType}}">题型</view>
+                                                <view class="td" wx:if="{{bQuestionAmount}}">题数量</view>
+                                                <view class="td" wx:if="{{bExamMethod}}">考试方式</view>
+                                                <view class="td" wx:if="{{bPrice}}">考试费用</view>
+                                                <view class="td" wx:if="{{bPriceTxt}}">费用描述</view>
+                                            </view>
+                                            <view class="tr" wx:for="{{examArrangementData.subject}}" wx:key="key_ArrangementData">
+                                                <view class="td">
+                                                    <text>{{item.name}}</text>
+                                                </view>
+                                                <view class="td" wx:if="{{bStartTime}}">
+                                                    <text>{{item.startTime==''||item.startTime==null?'暂无':item.startTime}}</text>
+                                                </view>
+                                                <view class="td" wx:if="{{bEndTime}}">
+                                                    <text>{{item.endTime==''||item.endTime==null?'暂无':item.endTime}}</text>
+                                                </view>
+                                                <view class="td" wx:if="{{bExamContent}}">
+                                                    <text>{{item.examContent==''||item.examContent==null?'暂无':item.examContent}}</text>
+                                                </view>
+                                                <view class="td" wx:if="{{bExamQuestionType}}">
+                                                    <text>{{item.examQuestionType==''||item.examQuestionType==null?'暂无':item.examQuestionType}}</text>
+                                                </view>
+                                                <view class="td" wx:if="{{bQuestionAmount}}">
+                                                    <text>{{item.questionAmount==''||item.questionAmount==null?'暂无':item.questionAmount}}</text>
+                                                </view>
+                                                <view class="td" wx:if="{{bExamMethod}}">
+                                                    <text>{{item.examMethod==''||item.examMethod==null?'暂无':item.examMethod}}</text>
+                                                </view>
+                                                <view class="td" wx:if="{{bPrice}}">
+                                                    <text>{{item.price==''||item.price==null?'暂无':item.price}}</text>
+                                                </view>
+                                                <view class="td" wx:if="{{bPriceTxt}}">
+                                                    <text>{{item.price_txt==''||item.price_txt==null?'暂无':item.price_txt}}</text>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </scroll-view>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{examArrangementData.textbook.length!=0}}">
+                        <view class="title">
+                            <text>考试教材信息</text>
+                        </view>
+                        <view class="cont">
+                            <view class="table-fixed-box">
+                                <view class="table fixed-table">
+                                    <view class="tr">
+                                        <view class="td">科目名称</view>
+                                    </view>
+                                    <view class="tr" wx:for="{{examArrangementData.textbook}}" wx:key="key_textbook">
+                                        <view class="td">
+                                            <text>{{item.subjectName}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                                <scroll-view class="table-scroll" scrollX="{{true}}" style="padding-left:{{paddingLeft1}}px">
+                                    <view class="table-box" style="width:{{tableWidth1}}px">
+                                        <view class="table first-hide" id="table">
+                                            <view class="tr">
+                                                <view class="td">科目名称</view>
+                                                <view class="td">教材名称</view>
+                                                <view class="td">出版社</view>
+                                                <view class="td">价格</view>
+                                            </view>
+                                            <view class="tr" wx:for="{{examArrangementData.textbook}}" wx:key="key_textbook1">
+                                                <view class="td">
+                                                    <text>{{item.subjectName==''||item.subjectName==null?'暂无':item.subjectName}}</text>
+                                                </view>
+                                                <view class="td">
+                                                    <text>{{item.courseName==''||item.courseName==null?'暂无':item.courseName}}</text>
+                                                </view>
+                                                <view class="td">
+                                                    <text>{{item.press==''||item.press==null?'暂无':item.press}}</text>
+                                                </view>
+                                                <view class="td">
+                                                    <text>{{item.price==''||item.price==null?'暂无':item.price}}</text>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </scroll-view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <view class="paper-nocontent" wx:if="{{!ExamScorePaperState&&!examScoreLoading}}">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/icon_jiesuo_{{theme}}@2.png"></image>
+                <view>
+                    <text>成绩查询即将上线</text>
+                </view>
+            </view>
+            <scroll-view class="scroll-box" scrollY="{{true}}" wx:if="{{examScoreLoading}}">
+                <view class="scroll-cont">
+                    <block wx:if="{{examScoreData.inquire_start!=''||examScoreData.timePredicted!=''}}">
+                        <view class="title">
+                            <text>查询时间</text>
+                        </view>
+                        <view class="cont">
+                            <view class="text" wx:if="{{signUpData.enrolltime_start!=''}}">
+                                <text>开始日期：{{examScoreData.inquire_start}}</text>
+                            </view>
+                            <view class="text">
+                                <text>{{examScoreData.timePredicted==''?'（查询时间描述，暂无）':examScoreData.timePredicted}}</text>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{examScoreData.inquire_title!=''}}">
+                        <view class="title">
+                            <text>查询入口</text>
+                        </view>
+                        <view class="cont">
+                            <button catchtap="onInquireTitleJs" class="text-button-green" hoverClass="none">{{examScoreData.inquire_title}}</button>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <view class="paper-nocontent" wx:if="{{!ExamPermitPaperState&&!examPermitLoading}}">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/icon_jiesuo_{{theme}}@2.png"></image>
+                <view>
+                    <text>准考证即将上线</text>
+                </view>
+            </view>
+            <scroll-view class="scroll-box" scrollY="{{true}}" wx:if="{{examPermitLoading}}">
+                <view class="scroll-cont">
+                    <block wx:if="{{examPermitData.printime_end!=''||examPermitData.printime_start!=''||examPermitData.timePredicted!=''}}">
+                        <view class="title">
+                            <text>打印时间</text>
+                        </view>
+                        <view class="cont">
+                            <view class="text" wx:if="{{examPermitData.printime_start!=''}}">
+                                <text>开始日期：{{examPermitData.printime_start}}</text>
+                            </view>
+                            <view class="text" wx:if="{{examPermitData.printime_end!=''}}">
+                                <text>结束日期：{{examPermitData.printime_end}}</text>
+                            </view>
+                            <view class="text" wx:if="{{examPermitData.timePredicted!=''}}">
+                                <text>{{examPermitData.timePredicted==''?'（报名时间描述，暂无）':examPermitData.timePredicted}}</text>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{examPermitData.printime_title!=''}}">
+                        <view class="title">
+                            <text>打印入口</text>
+                        </view>
+                        <view class="cont">
+                            <button catchtap="onPrintimeTitleJs" class="text-button-green">{{examPermitData.printime_title}}</button>
+                        </view>
+                    </block>
+                    <block wx:if="{{examPermitData.printime_method.length!=0}}">
+                        <view class="title">
+                            <text>打印方法</text>
+                        </view>
+                        <view class="cont">
+                            <view class="text" wx:for="{{examPermitData.printime_method}}" wx:key="key_printime_method">
+                                <text>{{item}}</text>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{examPermitData.printime_notice!=''}}">
+                        <view class="title">
+                            <text>注意事项</text>
+                        </view>
+                        <view class="cont">
+                            <view class="text line16">
+                                <text>{{examPermitData.printime_notice}}</text>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+    <view class="tabbar flex-row">
+        <view catchtap="onHomeJs">
+            <view>
+                <text class="iconfont ic_tiku"></text>
+            </view>
+            <view>
+                <text>题库</text>
+            </view>
+        </view>
+        <view catchtap="onVipCourseJs">
+            <view>
+                <text class="iconfont ic_kecheng"></text>
+            </view>
+            <view>
+                <text>课程</text>
+            </view>
+        </view>
+        <button hoverClass="none" openType="share">
+            <view>
+                <text class="iconfont ic_fenxiang"></text>
+            </view>
+            <view>
+                <text>分享</text>
+            </view>
+        </button>
+    </view>
+    <view bindtap="goBackIndex" class="goBackIndex" wx:if="{{IsShare==1}}">
+        <text class="iconfont icon_home"></text>
+    </view>
+    <form bindsubmit="formSubmitHongBao" reportSubmit="{{true}}">
+        <button animation="{{s_animationData}}" class="s_hongbao {{hbanmationState?'hide':''}}" formType="submit" hoverClass="" wx:if="{{ifHongb&&IsShare==1&&buyState}}">
+            <image class="s_hongbaoImage" src="http://img02.exam8.com/img2017/minapp/group/hongbaox.png"></image>
+        </button>
+    </form>
+</view>

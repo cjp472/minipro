@@ -1,0 +1,25 @@
+.home-search-box {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+    width: 100%;
+    font-size: 30rpx;
+    border-top: 2rpx solid #d9e1e9;
+    background-color: #f8fafb;
+}
+
+.home-search-box input {
+    display: inline-block;
+    width: 590rpx;
+    margin: 30rpx;
+}
+
+.home-search-box text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 210;
+    padding: 40rpx 30rpx;
+    color: #5093d2;
+}

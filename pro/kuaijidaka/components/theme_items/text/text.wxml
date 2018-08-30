@@ -1,0 +1,3 @@
+<view class="text-box-pc {{applyType}}">
+    <text selectable class="textarea">{{textContent}}</text>
+</view>

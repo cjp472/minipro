@@ -1,0 +1,6 @@
+<template name="home-search-box">
+    <view class="home-search-box">
+        <input bindconfirm="{{completeSearch}}" focus="{{isShowSearchBox}}" maxlength="15" placeholder="请输入学员昵称" placeholderStyle="color:#c9c9c9;font-size:30rpx;" type="text"></input>
+        <text catchtap="{{cancelSearch}}">取消</text>
+    </view>
+</template>

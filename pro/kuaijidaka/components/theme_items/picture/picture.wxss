@@ -1,0 +1,29 @@
+.picture-box-pc {
+    width: 100%;
+    border-radius: 8rpx;
+    margin-bottom: 30rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.picture-box-pc.read-reading,.picture-box-pc.read-punching {
+    margin-bottom: 0;
+}
+
+.picture-box-pc.center {
+    justify-content: center;
+}
+
+.picture-box-pc.left {
+    justify-content: flex-start;
+}
+
+.picture-box-pc.right {
+    justify-content: flex-end;
+}
+
+.picture-box-pc image {
+    border-radius: 8rpx;
+    display: block;
+}

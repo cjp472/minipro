@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "card-eval-questions": "/components/card-eval/questions/questions"
+    }
+}

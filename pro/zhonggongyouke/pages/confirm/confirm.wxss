@@ -1,0 +1,283 @@
+page {
+    background: #f5f5f5;
+}
+
+.container {
+    background: #f5f5f5;
+}
+
+.address {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    border-top: 10rpx solid #f5f5f5;
+}
+
+.address-img {
+    display: block;
+    width: 100%;
+    height: 10rpx;
+    margin: 0;
+    padding: 0;
+}
+
+.address-detail {
+    display: inline-block;
+    width: 660rpx;
+    padding: 20rpx 0 20rpx 30rpx;
+}
+
+.person-info {
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 32rpx;
+    color: #2a2e3d;
+    text-align: justify;
+}
+
+.phone {
+    float: right;
+}
+
+.address-info {
+    padding: 2rpx 0;
+    line-height: 42rpx;
+    font-size: 28rpx;
+    color: #2a2e3d;
+    text-align: justify;
+    word-break: break-all;
+}
+
+.address-more {
+    float: right;
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    margin: 50rpx 30rpx 0 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.lesson-box {
+    margin-top: 20rpx;
+    padding: 30rpx;
+    background: #fff;
+}
+
+.tip {
+    height: 32rpx;
+    line-height: 32rpx;
+    font-size: 32rpx;
+    color: #2a2e3d;
+}
+
+.lesson-title {
+    margin: 16rpx 0 10rpx 0;
+    line-height: 45rpx;
+    font-size: 30rpx;
+    color: #2a2e3d;
+    text-align: justify;
+    font-weight: 700;
+}
+
+.lessons {
+    height: 22rpx;
+    line-height: 22rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.lessons-img {
+    display: inline-block;
+    float: left;
+    width: 18rpx;
+    height: 18rpx;
+    margin-top: 3rpx;
+    margin-right: 10rpx;
+}
+
+.teacher-list {
+    box-sizing: border-box;
+    height: 112rpx;
+    padding-top: 28rpx;
+}
+
+.teacher-box {
+    height: 84rpx;
+    float: left;
+    margin-right: 15rpx;
+}
+
+.teacher-img {
+    display: block;
+    width: 52rpx;
+    height: 53rpx;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.teacher-name {
+    display: block;
+    width: 100%;
+    height: 22rpx;
+    line-height: 22rpx;
+    margin-top: 10rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+    text-align: center;
+}
+
+.address-tip {
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 32rpx;
+    color: #2a2e3d;
+}
+
+.address-tip-gray {
+    display: inline-block;
+    float: left;
+    height: 20rpx;
+    line-height: 20rpx;
+    margin-top: 19rpx;
+    font-size: 20rpx;
+    color: #7d829a;
+}
+
+.address-tip-red {
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 22rpx;
+    color: #ff7479;
+}
+
+.contact-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    background: #000;
+}
+
+.contact-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10000;
+    width: 550rpx;
+    height: 396rpx;
+    margin-left: -275rpx;
+    margin-top: -258rpx;
+    background: #fff;
+    border-radius: 20rpx;
+}
+
+.loadingTipImg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10000;
+    width: 60rpx;
+    height: 60rpx;
+    margin-left: -30rpx;
+    margin-top: -30rpx;
+}
+
+.close2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 84rpx;
+    height: 84rpx;
+}
+
+.c-tip2 {
+    line-height: 96rpx;
+    font-size: 34rpx;
+    color: #2a2e3d;
+    text-align: center;
+}
+
+.success-img {
+    display: block;
+    width: 110rpx;
+    height: 110rpx;
+    margin: 18rpx auto 0;
+}
+
+.bind-url {
+    display: block;
+    width: 450rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #ef533d;
+    border: 2rpx solid #ef533d;
+    border-radius: 10rpx;
+    margin: 40rpx auto 0;
+}
+
+.contactBox {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 750rpx;
+    height: 415rpx;
+    background: #fff;
+    z-index: 10000;
+}
+
+.contactBox-tip {
+    width: 750rpx;
+    height: 50rpx;
+    margin-top: 66rpx;
+    margin-bottom: 22rpx;
+    line-height: 50rpx;
+    font-size: 34rpx;
+    color: #2a2e3d;
+    text-align: center;
+    font-weight: bold;
+}
+
+.contactBox-text {
+    width: 750rpx;
+    height: 45rpx;
+    line-height: 45rpx;
+    font-size: 30rpx;
+    color: #666;
+    text-align: center;
+}
+
+.contactBox-text text {
+    color: #ef533d;
+}
+
+.contactBox-btn {
+    width: 590rpx;
+    height: 98rpx;
+    margin-top: 20rpx;
+    line-height: 98rpx;
+    font-size: 34rpx;
+    background: #ef533d;
+    color: #fff;
+    text-align: center;
+    border-radius: 49rpx;
+}
+
+.reload-btn {
+    width: 590rpx;
+    height: 98rpx;
+    margin-top: 20rpx;
+    line-height: 98rpx;
+    font-size: 34rpx;
+    background: #42b632;
+    color: #fff;
+    text-align: center;
+    border-radius: 49rpx;
+}

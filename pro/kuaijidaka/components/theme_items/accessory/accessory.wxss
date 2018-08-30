@@ -1,0 +1,123 @@
+@import "../../../__wuBaseWxss__/8.wxss";
+
+.accessory-box {
+    width: 568rpx;
+    height: 86rpx;
+    margin-bottom: 30rpx;
+    border-radius: 8rpx;
+}
+
+.read-punching,.read-reading {
+    width: 556rpx;
+    border-radius: 8rpx;
+}
+
+.read-punching .accessory-box,.read-reading .accessory-box {
+    margin-bottom: 0;
+    border: solid 1rpx #e0e3e7;
+}
+
+.accessory-left {
+    float: left;
+    width: 86rpx;
+    height: 86rpx;
+    text-align: center;
+    border-bottom-left-radius: 10rpx;
+    border-top-left-radius: 10rpx;
+    background-color: #539ef2;
+    position: relative;
+}
+
+.doc-box-pc .doc {
+    background-color: #539ef2;
+}
+
+.doc-box-pc .doc span {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -140rpx -1008rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.accessory-name {
+    float: left;
+    padding-left: 30rpx;
+    width: 452rpx;
+    height: 86rpx;
+    line-height: 86rpx;
+    vertical-align: middle;
+    font-size: 24rpx;
+    color: #8b97a4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-top-right-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+    background-color: #edf0f3;
+}
+
+.read-punching .accessory-name,.read-reading .accessory-name {
+    width: 440rpx;
+    background-color: #fff;
+}
+
+.pdf-box-pc .pdf {
+    background-color: #f25353;
+}
+
+.pdf-box-pc .pdf span {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -142rpx -1056rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.ppt-box-pc .ppt {
+    background-color: #f25353;
+}
+
+.ppt-box-pc .ppt span {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -190rpx -1008rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.xlsx-box-pc .xlsx,.xls-box-pc .xls {
+    background-color: #30ca7c;
+}
+
+.xlsx-box-pc .xlsx span,.xls-box-pc .xls span {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -240rpx -1008rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.del-accessory {
+    width: 40rpx;
+    height: 40rpx;
+    background-position: 0 -476rpx;
+    position: absolute;
+    top: 23rpx;
+    right: -16rpx;
+}
+
+.inform-pop-up .doc-box-pc .doc-name,.inform-pop-up .pdf-box-pc .pdf-name,.inform-pop-up .ppt-box-pc .ppt-name,.inform-pop-up .xlsx-box-pc .xlsx-name,.inform-pop-up .xls-box-pc .xls-name {
+    width: 420rpx;
+}

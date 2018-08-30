@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "",
+    "backgroundColor": "#22dd82",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "question-list": "/components/answerSheet/questionList/questionList",
+        "jdk-theme": "/components/topic/topic",
+        "setting-ball": "/components/setting-ball/setting-ball"
+    }
+}

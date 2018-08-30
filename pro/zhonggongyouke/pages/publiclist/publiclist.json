@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "公开课-课程目录",
+    "disableScroll": false,
+    "enablePullDownRefresh": false,
+    "component": true,
+    "usingComponents": {}
+}

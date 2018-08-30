@@ -1,0 +1,8 @@
+{
+    "navigationBarBackgroundColor": "#4f598f",
+    "navigationBarTitleText": "点评",
+    "disableScroll": true,
+    "usingComponents": {
+        "jdk-modal": "/components/modal/modal"
+    }
+}

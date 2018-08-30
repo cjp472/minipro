@@ -1,0 +1,89 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="collect__container">
+    <view class="collect__top">
+        <view class="collect__title">{{title}}</view>
+        <jdk-theme applyType="call" catchaudioType="setAudioType" colorScheme="{{isAdmin?'admin':'user'}}" currentAudioType="{{currentAudioType}}" foldedTxt="介绍" pc_content="{{hybridJson}}" title="{{title}}" wx:if="{{hasOverview}}"></jdk-theme>
+        <image class="collect__default-cover" src="http://static3topen.jingdaka.com/images/collect_call_cover.png" wx:else></image>
+    </view>
+    <view class="collect__main">
+        <view class="collect__status">
+            <image class="collect__inviter" src="{{userAvatar}}"></image>
+            <view class="collect__tips" wx:if="{{(callEnd||callFull)&&!callSuccess}}">
+                <view>有
+          <text class="collect__green">{{realCallList.length}}</text> 人为{{notMy?'TA':'你'}}打Call，成绩不错哦，但{{callEnd?'活动已结束':'名额已满'}}，下次活动再接再厉吧~</view>
+            </view>
+            <view class="collect__tips" wx:elif="{{!afterCall||!notMy}}">
+                <view>还差
+          <text class="collect__green">{{callSuccess?0:callTargetRemain}}</text> 个Call，就可以免费加入课程，求助攻~</view>
+            </view>
+            <view class="collect__tips" wx:else>
+                <view wx:if="{{canCall}}">感谢你为我打Call，我在学习的路上又前进一步，你呢？</view>
+                <view wx:elif="{{callSuccess}}">我已免费获得课程，在学习的路上又前进一步，你呢？</view>
+                <view wx:else>感谢你为我打Call，但你的助力机会已用完，要不帮我分享吧~</view>
+            </view>
+        </view>
+        <form reportSubmit bindsubmit="getFormId" wx:if="{{notMy}}">
+            <view class="collect__buttons" wx:if="{{(afterCall||!canCall)&&!callEnd&&!callFull}}">
+                <button class="collect__share--help clear-button-style" formType="submit" openType="share">帮TA分享</button>
+                <button catchtap="toCourseOverview" class="collect__share--my clear-button-style" formType="submit">我也要免费获取</button>
+            </view>
+            <view class="collect__buttons" wx:else>
+                <button catchtap="{{!callEnd&&!callFull?'callSomeone':''}}" class="collect__share--call clear-button-style {{callEnd||callFull?'grey':''}}" formType="submit"> {{callEnd?'活动已结束':callFull?'名额已满':'疯狂打Call'}}</button>
+            </view>
+            <view class="collect__record" wx:if="{{collectList.length>0}}">已有
+        <text class="collect__green">{{realCallList.length}}</text> 人为TA打Call！</view>
+            <view class="collect__record" wx:else>暂时没人为TA打Call！</view>
+        </form>
+        <block wx:else>
+            <block wx:if="{{(callFull||callEnd)&&!callSuccess}}">
+                <view class="collect__winner">获得免费课程的名单</view>
+                <view class="collect__winner-info">
+                    <view>学员昵称</view>
+                    <view>任务完成时间</view>
+                </view>
+                <view class="collect__winner-list">
+                    <view class="collect__winner-detail" wx:for="{{winnerList}}" wx:key="{{index}}">
+                        <view class="collect__winner-info">
+                            <image src="{{item.user_avatar}}"></image>
+                            <view class="collect__winner-name">{{item.user_name}}</view>
+                        </view>
+                        <view class="collect__winner-time">{{item.created_at}}</view>
+                    </view>
+                    <foot-loading loadMore="{{!noMore}}" noMore="{{noMore}}" wx:if="{{winnerList.length>9}}"></foot-loading>
+                </view>
+            </block>
+            <form reportSubmit bindsubmit="getFormId" wx:else>
+                <view class="collect__buttons">
+                    <button class="collect__share--link clear-button-style" formType="submit" openType="share">分享给好友</button>
+                    <button catchtap="fetchPoster" class="collect__share--poster clear-button-style" formType="submit" wx:if="{{!auditing}}">分享朋友圈</button>
+                </view>
+                <view class="collect__record" wx:if="{{collectList.length>0}}">已有 {{realCallList.length}} 人帮你打Call，快去分享吧！</view>
+                <view class="collect__record" wx:else>暂时没人为你打Call，快去分享吧！</view>
+            </form>
+        </block>
+        <block wx:if="{{!(callFull||callEnd)||callSuccess||notMy}}">
+            <view class="collect__list">
+                <image class="collect__item {{index%8===7?'no-right':''}} {{item.user_avatar?'':'no-image'}} {{index%8===2||index%8===4||index%8===6?'more-margin-right':''}}" src="{{item.user_avatar?item.user_avatar:'http://static3topen.jingdaka.com/images/default_avatar.png'}}" wx:for="{{collectList}}" wx:key="{{index}}"></image>
+            </view>
+            <view catchtap="showExplain" class="collect__explain">集Call说明
+        <view class="ico collect__question"></view>
+            </view>
+        </block>
+    </view>
+</view>
+<view class="modal__container" wx:if="{{showExplain}}">
+    <view class="modal__shade"></view>
+    <view class="modal__content ">
+        <view class="modal__text">
+            <view class="modal__title">集Call说明</view>
+            <view class="modal__tips">
+                <view class="modal__sentence">1.当您集Call数量达到要求时，即可免费加入课程。</view>
+                <view class="modal__sentence">2.每一位新同学在同一个课程中只能为一个好友打Call。</view>
+                <view class="modal__sentence">3.若课程活动名额已满、活动已结束或课程已过期，均无法免费加入课程。</view>
+            </view>
+        </view>
+        <view class="modal__operate">
+            <view catchtap="hideExplain" class="modal__confirm">我知道了</view>
+        </view>
+    </view>
+</view>

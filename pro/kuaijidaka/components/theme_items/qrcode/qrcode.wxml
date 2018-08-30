@@ -1,0 +1,14 @@
+<view class="qr-box-pc">
+    <button catchlongpress="recognizeQR" catchtap="openModalBox" class="invisible clear-button-style" wx:if="{{is_custom_on==1}}">
+        <image src="{{picture_url}}" style="width:{{editedWidth}}rpx;height:{{editedHeight}}rpx;margin: 0 auto;display:block;"></image>
+    </button>
+    <image catchtap="pcPreviewQr" src="{{picture_url}}" style="width:{{editedWidth}}rpx;height:{{editedHeight}}rpx;margin: 0 auto;display:block;" wx:if="{{is_custom_on==0}}"></image>
+    <view class="QR-sheet" wx:if="{{showRecSheet}}">
+        <view catchtap="closeRecSheet" class="i"></view>
+        <view class="content">
+            <button catchtap="openModalBox" class="recognize clear-button-style">识别图中二维码</button>
+            <view catchtap="closeRecSheet" class="cancel">取消</view>
+        </view>
+    </view>
+</view>
+<jdk-modal bind:modalConfirm="modalConfirm" confirmText="知道了" containerCancel="{{false}}" content="{{modalContent}}" sessionFrom="{{sessionFrom}}" title="温馨提示" type="concat" wx:if="{{showModal}}"></jdk-modal>

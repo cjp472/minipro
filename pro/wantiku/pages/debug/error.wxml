@@ -1,0 +1,5 @@
+<scroll-view>
+    <view style="word-break:break-all;" wx:for="{{error}}">
+        {{item}}
+    </view>
+</scroll-view>

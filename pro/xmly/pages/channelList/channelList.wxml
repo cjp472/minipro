@@ -1,0 +1,31 @@
+<import src="../shared/player/player.wxml"></import>
+<view class="container {{player.sound.title?'container-footer-empty':''}} {{actionSheet.showActionSheet?'no-scroll':''}}">
+    <view class="album-list">
+        <view bindtap="toAlbumDetail" class="album-list-item" data-album-id="{{item.id}}" wx:for="{{albums}}">
+            <image class="album-image" src="{{item.cover_url_middle}}"></image>
+            <view class="album-info">
+                <view class="title-wrap">
+                    <text class="tag-finished" wx:if="{{item.isFinished===2}}">完本</text>
+                    <text class="text-title {{item.isFinished?'overflow-1-line':''}}">
+              {{item.album_title}}
+            </text>
+                </view>
+                <view class="title-wrap">
+                    <text class="text-intro">{{item.album_intro}}</text>
+                </view>
+                <view class="album-sub-info">
+                    <view class="album-sub-info-inner">
+                        <icon class="icon icon-playCount"></icon>
+                        <text class="text-sub-info">{{item.play_count}}</text>
+                        <icon class="icon icon-tracksCounts"></icon>
+                        <text class="text-sub-info">{{item.include_track_count}}集</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="loading-wrap" wx:if="{{isAll}}">
+        <text class="loading-text">已经到头啦...</text>
+    </view>
+    <template is="player" data="{{player:player,actionSheet:actionSheet}}"></template>
+</view>

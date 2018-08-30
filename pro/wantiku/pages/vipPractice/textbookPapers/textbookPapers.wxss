@@ -1,0 +1,5 @@
+@import "../../../__wuBaseWxss__/7.wxss";
+
+@import "../../practiceChapter/practiceChapter.wxss";
+
+@import "../../../template/courseList/courseList_template.wxss";

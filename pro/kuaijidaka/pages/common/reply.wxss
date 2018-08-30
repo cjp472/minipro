@@ -1,0 +1,55 @@
+.tap-hover {
+    background-color: #d9e1e9;
+}
+
+.reply-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10000;
+    background-color: white;
+    padding: 15rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.input-reply {
+    min-height: 55rpx;
+    border: solid 1rpx #e8e8e8;
+    border-radius: 10rpx;
+    display: inline-block;
+    width: 500rpx;
+    margin-right: 40rpx;
+    padding-left: 20rpx;
+}
+
+.reply-placeholder {
+    color: #d3d3d3;
+    font-size: 32rpx;
+    line-height: 88rpx;
+    padding-left: 20rpx;
+}
+
+.reply-container button {
+    float: right;
+}
+
+.reply-remark {
+    height: 30rpx;
+}
+
+.for-reply {
+    position: absolute;
+    width: 100%;
+    height: 80rpx;
+    z-index: 20;
+    top: -5rpx;
+}
+
+.detail-message .tvoice {
+    position: relative;
+}
+
+.detail-message .tvoice .voice {
+    position: relative;
+    z-index: 30;
+}

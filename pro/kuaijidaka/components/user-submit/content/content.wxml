@@ -1,0 +1,90 @@
+<view class="content">
+    <view class="only-admin" wx:if="{{show_range&&!self&&!isAdmin&&page!=='detail'}}">该打卡内容仅管理员可见</view>
+    <view class="detail-content" wx:elif="{{scene==='normal'}}">
+        <view class="content__text-box">
+            <text selectable class="content__text">{{contentFormatted}}</text>
+            <text class="content__text--whole" wx:if="{{page!=='detail'&&contentFormatted.length>MAX_WORDS}}">全文</text>
+        </view>
+        <jdk-submit-link linkTitle="{{submitData.web_title}}" linkUrl="{{submitData.website}}" wx:if="{{submitData.website}}"></jdk-submit-link>
+        <view wx:for="{{documentsFormatted}}" wx:key="{{url}}">
+            <jdk-submit-accessory accessoryItem="{{item}}"></jdk-submit-accessory>
+        </view>
+        <jdk-submit-old-audio theme="{{isAdmin?'admin':''}}" voices="{{voicesFormatted}}" wx:if="{{voicesFormatted.length>0&&useOldVideo}}"></jdk-submit-old-audio>
+        <view wx:if="{{voicesFormatted.length>0&&!useOldVideo}}" wx:for="{{voicesFormatted}}" wx:key="{{item.voice_url}}">
+            <jdk-submit-audio apply="user-submit" bind:clearPrepareToPlay="clearPrepareToPlay" bind:endplay="endplay" colorScheme="{{isAdmin?'admin':'user'}}" prepareToPlay="{{prepareToPlay}}" voice="{{item}}"></jdk-submit-audio>
+        </view>
+        <jdk-submit-thumbnail catchpreview="" imgArr="{{picturesFormatted}}" isdoodle="{{isdoodle}}" videoArr="{{submitData.video_list}}" wx:if="{{submitData.video_list.length>0||picturesFormatted.length>0}}"></jdk-submit-thumbnail>
+    </view>
+    <view wx:elif="{{scene==='eval'||scene==='evalChinese'}}">
+        <jdk-submit-eval-detail assessFail="{{assessFail}}" colorScheme="{{isAdmin?'admin':''}}" isChinese="{{scene==='evalChinese'}}" page="{{page}}" scoreData="{{submitData.eval_voice}}" translate="{{translate}}" userVoice="{{voicesFormatted[0]}}" wx:if="{{page==='detail'}}"></jdk-submit-eval-detail>
+        <jdk-submit-audio apply="eval-result" eval_voice="{{evalVoiceFormatted}}" voice="{{voicesFormatted[0]}}" wx:else></jdk-submit-audio>
+    </view>
+    <view wx:elif="{{scene==='exam'}}">
+        <view class="flex-around">
+            <view class="flex-center-column fz28">
+                <text class="col-c4856 mb10 duration">
+                    <text class="font-bold">{{durationFormatted.minutes||0}} </text>
+                    <text> 分</text>
+                    <text class="font-bold"> {{durationFormatted.seconds||0}} </text>
+                    <text> 秒</text>
+                </text>
+                <text class="col-8b97a4">耗时</text>
+            </view>
+            <view class="flex-center-column fz28">
+                <text class="font-bold col-c4856 mb10">{{submitData.question_count}}</text>
+                <text class="col-8b97a4">题数</text>
+            </view>
+            <view class="flex-center-column fz28" wx:if="{{submitData.choice_count>0}}">
+                <text class="font-bold col-c4856 mb10">{{accuracyRate+'%'}}</text>
+                <text class="col-8b97a4">正确率</text>
+            </view>
+            <view class="flex-center-column fz28">
+                <text class="font-bold col-c4856 mb10">{{submitData.is_remark_essay_question==0?answer_score:'等待评分'}}</text>
+                <text class="col-8b97a4">分数</text>
+            </view>
+        </view>
+        <view class="essay_aswer fz28" wx:if="{{submitData.answer_content||essay_voices.length>0||essay_pictures.length>0||essay_videos.length>0}}">
+            <view class="ml-10">【问答题】</view>
+            <view class="col-8b97a4 beyond_3">{{submitData.answer_content}}</view>
+            <view class="voice_player" wx:for="{{essay_voices}}" wx:for-item="it" wx:key="{{item}}">
+                <view class="ico play_voice"></view>
+            </view>
+            <jdk-submit-thumbnail disable="{{true}}" imgArr="{{essay_pictures}}" page="answer" videoArr="{{essay_videos}}" wx:if="{{essay_pictures.length>0||essay_videos.length>0}}"></jdk-submit-thumbnail>
+        </view>
+    </view>
+    <view wx:elif="{{scene==='cardEval'}}">
+        <view class="flex-around">
+            <view class="flex-center-column fz28">
+                <text class="col-c4856 mb10 duration">
+                    <text class="font-bold">{{durationFormatted.minutes||0}} </text>
+                    <text> 分</text>
+                    <text class="font-bold"> {{durationFormatted.seconds||0}} </text>
+                    <text> 秒</text>
+                </text>
+                <text class="col-8b97a4">录音时长</text>
+            </view>
+            <view class="flex-center-column fz28">
+                <text class="font-bold col-c4856 mb10">{{submitData.question_count}}</text>
+                <text class="col-8b97a4">题数</text>
+            </view>
+            <view class="flex-center-column fz28" wx:if="{{!!eval_state}}">
+                <view wx:if="{{submitData.result_effect===2}}">
+                    <view class="icon score-result--big score-result__text">
+            {{Math.floor(submitData.answer_score)}}
+          </view>
+                </view>
+                <view class="font-bold col-c4856 card-stars" wx:else>
+                    <view class="icon star_score"></view>
+                    <view class="icon {{submitData.answer_score>=30?'star_score':'star_score2'}}"></view>
+                    <view class="icon {{submitData.answer_score>=50?'star_score':'star_score2'}}"></view>
+                    <view class="icon {{submitData.answer_score>=70?'star_score':'star_score2'}}"></view>
+                    <view class="icon {{submitData.answer_score>=85?'star_score':'star_score2'}}"></view>
+                </view>
+                <text class="col-8b97a4">评分</text>
+            </view>
+        </view>
+    </view>
+</view>
+<wxs module="Math">
+module.exports.floor = Math.floor;
+</wxs>

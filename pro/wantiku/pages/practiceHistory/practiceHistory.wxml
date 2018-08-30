@@ -1,0 +1,46 @@
+<view class="{{theme}}">
+    <view class="practice-history-box">
+        <view class="practice-history-number">
+            <view class="title">总答题量</view>
+            <view class="text">{{statisticsData.totalCount}}</view>
+        </view>
+        <view class="practice-history-number-info">
+            <view>
+                <view class="title">完成练习</view>
+                <view class="text">
+                    <text>{{statisticsData.examCount}}</text>次</view>
+            </view>
+            <view>
+                <view class="title">练习时长</view>
+                <view class="text">
+                    <block wx:if="{{statisticsData.duration.hour!=0}}">
+                        <text>{{statisticsData.duration.hour}}</text>小时
+          </block>
+                    <text>{{statisticsData.duration.minute}}</text>分钟
+        </view>
+            </view>
+        </view>
+    </view>
+    <view class="practice-history-list">
+        <view bindtap="onPracticeItemJs" class="practice-history-item" data-ExamPaperType="{{item.UserExamPaper.ExamPaperType}}" data-UserExamPaperId="{{item.UserExamPaper.UserExamPaperId}}" data-isgenerate="{{item.UserExamPaper.IsGenerate}}" data-paper-id="{{item.UserExamPaper.PaperId}}" wx:for="{{historyData}}" wx:key="historyData-key">
+            <view class="title">{{item.Title}}</view>
+            <view class="cont">
+                <progress active="true" backgroundColor="#f2f3f4" color="{{item.progressColor}}" percent="{{item.progressPercent}}" strokeWidth="3"></progress>
+                <text>共{{item.UserExamPaper.TotalQuestionsCount}}题</text>
+                <text>{{item.Label}}：<text class="{{item.LabelColor}}">{{item.Rate}}</text>
+                </text>
+                <text class="date">{{item.DateFormatStr}}</text>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{isLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore_tips">正在加载</view>
+        </view>
+    </view>
+    <view class="no-content history" wx:if="{{empty}}">
+        <view>
+            <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/empty_lianxilishi_{{theme}}@2x.png"></image>
+        </view>
+        <view class="text">暂无练习历史</view>
+    </view>
+</view>

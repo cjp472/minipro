@@ -1,0 +1,28 @@
+<template name="lessonTemplate">
+    <view catchtap="goVipCoursesDetails" class="group-cont" data-CourseName="{{CourseName}}" data-IsCollection="{{IsCollection}}" data-course-id="{{WebcastCourseId}}" data-groupinfo-id="{{groupinfoId}}">
+        <text class="tit-box">{{CourseName}}</text>
+        <view class="info-box">
+            <text class="iconfont icon_time"></text>
+            <text>{{BeginCourseDateStr}}-{{EndCourseDateStr}} ({{CourseQuantityStr}})</text>
+        </view>
+        <view class="groups-info">
+            <view class="teacher-list">
+                <view class="teacher-box" wx:for="{{WebcastTeacherList}}" wx:key="teacherlist-key">
+                    <image class="avatar" mode="widhFix" src="{{item.TeacherUrl}}"></image>
+                    <text>{{item.TeacherName}}</text>
+                </view>
+            </view>
+            <view class="purchase-info">
+                <view class="price-box">
+                    <view class="item-box text-small">
+                        <text wx:if="{{NeedBook}}">￥{{CoursePrice+CourseBookPrice}}</text>
+                        <text wx:if="{{!NeedBook}}">￥{{CoursePrice}}</text>
+                    </view>
+                    <view class="item-box text-big">
+                        <text>￥</text>{{TuanVipPrice}}</view>
+                </view>
+                <view class="text-box">拼团立省{{Discount}}%</view>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,37 @@
+<view class="guide-card {{theme==='admin'?'guide-card--admin':''}}">
+    <view class="guide-card__body">
+        <view class="ico {{scene===3?'ico--soldout':''}}"></view>
+        <view class="guide-content" wx:if="{{scene===1}}">
+            <view>
+                <view class="title">
+                    <view>请加入课程群，</view>
+                    <view>并点击群内课程链接进入学习</view>
+                </view>
+                <view class="tips" wx:if="{{tips.length>0}}">
+                    <view class="tips__title">课程管理员提示</view>
+                    <text selectable class="tips__text">{{tips}}</text>
+                </view>
+            </view>
+            <view class="guide-foot">
+                <button catchtap="openModalBox" class="button" wx:if="{{is_custom_on==1&&!!codeImg}}">点击加群</button>
+                <view catchtap="goBack" class="un-btn">返回上一页</view>
+            </view>
+        </view>
+        <view class="guide-content" wx:elif="{{scene===2}}">
+            <view>
+                <view class="title">你已被管理员从课程中移除</view>
+                <text class="tips__text">如有疑问，请联系课程管理员</text>
+            </view>
+            <view catchtap="goBack" class="btn">返回上一页</view>
+        </view>
+        <view class="guide-content" wx:elif="{{scene===3}}">
+            <view class="title">课程已下架</view>
+            <view catchtap="goBack" class="btn">返回上一页</view>
+        </view>
+        <view class="guide-content" wx:elif="{{scene===5}}">
+            <view class="title">该课程已暂时关闭，详情请咨询管理员。 </view>
+            <view catchtap="goBack" class="btn">返回上一页</view>
+        </view>
+    </view>
+</view>
+<jdk-modal bind:modalConfirm="modalConfirm" confirmText="知道了" containerCancel="{{false}}" content="{{modalContent}}" sessionFrom="{{'qrcode_courseid_'+courseId}}" title="温馨提示" type="concat" wx:if="{{showModal}}"></jdk-modal>

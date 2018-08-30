@@ -1,0 +1,3 @@
+<button bindgetuserinfo="getUserInfo" class="button {{colorTheme==='admin'?'button--admin':''}}" hoverClass="opcity5" openType="getUserInfo" style="{{btnStyle}}">
+    <slot></slot>
+</button>

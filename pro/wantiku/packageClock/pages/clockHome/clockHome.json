@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "首页",
+    "usingComponents": {
+        "clockLog": "../../components/clockLog/clockLog",
+        "createPoster": "../../components/createPoster/createPoster"
+    }
+}

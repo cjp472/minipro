@@ -1,0 +1,26 @@
+<view wx:if="{{recordLength==0}}">
+    <image class="bg-img" src="/resources/bg_no_public.png"></image>
+    <view class="bg-des">暂无学习记录</view>
+    <navigator class="bg-go" openType="switchTab" url="/pages/public/public">去逛逛</navigator>
+</view>
+<view class="container" wx:if="{{recordLength>0}}">
+    <view class="list" wx:for="{{record}}" wx:key="*record">
+        <view class="icon" wx:if="{{index==0}}">
+            <image src="/resources/record/record_today.png"></image>
+        </view>
+        <view class="icon" wx:if="{{index>0}}">
+            <image src="/resources/record/record_before.png"></image>
+        </view>
+        <view class="date">{{item.date}}</view>
+        <view class="records">
+            <view class="record" wx:for="{{item.list}}" wx:key="*list">
+                <view class="time">{{item.time}}</view>
+                <view bindtap="seedetail" class="detail" data-authcode="{{item.authcode}}" data-chapter_id="{{item.chapter_id}}" data-course_id="{{item.course_id}}" data-is_finish="{{item.is_finish}}" data-is_live="{{item.is_live}}" data-ownerid="{{item.ownerid}}" data-playback_url="{{item.playback_url}}" data-uname="{{item.uname}}" data-video_url="{{item.video_url}}">{{item.name}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="no-more">
+        <view class="icon">
+            <image src="/resources/record/no_record.png"></image>
+        </view>没有更多记录了</view>
+</view>

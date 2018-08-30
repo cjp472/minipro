@@ -1,0 +1,20 @@
+<view>
+    <image class="banner" src="https://cdn-xcx-qunsou.weiyoubot.cn/xcx/2017-09-07/2dbe7e40-11a6-405b-a55a-08c7fa1ccb5b.jpg"></image>
+    <view class="desc">
+        <view class="gray">- 以下方式均可在线预约 -</view>
+        <view class="item">
+            <label>搜索关注公众号：</label>
+            <text selectable="true">微友课堂</text>
+        </view>
+        <view class="item">
+            <label>访问微友官网：</label>
+            <text selectable="true">zhibo.weiyoubot.cn</text>
+        </view>
+        <view class="item">
+            <label>联系客服QQ：</label>
+            <text selectable="true">2150947416</text>
+        </view>
+        <image class="qrcode" src="https://cdn-xcx-qunsou.weiyoubot.cn/xcx/2017-09-06/0f3243bb-ab9c-44dd-85da-cd76194b1fc2.jpg"></image>
+        <view class="gray f26">请截图上传微信后扫码关注 </view>
+    </view>
+</view>

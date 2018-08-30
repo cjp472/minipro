@@ -1,0 +1,162 @@
+.album-list {
+    display: flex;
+    flex-flow: column;
+    background: #fff;
+    border-top: 1rpx solid #f3f3f3;
+}
+
+.album-list-item {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    padding-left: 0;
+    margin-left: 20rpx;
+}
+
+.album-image {
+    width: 128rpx;
+    height: 128rpx;
+    margin-right: 30rpx;
+    margin-top: 30rpx;
+    background: url('https://img.alicdn.com/imgextra/i2/732450928/TB22yXCbipnpuFjSZFIXXXh2VXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+    border: 2rpx solid #f1f1f1;
+}
+
+.album-info {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    flex: 1;
+    padding: 30rpx 0;
+    padding-right: 20rpx;
+    border-bottom: 1rpx solid #efefef;
+}
+
+.title-wrap {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.tag-finished {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    color: #6C933E;
+    line-height: 32rpx;
+    border: 1rpx solid #6C933E;
+    border-radius: 4rpx;
+    width: 56rpx;
+    height: 32rpx;
+    margin-right: 14rpx;
+    margin-bottom: 2rpx;
+    margin-top: 2rpx;
+}
+
+.text-title {
+    font-family: PingFangSC-Light;
+    display: inline-block;
+    flex: 1;
+    font-size: 32rpx;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 40rpx;
+}
+
+.text-title.overflow-1-line {
+    -webkit-line-clamp: 1;
+}
+
+.text-intro {
+    font-family: PingFangSC-Light;
+    font-size: 24rpx;
+    color: #999;
+    display: inline-block;
+    line-height: 30rpx;
+    margin-top: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.album-sub-info {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.album-sub-info-inner {
+    display: inline-block;
+    margin-top: 2rpx;
+    margin-left: 2rpx;
+}
+
+.icon-playCount {
+    width: 16rpx;
+    height: 20rpx;
+    background: url('https://img.alicdn.com/imgextra/i4/732450928/TB2rDAObdRopuFjSZFtXXcanpXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+    margin-right: 8rpx;
+}
+
+.icon-tracksCounts {
+    width: 16rpx;
+    height: 18rpx;
+    background: url('https://img.alicdn.com/imgextra/i3/732450928/TB27zKIdbJmpuFjSZFwXXaE4VXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+    margin-right: 8rpx;
+}
+
+.icon-star {
+    width: 24rpx;
+    height: 24rpx;
+    background: url('https://img.alicdn.com/imgextra/i2/732450928/TB2omsYa80kpuFjSsziXXa.oVXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+    margin-right: 8rpx;
+}
+
+.text-sub-info {
+    font-family: PingFangSC-Light;
+    font-size: 22rpx;
+    color: #999;
+    margin-right: 20rpx;
+}
+
+.text-sub-info:last-child {
+    margin-right: 0;
+    line-height: 22rpx;
+}
+
+.text-lt {
+    text-decoration: line-through;
+}
+
+.text-highlight {
+    font-family: Helvetica,sans-serif;
+    font-size: 24rpx;
+    color: #ff4612;
+}
+
+.loading-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50rpx 0;
+    color: #9B9B9B;
+    background: #f0f0f0;
+}
+
+.loading-text {
+    font-family: PingFangSC-Light;
+    font-size: 28rpx;
+}

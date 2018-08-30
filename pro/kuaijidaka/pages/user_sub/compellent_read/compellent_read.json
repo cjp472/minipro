@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "suspend-button": "/components/suspend-button/suspend-button",
+        "read-float": "/components/read-float/read-float"
+    }
+}

@@ -1,0 +1,219 @@
+.add {
+    margin: 0 30rpx;
+    overflow: hidden;
+}
+
+.add .add_vo {
+    float: left;
+    height: 84rpx;
+    width: 326rpx;
+    border: 2rpx dashed #eee;
+    text-align: center;
+    line-height: 84rpx;
+}
+
+.add .add_vo span {
+    position: relative;
+    padding-left: 30rpx;
+}
+
+.add .add_vo span .ico {
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -150rpx -230rpx;
+    position: absolute;
+    top: 50%;
+    margin-top: -25rpx;
+    left: -30rpx;
+}
+
+.add .add_vo span text {
+    color: #8b97a4;
+    font-size: 26rpx;
+}
+
+.selectRecording .second {
+    width: 100%;
+    text-align: center;
+    margin-top: 50rpx;
+    position: absolute;
+    left: 0rpx;
+    bottom: 344rpx;
+}
+
+.selectRecording .hide {
+    display: none;
+}
+
+.selectRecording .second text {
+    color: #fff;
+    font-size: 48rpx;
+}
+
+.selectRecording .tag {
+    text-align: center;
+    margin-top: 50rpx;
+}
+
+.selectRecording .tag text {
+    color: #8b97a4;
+    font-size: 26rpx;
+}
+
+.selectRecording .recordplay {
+    width: 112rpx;
+    height: 112rpx;
+    border: 6rpx solid #22dd82;
+    background: #22dd82;
+    border-radius: 50%;
+    margin: 36rpx auto 42rpx auto;
+    position: relative;
+}
+
+.selectRecording .recordplay .ico {
+    width: 60rpx;
+    height: 60rpx;
+    background-position: -120rpx -420rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -30rpx;
+    margin-left: -26rpx;
+}
+
+.selectRecording .recordstop {
+    width: 112rpx;
+    height: 112rpx;
+    border: 6rpx solid #ff7474;
+    background: #fff;
+    border-radius: 50%;
+    margin: 36rpx auto 42rpx auto;
+    position: relative;
+}
+
+.selectRecording .recordstop .ico {
+    width: 60rpx;
+    height: 60rpx;
+    background-position: -180rpx -420rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -30rpx;
+    margin-left: -26rpx;
+}
+
+.voice-player .add_voice {
+    overflow: hidden;
+    margin: 0 30rpx;
+}
+
+.voice-player .add_voice .voice {
+    background: #22dd82;
+    height: 68rpx;
+    line-height: 68rpx;
+    border-radius: 8rpx;
+    margin-top: 20rpx;
+    float: left;
+    margin-bottom: 0;
+}
+
+.voice-player .add_voice .voice .btns {
+    width: 60rpx;
+    height: 60rpx;
+    margin: 0 10rpx;
+    background-position: 0 -416rpx;
+    float: left;
+}
+
+.voice-player .add_voice .voice.play .btns {
+    width: 60rpx;
+    height: 60rpx;
+    margin: 4rpx 10rpx;
+    background-position: -60rpx -420rpx;
+    float: left;
+}
+
+.voice-player .add_voice .voice .span {
+    float: left;
+    width: 288rpx;
+    height: 68rpx;
+    position: relative;
+}
+
+.voice-player .add_voice .voice .span .schedule {
+    width: 100%;
+    height: 4rpx;
+    background: #16c786;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -2rpx;
+    border-radius: 2rpx;
+}
+
+.voice-player .add_voice .voice .span .speed {
+    height: 4rpx;
+    background: #eafff5;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -2rpx;
+    border-radius: 2rpx;
+}
+
+.voice-player .add_voice .voice .span .speed span {
+    position: relative;
+    display: block;
+}
+
+.voice-player .add_voice .voice .span .speed span em {
+    position: absolute;
+    width: 8rpx;
+    height: 8rpx;
+    border-radius: 50%;
+    top: -1rpx;
+    right: -3rpx;
+    background: #fff;
+}
+
+.voice-player .add_voice .voice .time {
+    font-size: 26rpx;
+    color: #fff;
+    float: left;
+    width: 80rpx;
+    text-align: center;
+}
+
+.voice-player .add_voice .del_voice {
+    width: 40rpx;
+    height: 40rpx;
+    background-position: 0 -476rpx;
+    float: left;
+    margin-left: 20rpx;
+    margin-top: 34rpx;
+}
+
+.tip-when-record {
+    margin-bottom: 30rpx;
+    color: white;
+    font-size: 30rpx;
+}
+
+.btn-upload-voice {
+    font-size: 24rpx;
+    display: inline-block;
+    height: 68rpx;
+    line-height: 68rpx;
+    margin-top: 20rpx;
+    margin-left: 20rpx;
+    color: #ff7474;
+}
+
+.btn-upload-voice .ico {
+    width: 40rpx;
+    height: 60rpx;
+    background-position: 0 -580rpx;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -10rpx;
+}

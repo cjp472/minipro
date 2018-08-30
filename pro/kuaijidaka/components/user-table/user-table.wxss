@@ -1,0 +1,57 @@
+@import "../../__wuBaseWxss__/6.wxss";
+
+@import "../../__wuBaseWxss__/9.wxss";
+
+@import "../../__wuBaseWxss__/8.wxss";
+
+.shade_button {
+    border: none!important;
+}
+
+.btn {
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    box-shadow: 0px -3px 6px 0px rgba(238,238,238,0.4);
+    background: #fff;
+    height: 98rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn .navigator {
+    width: 50%;
+    text-align: center;
+    line-height: 22rpx;
+}
+
+.iconfont {
+    font-size: 40rpx;
+    color: #333;
+    margin-top: 16rpx;
+    margin-bottom: 14rpx;
+}
+
+.icon-faxianweixuan,.icon-wodedaqia-moren,.icon-gerenzhongxin-moren {
+    color: #8a8a8a;
+}
+
+.icon-faxianxuanzhong,.icon-wodedaqia,.icon-gerenzhongxin,.selected {
+    color: #22dd82;
+}
+
+.btn .navigator text {
+    color: #8a8a8a;
+    font-size: 20rpx;
+}
+
+.btn .navigator .selected {
+    color: #22dd82;
+}
+
+.navigator.clear-button-style {
+    background-color: #fff;
+}

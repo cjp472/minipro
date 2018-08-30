@@ -1,0 +1,3 @@
+<view class="video-box-pc {{applyType}}">
+    <video controls customCache="{{false}}" src="{{videoUrl}}"></video>
+</view>

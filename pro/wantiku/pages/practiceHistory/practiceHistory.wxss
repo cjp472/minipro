@@ -1,0 +1,151 @@
+.red .practice-history-box {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/red/practice-newbg.png');
+}
+
+.green .practice-history-box {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/green/practice-newbg.png');
+}
+
+.yellow .practice-history-box {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/yellow/practice-newbg.png');
+}
+
+.blue .practice-history-box {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/blue/practice-newbg.png');
+}
+
+.orange .practice-history-box {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/orange/practice-newbg.png');
+}
+
+.Lightblue .practice-history-box {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/Lightblue/practice-newbg.png');
+}
+
+.purple .practice-history-box {
+    background-image: url('http://img02.exam8.com/img2017/minapp/config/purple/practice-newbg.png');
+}
+
+.practice-history-box {
+    text-align: center;
+    color: #ffffff;
+}
+
+.practice-history-box {
+    background-image: url('http://img02.exam8.com/img2017/minapp/new_index/practice-newbg.png');
+    background-repeat: no-repeat;
+    width: 750rpx;
+    height: 373rpx;
+    background-size: 750rpx 373rpx;
+}
+
+.practice-history-number {
+    padding-top: 1rpx;
+}
+
+.practice-history-number .title {
+    margin-top: 30rpx;
+    font-size: 22rpx;
+}
+
+.practice-history-number .text {
+    font-size: 78rpx;
+    line-height: 78rpx;
+    margin-top: 6rpx;
+}
+
+.practice-history-number-info {
+    margin-top: 44rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    font-size: 22rpx;
+    color: #ffffff;
+}
+
+.practice-history-number-info .title {
+    opacity: 0.7;
+    margin-bottom: 2rpx;
+}
+
+.practice-history-number-info .text text {
+    font-size: 32rpx;
+}
+
+.practice-history-list {
+    padding: 0 0 0 30rpx;
+}
+
+.practice-history-item {
+    padding: 30rpx 30rpx 30rpx 0;
+    border-bottom: 1rpx solid #ebebeb;
+}
+
+.practice-history-item .title {
+    font-size: 30rpx;
+    color: #4e4e4e;
+    line-height: 45rpx;
+}
+
+.practice-history-item .cont {
+    position: relative;
+    height: 34rpx;
+    line-height: 34rpx;
+    margin-top: 14rpx;
+}
+
+.practice-history-item .cont text {
+    font-size: 24rpx;
+    color: #9a9a9a;
+    vertical-align: middle;
+    margin-right: 40rpx;
+}
+
+.practice-history-item .cont progress {
+    width: 210rpx;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 14rpx;
+}
+
+.practice-history-item .cont .date {
+    position: absolute;
+    right: 0;
+    height: 34rpx;
+    line-height: 34rpx;
+    top: 1rpx;
+    margin-right: 0;
+}
+
+.practice-history-item .cont .orange {
+    color: #ffae05;
+}
+
+.practice-history-item .cont .green {
+    color: #41d497;
+}
+
+.weui-loading {
+    margin: 10px 5px 10px 0;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url('http://img02.exam8.com/img2017/minapp/icon/loading.gif') no-repeat;
+    background-size: 100%;
+}
+
+.weui-loadmore {
+    width: 65%;
+    color: #9a9a9a;
+    margin: 1.5rpx auto;
+    line-height: 1.6rpx;
+    font-size: 14px;
+    text-align: center;
+}
+
+.weui-loadmore_tips {
+    display: inline-block;
+    vertical-align: middle;
+}

@@ -1,0 +1,137 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="content_bg">
+    <view class="counter">
+        <text class="qs-num">{{QsNum}}</text>/
+    <text class="all-qs-num">{{allQsNum}}</text>
+    </view>
+    <view class="qs_img">
+        <image class="card-image" mode="scaleToFill" src="{{chapter_list[chapter].chapter_content[0].content[0].picture_url}}" style="width:{{chapter_list[chapter].chapter_content[0].content[0].picture_width}}rpx;height:{{chapter_list[chapter].chapter_content[0].content[0].picture_height}}rpx;display:block;"></image>
+    </view>
+    <view class="qs_title">
+        <view catchtap="playTitleAudio" class="fz24 title_head {{userType===2?'admin-color admin-theme':'user-color user-theme'}}" data-audiourl="{{chapter_list[chapter].question_list[index].question_content.voice.voice_url}}" wx:if="{{chapter_list[chapter].question_list[index].question_content.voice.voice_url}}">
+            <view class="title-audio--playing" wx:if="{{isPlayingTitle}}"></view>
+            <text class="iconfont icon-bofang icon-bofang2" wx:else></text>
+            <text>老师发音</text>
+        </view>
+        <rich-text class="rich-text" nodes="{{evalRecord.words}}" wx:if="{{needEval&&evalRecord.words}}"></rich-text>
+        <view class="fz36 word-wrap mb20" wx:else>{{chapter_list[chapter].question_list[index].question_content.text}}</view>
+        <view class="fz36 word-wrap" wx:if="{{!fold}}">{{chapter_list[chapter].question_list[index].question_content.notes}}</view>
+        <view catchtap="fold" class="fold_button fz24 col8" wx:if="{{chapter_list[chapter].question_list[index].question_content.notes}}">
+            <text>{{fold?'查看释义':'收起释义'}}</text>
+            <text class="iconfont icon-xiala1 {{fold?'':'rotate180'}}"></text>
+        </view>
+    </view>
+</view>
+<view class="foot_handle">
+    <view class="foot_handle_top">
+        <view catchtap="{{QsNum>0?'lastQs':''}}" class="arrow_botton {{index==0&&chapter==0?'opcity5':''}} {{userType===2?'fanye--admin':''}}">
+            <text class="iconfont icon-keshi-fanye"></text>
+        </view>
+        <view class="handle_center">
+            <view class="handle_center_item">
+                <block wx:if="{{pageType==='answer'}}">
+                    <block wx:if="{{evalRecord.voice_url}}">
+                        <view catchtap="_startPlayRecord" class="flex_c_c" data-audiourl="{{evalRecord.voice_url}}" wx:if="{{!isPlayingRecord}}">
+                            <text class="iconfont icon-hebingxingzhuang"></text>
+                            <text>回放</text>
+                        </view>
+                        <view catchtap="_stopPlay" class="flex_c_c" wx:else>
+                            <text class="iconfont icon-hebingxingzhuang1"></text>
+                            <text>暂停</text>
+                        </view>
+                    </block>
+                    <block wx:elif="{{chapter_list[chapter].question_list[index].question_content.voice.voice_url}}">
+                        <view catchtap="playTitleAudio" class="flex_c_c" wx:if="{{!isPlayingTitle}}">
+                            <text class="iconfont icon-hebingxingzhuang"></text>
+                            <text>听原音</text>
+                        </view>
+                        <view catchtap="playTitleAudio" class="flex_c_c" wx:else>
+                            <text class="iconfont icon-hebingxingzhuang1"></text>
+                            <text>暂停</text>
+                        </view>
+                    </block>
+                </block>
+                <block wx:elif="{{pageType==='preview'}}">
+                    <view catchtap="_seriesPlay" class="flex_c_c {{userType===2?'admin-theme':'user-theme'}}" wx:if="{{!seriesPlay}}">
+                        <view class="series_play_bg">
+                            <text class="iconfont icon-bofang icon-bofang2"></text>
+                        </view>
+                        <text>连续播放</text>
+                    </view>
+                    <view catchtap="_seriesStop" class="flex_c_c {{userType===2?'admin-theme':'user-theme'}}" wx:if="{{seriesPlay}}">
+                        <view class="series_play_bg">
+                            <view class="series_play_gif {{userType===2?'series_play_gif--admin':'series_play_gif--user'}}"></view>
+                        </view>
+                        <text>连续播放</text>
+                    </view>
+                </block>
+            </view>
+            <view class="handle_center_item">
+                <block wx:if="{{pageType==='answer'&&leftCount>0}}">
+                    <view catchtap="startRecord" class="flex_c_c" wx:if="{{!isRecording&&!evalRecord.voice_url}}">
+                        <view class="icon record_icon"></view>
+                        <text>录音</text>
+                    </view>
+                    <view catchtap="stopRecord" class="flex_c_c" wx:if="{{isRecording}}">
+                        <view class="time_show">
+                            <view class="time_show_top">{{evalRecord.voice_duration}}</view>
+                            <view class="time_show_arrow"></view>
+                        </view>
+                        <view class="icon record_icon5"></view>
+                        <text>暂停</text>
+                    </view>
+                    <view catchtap="startRecord" class="flex_c_c" wx:if="{{!isRecording&&!!evalRecord.voice_url}}">
+                        <view class="icon record_icon2"></view>
+                        <text>重录</text>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view catchtap="_startPlayRecord" class="flex_c_c" data-audiourl="{{evalRecord.voice_url}}" wx:if="{{!!evalRecord.voice_url&&!isPlayingRecord}}">
+                        <view class="{{userType==2?'admin-ico2':'icon'}} record_icon3"></view>
+                        <text>回放</text>
+                    </view>
+                    <view catchtap="_stopPlay" class="flex_c_c" wx:if="{{!!evalRecord.voice_url&&isPlayingRecord}}">
+                        <view class="{{userType==2?'admin-ico2':'icon'}} record_icon4"></view>
+                        <text>暂停</text>
+                    </view>
+                </block>
+            </view>
+            <view class="handle_center_item">
+                <view class="flex_c_c" wx:if="{{needEval&&evalRecord.score!==undefined&&evalRecord.score!==''}}">
+                    <view class="score_icon" wx:if="{{resultEffect==='star'}}">
+                        <view class="icon star_score"></view>
+                        <view class="icon {{evalRecord.score>=50?'star_score':'star_score2'}} star_score3"></view>
+                        <view class="icon {{evalRecord.score>=80?'star_score':'star_score2'}}"></view>
+                    </view>
+                    <view class="score_icon score-bg-container" wx:else>
+                        <view class="icon score-bg" wx:if="{{userType===1}}">
+                            <text class="score-number">{{evalRecord.score}}</text>
+                        </view>
+                        <view class="admin-ico2 score-bg--admin" wx:else>
+                            <text class="score-number--admin">{{evalRecord.score}}</text>
+                        </view>
+                    </view>
+                    <text>得分</text>
+                </view>
+            </view>
+        </view>
+        <block wx:if="{{QsNum===allQsNum}}">
+            <block wx:if="{{pageType==='preview'}}">
+                <navigator class="arrow_botton button--back" delta="1" openType="navigateBack" wx:if="{{userType===1}}">
+                    <text>返回</text>
+                </navigator>
+                <view catchtap="goRemoark" class="arrow_botton button--remark" wx:else>
+                    <text>点评</text>
+                </view>
+            </block>
+            <view catchtap="submitCard" class="arrow_botton button--submit" wx:else>
+                <text>提交</text>
+            </view>
+        </block>
+        <view catchtap="{{QsNum===allQsNum?'':'nextQs'}}" class="arrow_botton {{userType===2?'fanye--admin':''}}" wx:else>
+            <text class="iconfont icon-keshi-fanye1"></text>
+        </view>
+    </view>
+    <progress active activeMode="forwards" activeColor="{{userType==1?'#22DD82':'#4f588f'}}" backgroundColor="#ffffff" percent="{{QsNum/allQsNum*100}}" strokeWidth="4" wx:if="{{allQsNum>1}}"></progress>
+</view>
+<jdk-modal bind:modalConfirm="settingConfirm" confirmText="重新授权" content="{{settingContent}}" contentColor="#888" title="提示" type="openSetting" wx:if="{{showSetting}}"></jdk-modal>

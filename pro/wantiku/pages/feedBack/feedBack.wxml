@@ -1,0 +1,13 @@
+<view class="{{theme}}">
+    <form bindsubmit="submit">
+        <view class="feedBack-textarea">
+            <textarea bindinput="input" name="content" placeholder="请输入问题内容" placeholderClass="input-initral"></textarea>
+        </view>
+        <view class="feedBack-input">
+            <input name="contact" placeholder="微信号/QQ，选填，便于联系您" placeholderClass="input-initral" type="text"></input>
+        </view>
+        <view>
+            <button class="pj-submit {{canSubmit?'':'initial'}}" disabled="{{!canSubmit}}" formType="submit">提交</button>
+        </view>
+    </form>
+</view>

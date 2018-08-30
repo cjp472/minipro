@@ -1,0 +1,76 @@
+@import "../../../__wuBaseWxss__/7.wxss";
+
+@import "../../practiceChapter/practiceChapter.wxss";
+
+@import "../../practiceCollection/practiceCollection.wxss";
+
+@font-face {
+    font-family:'iconfont';src:url('//at.alicdn.com/t/font_428828_u3w0ogcambsgiudi.eot');src:url('//at.alicdn.com/t/font_428828_u3w0ogcambsgiudi.eot?#iefix') format('embedded-opentype'),url('//at.alicdn.com/t/font_428828_u3w0ogcambsgiudi.woff') format('woff'),url('//at.alicdn.com/t/font_428828_u3w0ogcambsgiudi.ttf') format('truetype'),url('//at.alicdn.com/t/font_428828_u3w0ogcambsgiudi.svg#iconfont') format('svg');
+}
+
+.icon_gaopinkaodian:before {
+    content: "\e63c";
+}
+
+.icon_gaopincuoti:before {
+    content: "\e63d";
+}
+
+.practice-box {
+    position: static;
+}
+
+.practice .icon_gaopinkaodian,.practice .icon_gaopincuoti {
+    font-size: 30rpx;
+    color: #9A9A9A;
+    margin: 38rpx 16rpx 0 30rpx;
+}
+
+.shop-icon-buy {
+    background-size: 36rpx 36rpx;
+    background-position: 20rpx 0;
+    position: absolute;
+    right: 6rpx;
+    top: 30rpx;
+    z-index: 999;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 112rpx;
+    height: 42rpx;
+    border: 1rpx solid #ff7e00;
+    font-size: 22rpx;
+    color: #ff7e00;
+    text-align: center;
+    border-radius: 22rpx;
+    align-items: center;
+    justify-content: center;
+    margin-right: 26rpx;
+}
+
+.home_icon_goumai {
+    font-size: 23rpx;
+    margin-right: 8rpx;
+}
+
+.box-shadow {
+    height: 14rpx;
+    background-color: #F2F3F4;
+}
+
+.practice-title {
+    height: 103rpx;
+    line-height: 103rpx;
+    border-bottom: 1rpx solid #EBEBEB;
+    font-size: 32rpx;
+    color: #4E4E4E;
+}
+
+.practice-title-text {
+}
+
+.progress {
+    display: inline-block;
+    width: 260rpx;
+    margin-right: 22rpx;
+    margin-bottom: 6rpx;
+}

@@ -1,0 +1,81 @@
+.red .name-modify-btn {
+    background: #ff5757;
+}
+
+.blue .name-modify-btn {
+    background: #4380db;
+}
+
+.green .name-modify-btn {
+    background: #0e9900;
+}
+
+.Lightblue .name-modify-btn {
+    background: #27c1f4;
+}
+
+.orange .name-modify-btn {
+    background: #ff7e00;
+}
+
+.yellow .name-modify-btn {
+    background: #db9b00;
+}
+
+.purple .name-modify-btn {
+    background: #a066e8;
+}
+
+.name-modify-box {
+    background: #f2f3f4;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.name-modify {
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #ffffff;
+    font-size: 28rpx;
+    color: #7a7a7a;
+    padding: 0 30rpx;
+    position: relative;
+    margin-top: 44rpx;
+}
+
+.name-modify input {
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+.name-modify-clear {
+    position: absolute;
+    height: 88rpx;
+    line-height: 88rpx;
+    right: 0rpx;
+    top: 0rpx;
+    width: 36rpx;
+    text-align: right;
+    padding-right: 30rpx;
+    padding-left: 10rpx;
+    z-index: 9;
+}
+
+.name-modify-clear image {
+    width: 28rpx;
+    height: 28rpx;
+}
+
+.name-modify-btn {
+    width: 660rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    border-radius: 10rpx;
+    background: #6fce29;
+    color: #ffffff;
+    text-align: center;
+    font-size: 32rpx;
+    margin: 72rpx auto;
+}

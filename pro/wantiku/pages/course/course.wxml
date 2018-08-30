@@ -1,0 +1,158 @@
+<view class="container {{theme}}">
+    <view class="videocont">
+        <view class="video-boximage">
+            <view class="video-boximage" wx:if="{{IsLockVideo&&!IsUnlock}}">
+                <view class="video-boximage-text">解锁后继续学习</view>
+                <view bindtap="btnDeblocking" class="video-boximage-btn">解锁</view>
+                <view class="video-boximage-unlock-text" wx:if="{{!hasLogin}}">已解锁用户可<text bindtap="logInBtn">登录查看</text>
+                </view>
+            </view>
+            <view class="video-box" wx:if="{{!needBuy&&videoStatus}}">
+                <view>
+                    <video autoplay="true" bindeneded="bindended" bindpause="bindpause" bindplay="bindplay" bindtimeupdate="bindtimeupdate" id="myVideo" pageGesture="{{true}}" src="{{playUrl}}" wx:if="{{!networkWarn}}"></video>
+                </view>
+                <view bindtap="bindNetworkPlay" class="bofangicon" wx:if="{{networkWarn}}">
+                    <text>使用流量播放</text>
+                    <text class="video-text">{{courseSizeM}}M</text>
+                </view>
+                <view class="video-bg" wx:if="{{networkWarn}}"></view>
+            </view>
+        </view>
+        <view class="video-box-close" wx:if="{{needBuy}}">
+            <form bindsubmit="getBuyVideo" class="video-error" style="{{hasLogin?'top:12rpx;':''}}">
+                <view class="video-btn-top">购买后继续学习</view>
+                <button catchtap="bindvideo" class="video-error-btn" formType="submit">购买</button>
+                <text class="video-btn-bottom" wx:if="{{!hasLogin}}">已购买的用户可<text catchtap="logInBtn" class="login-look">登录查看</text>
+                </text>
+            </form>
+        </view>
+    </view>
+    <view class="fy-btn">
+        <view bindtap="bindtab" class="btn-list {{tab==3?'listhv':''}}" data-tab="3">
+            <text>讲义</text>
+        </view>
+        <view bindtap="bindtab" class="btn-list {{tab==1?'listhv':''}}" data-tab="1">
+            <text>选课</text>
+        </view>
+        <view bindtap="bindtab" class="btn-list {{tab==2?'listhv':''}}" data-tab="2">
+            <text>评价</text>
+        </view>
+    </view>
+    <scroll-view class="sy-content subject-class-list {{IsShare?'share':''}}" scrollIntoView="{{scrollSite}}" scrollY="true" style="display:{{tab==1?'block':'none'}}" wx:if="{{hasCourse}}">
+        <form bindsubmit="formSubmitVideo" reportSubmit="{{true}}">
+            <view bindtap="bindCourse" class="subject-class {{node.style}}  {{node.needBuy?'disable':''}} {{node.IsLockVideo==1&&!IsUnlock?'disabled':''}}" data-level="{{node.siteLevel}}" data-parentid="{{node.parentId}}" data-rootid="{{node.rootId}}" data-siteid="{{node.siteId}}" id="site{{node.siteId}}" style="display:{{node.display?'block':'none'}}" wx:for="{{treeData}}" wx:for-item="node" wx:key="siteId">
+                <view class="subject-class-title">
+                    <view class="subject-class-title-text">
+                        <text>{{node.siteName}}</text>
+                    </view>
+                    <button class="subject-class-video flex-row {{node.IsLockVideo==1&&!IsUnlock&&node.siteLevel==1?'iconfont icon_suo':''}}  {{node.IsLockVideo==1&&!IsUnlock&&node.siteLevel!=1?'icon_video_disabled':''}} {{node.needBuy&&node.siteLevel===1?'shop-icon':''}}  " hoverClass="none" id="analyze_xiaoneng" openType="contact" sessionFrom="{{XNConfigInfo.sessionFrom}}" wx:if="{{isIos&&node.needBuy&&node.siteLevel===1}}">
+                        <text>{{node.needBuy&&node.siteLevel===1?' 专享':''}}</text>
+                    </button>
+                    <button catchtap="bindvideo" class="subject-class-video {{node.IsLockVideo==1&&!IsUnlock&&node.siteLevel==1?'iconfont icon_suo':''}}  {{node.IsLockVideo==1&&!IsUnlock&&node.siteLevel!=1?'icon_video_disabled':''}}  flex-row {{node.needBuy&&node.siteLevel===1?' shop-icon':''}} " data-IsLockVideo="{{node.IsLockVideo}}" data-courseid="{{node.viewSite.courseId}}" data-learnusercount="{{node.LearnUserCount}}" data-lecture_image="{{node.viewSite.lectureImageUrl}}" data-lecture_image_count="{{node.viewSite.lectureImageCount}}" data-name="{{node.viewSite.siteName}}" data-needbuy="{{node.viewSite.needBuy}}" data-realcourseprice="{{node.RealCoursePrice}}" data-root-siteid="{{node.rootId}}" data-site-level="{{node.siteLevel}}" data-siteid="{{node.viewSite.siteId}}" data-size="{{node.viewSite.courseSize}}" data-vid="{{node.viewSite.videoId}}" formType="submit" hoverClass="none" wx:else>
+                        <text class="iconfont home_icon_goumai" wx:if="{{node.needBuy&&node.siteLevel===1}}"></text>
+                        <text>{{node.needBuy&&node.siteLevel===1?' 购买':''}}</text>
+                    </button>
+                </view>
+                <view class="subject-class-info">
+                    <text>{{node.learnDur}}分／{{node.duration}}分</text>
+                    <text>{{node.userCount}}人学习</text>
+                </view>
+            </view>
+        </form>
+    </scroll-view>
+    <scroll-view class="sy-content {{IsShare?'share':''}}" scrollY="true" wx:else>
+        <view class="subject-bg">
+            <view class="subject-img">
+                <image src="http://img02.exam8.com/img2017/minapp/index/non2.png"></image>
+            </view>
+            <view class="subject-text">
+                <text>当前科目下没有课程</text>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="sy-content1 {{IsShare?'share':''}}" style="display:{{tab==2?'block':'none'}}">
+        <scroll-view class="pj-box" scrollY="true">
+            <view class="course">
+                <view class="question-evaluatel">
+                    <view class="h2">{{total.avgStar}}</view>
+                    <view class="text">{{total.userCount}}人评价</view>
+                </view>
+                <view bindtap="bindEvaluate" class="pingjiakc" data-courseid="{{courseId}}">
+                    <view class="star">
+                        <view class="{{lastStar>0?'starhv':'star'}}-list" data-star="1"></view>
+                        <view class="{{lastStar>1?'starhv':'star'}}-list" data-star="2"></view>
+                        <view class="{{lastStar>2?'starhv':'star'}}-list" data-star="3"></view>
+                        <view class="{{lastStar>3?'starhv':'star'}}-list" data-star="4"></view>
+                        <view class="{{lastStar>4?'starhv':'star'}}-list" data-star="5"></view>
+                    </view>
+                    <view class="pingjia-title">
+                        <text>老师讲的怎么样？</text>
+                    </view>
+                </view>
+            </view>
+            <view class="pj-cont" wx:for="{{evaluations}}" wx:for-item="eva" wx:key="EvaluationId">
+                <view class="pj-tx">
+                    <image src="{{eva.PicUrl}}"></image>
+                </view>
+                <view class="pj-nr">
+                    <view class="username">
+                        <text>{{eva.NickName}}</text>
+                    </view>
+                    <view class="pj-star">
+                        <view class="pj-{{eva.AvgStar>0?'starhv':'star'}}-list"></view>
+                        <view class="pj-{{eva.AvgStar>1?'starhv':'star'}}-list"></view>
+                        <view class="pj-{{eva.AvgStar>2?'starhv':'star'}}-list"></view>
+                        <view class="pj-{{eva.AvgStar>3?'starhv':'star'}}-list"></view>
+                        <view class="pj-{{eva.AvgStar>4?'starhv':'star'}}-list"></view>
+                    </view>
+                    <view class="usercont">
+                        <text>{{eva.EvaluationContent}}</text>
+                    </view>
+                </view>
+                <view class="pjtime">
+                    <text>{{eva.DateCreateStr}}</text>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view>
+        <scroll-view class="sy-content2 {{IsShare?'share':''}}" scrollY="true" style="display:{{tab==3?'block':'none'}}">
+            <view class="nojiangyi" wx:if="{{lectureImgList!=null&&lectureImgList.length==0}}">
+                <view>
+                    <image class="nojiangyi-image" mode="widthFix" src="http://img02.exam8.com/img2017/minapp/index/non_new.png"></image>
+                </view>
+                <view class="nojiangyi-text" wx:if="{{needBuy}}">购买后查看</view>
+                <view class="nojiangyi-text" wx:if="{{!needBuy}}">讲义暂未上线，请耐心等待</view>
+            </view>
+            <view hidden="{{!image.loaded}}" wx:if="{{lectureImgList!=null}}" wx:for="{{lectureImgList}}" wx:for-item="image" wx:key="{{index}}">
+                <image binderror="bindError" bindload="bindLectureLoaded" data-index="{{image.index}}" mode="widthFix" src="{{image.url}}"></image>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="fenxiang" wx:if="{{IsShare!=1}}">
+        <button class="fenxiang-cont" openType="share">
+            <view class="fx-icon">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/icon/fenxiang.png"></image>
+            </view>
+            <view class="fx-text">分享课程</view>
+        </button>
+    </view>
+    <view class="papers-share-bar" wx:if="{{IsShare==1}}">
+        <button class="papers-share-btn flex-row" hoverClass="" openType="share">
+            <text class="iconfont icon_fenxiang"></text>
+            <text>分享课程</text>
+        </button>
+        <view bindtap="onMorePracticeJs" class="papers-share-btn">更多课程</view>
+    </view>
+    <form bindsubmit="formSubmitHongBao" reportSubmit="{{true}}">
+        <button animation="{{s_animationData}}" class="s_hongbao {{hbanmationState?'hide':''}}" formType="submit" hoverClass="" wx:if="{{ifHongb&&IsShare==1&&buyState}}">
+            <image class="s_hongbaoImage" src="http://img02.exam8.com/img2017/minapp/group/hongbaox.png"></image>
+        </button>
+    </form>
+    <block wx:if="{{showModal}}">
+        <import src="/template/modal/modal.template.wxml"></import>
+        <view bindtap="hideModal">
+            <template is="modal" data="{{...modalData}}"></template>
+        </view>
+    </block>
+</view>

@@ -1,0 +1,12 @@
+<template name="tabBar">
+    <view class="tabBar {{tabBarIsFixed?'tabBarFixed':''}}" id="freeTabBar">
+        <view class="tabBar-tabbox">
+            <view bindtap="tapTab" class="tab {{freeTabBar.tab==='detail'?'tab-is-selected':''}}" id="detail">
+                <text>详情</text>
+            </view>
+            <view bindtap="tapTab" class="tab {{freeTabBar.tab==='tracks'?'tab-is-selected':''}}" id="tracks">
+                <text>节目({{freeAlbum.tracks.totalCount}})</text>
+            </view>
+        </view>
+    </view>
+</template>

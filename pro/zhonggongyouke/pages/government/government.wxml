@@ -1,0 +1,46 @@
+<scroll-view bindscroll="scroll" scrollY="true" style="height:100vh;">
+    <view class="container">
+        <view class="list">
+            <view bindtap="toDetail" class="pltr" data-goods_id="{{item.goods_id}}" wx:for="{{lessonList}}" wx:key="*list">
+                <image class="pltr-img" src="{{item.banner_img}}"></image>
+                <view>
+                    <view class="pltr-title">{{item.name}}</view>
+                    <view class="pltr-bottom">
+                        <view class="pltr-teacher mr-8">
+                            <text class="pltr-name">{{item.teachers[0].name}}</text>
+                        </view>
+                        <view class="pltr-teacher" wx:if="{{item.teachers.length>1}}">
+                            <text class="pltr-name">{{item.teachers[1].name}}</text>
+                        </view>
+                        <view class="pltr-teacher" wx:if="{{item.teachers.length>2}}">
+                            <text class="pltr-name">等</text>
+                        </view>
+                        <image class="pltr-signed" src="/resources/already_registered.png" wx:if="{{item.is_buy==true}}"></image>
+                        <view class="pltr-price" wx:if="{{item.is_buy==false}}">
+                            <text class="pltr-little">￥</text>{{item.price}}</view>
+                        <view class="pltr-info" wx:if="{{item.is_buy==false}}">
+                            <text>{{item.chapter_num}}课时 | </text>
+                            <text>{{item.sell_num}}人已报</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view hidden="{{!showLoading}}">
+            <view class="loadingTip" hidden="{{!page.hasNext}}">
+                <image class="loadingTipImg" src="/resources/loading.gif"></image>
+                <text>加载中...</text>
+            </view>
+            <view class="loadingTip" hidden="{{page.hasNext}}">
+      没有更多了
+    </view>
+        </view>
+        <view hidden="{{showLoading}}">
+            <view class="loadingTip" hidden="{{!page.hasNext}}">
+                <image class="loadingTipImg" src="/resources/loading.gif"></image>
+                <text>加载中...</text>
+            </view>
+        </view>
+    </view>
+    <image bindtap="goIndex" class="cover-img" src="../../resources/offcn/cover.png" wx:if="{{share}}"></image>
+</scroll-view>

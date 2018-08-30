@@ -1,0 +1,31 @@
+<import src="/template/deblocking/deblocking_template.wxml"></import>
+<scroll-view class="practice-papers-box {{theme}} practice" scrollY="true">
+    <view class="subject-class-list">
+        <form bindsubmit="formSubmit" reportSubmit="true">
+            <button class="subject-class class-one" data-paper-id="{{item.PaperId}}" formType="submit" hoverClass="none" wx:for="{{paperEntityList}}" wx:key="paperEntity-key">
+                <view class="subject-class-title">
+                    <view class="practice-class-title-text">
+                        <text>
+                            <text class="new-icon" wx:if="{{item.IsNew==1}}">NEW</text>{{item.PaperName}}</text>
+                    </view>
+                    <view class="subject-class-video"></view>
+                </view>
+                <view class="subject-class-info">
+                    <text>难度{{item.DifficultyFactor}}</text>
+                    <text>{{item.ExamUserCount}}人做过</text>
+                </view>
+            </button>
+        </form>
+    </view>
+    <view bindtap="shareBoxBackground" class="share_practice_box" wx:if="{{sharePractice}}">
+        <template is="deblockingTemplate" data="{{theme:theme,courseShareName:courseShareName}}"></template>
+    </view>
+</scroll-view>
+<view bindtap="goBackIndex" class="goBackIndex" wx:if="{{IsShare==1}}">
+    <text class="iconfont icon_home"></text>
+</view>
+<form bindsubmit="formSubmitHongBao" reportSubmit="{{true}}">
+    <button animation="{{s_animationData}}" class="s_hongbao {{hbanmationState?'hide':''}}" formType="submit" hoverClass="none" wx:if="{{ifHongb&&IsShare==1&&buyState}}">
+        <image class="s_hongbaoImage" src="http://img02.exam8.com/img2017/minapp/group/hongbaox.png"></image>
+    </button>
+</form>

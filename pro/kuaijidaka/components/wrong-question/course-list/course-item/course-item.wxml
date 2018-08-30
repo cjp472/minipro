@@ -1,0 +1,23 @@
+<view class="wrong-question__item {{course.selected?'open':'close'}}">
+    <view catchtap="toggleClass" class="wrong-question__content">
+        <view class="wrong-question__info">
+            <view class="title">
+                {{course.course_title}}
+            </view>
+            <view class="count">
+                做错<text class="num">{{course.wrong_count}}</text>题
+            </view>
+        </view>
+        <view class="ico"></view>
+    </view>
+    <view class="wrong-question__calendars">
+        <navigator class="calendar__item" url="/pages/user_sub/wrong_question_detail/wrong_question_detail?course_calendar_id={{item.course_calendar_id}}" wx:for="{{course.course_calendar}}" wx:key="course_calendar_id">
+            <view class="title">
+                {{item.title}}
+            </view>
+            <view class="count">
+                做错<text class="num">{{item.wrong_count}}</text>题
+            </view>
+        </navigator>
+    </view>
+</view>

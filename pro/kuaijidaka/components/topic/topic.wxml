@@ -1,0 +1,44 @@
+<view class="hybridTheme-content {{applyType}}">
+    <view class="whole-topic {{folded?'folded':''}}">
+        <view class="elements" wx:for="{{contentArray}}" wx:key="index">
+            <view wx:if="{{item.type=='richText'}}">
+                <jdk-theme-rich-text applyType="{{applyType}}" richTextContent="{{item.content[0]}}"></jdk-theme-rich-text>
+            </view>
+            <view wx:if="{{item.type=='text'}}">
+                <jdk-theme-text applyType="{{applyType}}" textContent="{{item.content[0]}}"></jdk-theme-text>
+            </view>
+            <view wx:if="{{item.type=='picture'}}">
+                <jdk-theme-picture applyType="{{applyType}}" catch:previewImage="previewImage" editImg="{{item.content[0].editImg}}" editedHeight="{{item.content[0].editedHeight}}" editedWidth="{{item.content[0].editedWidth}}" imgAlign="{{item.content[0].picture_position}}" pictureMaxWidth="{{item.content[0].pictureMaxWidth}}" pictureUrl="{{item.content[0].picture_url}}"></jdk-theme-picture>
+            </view>
+            <view class="mb-30 flex-center" wx:if="{{item.type=='voice'||item.type=='recording'}}">
+                <jdk-audio bind:playAudio="playAudio" bind:stopAudio="stopAudio" colorScheme="{{colorScheme}}" isPlaying="{{playingVoice.voice_url==item.content[0].voice_url&&playingVoice.isPlaying&&currentAudioType=='topic'?true:false}}" size="MAX" voice="{{item.content[0]}}" voiceStatus="{{playingVoice.voice_url==item.content[0].voice_url?voiceStatus:''}}" wx:if="{{applyType=='topic'}}"></jdk-audio>
+                <jdk-theme-audio catchendplay="playEnd" catchplay="stopOtherAudios" colorScheme="{{colorScheme}}" playRule="{{playRule}}" playingSrc="{{playingSrc}}" size="MAX" voice="{{item.content[0]}}" wx:else></jdk-theme-audio>
+            </view>
+            <view class="mb-30" wx:if="{{item.type=='video'}}">
+                <jdk-theme-video applyScene="hybrid-theme" catchvideoplay="toFold" deleteBtn="{{false}}" height="{{videoHeight}}" index="{{0}}" url="{{item.content[0].video_url}}" videoArr="{{[item.content[0].video_url]}}" width="{{videoWidth}}"></jdk-theme-video>
+            </view>
+            <view class="flex-center" wx:if="{{item.type=='link'}}">
+                <jdk-theme-link applyType="{{applyType}}" linkTitle="{{item.content[0].linkTitle}}" linkType="{{item.content[0].linkType}}" linkUrl="{{item.content[0].link}}"></jdk-theme-link>
+            </view>
+            <view wx:if="{{item.type=='eval'}}">
+                <jdk-theme-eval applyType="{{applyType}}" notes="{{item.content[0].notes}}" text="{{item.content[0].text}}" voice="{{item.content[0].voice}}"></jdk-theme-eval>
+            </view>
+            <view class="flex-center" wx:if="{{item.type=='doc'||item.type=='pdf'||item.type=='ppt'||item.type=='xslx'||item.type=='xls'}}">
+                <jdk-theme-accessory accessoryItem="{{item}}" applyType="{{applyType}}"></jdk-theme-accessory>
+            </view>
+            <view class="qr-box-pc" wx:if="{{item.type=='qrcode'}}">
+                <jdk-theme-qrcode catch:previewQr="previewQr" editedHeight="{{item.content[0].editedHeight}}" editedWidth="{{item.content[0].editedWidth}}" picture_url="{{item.content[0].picture_url}}" title="{{title}}"></jdk-theme-qrcode>
+            </view>
+            <view wx:if="{{item.type=='courseLink'}}">
+                <jdk-course-link appId="{{item.content[0].appId}}" courseId="{{item.content[0].courseId}}"></jdk-course-link>
+            </view>
+        </view>
+    </view>
+    <view catchtap="toggleFold" class="fold-box {{folded?'down':'up'}}" wx:if="{{tooManyTopic&&(applyType==='topic'||applyType==='punch-card'||applyType==='question'||applyType==='call')}}">
+        <view class="fold-tip {{applyType==='call'?'green':''}}">
+      {{folded&&applyType==='call'?'查看更多':folded?'展开'+foldedTxt:applyType==='call'?'收起':'折叠'+foldedTxt}}
+      <view class="ico {{folded?'down':'up'}}"></view>
+        </view>
+    </view>
+</view>
+<global-audio catchaudioType="setAudioType" catchendplay="playEnd" catchlastplay="playLast" catchnextplay="playNext" catchstartPlay="startPlay" catchstopPlay="stopPlay" catchupdate="voiceUpdate" colorScheme="{{colorScheme}}" currentAudioType="{{currentAudioType}}" page="topic" voice="{{playingVoice}}" wx:if="{{applyType=='topic'}}"></global-audio>

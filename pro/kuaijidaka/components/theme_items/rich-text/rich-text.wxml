@@ -1,0 +1,12 @@
+<view class="text-box-pc ql-container" wx:if="{{applyType!=='read-reading'&&applyType!=='read-punching'}}">
+    <view class="ql-editor">
+        <rich-text catchlongpress="showActionSheet" nodes="{{richTextContent}}"></rich-text>
+    </view>
+</view>
+<view class="text-box-pc ql-container {{applyType}}" wx:else>
+    <view class="ql-editor">
+        <rich-text catchlongpress="showActionSheet" nodes="{{richTextContent}}"></rich-text>
+    </view>
+    <view class="triangle {{applyType}}"></view>
+</view>
+<jdk-copy-modal bindmodalCancel="modalCancel" bindmodalConfirm="modalConfirm" cancelText="取消" confirmText="复制全部" content="{{copyContent}}" isLargeContent="{{isLargecopyData}}" needCancel="{{true}}" title="复制文本" wx:if="{{copyState}}"></jdk-copy-modal>

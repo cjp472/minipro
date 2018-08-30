@@ -1,0 +1,60 @@
+.user-modify-box {
+    background: #f2f3f4;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.user-modify {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0 30rpx;
+    background: #ffffff;
+    align-items: center;
+    font-size: 30rpx;
+    color: #4e4e4e;
+    justify-content: space-between;
+    border-bottom: 1rpx solid #ebebeb;
+}
+
+.user-modify:nth-child(1) {
+    height: 166rpx;
+}
+
+.user-modify:nth-child(2) {
+    height: 110rpx;
+}
+
+.user-modify .user-img {
+    width: 92rpx;
+    height: 92rpx;
+    vertical-align: middle;
+    margin-right: 20rpx;
+    border-radius: 50%;
+}
+
+.user-modify text {
+    color: #9a9a9a;
+    margin-right: 20rpx;
+    vertical-align: middle;
+}
+
+.user-modify .icon-right {
+    width: 16rpx;
+    height: 28rpx;
+    vertical-align: middle;
+}
+
+.user-continue {
+    height: 110rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #fc5e5e;
+    background: #ffffff;
+    border-bottom: 1rpx solid #ebebeb;
+    border-top: 1rpx solid #ebebeb;
+    line-height: 110rpx;
+    margin-top: 20rpx;
+}

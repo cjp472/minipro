@@ -1,0 +1,57 @@
+<view class="container {{theme}}">
+    <scroll-view bindscroll="bindscroll" bindscrolltolower="bindBottom" class="kemu" lowerThreshold="{{bottomTHD}}" scrollY="true">
+        <view class="distance"></view>
+        <view class="current_text_box" wx:if="{{!singlePackage}}">
+            <view class="current_test">当前考试</view>
+            <view class="current_choose_test">
+                <view class="current_Big_testname">
+                    <view class="current_Big_testname_image">
+                        <text class="subject_icon iconfont {{subjetIcon?subjetIcon:'icon-icon_moren'}}"></text>
+                    </view>
+                    <view class="subjectTitle">{{SubjectParentname}}</view>
+                </view>
+                <view class="cut_off_rulebox">
+                    <view class="cut_off_rule"></view>
+                </view>
+                <view bindtap="chooseTest" class="current_choose_bigtestname">
+                    <text>切换考试</text>
+                    <text class="iconfont  icon-icon_arrow_you "></text>
+                </view>
+            </view>
+        </view>
+        <view class="monopackSingle_choseSubject" wx:if="{{singlePackage}}">选择科目</view>
+        <view wx:if="{{!isTotal}}">
+            <view class=" {{!singlePackage?'':'jiange'}}"></view>
+            <view class="pub_subject">
+                <view class="sub_content_line"></view>
+                <view class="colum_subject">
+                    <text>公共科目</text>
+                </view>
+                <view class="sub_content_line"></view>
+            </view>
+            <view class="public_subject" wx:if="{{publicData.lenght!=0}}">
+                <view bindtap="bindChoose" class="kcbtn kcbtn1" data-id="{{item.SubjectId}}" data-name="{{item.SubjectName}}" hover="true" hoverClass="kcbtn2" wx:for="{{publicData}}" wx:key="SubjectId">
+                    <text>{{item.SubjectName}}</text>
+                </view>
+            </view>
+            <view class="pub_subject">
+                <view class="sub_content_line"></view>
+                <view class="colum_subject">
+                    <text>专业科目</text>
+                </view>
+                <view class="sub_content_line"></view>
+            </view>
+            <view bindtap="bindChoose" class="kcbtn kcbtn1" data-id="{{item.SubjectId}}" data-name="{{item.SubjectName}}" hover="true" hoverClass="kcbtn2" wx:for="{{majorData}}" wx:key="SubjectId">
+                <text>{{item.SubjectName}}</text>
+            </view>
+        </view>
+        <view wx:if="{{isTotal}}">
+            <view class=" no_pub_subject  {{!singlePackage?'no_pub_subject':'no_pub_subject1'}}"></view>
+            <view bindtap="bindChoose" class="kcbtn kcbtn1" data-id="{{item.SubjectId}}" data-name="{{item.SubjectName}}" hover="true" hoverClass="kcbtn2" wx:for="{{subjects}}" wx:key="SubjectId">
+                <text>{{item.SubjectName}}</text>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="btm-icon" style="display:{{bottom?'block':'none'}}"></view>
+    <view class="top-icon"></view>
+</view>

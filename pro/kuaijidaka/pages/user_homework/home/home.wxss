@@ -1,0 +1,732 @@
+@import "../../common/home-search-box.wxss";
+
+@import "../../../__wuBaseWxss__/7.wxss";
+
+@import "../../../__wuBaseWxss__/1.wxss";
+
+@import "../../../__wuBaseWxss__/9.wxss";
+
+@import "../../../__wuBaseWxss__/8.wxss";
+
+page {
+    padding-bottom: 200rpx;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.homework-top {
+    width: 690rpx;
+    padding: 0 30rpx;
+    height: 88rpx;
+    background-color: #22dd82;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homework-top__text {
+    width: 100rpx;
+    font-size: 30rpx;
+    color: rgba(255,255,255,0.8);
+}
+
+.homework-top__title {
+    position: relative;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    max-width: 420rpx;
+}
+
+.homework-top__title--current {
+    font-size: 30rpx;
+    color: #fefefe;
+    margin-right: 10rpx;
+    max-width: 400rpx;
+}
+
+.icon-xiala1 {
+    font-size: 18rpx;
+}
+
+.theme {
+    width: 690rpx;
+    padding: 30rpx;
+    background-color: #fff;
+    border-bottom: 1rpx solid #eee;
+}
+
+.theme__title {
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -35rpx -900rpx;
+    display: inline-block;
+    margin-right: 10rpx;
+}
+
+.theme__title-text {
+    font-size: 32rpx;
+    color: #3c4856;
+    line-height: 50rpx;
+    display: inline-block;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+.prompt-message {
+    background: #fff;
+    padding: 10rpx 0;
+}
+
+.prompt-message span {
+    width: 260rpx;
+    height: 70rpx;
+    display: block;
+    background: #ff7474;
+    border-radius: 10rpx;
+    margin: 0 auto;
+    line-height: 70rpx;
+    text-align: center;
+}
+
+.prompt-message span text {
+    font-size: 28rpx;
+    color: #fff;
+}
+
+.personal {
+    background: #fff;
+    padding: 1rpx;
+}
+
+.personal .user {
+    padding: 30rpx 60rpx 30rpx 60rpx;
+    height: 96rpx;
+}
+
+.personal .user .img {
+    float: left;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.14),0px 4px 2px 0px rgba(0,0,0,0.04);
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 88rpx;
+    border: 4rpx solid #fff;
+}
+
+.personal .user .img image {
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 88rpx;
+}
+
+.personal .user .text {
+    float: left;
+    margin-left: 20rpx;
+    padding-top: 20rpx;
+}
+
+.personal .user .text .h2 {
+    width: 310rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #3c4856;
+}
+
+.personal .user .text .evaluate {
+    position: relative;
+}
+
+.personal .user .text .evaluate span {
+    width: 150rpx;
+    height: 30rpx;
+    display: block;
+    float: left;
+    margin-top: 10rpx;
+    margin-right: 10rpx;
+}
+
+.personal .user .text .evaluate1 span {
+    background-position: -150rpx -330rpx;
+}
+
+.personal .user .text .evaluate2 span {
+    background-position: 0 -360rpx;
+}
+
+.personal .user .text .evaluate3 span {
+    background-position: -150rpx -360rpx;
+}
+
+.personal .user .text .evaluate4 span {
+    background-position: 0 -390rpx;
+}
+
+.personal .user .text .evaluate5 span {
+    background-position: -150rpx -390rpx;
+}
+
+.personal .user .text .evaluate text {
+    font-size: 36rpx;
+    color: #ffd200;
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 5rpx;
+    position: absolute;
+    top: -5rpx;
+    left: 160rpx;
+}
+
+.personal .user .fr {
+    float: right;
+    margin-top: 20rpx;
+}
+
+.personal .user .fr .li {
+    width: 140rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border: 2rpx solid #eee;
+    padding: 0;
+    margin: 0 10rpx;
+    font-size: 24rpx;
+    color: #8b97a4;
+    padding-left: 26rpx;
+    float: left;
+    border-radius: 10rpx;
+}
+
+.personal .user .fr .li.selected {
+    border: 2rpx solid #fd5a15;
+    color: #fd5a15;
+}
+
+.personal .user .fr .li span {
+    position: relative;
+}
+
+.personal .user .fr .li .ico {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    left: -36rpx;
+    top: 50%;
+    margin-top: -13rpx;
+}
+
+.personal .user .fr .edit .ico {
+    background-position: -120rpx 0;
+}
+
+.go_card {
+    background: #fff;
+    padding: 80rpx 0;
+}
+
+.go_card .text {
+    color: #8b97a4;
+    font-size: 28rpx;
+    line-height: 60rpx;
+    margin: 30rpx 0;
+    text-align: center;
+}
+
+.no_card {
+    background: #fff;
+    padding: 30px 0 10rpx;
+}
+
+.no_card .img {
+    background: url(https://ap.grouplus.com/static/images/img_nocard.png?v=1);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    width: 300rpx;
+    height: 300rpx;
+    margin: 0 auto;
+    position: relative;
+}
+
+.no_card .h2 {
+    font-size: 34rpx;
+    color: #8b97a4;
+    line-height: 40rpx;
+    margin: 30rpx 0 10rpx 0;
+    text-align: center;
+}
+
+.no_card .text {
+    color: #c4c8cc;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    margin: 10rpx 0 30rpx 0;
+    text-align: center;
+}
+
+.future_card {
+    background: #fff;
+    padding: 60rpx 0;
+}
+
+.future_card .icon {
+    width: 500rpx;
+    height: 400rpx;
+    background-position: -124rpx 24rpx;
+    margin: 0 125rpx;
+    position: relative;
+}
+
+.future_card .h2 {
+    font-size: 34rpx;
+    color: #8b97a4;
+    line-height: 40rpx;
+    margin: 30rpx 0 10rpx 0;
+    text-align: center;
+}
+
+.future_card view {
+    font-size: 28rpx;
+    color: #8b97a4;
+    text-align: center;
+    line-height: 40rpx;
+}
+
+.future_card .text {
+    color: #c4c8cc;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    margin: 10rpx 0 30rpx 0;
+    text-align: center;
+}
+
+.future_card .countDown {
+    color: #22dd82;
+}
+
+.user-title {
+    height: 93rpx;
+    position: relative;
+}
+
+.user-title strong {
+    width: 354rpx;
+    height: 1rpx;
+    background: #bec0c2;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -177rpx;
+    margin-top: -0.5rpx;
+}
+
+.user-title span {
+    height: 40rpx;
+    font-size: 24rpx;
+    display: block;
+    background: #edf0f3;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    color: #8b97a4;
+    margin-left: -114rpx;
+    margin-top: -20rpx;
+    z-index: 80;
+    line-height: 40rpx;
+    text-align: left;
+    padding-left: 30rpx;
+}
+
+.other-user-title span {
+    left: 0;
+    margin-left: 0;
+    margin-top: -10rpx;
+}
+
+.other-user-title span.rank-span {
+    left: 50%;
+    margin-left: -114rpx;
+    margin-top: -10rpx;
+    color: #5093d2;
+}
+
+.user-title span text {
+    color: #3c4856;
+}
+
+.user-list {
+    margin: 20rpx 30rpx;
+}
+
+.user-list .ul .li {
+    background: #fff;
+    padding: 30rpx 0 0 0;
+    position: relative;
+    margin-bottom: 50rpx;
+    border-radius: 10rpx;
+}
+
+.user-list .ul .li .user {
+    overflow: hidden;
+    padding: 0 30rpx 20rpx 30rpx;
+}
+
+.user-list .ul .li .user .img {
+    float: left;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.14),0px 4px 2px 0px rgba(0,0,0,0.04);
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 88rpx;
+    border: 4rpx solid #fff;
+    position: absolute;
+    left: 30rpx;
+    top: -17rpx;
+}
+
+.user-list .ul .li .user .img image {
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 88rpx;
+}
+
+.user-list .ul .li .user .text {
+    float: left;
+    line-height: 50rpx;
+    width: 502rpx;
+    margin-left: 128rpx;
+}
+
+.user-list .ul .li .user .text .h2 {
+    float: left;
+    max-width: 450rpx;
+    font-size: 30rpx;
+    color: #3c4856;
+}
+
+.user-list .ul .li .user .text .evaluate {
+    float: right;
+    position: relative;
+}
+
+.user-list .ul .li .user .text .evaluate span {
+    width: 150rpx;
+    height: 30rpx;
+    display: block;
+    float: left;
+    margin-top: 7rpx;
+    margin-right: 60rpx;
+}
+
+.user-list .ul .li .user .text .evaluate1 span {
+    background-position: -150rpx -330rpx;
+}
+
+.user-list .ul .li .user .text .evaluate2 span {
+    background-position: 0 -360rpx;
+}
+
+.user-list .ul .li .user .text .evaluate3 span {
+    background-position: -150rpx -360rpx;
+}
+
+.user-list .ul .li .user .text .evaluate4 span {
+    background-position: 0 -390rpx;
+}
+
+.user-list .ul .li .user .text .evaluate5 span {
+    background-position: -150rpx -390rpx;
+}
+
+.user-list .ul .li .user .text .evaluate text {
+    font-size: 36rpx;
+    color: #ffd200;
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 5rpx;
+    position: absolute;
+    top: -5rpx;
+    left: 160rpx;
+}
+
+.footer {
+    width: 690rpx;
+}
+
+@import "../../../__wuBaseWxss__/15.wxss";
+
+.detail-content {
+    clear: both;
+    margin-top: 1rpx;
+}
+
+.personal .detail-content,.personal .detail-message {
+    padding: 0 60rpx;
+}
+
+.personal .detail-bottom {
+    padding: 10rpx 60rpx 30rpx 60rpx;
+}
+
+.personal .detail-message {
+    padding: 30rpx 60rpx;
+}
+
+.personal .detail-message .thumbs-up {
+    background-position: 5rpx 7rpx;
+}
+
+.calendar-list .days .later-than-today span {
+    background-image: none;
+}
+
+.password-public .i {
+    opacity: 1;
+    background: #f5f5f6;
+}
+
+.fold {
+    height: 155rpx;
+    overflow: hidden;
+}
+
+.array-down {
+    background-position: -60rpx -60rpx!important;
+}
+
+.array-up {
+    background-position: -90rpx -60rpx!important;
+}
+
+.my-punch {
+    margin: 40rpx 30rpx;
+    border: solid 1rpx #eee;
+    border-radius: 10rpx;
+    position: relative;
+}
+
+.my-punch .user {
+    padding: 10rpx 30rpx;
+}
+
+.my-punch .detail-content,.my-punch .detail-message {
+    padding: 20rpx 30rpx;
+}
+
+.my-punch .detail-bottom {
+    padding: 10rpx 30rpx 30rpx 30rpx;
+}
+
+.personal .user-title {
+    color: #c5c9cd;
+    margin-bottom: -40rpx;
+}
+
+.personal .user-title span {
+    background: #fff;
+    width: 150rpx;
+    margin-left: -75rpx;
+    text-align: center;
+}
+
+.personal strong {
+    background: #c5c9cd;
+    height: 2rpx;
+    width: 300rpx;
+    margin-left: -150rpx;
+}
+
+.stick {
+    width: 75rpx;
+    height: 75rpx;
+    position: absolute;
+    z-index: 99;
+    top: -6rpx;
+    right: -6rpx;
+}
+
+.stick .ico {
+    width: 75rpx;
+    height: 75rpx;
+    background-position: 0 -520rpx;
+}
+
+.sort-punchcard {
+    position: absolute;
+    right: 30rpx;
+    color: #a6abb0;
+    padding-right: 40rpx;
+    font-size: 24rpx;
+    top: 50%;
+    margin-top: -6rpx;
+}
+
+.ico-triangle-up {
+    position: absolute;
+    left: 70%;
+    top: -13rpx;
+    border-left: 15rpx solid transparent;
+    border-right: 15rpx solid transparent;
+    border-bottom: 15rpx solid white;
+}
+
+.ico-arrow-down {
+    background-position: -210rpx -30rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30rpx;
+    height: 30rpx;
+    transform: rotate(90deg);
+}
+
+.sort-options {
+    position: absolute;
+    width: 265rpx;
+    right: 0;
+    top: 50rpx;
+    background-color: white;
+    border-radius: 8rpx;
+    color: black;
+    z-index: 100;
+    box-shadow: -2px 4px 2px 0px rgba(0,0,0,0.05),0px 2px 2px 0px rgba(0,0,0,0.04);
+}
+
+.sort-option,.sort-option-search {
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 30rpx;
+    border-bottom: solid 1rpx #edf0f3;
+    position: relative;
+}
+
+.sort-option.last {
+    border-bottom: none;
+}
+
+.sort-option .ico,.sort-option-search .ico {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    right: 30rpx;
+    top: 50%;
+    margin-top: -20rpx;
+}
+
+.sort-option .ico {
+    background-position: -240rpx -90rpx;
+}
+
+.sort-option-search .ico {
+    background-position: -42rpx -596rpx;
+}
+
+@import "../../common/reply.wxss";
+
+.public .content .h2 {
+    color: black;
+}
+
+.public .content .p .inputext {
+    margin: 0 70rpx;
+    background: #edf0f3;
+}
+
+.locked {
+    margin: 30rpx;
+    background-color: #fff;
+    height: 500rpx;
+}
+
+.lock-pic {
+    background: url(http://jingdaka.oss-cn-shanghai.aliyuncs.com/images/lock.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 400rpx;
+    height: 500rpx;
+}
+
+.whole {
+    font-size: 28rpx;
+    color: #5093d2;
+}
+
+.time_limit {
+    text-align: center;
+    font-size: 24rpx;
+    margin-top: 5rpx;
+    color: #8b97a4;
+}
+
+.voice-box .add_voice .voice .ico-box {
+    background-color: #22dd82;
+}
+
+.voice-box .add_voice .voice .line-box {
+    background-color: #22dd82;
+}
+
+.voice-box .add_voice .voice .span .schedule {
+    background: #16c786;
+}
+
+.public .content input {
+    margin: 40rpx 40rpx 0rpx 40rpx;
+    padding-left: 34rpx;
+    height: 84rpx;
+    line-height: 84rpx;
+    vertical-align: middle;
+    border-radius: 5rpx;
+    color: #8b97a4;
+    font-size: 28rpx;
+    background: #edf0f3;
+}
+
+.theme-content .title {
+    height: 78rpx;
+    padding: 0 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    border-bottom: 1rpx solid #eee;
+}
+
+.theme-content .title .homework-title {
+    height: 48rpx;
+    line-height: 48rpx;
+    margin: auto;
+    font-size: 30rpx;
+    color: #3c4856;
+    border-radius: 48rpx;
+    text-align: center;
+    background-color: #edf0f3;
+    position: relative;
+    padding-right: 50rpx;
+    padding-left: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.theme-content .title .homework-title .ico-arrow-down {
+    top: 9rpx;
+    right: 15rpx;
+}
+
+.line--public {
+    background-color: inherit;
+}
+
+.line--public .user-title span {
+    background-color: rgb(237,240,243);
+}
+
+.title__text {
+    width: 80%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

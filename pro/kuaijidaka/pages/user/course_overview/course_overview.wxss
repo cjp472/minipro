@@ -1,0 +1,664 @@
+@import "../../../__wuBaseWxss__/9.wxss";
+
+.top-back {
+    width: 750rpx;
+    height: 60rpx;
+    background-color: #edf0f3;
+    margin-bottom: -29rpx;
+}
+
+.admin_bg .button--free {
+    color: #4f598f!important;
+}
+
+.info {
+    margin: -29rpx 30rpx 40rpx 30rpx;
+    border-radius: 8rpx;
+    background-color: #fff;
+    padding: 30rpx 30rpx 40rpx 30rpx;
+}
+
+.share-note {
+    width: 94rpx;
+    height: 60rpx;
+    padding: 0 20rpx 0 30rpx;
+    background-color: #fff;
+    box-shadow: 0 0 19rpx 0 rgba(102,102,102,0.2);
+    border-radius: 30rpx 0 0 30rpx;
+    position: fixed;
+    top: 30rpx;
+    right: 0;
+    color: #22dd82;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+}
+
+.share-note .icon-fenxiang1 {
+    color: #22dd82;
+    font-size: 30rpx;
+}
+
+.course-name.homework {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.tip {
+    margin-top: 20rpx;
+    padding-bottom: 80rpx;
+    border-bottom: 1rpx solid #d9e1e9;
+}
+
+.course-intro {
+    background-color: #fff;
+    border-radius: 8rpx;
+    position: relative;
+    margin: 0 30rpx 0 30rpx;
+    padding: 30rpx 30rpx 40rpx;
+}
+
+.course-intro-margin-bottom {
+    width: 100%;
+    height: 158rpx;
+}
+
+.bottom-fixed {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    width: 750rpx;
+    height: 88rpx;
+    z-index: 9999;
+}
+
+.price {
+    color: #22dd82;
+    text-align: center;
+    font-size: 32rpx;
+    line-height: 72rpx;
+}
+
+.price.admin {
+    color: #4f598f;
+}
+
+.price--border {
+    border-bottom: solid 1rpx #d9e1e9;
+    padding-bottom: 30rpx;
+    margin-bottom: 30rpx;
+}
+
+.price--payed {
+    color: #3c4856;
+}
+
+.price__ico {
+    font-size: 44rpx;
+}
+
+.price__number {
+    font-size: 72rpx;
+    display: inline-block;
+    margin-top: 20rpx;
+}
+
+.nodata {
+    padding: 50rpx 0;
+}
+
+.nodata .strong {
+    font-size: 30rpx;
+    display: block;
+    font-weight: bold;
+    color: #8b97a4;
+    margin-top: 60rpx;
+}
+
+.bottom-fixed .button--primary {
+    background-color: #22dd82;
+    font-size: 36rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 88rpx;
+    width: 750rpx;
+    height: 88rpx;
+    display: inline-block!important;
+}
+
+.bottom-fixed .button--primary.half {
+    width: 490rpx;
+}
+
+.button--free {
+    background-color: #fff;
+    font-size: 36rpx;
+    color: #22dd82!important;
+    text-align: center!important;
+    line-height: 88rpx!important;
+    width: 260rpx;
+    height: 88rpx;
+    display: inline-block!important;
+}
+
+.info-detail {
+    text-align: left;
+    border-radius: 8rpx;
+    margin: 0 30rpx 20rpx;
+    background-color: #fff;
+    position: relative;
+}
+
+.info-detail.is-custom {
+    color: #fff!important;
+}
+
+.course-name {
+    font-size: 36rpx;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 20rpx;
+    font-weight: bold;
+}
+
+.participator {
+    font-size: 20rpx;
+    text-align: center;
+}
+
+.texts-box {
+    font-size: 24rpx;
+    text-align: center;
+    line-height: 36rpx;
+}
+
+.banner-one {
+    color: #00552c;
+}
+
+.banner-one.show-participator.show-texts-box {
+    background: url("http://static3topen.jingdaka.com/images/course_overview_banner1-1.png?v=2") no-repeat top left;
+    background-size: 690rpx;
+    width: 690rpx;
+    height: 400rpx;
+}
+
+.banner-one.show-participator.show-texts-box .course-name {
+    position: absolute;
+    top: 90rpx;
+    left: 66rpx;
+    width: 518rpx;
+    height: 120rpx;
+    line-height: 100rpx;
+}
+
+.banner-one.show-participator.show-texts-box .participator {
+    position: absolute;
+    left: 190rpx;
+    top: 180rpx;
+    width: 310rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.banner-one.show-participator.show-texts-box .texts-box {
+    width: 490rpx;
+    height: 100rpx;
+    display: flex;
+    position: absolute;
+    top: 220rpx;
+    left: 100rpx;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20rpx 0;
+}
+
+.banner-one.show-participator.hide-texts-box {
+    background: url("http://static3topen.jingdaka.com/images/course_overview_banner1-2.png") no-repeat top left;
+    background-size: 690rpx;
+    width: 690rpx;
+    height: 400rpx;
+}
+
+.banner-one.show-participator.hide-texts-box .course-name {
+    position: absolute;
+    top: 140rpx;
+    left: 66rpx;
+    width: 518rpx;
+    height: 110rpx;
+    line-height: 90rpx;
+}
+
+.banner-one.show-participator.hide-texts-box .participator {
+    position: absolute;
+    left: 190rpx;
+    top: 224rpx;
+    width: 310rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.admin_bg .button--primary {
+    background-color: #4f598f;
+}
+
+.public .content .mobile {
+    font-size: 36rpx;
+    color: #000;
+    padding-left: 40rpx;
+    font-weight: bold;
+}
+
+.public .content .sub-mobile {
+    font-size: 28rpx;
+    color: #999;
+    padding-left: 40rpx;
+    margin-top: 20rpx;
+}
+
+.contact-box {
+    display: flex;
+    align-items: center;
+    width: 520rpx;
+    border-radius: 8rpx;
+    border: 1rpx solid #d9e1e9;
+    background-color: #edf0f3;
+    margin: 14rpx 30rpx 34rpx 40rpx;
+    margin-top: 14rpx;
+    margin-bottom: 34rpx;
+    position: relative;
+    color: #8b97a4;
+    font-size: 28rpx;
+    height: 88rpx;
+}
+
+.contact-box .auto {
+    width: 370rpx;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+    padding: 0 10rpx;
+}
+
+.input {
+    border: 1rpx solid #d9e1e9;
+    width: 500rpx;
+    border-radius: 8rpx;
+    margin: 14rpx 30rpx 34rpx 40rpx;
+    padding: 0 10rpx;
+    height: 88rpx;
+    background-color: #edf0f3;
+}
+
+.placeholder {
+    font-size: 26rpx;
+    color: #8b97a4;
+}
+
+.contact-box .line {
+    width: 2rpx;
+    height: 30rpx;
+    position: absolute;
+    top: 29rpx;
+    right: 140rpx;
+    background-color: #d9e1e9;
+}
+
+.contact-box .get-tel {
+    font-size: 24rpx;
+    color: #5093d2;
+    line-height: 88rpx;
+    background-color: #edf0f3;
+}
+
+.banner-one.hide-participator.hide-texts-box {
+    background: url("http://static3topen.jingdaka.com/images/course_overview_banner1-3.png") no-repeat top left;
+    background-size: 690rpx;
+    width: 690rpx;
+    height: 400rpx;
+}
+
+.banner-one.hide-participator.hide-texts-box .course-name {
+    position: absolute;
+    top: 140rpx;
+    left: 66rpx;
+    width: 518rpx;
+    height: 110rpx;
+    line-height: 110rpx;
+}
+
+.banner-one.hide-participator.show-texts-box {
+    background: url("http://static3topen.jingdaka.com/images/course_overview_banner1-4.png") no-repeat top left;
+    background-size: 690rpx;
+    width: 690rpx;
+    height: 400rpx;
+}
+
+.banner-one.hide-participator.show-texts-box .course-name {
+    position: absolute;
+    top: 90rpx;
+    left: 66rpx;
+    width: 518rpx;
+    height: 120rpx;
+    line-height: 100rpx;
+}
+
+.banner-one.hide-participator.show-texts-box .texts-box {
+    width: 490rpx;
+    height: 100rpx;
+    display: flex;
+    position: absolute;
+    top: 210rpx;
+    left: 100rpx;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20rpx 0;
+}
+
+.banner-two {
+    background: url("http://static3topen.jingdaka.com/images/course_overview_banner2-1.png") no-repeat top left;
+    background-size: 690rpx 400rpx;
+    width: 690rpx;
+    height: 400rpx;
+    color: #fff;
+}
+
+.banner-two.show-participator.hide-texts-box .course-name,.banner-three.show-participator.hide-texts-box .course-name {
+    position: absolute;
+    top: 134rpx;
+    left: 45rpx;
+    width: 560rpx;
+    height: 74rpx;
+    line-height: 74rpx;
+    border-bottom: 2rpx dashed #bfbaba;
+}
+
+.banner-two.show-participator.hide-texts-box .participator,.banner-three.show-participator.hide-texts-box .participator {
+    position: absolute;
+    top: 214rpx;
+    left: 45rpx;
+    width: 600rpx;
+    height: 52rpx;
+    line-height: 52rpx;
+}
+
+.banner-two.show-participator.show-texts-box .course-name,.banner-three.show-participator.show-texts-box .course-name {
+    position: absolute;
+    top: 128rpx;
+    left: 45rpx;
+    width: 560rpx;
+    height: 74rpx;
+    line-height: 74rpx;
+    border-bottom: 2rpx dashed #bfbaba;
+}
+
+.banner-two.show-participator.show-texts-box .participator,.banner-three.show-participator.show-texts-box .participator {
+    position: absolute;
+    top: 83rpx;
+    left: 45rpx;
+    width: 600rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+}
+
+.banner-two.show-participator.show-texts-box .texts-box,.banner-three.show-participator.show-texts-box .texts-box {
+    width: 600rpx;
+    height: 100rpx;
+    display: flex;
+    position: absolute;
+    top: 205rpx;
+    left: 45rpx;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10rpx 0;
+}
+
+.banner-two.hide-participator.hide-texts-box .course-name,.banner-three.hide-participator.hide-texts-box .course-name {
+    position: absolute;
+    top: 175rpx;
+    left: 45rpx;
+    width: 560rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.banner-two.hide-participator.show-texts-box .course-name,.banner-three.hide-participator.show-texts-box .course-name {
+    position: absolute;
+    top: 101rpx;
+    left: 45rpx;
+    width: 560rpx;
+    height: 74rpx;
+    line-height: 74rpx;
+    border-bottom: 2rpx dashed #bfbaba;
+}
+
+.banner-two.hide-participator.show-texts-box .texts-box,.banner-three.hide-participator.show-texts-box .texts-box {
+    width: 600rpx;
+    height: 100rpx;
+    display: flex;
+    position: absolute;
+    top: 175rpx;
+    left: 45rpx;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10rpx 0;
+}
+
+.banner-three {
+    width: 690rpx;
+    height: 400rpx;
+    background-color: #fff;
+    color: #999;
+}
+
+.banner-three .course-name {
+    color: #22dd82;
+}
+
+.is-custom.banner-three .course-name {
+    color: #fff;
+}
+
+.handpick {
+    margin: 0 30rpx;
+}
+
+.handpick__title {
+    height: 72rpx;
+    width: 160rpx;
+    margin: 0 auto;
+    line-height: 80rpx;
+    font-size: 24rpx;
+    color: #c5c9cd;
+    text-align: center;
+    position: relative;
+}
+
+.handpick__line--left {
+    position: absolute;
+    top: 50%;
+    left: -40rpx;
+    width: 40rpx;
+    height: 1rpx;
+    background-color: #c5c9cd;
+}
+
+.handpick__line--right {
+    position: absolute;
+    top: 50%;
+    right: -40rpx;
+    width: 40rpx;
+    height: 1rpx;
+    background-color: #c5c9cd;
+}
+
+.share-window {
+    position: relative;
+    z-index: 100000;
+    display: block;
+}
+
+.share-window__shade {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 88;
+}
+
+.share-window__content {
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    width: 600rpx;
+    height: 466rpx;
+    margin-left: -300rpx;
+    margin-top: -233rpx;
+    border-radius: 8rpx;
+}
+
+.icon-dankuangguanbianniu {
+    position: absolute;
+    top: 24rpx;
+    right: 24rpx;
+    color: #c4c8cc;
+    font-size: 34rpx;
+    line-height: 34rpx;
+}
+
+.share-window__title {
+    font-size: 32rpx;
+    color: #3c4856;
+    text-align: center;
+    margin: 60rpx 0 40rpx 0;
+}
+
+.share-window__box {
+    display: flex;
+    padding: 0 40rpx;
+    justify-content: space-between;
+}
+
+.share-window__block {
+    width: 210rpx;
+    height: 208rpx;
+    background-color: rgba(255,255,255,0.94);
+    box-shadow: 0 6rpx 20rpx 0 rgba(34,221,130,0.14);
+    border-radius: 8rpx;
+    opacity: 0.94;
+    padding: 40rpx 18rpx;
+}
+
+.share-window__block .iconfont {
+    color: #22dd82;
+    font-size: 100rpx;
+    text-align: center;
+}
+
+.share-window__button {
+    margin-top: 30rpx;
+    width: 210rpx;
+    height: 78rpx;
+    border-radius: 39rpx;
+    border: solid 2rpx rgba(34,221,130,0.94);
+    opacity: 0.94;
+    font-size: 26rpx;
+    color: #22dd82;
+    text-align: center;
+    line-height: 78rpx;
+}
+
+.share-window__invite {
+    margin-top: 30rpx;
+    width: 210rpx;
+    height: 78rpx;
+    border-radius: 39rpx;
+    border: solid 2rpx rgba(34,221,130,0.94);
+    opacity: 0.94;
+    font-size: 26rpx;
+    color: #22dd82;
+    text-align: center;
+    line-height: 78rpx;
+}
+
+.bottom-buttons {
+    height: 88rpx;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.button-call {
+    width: 304rpx;
+    height: 100%;
+    line-height: 88rpx!important;
+    text-align: center!important;
+    font-size: 34rpx!important;
+    color: #22dd82!important;
+    background-color: #fff!important;
+    padding-top: 10rpx 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.first-row {
+    font-size: 30rpx;
+    line-height: 40rpx;
+    color: #22dd82;
+    text-align: center;
+    padding-top: 10rpx;
+}
+
+.b_botton_bg {
+    flex-grow: 1;
+}
+
+.b_botton_bg button {
+    flex-grow: 1;
+}
+
+.second-row {
+    font-size: 24rpx;
+    line-height: 28rpx;
+    color: #22dd82;
+    text-align: center;
+}
+
+.button--free.button--third {
+    width: 198rpx;
+    background-color: #22dd82;
+    color: #fff!important;
+}
+
+.button--line {
+    width: 2rpx;
+    height: 40rpx;
+    background-color: #fff!important;
+    position: absolute;
+    top: 24rpx;
+    right: 246rpx;
+    z-index: 9999;
+}
+
+.button--primary.button--third {
+    width: 248rpx;
+    background-color: #22dd82;
+    color: #fff;
+}

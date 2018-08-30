@@ -1,0 +1,16 @@
+<template name="jdk-tips">
+    <view class="public">
+        <view class="i"></view>
+        <view class="content">
+            <view class="h2">
+                <text>提示</text>
+            </view>
+            <view class="p">
+                <text>{{jdkTips.txt}}</text>
+            </view>
+            <view bindtap="tipsOk" class="btn">
+                <text>确定</text>
+            </view>
+        </view>
+    </view>
+</template>

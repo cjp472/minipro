@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "主题详情",
+    "usingComponents": {
+        "clockLog": "../../components/clockLog/clockLog"
+    }
+}

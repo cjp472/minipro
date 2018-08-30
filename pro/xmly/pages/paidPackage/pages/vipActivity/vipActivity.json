@@ -1,0 +1,13 @@
+{
+    "navigationBarBackgroundColor": "#34384F",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "喜马拉雅FM",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#34384F",
+    "disableScroll": false,
+    "usingComponents": {
+        "free-vip-album": "/components/freeVipAlbum/freeVipAlbum",
+        "clock": "/components/clock/clock",
+        "news": "../../components/news/news"
+    }
+}

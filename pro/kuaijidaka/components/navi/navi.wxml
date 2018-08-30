@@ -1,0 +1,18 @@
+<view class="navi-container" style="width:{{naviList.length*128+88}}rpx; left:{{662+offset}}rpx;">
+    <view catchtap="moveBar">
+        <view class="drag-tag-pull" wx:if="{{offset==0}}">
+            <view class="ico"></view>
+            <view>快速导航</view>
+        </view>
+        <view class="drag-tag-push" wx:else>
+            <view class="ico"></view>
+            <view>收起</view>
+        </view>
+    </view>
+    <view class="items" style="width:{{naviList.length*128}}rpx;">
+        <view catchtap="toNavi" class="item-navi {{item.name}}" data-jumptype="{{item.jumpType}}" data-url="{{item.url}}" id="{{item.name}}" wx:for="{{naviList}}" wx:key="{{item.url}}">
+            <view class="ico"></view>
+            <text>{{item.cName}}</text>
+        </view>
+    </view>
+</view>

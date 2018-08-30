@@ -1,0 +1,16 @@
+@import "../theme_items/audio/audio.wxss";
+
+.wx-slider__container {
+    width: 300rpx;
+    height: 8rpx;
+    border-radius: 4rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wx-slider {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}

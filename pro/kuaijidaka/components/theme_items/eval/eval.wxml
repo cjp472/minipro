@@ -1,0 +1,17 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="eval__box {{applyType}}">
+    <view wx:if="{{voice.voice_url}}">
+        <jdk-theme-audio apply="{{applyType==='read-reading'||applyType==='read-punching'?'read-eval':'eval'}}" colorScheme="{{loginStatus}}" voice="{{voice}}"></jdk-theme-audio>
+    </view>
+    <view class="eval__top" wx:else>
+        <view class="iconfont icon-yuyinpingce {{loginStatus}}"></view>
+        <view class="eval__title {{loginStatus}}">语音评测</view>
+    </view>
+    <view class="eval__word">
+        <view class="eval__text">{{text}}</view>
+        <view wx:if="{{notes}}">
+            <view class="eval__tip">译文</view>
+            <view class="eval__translate">{{notes}}</view>
+        </view>
+    </view>
+</view>

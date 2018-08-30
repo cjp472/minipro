@@ -1,0 +1,112 @@
+<view class="eval__box {{apply}} {{colorScheme==='user'?'student':'teacher'}}" wx:if="{{apply=='eval'||apply=='eval-edit'||apply=='read-eval'}}">
+    <view class="eval__top">
+        <view class="eval__top--left">
+            <view class="iconfont icon-yuyinpingce"></view>
+            <view class="eval__title">语音评测</view>
+        </view>
+        <image hoverStopPropagation catchtap="onClickVoice" class="icon-playing" data-src="{{voice.voice_url}}" data-title="{{voice.voice_name}}" src="{{colorScheme==='user'?'http://static3topen.jingdaka.com/images/icon-playing-user.gif':'http://static3topen.jingdaka.com/images/icon-playing-admin.gif'}}" wx:if="{{isPlaying}}"></image>
+        <view hoverStopPropagation catchtap="onClickVoice" class="iconfont icon-bofang1" data-src="{{voice.voice_url}}" data-title="{{voice.voice_name}}" wx:else></view>
+    </view>
+    <movable-area class="slider eval__slider">
+        <movable-view bindtouchend="seekAudioEnd" class="slider__handle" direction="horizontal" x="{{sliderHandlePosition}}">
+            <view class="loading eval__loading" wx:if="{{isWaiting&&isPlaying}}">
+                <view>
+                    <view class="loading__line"></view>
+                    <view class="loading__line"></view>
+                    <view class="loading__line"></view>
+                    <view class="loading__line"></view>
+                    <view class="loading__line"></view>
+                    <view class="loading__line"></view>
+                </view>
+                <view class="loading__circle"></view>
+            </view>
+        </movable-view>
+        <view class="slider__progress" style="width: {{sliderHandlePosition}}px;"></view>
+    </movable-area>
+    <view class="eval__time">
+        <text class="current-postition">{{currentTime}}</text>
+        <text class="duration">{{duration}}</text>
+    </view>
+</view>
+<view wx:elif="{{apply=='eval-result'}}">
+    <view class="assess-li-content">
+        <view class="assess-tips">标灰为漏读，标红为读错</view>
+        <view class="rich-text">
+            <rich-text nodes="{{evalVoiceFormatted.words}}"></rich-text>
+        </view>
+        <view class="ico total-score">
+            <text class="total">{{evalVoiceFormatted.score}}</text>
+            <text class="content">总分</text>
+        </view>
+        <view hoverStopPropagation catchtap="startPlay" class="punch-audio {{colorScheme}}" style="width:{{120+voice.voice_duration/60*120>240?240:120+voice.voice_duration/60*120}}px">
+            <view bindtap="stopPlay" class="punch-audio__left">
+                <view class="ico {{isPlaying?'punch-audio__ico--pause':'punch-audio__ico--play'}}"></view>
+            </view>
+            <view class="punch-audio__line" wx:if="{{isPlaying}}"></view>
+            <slider activeColor="#9bf6eb" backgroundColor="#44baab" bindchange="seekAudioSlider" bindchanging="sliderChanging" blockSize="{{12}}" class="punch-audio__slider" max="{{voice.voice_duration}}" style="width:{{30+voice.voice_duration/60*120>150?150:30+voice.voice_duration/60*120}}px" value="{{currentSecond}}" wx:if="{{isPlaying}}"></slider>
+            <text class="punch-audio__duration">{{secondDuration?secondDuration-currentSecond<0?0:secondDuration-currentSecond:voice.voice_duration}}”</text>
+            <view class="loading" wx:if="{{isWaiting&&isPlaying}}">
+                <view>
+                    <view class="loading__line"></view>
+                    <view class="loading__line"></view>
+                    <view class="loading__line"></view>
+                    <view class="loading__line"></view>
+                    <view class="loading__line"></view>
+                    <view class="loading__line"></view>
+                </view>
+                <view class="loading__circle"></view>
+            </view>
+            <view class="punch-audio__played ico {{colorScheme}}" wx:if="{{hasPlayed}}"></view>
+        </view>
+    </view>
+</view>
+<view hoverStopPropagation catchtap="startPlay" class="punch-audio {{colorScheme}}" style="width:{{120+voice.voice_duration/60*120>240?240:120+voice.voice_duration/60*120}}px" wx:elif="{{apply=='user-submit'||apply=='read'}}">
+    <view bindtap="stopPlay" class="punch-audio__left">
+        <view class="ico {{isPlaying?'punch-audio__ico--pause':'punch-audio__ico--play'}}"></view>
+    </view>
+    <view class="punch-audio__line" wx:if="{{isPlaying}}"></view>
+    <slider activeColor="#9bf6eb" backgroundColor="#44baab" bindchange="seekAudioSlider" bindchanging="sliderChanging" blockSize="{{12}}" class="punch-audio__slider" max="{{voice.voice_duration}}" style="width:{{30+voice.voice_duration/60*120>150?150:30+voice.voice_duration/60*120}}px" value="{{currentSecond}}" wx:if="{{isPlaying}}"></slider>
+    <text class="punch-audio__duration">{{secondDuration?secondDuration-currentSecond<0?0:secondDuration-currentSecond:voice.voice_duration}}”</text>
+    <view class="loading" wx:if="{{isWaiting&&isPlaying}}">
+        <view>
+            <view class="loading__line"></view>
+            <view class="loading__line"></view>
+            <view class="loading__line"></view>
+            <view class="loading__line"></view>
+            <view class="loading__line"></view>
+            <view class="loading__line"></view>
+        </view>
+        <view class="loading__circle"></view>
+    </view>
+    <view class="punch-audio__played ico {{colorScheme}}" wx:if="{{hasPlayed}}"></view>
+</view>
+<view catchtap="onClickVoice" class="flex-between audio {{apply}} {{colorScheme}} {{size=='MAX'?'max':''}}" hoverClass="btn-hover-class" wx:else>
+    <view class="audio__logo-ico ico">
+        <image mode="aspectFill" src="{{voice.voice_avatar}}" style="width:100%;height:100%;" wx:if="{{!!voice.voice_avatar}}"></image>
+        <view class="loading2" wx:if="{{isWaiting&&isPlaying}}">
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+        </view>
+    </view>
+    <view class="right_bg">
+        <view class="title-bg">
+            <view class="audio__title">{{voice.voice_name}}</view>
+        </view>
+        <view class="flex-between">
+            <movable-area class="slider">
+                <movable-view bindtouchend="seekAudioEnd" class="slider__handle" direction="horizontal" x="{{sliderHandlePosition}}"></movable-view>
+                <view class="slider__progress" style="width: {{sliderHandlePosition}}px;"></view>
+            </movable-area>
+            <view class="audio__play-btn">
+                <view class="ico {{isPlaying?'audio__pause-ico':'audio__play-ico'}}"></view>
+            </view>
+        </view>
+        <view class="time-bg">
+            <text class="audio__current">{{currentTime}}</text>
+            <text class="audio__duration"> {{duration}}</text>
+        </view>
+    </view>
+</view>

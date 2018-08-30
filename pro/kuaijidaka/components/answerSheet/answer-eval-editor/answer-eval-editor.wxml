@@ -1,0 +1,29 @@
+<view class="operate-box">
+    <view catchtap="{{recordPlaying?'pauseRecordAudio':'playRecordAudio'}}" class="operate-box__item {{!evalRecord.voice_url?'operate-box__item--disabled':''}}">
+        <view class="{{recordPlaying?'operate-box__voice--stop':'operate-box__voice--start'}} ico"></view>
+        <text class="operate-box__text">听录音</text>
+    </view>
+    <view catchtap="{{evalRecord.voice_url&&!isRecording?'recordAgain':isRecording?'stopRecord':'startRecord'}}" class="operate-box__item">
+        <view class="{{isRecording?'operate-box__record-box--stop':'operate-box__record-box--start'}}">
+            <view class="{{isRecording?'operate-box__record--stop':'operate-box__record--start'}} ico"></view>
+        </view>
+        <text class="operate-box__text">{{recordText}}</text>
+    </view>
+    <view class="operate-box__item">
+        <view class="operate-box__eval--evaluating" wx:if="{{evaluating}}">
+            <div class="loading">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </view>
+        <view class="operate-box__score" wx:elif="{{evalRecord.score!=null}}">{{evalRecord.score}}</view>
+        <view class="operate-box__eval--static ico" wx:else></view>
+        <text class="operate-box__text">测评分</text>
+    </view>
+    <view catchtap="uploadFailRecorder" class="reupload" wx:if="{{evalRecord.success===false}}">
+        <view class="ico"></view>
+        <text>点击重传</text>
+    </view>
+</view>
+<jdk-modal bind:modalConfirm="settingConfirm" confirmText="重新授权" content="{{settingContent}}" title="提示" type="openSetting" wx:if="{{showSetting}}"></jdk-modal>

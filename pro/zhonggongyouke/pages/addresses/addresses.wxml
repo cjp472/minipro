@@ -1,0 +1,19 @@
+<view class="container">
+    <navigator class="addaddress" url="/pages/address/address?address_id=">
+        <image class="addaddress-img" src="/resources/address/add.png"></image>
+    添加地址
+  </navigator>
+    <view>
+        <view class="editaddress" wx:if="{{addressListLength>0}}" wx:for="{{addressList}}">
+            <view bindtap="checkAddress" class="person-info" data-address_id="{{item.address_id}}">
+                <text>{{item.receiver}}</text>
+                <text class="fr">{{item.phone}}</text>
+            </view>
+            <view bindtap="checkAddress" class="address-info" data-address_id="{{item.address_id}}">{{item.address}}</view>
+            <view bindtap="editAddress" class="address-edit" data-address_id="{{item.address_id}}">
+                <image class="editaddress-img" src="/resources/address/edit.png"></image>
+                <text class="editaddress-txt">编辑</text>
+            </view>
+        </view>
+    </view>
+</view>

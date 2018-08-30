@@ -1,0 +1,6 @@
+<view class="flex-l-t border-box {{deleteBtn?'pd10-30-30':'mt10'}}" wx:if="{{imgArr.length+videoArr.length>1||imgArr.length+videoArr.length===1&&deleteBtn}}">
+    <img-list catch:delete="deleteImg" deleteBtn="{{deleteBtn}}" disable="{{disable}}" height="{{height}}" imgArr="{{imgArr}}" index="{{index}}" isdoodle="{{isdoodle}}" thumbnail="{{item}}" url="{{item}}" width="{{width}}" wx:for="{{imgArr}}" wx:key="item"></img-list>
+    <video-list catch:delete="deleteVideo" deleteBtn="{{deleteBtn}}" disable="{{disable}}" height="{{height}}" index="{{index}}" url="{{item}}" width="{{width}}" wx:for="{{videoArr}}" wx:key="item"></video-list>
+</view>
+<video-list applyScene="single-video" catch:delete="deleteVideo" deleteBtn="{{deleteBtn}}" disable="{{disable}}" index="0" url="{{videoArr[0]}}" width="{{width}}" wx:if="{{imgArr.length==0&&videoArr.length==1&&!deleteBtn}}"></video-list>
+<img-list catch:delete="deleteImg" deleteBtn="{{deleteBtn}}" disable="{{disable}}" imgArr="{{imgArr}}" index="0" isdoodle="{{isdoodle}}" singleImg="{{true}}" url="{{imgArr[0]}}" width="{{width}}" wx:if="{{imgArr.length==1&&videoArr.length==0&&!deleteBtn}}"></img-list>

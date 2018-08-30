@@ -1,0 +1,257 @@
+@import "../../../components/modal/modal.wxss";
+
+@import "../../../__wuBaseWxss__/8.wxss";
+
+.collect__container {
+    background-color: #edf0f3;
+    padding: 30rpx 30rpx 46rpx;
+}
+
+.collect__title {
+    width: 630rpx;
+    height: 100rpx;
+    background: #fff;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 36rpx;
+    color: #000;
+    border-bottom: 1rpx solid #d2d3d5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.collect__top {
+    background-color: #fff;
+    border-radius: 8rpx;
+    padding: 0 30rpx;
+    margin-bottom: 30rpx;
+    padding-bottom: 30rpx;
+}
+
+.collect__blank {
+    height: 30rpx;
+    border-bottom-left-radius: 8rpx;
+    border-bottom-right-radius: 8rpx;
+    margin-bottom: 30rpx;
+    background-color: #fff;
+}
+
+.collect__default-cover {
+    width: 630rpx;
+    height: 340rpx;
+    border-radius: 8rpx;
+    margin: 20rpx 0 30rpx;
+}
+
+.collect__main {
+    background-color: #fff;
+    border-radius: 8rpx;
+    padding: 60rpx 30rpx 50rpx;
+    text-align: center;
+}
+
+.collect__status {
+    width: 630rpx;
+    height: 80rpx;
+    color: #000;
+    background-color: #edf0f3;
+    display: flex;
+    align-items: center;
+    border-radius: 40rpx;
+}
+
+.collect__inviter {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.collect__tips {
+    font-size: 24rpx;
+    color: #000;
+    line-height: 36rpx;
+    width: 530rpx;
+    text-align: left;
+}
+
+.collect__buttons {
+    margin: 20rpx 0 60rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.collect__buttons button {
+    border-radius: 8rpx;
+    line-height: 88rpx;
+    width: 300rpx;
+    height: 88rpx;
+    font-size: 26rpx;
+    text-align: center;
+}
+
+.collect__share--link {
+    background: #fff;
+    border: 1rpx solid #22dd82;
+    color: #22dd82;
+}
+
+.collect__share--poster {
+    background: #22dd82;
+    color: #fff;
+}
+
+.collect__share--call {
+    background: #22dd82;
+    color: #fff;
+}
+
+.grey {
+    background-color: #d2d3d5;
+}
+
+.collect__share--help {
+    background: #fff;
+    border: 1rpx solid #22dd82;
+    color: #22dd82;
+}
+
+.collect__share--my {
+    background: #22dd82;
+    color: #fff;
+}
+
+.collect__record {
+    font-size: 24rpx;
+    color: #8b97a4;
+    padding-bottom: 20rpx;
+    border-bottom: 1rpx solid #d2d3d5;
+}
+
+.collect__green {
+    color: #22dd82;
+}
+
+.collect__list {
+    margin-bottom: 30rpx;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.collect__item {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin-top: 20rpx;
+    margin-right: 21rpx;
+}
+
+.more-margin-right {
+    margin-right: 22rpx;
+}
+
+.no-right {
+    margin-right: 0;
+}
+
+.collect__explain {
+    text-align: left;
+    color: #8b97a4;
+    font-size: 24rpx;
+    display: flex;
+    align-items: center;
+}
+
+.collect__question {
+    background-position: -256rpx -523rpx;
+    width: 30rpx;
+    height: 30rpx;
+    display: inline-block;
+}
+
+.modal__content {
+    margin-top: -300rpx;
+}
+
+.modal__text {
+    padding: 50rpx 46rpx 0 46rpx;
+}
+
+.modal__tips {
+    font-size: 28rpx;
+}
+
+.modal__sentence {
+    text-align: left;
+    margin-bottom: 40rpx;
+}
+
+.modal__operate {
+    border-bottom-left-radius: 8rpx;
+    border-bottom-right-radius: 8rpx;
+}
+
+.collect__winner {
+    padding: 55rpx 0 20rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #8b97a4;
+    border-bottom: 1rpx solid #d2d3d5;
+}
+
+.collect__winner-info {
+    margin: 18rpx 0 29rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.collect__winner-info view {
+    font-size: 24rpx;
+    color: #8b97a4;
+}
+
+.collect__winner-list {
+    margin-top: 30rpx;
+}
+
+.collect__winner-detail {
+    margin-bottom: 22rpx;
+    height: 68rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.collect__winner-info {
+    display: flex;
+    align-items: center;
+}
+
+.collect__winner-detail image {
+    width: 68rpx;
+    height: 68rpx;
+    border-radius: 50%;
+    margin-right: 12rpx;
+}
+
+.collect__winner-name {
+    font-size: 24rpx;
+    color: #8b97a4;
+    width: 300rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.collect__winner-time {
+    font-size: 24rpx;
+    color: #8b97a4;
+    text-align: right;
+}
+
+.no-image {
+    background-color: #e3e3e3;
+}

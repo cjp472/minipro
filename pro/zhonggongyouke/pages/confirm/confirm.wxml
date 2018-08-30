@@ -1,0 +1,81 @@
+<view class="container">
+    <view wx:if="{{has_book==true}}">
+        <navigator class="address" url="/pages/addresses/addresses" wx:if="{{address_id}}">
+            <image class="address-img" src="/resources/address/address-top.png"></image>
+            <view class="address-detail">
+                <view class="person-info">
+                    <text>
+                        <text class="bold">收件人：</text>{{receiver}}</text>
+                    <text class="phone">{{phone}}</text>
+                </view>
+                <view class="address-info">
+                    <text class="bold">收货地址：</text>{{province}}{{city}}{{area}}{{detail_address}}</view>
+            </view>
+            <image class="address-more" src="/resources/address/address-more.png"></image>
+            <view class="clear"></view>
+        </navigator>
+        <view bindtap="addaddress" class="address" wx:if="{{addressListLength==0||!address_id}}">
+            <image class="address-img" src="/resources/address/address-top.png"></image>
+            <view class="address-detail">
+                <view class="address-tip">
+                    <text class="fl bold">收货地址：</text>
+                    <text class="address-tip-gray">此课程含图书，请添加您的收货地址</text>
+                </view>
+                <view class="address-tip-red">温馨提示：地址下单后不可更改，请认真填写。</view>
+            </view>
+            <image class="address-more" src="/resources/address/address-more.png"></image>
+            <view class="clear"></view>
+        </view>
+    </view>
+    <view class="lesson-box">
+        <view class="tip bold">订单信息：</view>
+        <view class="lesson-title">{{name}}</view>
+        <view class="lessons">
+            <image class="lessons-img" src="/resources/time.png"></image>
+      {{time_section}} | {{chapter_num}}课时
+    </view>
+        <view class="teacher-list">
+            <view class="teacher-box" wx:for="{{teachers}}" wx:key="*teachers">
+                <image class="teacher-img" src="{{item.avatar}}"></image>
+                <text class="teacher-name">{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="confirmOrder" class="bottom" wx:if="{{pay==false}}">
+        <view wx:if="{{platform==1}}">
+            <view class="buy buy-full">课程确认</view>
+        </view>
+        <view wx:if="{{platform==2}}">
+            <view class="buy">确认支付</view>
+            <view class="go-pay">
+                <text class="go-pay-text">合计:</text>
+                <text class="go-pay-sign">￥</text>
+                <text class="go-pay-price">{{price}}</text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="{{BuyType==1?'mylivelist':'myPublicList'}}" class="dis-btn study" wx:if="{{pay==true&&BuyType==1}}">去学习</view>
+</view>
+<view wx:if="{{contact==true}}">
+    <view class="contact-layer {{pay?'hide':'show'}}"></view>
+    <image class="loadingTipImg {{pay?'hide':'show'}}" src="/resources/loading.gif"></image>
+    <view bindtap="hideContact" class="contact-layer {{pay?'show':'hide'}}"></view>
+    <view class="contact-box {{pay?'show':'hide'}}">
+        <image bindtap="hideContact" class="close2" src="/resources/public/close2.png"></image>
+        <view class="c-tip2">购买成功</view>
+        <image class="success-img" src="/resources/public/success-img.png"></image>
+        <view bindtap="mylivelist" class="bind-url" wx:if="{{BuyType==1}}">查看课程</view>
+        <view bindtap="myPublicList" class="bind-url" wx:if="{{BuyType==2}}">查看课程</view>
+    </view>
+</view>
+<view class="contact-layer {{goContact?'show':'hide'}}"></view>
+<view class="contactBox" wx:if="{{goContact==true}}">
+    <view class="contactBox-tip">温馨提示</view>
+    <view class="contactBox-text {{reload?'hide':'show'}}">受相关支付政策限制</view>
+    <view class="contactBox-text {{reload?'hide':'show'}}">请点击下方按钮，联系客服进行咨询</view>
+    <button bindcontact="contactTouch" class="contactBox-btn {{reload?'hide':'show'}}" openType="contact">咨询客服</button>
+    <view class="contactBox-text {{reload?'show':'hide'}}">支付成功，请点击下方绿色按钮</view>
+    <view class="contactBox-text {{reload?'show':'hide'}}">支付遇到问题，请点击<text bindtap="reload">重新支付</text>
+    </view>
+    <button bindtap="havePay" class="reload-btn {{reload?'show':'hide'}}">我已支付</button>
+</view>

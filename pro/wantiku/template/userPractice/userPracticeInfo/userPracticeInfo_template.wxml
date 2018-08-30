@@ -1,0 +1,37 @@
+<template name="userPracticeInfo">
+    <view bindtap="togglePaperModule" class="paper-module {{showModuleState?'show':''}}" data-state="{{false}}">
+        <view class="paper-module-cont">
+            <view class="paper-module-title flex-row">
+                <text>切换分类</text>
+                <text class="iconfont icon_guanbi"></text>
+            </view>
+            <view bindtap="chooseSubjectType" data-type="{{item.examPaperType}}" wx:for="{{navList}}" wx:key="item.examPaperType">
+        {{item.ExamTypeName}}
+      </view>
+        </view>
+    </view>
+    <view class="paper-nav-cont flex-row">
+        <scroll-view bindscroll="getNavScrollX" class="swiper-cont" scrollLeft="{{scrollX}}" scrollWithAnimation="{{true}}" scrollX="{{true}}">
+            <view class="paper-nav-list flex-row">
+                <view bindtap="chooseSubjectType" class="{{chooseType==item.examPaperType?'active':''}} nav-item" data-type="{{item.examPaperType}}" wx:for="{{navList}}" wx:key="item.examPaperType">{{item.ExamTypeName}}</view>
+            </view>
+        </scroll-view>
+        <view bindtap="togglePaperModule" class="paper-show-module-btn" data-state="{{true}}">
+            <view class="iconfont icon_qiehuan"></view>
+        </view>
+    </view>
+    <view class="paper-error-title">
+        <view class="title">{{error?'错题':'收藏'}}总数</view>
+        <view class="number">{{totalCount}}</view>
+    </view>
+    <view class="paper-error-switch">
+        <view class="paper-error-switch-cont flex-row" wx:if="{{error}}">
+            <text class="text">答对后自动移除错题</text>
+            <switch bindchange="rightDelChangeJs" checked="{{rightDel}}" color="{{configColor}}"></switch>
+        </view>
+        <view class="paper-error-switch-cont flex-row">
+            <text class="text">背题模式</text>
+            <switch bindchange="rciteModleChangeJs" checked="{{reciteModle}}" color="{{configColor}}"></switch>
+        </view>
+    </view>
+</template>

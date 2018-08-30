@@ -1,0 +1,63 @@
+<view class="container">
+    <view class="lists">
+        <view class="title">
+            <image class="qq-icon title-icon" src="/resources/group/group_qq.png"></image>QQ群</view>
+        <view class="list">
+            <text class="info">国考备考群：</text>
+            <text class="code">775827231</text>
+            <text bindtap="copy" class="copy fr" data-content="775827231" data-grouptype="1">复制</text>
+        </view>
+        <view class="list">
+            <text class="info">教资备考群：</text>
+            <text class="code">610914770</text>
+            <text bindtap="copy" class="copy fr" data-content="610914770" data-grouptype="1">复制</text>
+        </view>
+        <view class="list">
+            <text class="info">事业单位备考群：</text>
+            <text class="code">633135954</text>
+            <text bindtap="copy" class="copy fr" data-content="633135954" data-grouptype="1">复制</text>
+        </view>
+    </view>
+    <view class="lists wx-list">
+        <view class="title">
+            <image class="wx-icon title-icon" src="/resources/group/group_wx.png"></image>微信小助手</view>
+        <view class="list">
+            <text class="info">微信号：</text>
+            <text class="code">lilaoshi8778</text>
+            <text bindtap="copy" class="copy fr" data-content="lilaoshi8778" data-grouptype="2">复制</text>
+        </view>
+    </view>
+    <view class="benefits">
+        <view class="benefits-title">
+   进群领取专属福利
+   <image class="title-l" src="/resources/group/group_line_l.png"></image>
+            <image class="title-r" src="/resources/group/group_line_r.png"></image>
+        </view>
+        <view class="benefits-lists">
+            <view class="benefits-list">
+                <image src="/resources/group/group_consultation.png"></image>
+                <view class="benefits-des">资讯干货</view>
+            </view>
+            <view class="benefits-list">
+                <image src="/resources/group/group_course.png"></image>
+                <view class="benefits-des">优质课程</view>
+            </view>
+            <view class="benefits-list">
+                <image src="/resources/group/group_answer.png"></image>
+                <view class="benefits-des">互动答疑</view>
+            </view>
+            <view class="benefits-list">
+                <image src="/resources/group/group_group.png"></image>
+                <view class="benefits-des">考友组队</view>
+            </view>
+            <view class="benefits-list">
+                <image src="/resources/group/group_service.png"></image>
+                <view class="benefits-des">全程服务</view>
+            </view>
+            <view class="benefits-list">
+                <image src="/resources/group/group_activity.png"></image>
+                <view class="benefits-des">优惠活动</view>
+            </view>
+        </view>
+    </view>
+</view>

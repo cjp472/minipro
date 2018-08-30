@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "课程目录",
+    "disableScroll": false,
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "live-component": "/pages/livelist/livelist"
+    }
+}

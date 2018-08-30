@@ -1,0 +1,16 @@
+<template name="examPaper">
+    <form bindsubmit="formSubmit" reportSubmit="true">
+        <view class="questions-wrap  questions-wrap-flex}}">
+            <view class="questions-main">
+                <view class="questions-title">{{PaperName}}</view>
+                <view class="questions-info">
+                    <text class="lable-text">难度{{DifficultyFactor}}</text>
+                    <text class="lable-text">{{ExamUserCount}}人做过</text>{{isShowClassName}}
+      </view>
+            </view>
+            <button class="questions-side" data-paperId="{{PaperStatisticsEntity.PaperId}}" formType="submit" hoverClass="none">
+                <image src="//img02.exam8.com/img2017/minapp/user_icon/icon_zuoti@2x.png"></image>
+            </button>
+        </view>
+    </form>
+</template>

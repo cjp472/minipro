@@ -1,0 +1,170 @@
+.section-letter,.section-item-header {
+    line-height: 22px;
+    height: 22px;
+    padding-left: 32rpx;
+    background: #F2F3F4;
+    font-size: 28rpx;
+    color: #7A7A7A;
+    overflow: hidden;
+}
+
+.section-letter {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+.wantiku-section-letter {
+    color: #6FCE29;
+}
+
+.purple-section-letter {
+    color: #9C66DE;
+}
+
+.blue-section-letter {
+    color: #4380db;
+}
+
+.yellow-section-letter {
+    color: #D39A10;
+}
+
+.red-section-letter {
+    color: #F15454;
+}
+
+.green-section-letter {
+    color: #1B9B0B;
+}
+
+.orange-section-letter {
+    color: #F07D0C;
+}
+
+.section-item-cell {
+    line-height: 56px;
+    height: 56px;
+    margin-left: 32rpx;
+    border-bottom: 1rpx solid #EBEBEB;
+    font-size: 32rpx;
+    color: #333;
+}
+
+.scroll-group .section-item-cell:last-child {
+    margin: 0;
+    padding-left: 32rpx;
+    border: 0;
+}
+
+.alphanet-selector {
+    width: 50rpx;
+    height: 400px;
+    position: fixed;
+    right: 10rpx;
+    top: 80px;
+    z-index: 9999;
+    font-size: 24rpx;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: #979797;
+}
+
+.activate text {
+    display: inline-block;
+    line-height: 36rpx;
+    width: 36rpx;
+    height: 36rpx;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.wantiku-activate text {
+    background-color: #6FCE29;
+}
+
+.purple-activate text {
+    background-color: #9C66DE;
+}
+
+.blue-activate text {
+    background-color: #4380db;
+}
+
+.yellow-activate text {
+    background-color: #D39A10;
+}
+
+.red-activate text {
+    background-color: #F15454;
+}
+
+.green-activate text {
+    background-color: #1B9B0B;
+}
+
+.orange-activate text {
+    background-color: #F07D0C;
+}
+
+.showToastCont {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 240rpx;
+    height: 240rpx;
+    margin: -120rpx 0 0 -120rpx;
+    line-height: 240rpx;
+    text-align: center;
+    background: rgba(0,0,0,.65);
+    font-size: 80rpx;
+    color: #fff;
+    border-radius: 13rpx;
+}
+
+.select-location {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 112rpx;
+    line-height: 112rpx;
+    background: #fff;
+}
+
+.wantiku-select-location {
+    color: #6FCE29;
+}
+
+.purple-select-location {
+    color: #9C66DE;
+}
+
+.blue-select-location {
+    color: #4380db;
+}
+
+.yellow-select-location {
+    color: #D39A10;
+}
+
+.red-select-location {
+    color: #F15454;
+}
+
+.green-select-location {
+    color: #1B9B0B;
+}
+
+.orange-select-location {
+    color: #F07D0C;
+}
+
+.select-location view {
+    display: flex;
+    flex-direction: row;
+    margin: 0 32rpx;
+    align-items: center;
+    font-size: 30rpx;
+}

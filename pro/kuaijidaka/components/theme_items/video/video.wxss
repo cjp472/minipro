@@ -1,0 +1,23 @@
+.video-box-pc {
+    margin-bottom: 30rpx;
+}
+
+.video-box-pc video {
+    width: 630rpx;
+}
+
+.foldTheme {
+    height: 0;
+}
+
+video.video-first {
+    height: 450rpx;
+}
+
+.video-box-pc video.hide-video {
+    height: 0;
+}
+
+.inform-pop-up.video-box-pc video {
+    width: 540rpx!important;
+}

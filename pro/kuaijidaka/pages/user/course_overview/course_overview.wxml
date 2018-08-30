@@ -1,0 +1,114 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<suspend-button scene="course-overview" wx:if="{{courseDetail}}"></suspend-button>
+<view wx:if="{{courseDetail.shut_down===1}}">
+    <jdk-guide-card scene="{{5}}"></jdk-guide-card>
+</view>
+<view wx:elif="{{courseDetail.sold_out_status==2&&courseDetail.is_submited==0}}">
+    <sold-out doSometing="返回首页" titleMsg="课程已下架!"></sold-out>
+</view>
+<view wx:if="{{courseDetail.sold_out_status==1||courseDetail.is_submited==1}}">
+    <view class="top-back {{isAdmin?'admin_bg':''}}"></view>
+    <view class="info-detail {{ifCustom}} {{bannerType}} {{showParticipator?'show-participator':'hide-participator'}} {{courseDetail.course_type===0||courseDetail.course_type===2?'show-texts-box':'hide-texts-box'}}" style="{{customBG}}">
+        <view catchtap="showShareOptions" class="share-note">
+            <view class="iconfont icon-fenxiang1"></view>
+            <view>分享</view>
+        </view>
+        <view class="course-name">{{courseDetail.title}}</view>
+        <view class="participator" wx:if="{{showParticipator}}">已有{{courseDetail.people_submit_count}}人参与课程</view>
+        <view class="texts-box" wx:if="{{courseDetail.course_type===0}}">
+            <text class="text">开始时间： {{courseStart}}</text>
+            <text class="text">结束时间： {{courseEnd}}</text>
+            <text class="text">打卡时限： {{timeLimit}}</text>
+        </view>
+        <view class="texts-box" wx:elif="{{courseDetail.course_type===2}}">
+            <text class="text">解锁课时： 共{{courseDetail.practice_count}}课</text>
+            <text class="text">解锁规则： {{'每天最多解锁'+courseDetail.can_unlock_perday+'课'}}</text>
+        </view>
+    </view>
+    <view class="course-intro">
+        <jdk-theme catchaudioType="setAudioType" colorScheme="{{isAdmin?'admin':'user'}}" currentAudioType="{{currentAudioType}}" pc_content="{{courseDetail.pay_json||courseDetail.pay_after_json}}" title="{{courseDetail.title}}" wx:if="{{courseDetail.pay_after_json||courseDetail.pay_json}}"></jdk-theme>
+        <view class="nodata" wx:else>
+            <view class="ico"></view>
+            <view>
+                <text>暂无内容</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{showHandPick&&submitList.length>0}}">
+        <view class="handpick__title">
+            <view class="handpick__line--left"></view>
+      精选打卡
+      <view class="handpick__line--right"></view>
+        </view>
+        <view class="handpick" wx:for="{{submitList}}">
+            <jdk-submit catchaudioType="setAudioType" catchpreview="markPreview" currentAudioType="{{currentAudioType}}" page="overview" submitData="{{item}}"></jdk-submit>
+        </view>
+    </view>
+    <view class="course-intro-margin-bottom" wx:if="{{courseDetail.pay_after_json||courseDetail.pay_json}}"></view>
+    <form reportSubmit bindsubmit="getFormId" class="bottom-fixed collect-form-id {{isAdmin?'admin_bg':''}}" wx:if="{{courseDetail.course_id&&hasPermission!==undefined}}">
+        <view class="bottom-buttons" wx:if="{{!hasPermission}}">
+            <block wx:if="{{calling}}">
+                <button catchtap="collectCall" class="button-call" formType="submit" wx:if="{{activityFull}}">免费名额已满</button>
+                <button catchtap="collectCall" class="button-call" formType="submit" wx:else>
+                    <view class="first-row">集Call 免费加入</view>
+                    <view class="second-row">（剩余名额： {{callRemain}}）</view>
+                </button>
+            </block>
+            <block wx:if="{{posterSharing}}">
+                <button class="button-call" formType="submit" wx:if="{{activityFull}}">免费名额已满</button>
+                <button catchtap="fetchPoster" class="button-call" formType="submit" wx:else>免费获取课程</button>
+            </block>
+            <button catchtap="freeToCourse" class="button--free {{calling||posterSharing?'button--third':''}}" formType="submit" wx:if="{{freeToLearn}}">免费尝鲜</button>
+            <view class="button--line" wx:if="{{(calling||posterSharing)&&freeToLearn}}"></view>
+            <navigator appId="{{jumpOptions.appId}}" class="button--primary {{freeToLearn&&(calling||posterSharing)?'button--third':freeToLearn||calling||posterSharing?'half':''}}" extraData="{{jumpOptions.extraData}}" openType="navigate" path="{{jumpOptions.path}}" target="miniProgram" version="{{jumpOptions.version}}" wx:if="{{!isIOS&&payState===3&&buttonHandler==='payCourse'}}">{{buttonText}}</navigator>
+            <view class="flex_center b_botton_bg" wx:else>
+                <button catchtap="partake" class="button--primary {{freeToLearn&&(calling||posterSharing)?'button--third':freeToLearn||calling||posterSharing?'half':''}}" formType="submit" wx:if="{{isIOS&&buttonHandler==='payCourse'}}">立即参与</button>
+                <button catchtap="{{buttonHandler}}" class="button--primary {{freeToLearn&&(calling||posterSharing)?'button--third':freeToLearn||calling||posterSharing?'half':''}}" formType="submit" wx:else>{{buttonText}}</button>
+            </view>
+        </view>
+        <view wx:else>
+            <button catchtap="freeToCourse" class="button--primary" formType="submit">进入课程</button>
+        </view>
+    </form>
+</view>
+<view class="public del-public" wx:if="{{mobileInputVisible}}">
+    <view class="i"></view>
+    <view class="content">
+        <view class="mobile">
+      验证手机号码
+    </view>
+        <view class="sub-mobile">
+      参与此课程需要验证手机号
+    </view>
+        <view class="contact-box" wx:if="{{!getPhoneFail}}">
+            <input disabled class="auto" name="contact" placeholder="点击\"获取手机号\"，自动获取" type="number" value="{{mobile}}"></input>
+            <view class="line"></view>
+            <button bindgetphonenumber="getPhoneNumber" class="get-tel clear-button-style" openType="getPhoneNumber">获取手机号</button>
+        </view>
+        <input bindinput="inputPhone" class="input" placeholder="请输入手机号" placeholderClass="placeholder" type="number" wx:else></input>
+        <view class="btn btn50">
+            <text bindtap="cancelInputMobile">取消</text>
+            <text bindtap="sendMobile">确定</text>
+            <view class="online"></view>
+        </view>
+    </view>
+</view>
+<jdk-modal catchhideModal="hideModal" catchmodalCancel="hideModal" catchmodalConfirm="hideModal" confirmText="去支付" containerCancel="{{true}}" content="进入客服消息后，发送\"6\"获取支付链接" needCancel="{{false}}" sessionFrom="{{sessionFrom}}" title="操作指引" type="concat" wx:if="{{modalVisible}}"></jdk-modal>
+<view class="share-window" wx:if="{{showShareOption}}">
+    <view catchtap="closeWindow" class="share-window__shade"></view>
+    <view class="share-window__content">
+        <view catchtap="closeWindow" class="iconfont icon-dankuangguanbianniu"></view>
+        <view class="share-window__title">分享课程</view>
+        <view class="share-window__box">
+            <view class="share-window__block">
+                <view class="iconfont icon-fenxiang1"></view>
+                <button class="share-window__button clear-button-style" openType="share">转发给朋友</button>
+            </view>
+            <view class="share-window__block">
+                <view class="iconfont icon-yaoqing"></view>
+                <view catchtap="inviteShare" class="share-window__invite">邀请卡分享</view>
+            </view>
+        </view>
+    </view>
+</view>
+<share-modal catchloginSuccess="loginSuccess" colorTheme="user" courseId="{{courseId}}" page="home" shareUser="{{shareUser}}" wx:if="{{notLogin}}"></share-modal>

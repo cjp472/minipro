@@ -1,0 +1,177 @@
+.announcer {
+    position: relative;
+    padding-bottom: 34rpx;
+    background: #fff;
+}
+
+.gap {
+    height: 20rpx;
+    background: #F7F8F9;
+}
+
+.announcer-avatar {
+    display: block;
+    margin: 30rpx auto;
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 50%;
+}
+
+.announcer-info>view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.announcer-name {
+    margin-right: 16rpx;
+    font-size: 34rpx;
+    color: #333333;
+}
+
+.announcer-businessCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140rpx;
+    height: 36rpx;
+    font-size: 22rpx;
+    background: #E8E8E8;
+    border-radius: 2px;
+}
+
+.announcer-verified {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20rpx 10rpx;
+    width: 52rpx;
+    height: 24rpx;
+    font-size: 18rpx;
+    color: #B89D85;
+    border: 2rpx solid;
+}
+
+.announcer-vdesc {
+    font-size: 24rpx;
+    color: #4A4A4A;
+}
+
+.announcer-number {
+    font-size: 24rpx;
+    color: #000000;
+}
+
+.announcer-number>text {
+    padding: 0 40rpx;
+    text-align: center;
+}
+
+.announcer-numberGap {
+    width: 2rpx;
+    height: 20rpx;
+    background: #D8D8D8;
+}
+
+.icon-businessCard {
+    width: 22rpx;
+    height: 22rpx;
+    margin-right: 8rpx;
+}
+
+.albums {
+    padding: 32rpx 26rpx 0;
+    background: #fff;
+}
+
+.albums-title {
+    font-size: 32rpx;
+    color: #4A4A4A;
+}
+
+.album {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200rpx;
+}
+
+.album-cover {
+    width: 130rpx;
+    height: 130rpx;
+}
+
+.album-info {
+    margin-top: 40rpx;
+    height: 159rpx;
+    width: 540rpx;
+    border-bottom: 1rpx solid #E8E8E8;
+}
+
+.category .album:last-child .album-info {
+    border-bottom: 0;
+}
+
+.album-title {
+    font-size: 32rpx;
+    color: #111111;
+}
+
+.album-intro {
+    margin: 10rpx 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 26rpx;
+    color: #999999;
+}
+
+.album-playcount {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.noAlbums {
+    text-align: center;
+    font-size: 32rpx;
+    color: #ADADAD;
+}
+
+.noAlbums image {
+    display: block;
+    margin: 80rpx auto 0;
+    width: 340rpx;
+    height: 340rpx;
+}
+
+.icon-playCount {
+    width: 16rpx;
+    height: 20rpx;
+    background: url('https://img.alicdn.com/imgextra/i4/732450928/TB2rDAObdRopuFjSZFtXXcanpXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+    margin-right: 8rpx;
+}
+
+.loading-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50rpx 0;
+    color: #9B9B9B;
+    background: #f0f0f0;
+}
+
+.loading-text {
+    font-family: PingFangSC-Light;
+    font-size: 28rpx;
+}
+
+.icon-tracksCounts {
+    width: 16rpx;
+    height: 18rpx;
+    background: url('https://img.alicdn.com/imgextra/i3/732450928/TB27zKIdbJmpuFjSZFwXXaE4VXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+    margin: 0 8rpx 0 16rpx;
+}

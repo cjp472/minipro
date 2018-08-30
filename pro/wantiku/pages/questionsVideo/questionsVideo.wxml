@@ -1,0 +1,38 @@
+<view class="qusetion-video-box {{theme}}">
+    <view class="question-video">
+        <video autoplay="true" id="video" src="{{playUrl}}"></video>
+    </view>
+    <scroll-view class="question-user-evaluate" scrollY="true">
+        <view class="question-evaluate">
+            <view class="question-evaluatel">
+                <view class="h2">{{starLevel}}</view>
+                <view class="text">{{totalSum}}人评价</view>
+            </view>
+            <view class="question-evaluater">
+                <view>
+                    <text bindtap="onStartLevelJs" class="iconfont icon_pingfen {{item.state==1?'active':''}}" data-stars="{{item.id}}" wx:for="{{starLevelList}}" wx:key="pingfen-total-key"></text>
+                </view>
+                <view class="text">老师讲的怎么样</view>
+            </view>
+        </view>
+        <view class="question-evaluatel-userlist">
+            <view class="question-evaluatel-useritem" wx:for="{{videoCommentList}}" wx:key="videoCommentList-key">
+                <view class="question-evaluatel-useritem-img">
+                    <image src="{{item.PicUrl==null?'http://img02.exam8.com/img2017/minapp/user_icon/user_header@2x.png':item.PicUrl}}"></image>
+                </view>
+                <view class="question-evaluatel-useritemr">
+                    <view class="question-evaluatel-useritem-info flex-row">
+                        <view class="name-box">
+                            <view class="name">{{item.NickName}}</view>
+                            <view class="star-box">
+                                <text class="iconfont icon_star_selected {{item==1?'active':''}}" wx:for="{{item.starLevel}}" wx:key="pingfen-key"></text>
+                            </view>
+                        </view>
+                        <view class="question-evaluatel-useritem-date">{{item.CreateDateFormat}}</view>
+                    </view>
+                    <view class="question-evaluatel-useritem-cont">{{item.MsgContent}}</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

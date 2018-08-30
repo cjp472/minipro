@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "打卡记录",
+    "usingComponents": {
+        "jdk-submit": "/components/user-submit/submit/submit",
+        "jdk-logo": "/components/logo/logo"
+    }
+}

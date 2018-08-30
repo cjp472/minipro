@@ -1,0 +1,125 @@
+@import "../../__wuBaseWxss__/9.wxss";
+
+@import "../../__wuBaseWxss__/8.wxss";
+
+.audio-fold {
+    height: 36rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconfont.icon-shouqi {
+    font-size: 18rpx;
+    color: #c4c8cc;
+    transform: rotate(0);
+}
+
+.iconfont.icon-shouqi.hide {
+    transform: rotate(180deg);
+}
+
+.audio_controller {
+    height: 98rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.audio_fix_bg {
+    width: 100%;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    box-shadow: 0rpx -2rpx 20rpx 0rpx rgba(55,55,55,0.2);
+    z-index: 10000;
+}
+
+.audio_photo.ico {
+    width: 64rpx;
+    height: 64rpx;
+    position: relative;
+    background-color: #16c786;
+    border-radius: 100%;
+    background-position: -56rpx -1236rpx;
+    overflow: hidden;
+}
+
+.slider_bar {
+    width: 360rpx;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    font-size: 20rpx;
+    color: #3c4856;
+}
+
+.comments .slider_bar {
+    width: 460rpx;
+}
+
+.slider_out {
+    width: 360rpx;
+    height: 24rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2rpx 0;
+}
+
+.comments .slider_out {
+    width: 460rpx;
+}
+
+slider {
+    margin: 0 0;
+    padding: 0;
+}
+
+.slider_time {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.control_bar {
+    width: 188rpx;
+    color: #c4c8cc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comments .control_bar {
+    width: 70rpx;
+}
+
+.iconfont {
+    font-size: 24rpx;
+}
+
+.iconfont.icon-yuanjiaojuxingkaobei,.iconfont.icon-xingzhuang {
+    font-size: 64rpx;
+}
+
+.h30 {
+    height: 30rpx;
+}
+
+.opacity5 {
+    opacity: 0.5;
+}
+
+.beyond_1 {
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}

@@ -1,0 +1,27 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="record__box" wx:if="{{showRecordBox}}">
+    <view class="record__shade"></view>
+    <view class="record__main">
+        <view class="record__audio">
+            <jdk-theme-eval applyType="eval-editor" notes="{{evalContent.notes}}" text="{{evalContent.text}}" voice="{{evalContent.voice}}"></jdk-theme-eval>
+        </view>
+        <view class="recorder__content" wx:if="{{evalRecord.success===false}}">
+            <view catchtap="reupload" class="reupload">
+                <view class="ico"></view>
+                <text>点击重传</text>
+            </view>
+        </view>
+        <view class="record__operator">
+            <view catchtap="{{recordPlaying?'pauseRecordAudio':'playRecordAudio'}}" class="record__replay {{recordPlaying?'pause':'play'}}" wx:if="{{evalRecord.voice_url}}">
+                <view class="ico"></view>
+                <view>回放</view>
+            </view>
+            <view catchtap="{{isRecording?'stopRecord':evalRecord.voice_url?'recordAgain':'startRecord'}}" class="record__button {{isRecording?'recording':evalRecord.voice_url?'again':'first'}}">
+                <view class="icon"></view>
+                <view>{{isRecording?recordDuration+' "/'+duration+'" ':evalRecord.voice_url?'重录 ':'录音 '}}</view>
+            </view>
+        </view>
+    </view>
+    <view catchtap="hideRecordBox" class="record__bottom ">{{evalRecord.voice_url?'确定 ':'取消 '}}</view>
+</view>
+<jdk-modal bind:modalConfirm="settingConfirm" confirmText="重新授权" content="{{settingContent}}" title="提示" type="openSetting" wx:if="{{showSetting}}"></jdk-modal>

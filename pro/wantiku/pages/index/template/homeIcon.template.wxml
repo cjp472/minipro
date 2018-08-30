@@ -1,0 +1,11 @@
+<template name="homeIconList">
+    <view class="column">
+        <button data-haslogin="{{HasLogin}}" data-type-id="{{ExamType}}" formType="submit" hoverClass="none" id="{{index}}">
+            <view class="image-box">
+                <image mode="widthFix" src="{{ExamIconUrlWx}}"></image>
+                <text class="promotion" wx:if="{{IsSaleDiscount&&!IOS}}">大促</text>
+            </view>
+        </button>
+        <text class="text-box">{{ExamTypeName}}</text>
+    </view>
+</template>

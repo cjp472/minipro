@@ -1,0 +1,115 @@
+<view class="container background {{theme}}">
+    <view bindtap="onUserMsgJs" class="login-wrap">
+        <view class="login-cont" wx:if="{{!hasLogin}}">
+            <image class="avatar" mode="widthFix" src="/images/icon/user_header@2x.png"></image>
+            <view class="login-info">
+                <text catchtap="bindLogin" class="login-btn login-btn-{{theme}}">登录/注册</text>
+                <text class="text-box">记录学习进度，开启你的考证通关之旅</text>
+            </view>
+        </view>
+        <view class="login-cont login-cont-success" wx:else>
+            <view class="avatar-box">
+                <image class="avatar" src="{{avatar}}"></image>
+            </view>
+            <view class="nick-name">
+                <text>{{nickName}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="themes {{CheckInCircle!=''?'fadfasfd':'separation-line'}}">
+        <view bindtap="onInotView" class="theme-cont" data-CheckInCircleType="{{item.CheckInCircleType}}" data-IsCheckIn="{{item.IsCheckIn}}" data-IsJoin="{{item.IsJoin}}" data-circleId="{{item.CircleID}}" wx:if="{{idx<totalRow}}" wx:for="{{CheckInCircle}}" wx:for-index="idx" wx:key="circleId">
+            <image class="theme-pic" src="{{item.CirclePicture}}"></image>
+            <view class="theme-info">
+                <text class="theme-name">{{item.CircleName}}</text>
+                <view class="theme-text">今日<text class="highlight highlight-{{theme}}">{{item.TotayCheckInCount}}</text>人已打卡</view>
+            </view>
+            <view class="btn-area">
+                <block wx:if="{{item.IsJoin}}">
+                    <view class="btn btn-dis" wx:if="{{item.IsCheckIn}}">已打卡</view>
+                    <view class="btn btn-{{theme}}" wx:else>打卡</view>
+                </block>
+                <view class="btn btn-{{theme}}" wx:else>加入</view>
+            </view>
+        </view>
+        <view class="button-wrapper" wx:if="{{CheckInCircle.length>3}}">
+            <view bindtap="onLoadMoreCircles" wx:if="{{hasMoreData}}">
+                <text>查看更多</text>
+                <text class="iconfont icon_arrow_down1"></text>
+            </view>
+            <view wx:else>
+                <text style="color:#ccc">已全部加载完毕</text>
+            </view>
+        </view>
+    </view>
+    <view class="mynav">
+        <view bindtap="bindChoose" class="flex-row">
+            <view class="flex-rowl">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_dangqiankaoshi@2x.png"></image>
+                <text>选择考试</text>
+            </view>
+            <view class="flex-rowr">
+                <text>{{subjectInfo.SubjectParentName}}</text>
+                <image src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_arrow_righe@2x.png" wx:if="{{canChoose}}"></image>
+            </view>
+        </view>
+        <view bindtap="bindExamAreaJs" class="flex-row" wx:if="{{showExamArea}}">
+            <view class="flex-rowl">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_newkaoqu@2x.png"></image>
+                <text>选择考区</text>
+            </view>
+            <view class="flex-rowr">
+                <text>{{examAreaName}}</text>
+                <image src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_arrow_righe@2x.png"></image>
+            </view>
+        </view>
+        <view bindtap="oneselfData" class="flex-row" wx:if="{{buyState}}">
+            <view class="flex-rowl">
+                <text class="iconfont icon_wodeziliao" mode="widthFix"></text>
+                <text>我的资料</text>
+            </view>
+            <view class="flex-rowr">
+                <image src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_arrow_righe@2x.png"></image>
+            </view>
+        </view>
+        <view bindtap="bindExamInfo" class="flex-row" wx:if="{{scoreResule}}">
+            <view class="flex-rowl">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_baokaochafen@3x.png"></image>
+                <text>报名查分</text>
+            </view>
+            <view class="flex-rowr">
+                <image src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_arrow_righe@2x.png"></image>
+            </view>
+        </view>
+        <view bindtap="bindFeedback" class="flex-row">
+            <view class="flex-rowl">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_yijianfankui@2x.png"></image>
+                <text>意见反馈</text>
+            </view>
+            <view class="flex-rowr">
+                <text class="remind-msg" wx:if="{{hideMsg>0}}"></text>
+                <image src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_arrow_righe@2x.png"></image>
+            </view>
+        </view>
+        <view bindtap="bindAbout" class="flex-row">
+            <view class="flex-rowl" style="border:0rpx;">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_guanyuwomen@2x.png"></image>
+                <text>关于我们</text>
+            </view>
+            <view class="flex-rowr" style="border:0rpx;">
+                <image src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_arrow_righe@2x.png"></image>
+            </view>
+        </view>
+        <view bindtap="bindDebug" class="flex-row" wx:if="{{debug}}">
+            <view class="flex-rowl" style="border:0rpx;">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_guanyuwomen@2x.png"></image>
+                <text>查看错误页面{{version}}</text>
+            </view>
+            <view class="flex-rowr" style="border:0rpx;">
+                <image src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_arrow_righe@2x.png"></image>
+            </view>
+        </view>
+    </view>
+    <view bindtap="logout" class="user-out" wx:if="{{false}}">
+        <text>退出当前账号</text>
+    </view>
+</view>

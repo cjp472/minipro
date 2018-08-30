@@ -1,0 +1,289 @@
+<view class="container  vip-course-detail {{theme}} {{!isPageScroll?'noscroll':''}}">
+    <view class="nav-cont " wx:if="{{backTopState}}">
+        <view class="tab-list {{theme}}-tab-list  flex-row">
+            <view bindtap="selectIndex" class="{{navIndex==index?'active':''}}" data-index="{{index}}" data-intoView="{{'intoView'+index}}" wx:for="{{tabs}}" wx:key="item">
+                <text class="iconfont icon_tab_dizhi"></text>
+                <text>{{item}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="scroll-cont">
+        <scroll-view bindscroll="scrolling" class="scroll-view" scrollIntoView="{{intoView}}" scrollY="{{isPageScroll}}">
+            <view class="course-detail flex-row  scroll-view-item" id="intoView0">
+                <view class="course-detaill">
+                    <view class="title">{{detailDataInfo.CourseName}}</view>
+                    <view class="time flex-row">
+                        <text class="iconfont icon_time1"></text>
+                        <text>
+              {{detailDataInfo.BeginCourseDateStr}}-{{detailDataInfo.EndCourseDateStr}} ({{detailDataInfo.CourseQuantityStr}})
+            </text>
+                    </view>
+                </view>
+                <button class="course-detailr" hoverClass="none" openType="share">
+                    <view class="iconfont icon_fenxiang1"></view>
+                    <text>分享</text>
+                </button>
+            </view>
+            <block wx:if="{{groups.length!=0}}">
+                <import src="./template/collageInfos.template.wxml"></import>
+                <view class="group-cont">
+                    <view class="group-hd">
+                        <view class="group-title">
+                            <text>{{groups.length}}</text>
+              人在开团，可直接参团
+            </view>
+                        <view bindtap="showModalTap" class="group-ft" wx:if="{{groups.length>2}}">查看更多</view>
+                    </view>
+                    <view class="group-list">
+                        <template is="grops" data="{{groups:groups,remainNumbers:remainNumbers,timers:timers,animationData:animationData,theme:theme,userDefaultfAvatar:userDefaultfAvatar}}"></template>
+                    </view>
+                </view>
+            </block>
+            <view class="scroll-view-item" id="intoView1">
+                <view class="column-hd column-{{theme}} ">课程详情</view>
+                <view class="column-bd">
+                    <block wx:for="{{CourseIntroUrls}}" wx:key="CourseIntroUrls-key">
+                        <text class="text" decode="{{true}}" wx:if="{{item.type==0&&item.content!=''&&item.content.length>1}}">{{item.content}}</text>
+                        <image mode="widthFix" src="{{item.content}}" wx:if="{{item.type==1}}"></image>
+                    </block>
+                </view>
+            </view>
+            <view class="scroll-view-item" id="intoView2">
+                <view class="column-hd column-{{theme}}">课程大纲</view>
+                <view class="column-bd subject-cont {{sectionExplain?'':'hide'}}" wx:if="{{SectionList.length!=0}}">
+                    <view bindtap="changeSectionExplain" class="title flex-row">
+                        <view>直播</view>
+                        <view class="iconfont icon_arrow_right"></view>
+                    </view>
+                    <view class="subject-list">
+                        <view class="subject-item" wx:for="{{SectionList}}" wx:key="{{item.SectionName}}">
+                            <view class="subject-title">
+                                <text>{{item.SectionName}}</text>
+                                <view class="subject-circle"></view>
+                            </view>
+                            <view class="flex-row">
+                                <view class="iconfont icon_time1"></view>
+                                <view class="text">{{item.BeginDateStr}} {{item.HourStr}}</view>
+                                <view class="text text-play-back">{{item.IsPlayBack?'回放':''}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="subject-cont {{videoExplain?'':'hide'}}" wx:if="{{VipVideoList.length!=0}}">
+                    <view bindtap="changeVideoExplain" class="title flex-row">
+                        <view>视频</view>
+                        <view class="iconfont icon_arrow_right"></view>
+                    </view>
+                    <view class="column-bd subject-list">
+                        <view class="subject-item" wx:for="{{VipVideoList}}">
+                            <view class="subject-title">
+                                <text>{{item.SectionName}}</text>
+                                <view class="subject-circle"></view>
+                            </view>
+                            <view class="flex-row">
+                                <view class="iconfont"></view>
+                                <view class="text">{{item.VideoDuration}}分 {{item.TeacherName}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="scroll-view-item  {{TeacherList.length?'scroll-view-item-last':''}}" id="intoView3">
+                <view class="column-hd column-{{theme}}">老师介绍</view>
+                <view class="teacher-info-item flex-row   {{index==0?'teacher-info-item-first':''}}" wx:for="{{TeacherList}}" wx:key="item.TeacherUrl">
+                    <view class="iteml">
+                        <image mode="widhFix" src="{{item.TeacherUrl}}"></image>
+                    </view>
+                    <view class="itemr">
+                        <view class="name flex-row">
+                            <text>{{item.TeacherName}}</text>
+                            <view class="teacher-level" wx:if="{{item.TeacherTitle!=''}}">
+                  {{item.TeacherTitle}}
+                </view>
+                        </view>
+                        <view class="flex-row pingfen">
+                            <view class="icon">
+                                <text class="iconfont icon_star_selected {{item==1?'active':''}}" wx:for="{{item.StarQuantityList}}" wx:key="Star-key"></text>
+                            </view>
+                            <view class="text">{{item.StarValue}}</view>
+                        </view>
+                        <view class="info-text">{{item.TeacherIntro}}</view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="detail-bottom flex-row" style="padding-left:{{!IOS?'0':'30'}}rpx;box-sizing:border-box;" wx:if="{{!payState}}">
+        <view class="price" wx:if="{{(SupportMinAppPay&&!detailDataInfo.TuanVipPrice||!detailDataInfo.SaleInfo=='')&&!IOS}}">
+      ￥
+      <text>{{totalPrice}}</text>
+        </view>
+        <view class="pay-person {{detailDataInfo.TuanVipPrice?'pay-person1':''}}" wx:if="{{detailDataInfo.SaleState==''}}">
+            <view wx:if="{{detailDataInfo.SaleInfo==''}}">
+            距离{{IOS?'报名截止':'停售'}}
+            <text>{{detailDataInfo.EndCountDown}}</text>
+            天
+          </view>
+            <view class="number">
+                <block wx:if="{{detailDataInfo.IsLimit==1&&detailDataInfo.SaleInfo==''}}">
+            仅{{IOS?'限':'售'}}{{detailDataInfo.TotalCount}}{{IOS?'人':'席'}}，还剩
+            <text>{{detailDataInfo.RemindCount}}</text>
+            位
+          </block>
+                <block wx:else>
+            已有
+            <text>{{detailDataInfo.SoldCount}}</text>
+            人{{IOS?'报名':'购买'}}
+          </block>
+            </view>
+        </view>
+        <view class="pay-person" wx:else>{{detailDataInfo.SaleState}}</view>
+        <block wx:if="{{detailDataInfo.SaleInfo==''}}">
+            <view class="pay-btn" wx:if="{{SupportMinAppPay&&!detailDataInfo.TuanVipPrice}}">
+                <text bindtap="payCourseJs" wx:if="{{!IOS}}">购买</text>
+                <button hoverClass="none" openType="contact" sendMessagePath="{{sharePath}}" sendMessageTitle="{{detailDataInfo.CourseName}}" sessionFrom="{{XNConfigInfo.sessionFrom}}" showMessageCard="{{true}}" wx:if="{{IOS}}">
+          报名
+        </button>
+            </view>
+            <block wx:elif="{{detailDataInfo.TuanVipPrice&&detailDataInfo.TuanUserState==0&&!isShowJoinGroupBtn}}">
+                <view bindtap="payCourseJs" class="pay-btn-single">
+                    <view class="price1">￥{{totalPrice}}</view>
+                    <text class="price2 price3">单独购买</text>
+                </view>
+                <form bindsubmit="groupSubmit" reportSubmit="{{true}}">
+                    <button class="pay-btn-group" formType="submit">
+                        <view class="price1">￥{{detailDataInfo.TuanVipPrice}}</view>
+                        <text class="price2 price3">一键开团</text>
+                    </button>
+                </form>
+            </block>
+            <block wx:elif="{{detailDataInfo.TuanUserState==1}}">
+                <view bindtap="pintuanInfo" class="pay-btn-pintuaning" wx:if="{{SupportMinAppPay}}">
+                    <view class="price4">拼团中</view>
+                    <view class="price2">查看进度</view>
+                </view>
+            </block>
+            <view bindtap="joinGroupTap" class="pay-btn-group" wx:elif="{{detailDataInfo.TuanUserState==0&&isShowJoinGroupBtn}}">
+                <view class="price1">￥{{detailDataInfo.TuanVipPrice}}</view>
+                <text class="price2 price3">一键参团</text>
+            </view>
+            <view class="pay-btn" wx:else>
+                <button hoverClass="none" openType="contact" sendMessagePath="{{sharePath}}" sendMessageTitle="{{detailDataInfo.CourseName}}" sessionFrom="{{XNConfigInfo.sessionFrom}}" showMessageCard="{{true}}">
+          {{IOS?'报名':'购买'}}
+        </button>
+            </view>
+        </block>
+        <view class="pay-btn disable" wx:else>
+            <text>{{detailDataInfo.SaleInfo}}</text>
+        </view>
+    </view>
+    <view class="pay-success-cont {{foldState?'fold':''}} {{payState?'show':''}}">
+        <view class="iconfont icon_goumaichenggong1"></view>
+        <view class="pay-text">已购买</view>
+        <view class="line"></view>
+        <view class="pay-tishi">请下载万题库APP</view>
+    </view>
+    <view class="pay-success-cont-fold1" wx:if="{{detailDataInfo.IsBuy==1&&detailDataInfo.NeedBook==0}}">
+        <view class="iconfont icon_goumaichenggong1"></view>
+        <view class="pay-text">已购买</view>
+        <view class="line"></view>
+        <view class="pay-tishi">请下载万题库APP学习</view>
+    </view>
+</view>
+<view class="{{theme}}">
+    <view class="pay-success-cont-fold " wx:if="{{detailDataInfo.IsBuy==1&&detailDataInfo.NeedBook==1}}">
+        <view class="pay_success_top">
+            <text class="iconfont icon_goumaichenggong"></text>
+            <view class="success-addr">
+                <text class="success-pay">购买成功</text>
+                <text class="success-text">请下载万题库APP学习</text>
+            </view>
+        </view>
+        <view class="address-fill" wx:if="{{!addrInfo&&isConfirm}}">
+            <text bindtap="clickAdress" class="address-fill-mail">填写邮寄地址</text>
+        </view>
+        <view class="addr-info" wx:if="{{addrInfo&&isConfirm}}">
+            <view class="addr-person">
+                <view>
+                    <text class="iconfont icon_renshu"></text>
+                    <text>
+            收货人：
+            <text>{{addrInfo.userName}}</text>
+                    </text>
+                </view>
+                <view class="addr-phone">{{addrInfo.telNumber}}</view>
+            </view>
+            <view class="addr-name">
+                <text class="iconfont icon_dizhi" style="margin-top: 8rpx"></text>
+                <text class="addr-name-address">
+          收货地址：
+          <text>
+            {{addrInfo.provinceName+addrInfo.cityName+addrInfo.countyName+addrInfo.detailInfo}}
+          </text>
+                </text>
+            </view>
+            <view class="addr-btn">
+                <text bindtap="confirmAddr" class="btn-confirm">确定地址</text>
+                <text bindtap="clickAdress" class="btn-alter">修改地址</text>
+            </view>
+        </view>
+        <view class="addr-info" wx:if="{{addrInfo&&!isConfirm}}">
+            <view class="addr-title">教材将寄到以下地址：</view>
+            <view class="addr-person">
+                <view>
+                    <text class="iconfont icon_renshu"></text>
+                    <text>
+            收货人：
+            <text>{{addrInfo.userName}}</text>
+                    </text>
+                </view>
+                <view class="addr-phone">{{addrInfo.telNumber}}</view>
+            </view>
+            <view class="addr-name">
+                <text class="iconfont icon_dizhi" style="margin-top: 8rpx"></text>
+                <text class="addr-name-address">
+          收货地址：
+          <text>
+            {{addrInfo.provinceName+addrInfo.cityName+addrInfo.countyName+addrInfo.detailInfo}}
+          </text>
+                </text>
+            </view>
+            <view style="height: 50rpx"></view>
+        </view>
+    </view>
+</view>
+<view bindtap="backTop" class="weChat-btn back-top {{backTopState?'':'hide'}} {{IsShare?'share':''}}">
+    <image class="consult" mode="widthFix" src="/images/icon/vip_icon_fanhuidingbu@2x.png"></image>
+</view>
+<view class="weChat-btn {{weChatAnimation?'animation':''}}">
+    <button hoverClass="none" id="analyze_xiaoneng" openType="contact" sendMessagePath="{{sharePath}}" sendMessageTitle="{{detailDataInfo.CourseName}}" sessionFrom="{{XNConfigInfo.sessionFrom}}" showMessageCard="{{true}}">
+        <image mode="widthFix" src="/images/icon/vip_icon_weixinzixun@2x.png"></image>
+    </button>
+    <view class="weChat-text">
+    对课程有疑问？点这里咨询老师
+    <view class="weChat-text-sanjiao">
+            <image mode="widthFix" src="/images/icon/sanjiao@2x.png"></image>
+        </view>
+    </view>
+</view>
+<view class="accredit_show_box" wx:if="{{accredit}}">
+    <view class="accredit_show">
+        <view class="accredit_show_title">需要打开小程序的设置重新获授权获取您的收货地址</view>
+        <view bindtap="openSettings" class="accredit_show_open">
+            <text data-index="1">取消</text>
+            <text data-index="2">去设置</text>
+        </view>
+    </view>
+</view>
+<view bindtap="goBackIndex" class="goBackIndex" wx:if="{{IsShare==1||homeIcon==1}}">
+    <text class="iconfont icon_home"></text>
+</view>
+<form bindsubmit="formSubmitHongBao" reportSubmit="{{true}}">
+    <button animation="{{s_animationData}}" class="s_hongbao {{hbanmationState?'hide':''}}" formType="submit" hoverClass="none" wx:if="{{ifHongb&&IsShare==1&&buyState}}">
+        <image class="s_hongbaoImage" src="http://img02.exam8.com/img2017/minapp/group/hongbaox.png"></image>
+    </button>
+</form>
+<block wx:if="{{isShowModal}}">
+    <import src="./template/showModal.template.wxml"></import>
+    <template is="showModal" data="{{showGroups:showGroups,remainNumbers:remainNumbers,timers:timers,theme:theme,userDefaultfAvatar:userDefaultfAvatar}}"></template>
+</block>

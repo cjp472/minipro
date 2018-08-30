@@ -1,0 +1,13 @@
+<view class="modal__container">
+    <view catchtap="{{containerCancel?'modalCancel':''}}" class="modal__shade"></view>
+    <view class="modal__content  {{isLargeContent?'lg':''}}">
+        <view class="modal__text">
+            <view class="modal__title">{{title}}</view>
+            <text selectable class="modal__tips ">{{content}}</text>
+        </view>
+        <view class="modal__operate">
+            <view catchtap="modalCancel" class="modal__cancel" wx:if="{{needCancel}}">{{cancelText}}</view>
+            <view catchtap="modalConfirm" class="modal__confirm {{needCancel?'half':''}}">{{confirmText}}</view>
+        </view>
+    </view>
+</view>

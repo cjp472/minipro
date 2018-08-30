@@ -1,0 +1,37 @@
+<template name="showModal">
+    <view bindtap="showModalTap" class="show-modal-mask">
+        <view class="modal-cont">
+            <view class="modal-hd">
+                <text>进行中的团</text>
+                <view class="close-btn">
+                    <text class="iconfont icon_guanbi"></text>
+                </view>
+            </view>
+            <view class="modal-bd">
+                <scroll-view class="modal-scroll-view" scrollY="{{true}}">
+                    <view class="modal-item" wx:for="{{showGroups}}" wx:for-index="idx" wx:for-item="groupItem" wx:key="{{index}}">
+                        <view class="modal-info" wx:if="{{item.IsMaster}}" wx:for="{{groupItem.UserList}}" wx:key="userKey">
+                            <image class="avatar" src="{{item.AvatarUrl?item.AvatarUrl:userDefaultfAvatar}}"></image>
+                            <view class="info-box">
+                                <view>
+                                    <text class="nick-name">{{item.NickName}}</text>还差<text>{{remainNumbers[idx]}}人</text>
+                                </view>
+                                <view class="time-box">
+                                            {{timers[idx]}}
+                                        </view>
+                            </view>
+                        </view>
+                        <view class="btn-box">
+                            <view bindtap="joinActivities" class="join-btn join-btn-{{theme}}  " data-GroupInfoId="{{groupItem.GroupInfoId}}" data-GroupState="1" wx:if="{{timers[idx]!='0'}}">
+                                        去参团
+                                    </view>
+                            <view bindtap="joinActivities" class="join-btn join-btn-dis join-btn-{{theme}} " data-GroupInfoId="{{groupItem.GroupInfoId}}" data-GroupState="0" wx:else>
+                                        已结束
+                                    </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+</template>

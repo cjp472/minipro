@@ -1,0 +1,32 @@
+<view hoverStopPropagation catchtap="cancelBubble" class="audio_fix_bg {{page!='topic'?'comments':''}}" wx:if="{{showGlobalAudio&&currentAudioType==page}}">
+    <view catchtap="toggleShow" class="audio-fold">
+        <text class="iconfont icon-shouqi {{hideController?'hide':''}}"></text>
+    </view>
+    <view class="audio_controller" hidden="{{hideController}}">
+        <view class="audio_photo ico" style="background-color:{{colorData.deepColour}};">
+            <image mode="aspectFill" src="{{voice.voice_avatar}}" style="width:100%;height:100%;"></image>
+        </view>
+        <view class="slider_bar">
+            <view class="h30 beyond_1">{{voice.voice_name||' '}}</view>
+            <view class="slider_out">
+                <slider activeColor="{{colorData.deepColour}}" backgroundColor="{{colorData.sliderColour}}" blockSize="12" catchchange="seekAudio" step="1" style="width: 100%;" value="{{currentPosition}}"></slider>
+            </view>
+            <view class="slider_time h30">
+                <text>{{currentTime||'00:00'}}</text>
+                <text>{{duration||'00:00'}}</text>
+            </view>
+        </view>
+        <view class="control_bar">
+            <view catchtap="_last" hoverClass="opacity5" wx:if="{{page=='topic'}}">
+                <text class="iconfont icon-xingzhuangkaobei1"></text>
+            </view>
+            <view hoverClass="opacity5">
+                <text catchtap="toggleAudio" class="iconfont icon-yuanjiaojuxingkaobei" wx:if="{{isPlaying}}"></text>
+                <text catchtap="toggleAudio" class="iconfont icon-xingzhuang" wx:if="{{!isPlaying}}"></text>
+            </view>
+            <view catchtap="_next" hoverClass="opacity5" wx:if="{{page=='topic'}}">
+                <text class="iconfont icon-xingzhuangkaobei"></text>
+            </view>
+        </view>
+    </view>
+</view>

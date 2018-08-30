@@ -1,0 +1,281 @@
+@import "../vipCoursesDetail/vipCoursesDetail.wxss";
+
+.red .video-order-pay-time-cont .pay-time-type.active {
+    background: #FFF6F6;
+    border: 3rpx solid #ff5757;
+}
+
+.red .video-order-pay-time-cont .pay-time-type.active .triangle {
+    border-bottom: 36rpx solid #ff5757;
+}
+
+.red .video-order-pay-time-title .text::after {
+    background: #ff5757;
+}
+
+.red .checkbox-btn.active {
+    border: 1rpx solid #ff5757;
+    background: #ff5757;
+}
+
+.blue .video-order-pay-time-cont .pay-time-type.active {
+    background: #f6f9ff;
+    border: 3rpx solid #4380db;
+}
+
+.blue .video-order-pay-time-cont .pay-time-type.active .triangle {
+    border-bottom: 36rpx solid #4380db;
+}
+
+.blue .video-order-pay-time-title .text::after {
+    background: #4380db;
+}
+
+.blue .checkbox-btn.active {
+    border: 1rpx solid #4380db;
+    background: #4380db;
+}
+
+.Lightblue .video-order-pay-time-cont .pay-time-type.active {
+    background: #f6fdff;
+    border: 3rpx solid #27c1f4;
+}
+
+.Lightblue .video-order-pay-time-cont .pay-time-type.active .triangle {
+    border-bottom: 36rpx solid #27c1f4;
+}
+
+.Lightblue .video-order-pay-time-title .text::after {
+    background: #27c1f4;
+}
+
+.Lightblue .checkbox-btn.active {
+    border: 1rpx solid #27c1f4;
+    background: #27c1f4;
+}
+
+.purple .video-order-pay-time-cont .pay-time-type.active {
+    background: #faf7ff;
+    border: 3rpx solid #a066e8;
+}
+
+.purple .video-order-pay-time-cont .pay-time-type.active .triangle {
+    border-bottom: 36rpx solid #a066e8;
+}
+
+.purple .video-order-pay-time-title .text::after {
+    background: #a066e8;
+}
+
+.purple .checkbox-btn.active {
+    border: 1rpx solid #a066e8;
+    background: #a066e8;
+}
+
+.yellow .video-order-pay-time-cont .pay-time-type.active {
+    background: #fffcf5;
+    border: 3rpx solid #db9b00;
+}
+
+.yellow .video-order-pay-time-cont .pay-time-type.active .triangle {
+    border-bottom: 36rpx solid #db9b00;
+}
+
+.yellow .video-order-pay-time-title .text::after {
+    background: #db9b00;
+}
+
+.yellow .checkbox-btn.active {
+    border: 1rpx solid #db9b00;
+    background: #db9b00;
+}
+
+.orange .video-order-pay-time-cont .pay-time-type.active {
+    background: #fdf7f2;
+    border: 3rpx solid #ff7e00;
+}
+
+.orange .video-order-pay-time-cont .pay-time-type.active .triangle {
+    border-bottom: 36rpx solid #ff7e00;
+}
+
+.orange .video-order-pay-time-title .text::after {
+    background: #ff7e00;
+}
+
+.orange .checkbox-btn.active {
+    border: 1rpx solid #ff7e00;
+    background: #ff7e00;
+}
+
+page {
+    background: #f2f3f4;
+}
+
+.video-order-cont {
+    position: fixed;
+    top: 0;
+    width: 750rpx;
+    bottom: 111rpx;
+}
+
+.video-order-title {
+    padding: 36rpx 30rpx 70rpx 30rpx;
+    font-size: 30rpx;
+    color: #666666;
+    background: #ffffff;
+}
+
+.video-order-pay-time-title {
+    font-size: 30rpx;
+    color: #9a9a9a;
+    padding-left: 48rpx;
+    background: #ffffff;
+    position: relative;
+    line-height: 30rpx;
+}
+
+.video-order-pay-time-title .text::after {
+    position: absolute;
+    content: '';
+    left: 30rpx;
+    width: 4rpx;
+    height: 26rpx;
+    background: #6fce29;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 2rpx;
+}
+
+.video-order-pay-time-title .triangle {
+    position: absolute;
+    left: 176rpx;
+    top: -26rpx;
+    width: 112rpx;
+    height: 38rpx;
+    line-height: 40rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #ff7e00;
+    border: 1px solid #ff7e00;
+    border-radius: 20rpx 20rpx 20rpx 0;
+}
+
+.video-order-pay-time-cont {
+    display: flex;
+    flex-direction: row;
+    background: #ffffff;
+    padding: 36rpx 0;
+}
+
+.video-order-pay-time-cont .pay-time-type {
+    width: 154rpx;
+    height: 138rpx;
+    border-radius: 10rpx;
+    border: 1px solid #ebebeb;
+    margin-left: 25rpx;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.video-order-pay-time-cont .pay-time-type .month {
+    font-size: 30rpx;
+    line-height: 30rpx;
+    color: #4e4e4e;
+}
+
+.video-order-pay-time-cont .pay-time-type .discount {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    margin-top: 20rpx;
+    color: #ff7e00;
+    text-align: center;
+}
+
+.video-order-pay-time-cont .pay-time-type.active {
+    background: #fcfff9;
+    position: relative;
+    border: 3rpx solid #6fce29;
+}
+
+.video-order-pay-time-cont .pay-time-type .icon_yiyuyue {
+    display: none;
+}
+
+.video-order-pay-time-cont .pay-time-type.active .triangle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 36rpx solid #6fce29;
+    border-left: 36rpx solid transparent;
+}
+
+.video-order-pay-time-cont .pay-time-type.active .icon_yiyuyue {
+    display: block;
+    color: #ffffff;
+    font-size: 16rpx;
+    position: absolute;
+    right: 2rpx;
+    bottom: 2rpx;
+}
+
+.video-order-pay-time-end {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: #9a9a9a;
+    padding: 0 0 36rpx 30rpx;
+    background: #ffffff;
+}
+
+.video-order-pay-all {
+    height: 100rpx;
+    padding: 0 30rpx;
+    margin-top: 14rpx;
+    background: #ffffff;
+    font-size: 30rpx;
+    color: #666666;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.video-order-pay-all text {
+    color: #ff7e00;
+}
+
+.video-order-pay-all .checkbox-btn {
+    border-radius: 50%;
+    width: 34rpx;
+    height: 34rpx;
+    border: 3rpx solid #dddddd;
+    margin-right: 18rpx;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox-btn .icon_yiyuyue {
+    display: none;
+}
+
+.checkbox-btn.active {
+    border: 1rpx solid #6fce29;
+    background: #6fce29;
+}
+
+.checkbox-btn.active .icon_yiyuyue {
+    display: block;
+    font-size: 16rpx;
+    color: #ffffff;
+}
+
+.detail-bottom {
+    background: #ffffff;
+}
+
+.detail-bottom .price {
+    padding-right: 34rpx;
+}

@@ -1,0 +1,18 @@
+.pd10-0 {
+    padding: 10rpx 0;
+}
+
+.pd10-30-30 {
+    padding: 10rpx 30rpx 30rpx;
+}
+
+.mt10 {
+    margin-top: 10rpx;
+}
+
+.flex-l-t {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}

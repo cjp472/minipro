@@ -1,0 +1,9 @@
+{
+    "backgroundTextStyle": "#FFFFFF",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": " ",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+        "go-to-home-page": "/components/goToHomePage/goToHomePage"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "课程邀请",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "login-button": "/components/loginBtn/loginBtn",
+        "jdk-logo": "/components/logo/logo"
+    }
+}

@@ -1,0 +1,11 @@
+<view class="name-modify-box {{theme}}">
+    <view class="name-modify">
+        <input bindinput="bindinput" maxlength="16" type="text" value="{{nickName}}"></input>
+        <view bindtap="onClearNickNameJs" class="name-modify-clear">
+            <image src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_close@2x.png"></image>
+        </view>
+    </view>
+    <view catchtap="onModifyJs" class="name-modify-btn">
+    提交
+  </view>
+</view>

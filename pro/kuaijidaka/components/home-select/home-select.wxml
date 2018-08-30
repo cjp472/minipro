@@ -1,0 +1,24 @@
+<view class="home-select">
+    <view class="home-select__bar">
+        <view class="home-select__count">
+            <view class="home-select__ico admin-ico2"></view>
+            <text>{{submit_txt}}： <text class="home-select__blue">{{submitCount}}人</text>
+            </text>
+        </view>
+        <view class="home-select__slider">
+            <jdk-switch bind:toggleSwitch="toggleRemark" choosed="{{noRemark}}" itemName="筛选未点评"></jdk-switch>
+        </view>
+    </view>
+    <view class="home-select__box">
+        <input bindconfirm="searchStudent" class="home-select__input" confirmType="search" placeholder="搜索学员" placeholderStyle="font-size:28rpx; color:#c3c7cd"></input>
+        <view class="home-select__order">
+            <view catchtap="toggleOrder" class="home-select__order-type {{orderType===orderTypes.DEFAULT||orderType===orderTypes.TIME?'choosed':''}}" data-ordertype="{{orderType===orderTypes.DEFAULT?orderTypes.TIME:orderTypes.DEFAULT}}">{{orderType===orderTypes.DEFAULT?orderTypeText[orderTypes.DEFAULT]:orderTypeText[orderTypes.TIME]}}
+      <view class="{{orderType===orderTypes.DEFAULT?'home-select__up-triangle--emphasis':'home-select__up-triangle'}}"></view>
+                <view class="{{orderType===orderTypes.TIME?'home-select__down-triangle--emphasis':'home-select__down-triangle'}}"></view>
+            </view>
+            <view catchtap="toggleOrder" class="home-select__order-type {{orderType===orderTypes.SCORE?'choosed':''}}" data-ordertype="{{orderTypes.SCORE}}">{{orderTypeText[orderTypes.SCORE]}}</view>
+            <view catchtap="toggleOrder" class="home-select__order-type {{orderType===orderTypes.PRAISE?'choosed':''}}" data-ordertype="{{orderTypes.PRAISE}}">{{orderTypeText[orderTypes.PRAISE]}}</view>
+            <view catchtap="toggleOrder" class="home-select__order-type {{orderType===orderTypes.EVAL?'choosed':''}}" data-ordertype="{{orderTypes.EVAL}}" wx:if="{{isEval}}">{{orderTypeText[orderTypes.EVAL]}}</view>
+        </view>
+    </view>
+</view>

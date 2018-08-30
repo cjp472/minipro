@@ -1,0 +1,104 @@
+.group-cont {
+    padding: 30rpx 0 30rpx 30rpx;
+    background: #fff;
+}
+
+.group-cont .tit-box {
+    line-height: 46rpx;
+    font-size: 32rpx;
+    color: #4e4e4e;
+}
+
+.group-cont .info-box {
+    line-height: 34rpx;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: #9a9a9a;
+}
+
+.group-cont .info-box .icon_time {
+    align-items: center;
+    font-weight: 300;
+    font-size: 22rpx;
+    margin-right: 8rpx;
+}
+
+.group-cont .tit-box,.group-cont .info-box {
+    display: block;
+}
+
+.groups-info {
+    margin-top: 36rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.teacher-list {
+    margin-top: 14rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.teacher-box {
+    max-width: 100rpx;
+    margin-right: 40rpx;
+    text-align: center;
+}
+
+.teacher-box .avatar {
+    width: 60rpx;
+    height: 60rpx;
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.teacher-box text {
+    margin-top: 6rpx;
+    max-width: 100rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 24rpx;
+    color: #9a9a9a;
+}
+
+.purchase-info {
+    width: 270rpx;
+    height: 120rpx;
+    background: #fff5f5;
+    border-radius: 80rpx 0 0 80rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #e78887;
+}
+
+.price-box {
+    margin-top: 2rpx;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+}
+
+.price-box .item-box {
+    display: inline-block;
+    font-size: 26rpx;
+    color: #9a9a9a;
+}
+
+.price-box .text-big {
+    margin-left: 14rpx;
+    font-size: 48rpx;
+    color: #f94744;
+}
+
+.price-box .text-big text {
+    font-size: 24rpx;
+    vertical-align: 1px;
+}
+
+.price-box .text-small text {
+    vertical-align: -20rpx;
+    text-decoration: line-through;
+}

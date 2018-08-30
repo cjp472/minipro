@@ -1,0 +1,6 @@
+<view class="container">
+    <image class="logo" src="/resources/login/logo.png"></image>
+    <view class="title">登录后即可购买课程</view>
+    <button bindgetphonenumber="getPhoneNumber" class="btn-t" openType="getPhoneNumber" type="primary">你已授权微信，可快捷登录</button>
+    <view bindtap="mobilelogin" class="btn-b" type="default">手机登录</view>
+</view>

@@ -1,0 +1,193 @@
+.title {
+    width: 100%;
+    text-align: center;
+    margin: 77rpx 0rpx 85rpx 0rpx;
+}
+
+.title text {
+    font-size: 42rpx;
+    color: #4c4c4c;
+}
+
+.flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.flex-row {
+    width: 200rpx;
+    height: 80rpx;
+    border-radius: 10rpx;
+    text-align: center;
+    margin: 0rpx 15rpx 30rpx 15rpx;
+    padding-top: 160rpx;
+    color: #666666;
+}
+
+.flex-row text {
+    font-size: 29rpx;
+    margin: 0 auto;
+}
+
+.flex .m1 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/mrbg_03.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 72rpx 87rpx;
+    border: 1px solid #e5e5e5;
+}
+
+.flex .m2 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/mrbg_05.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 65rpx 87rpx;
+    border: 1px solid #e5e5e5;
+}
+
+.flex .m3 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/mrbg_07.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 78rpx 87rpx;
+    border: 1px solid #e5e5e5;
+}
+
+.flex .m4 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/mrbg_12.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 72rpx 79rpx;
+    border: 1px solid #e5e5e5;
+}
+
+.flex .m5 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/mrbg_13.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 65rpx 79rpx;
+    border: 1px solid #e5e5e5;
+}
+
+.flex .m6 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/mrbg_14.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 78rpx 79rpx;
+    border: 1px solid #e5e5e5;
+}
+
+.flex .m7 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/mrbg_16.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 78rpx 79rpx;
+    border: 1px solid #e5e5e5;
+}
+
+.flex .m8 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/mrbg_17.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 78rpx 79rpx;
+    border: 1px solid #e5e5e5;
+}
+
+.flex .m9 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/mrbg_15.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 78rpx 79rpx;
+    border: 1px solid #e5e5e5;
+}
+
+.flex .g1 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/bhbg_03.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 72rpx 87rpx;
+    background-color: #6fce29;
+    color: #ffffff;
+    border: 1px solid #7dd33e;
+}
+
+.flex .g2 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/bhbg_05.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 65rpx 87rpx;
+    background-color: #6fce29;
+    color: #ffffff;
+    border: 1px solid #7dd33e;
+}
+
+.flex .g3 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/bhbg_07.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 78rpx 87rpx;
+    background-color: #6fce29;
+    color: #ffffff;
+    border: 1px solid #7dd33e;
+}
+
+.flex .g4 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/bhbg_12.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 72rpx 79rpx;
+    background-color: #6fce29;
+    color: #ffffff;
+    border: 1px solid #7dd33e;
+}
+
+.flex .g5 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/bhbg_13.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 65rpx 79rpx;
+    background-color: #6fce29;
+    color: #ffffff;
+    border: 1px solid #7dd33e;
+}
+
+.flex .g6 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/bhbg_14.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 78rpx 79rpx;
+    background-color: #6fce29;
+    color: #ffffff;
+    border: 1px solid #7dd33e;
+}
+
+.flex .g7 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/bhbg_16.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 78rpx 79rpx;
+    background-color: #6fce29;
+    color: #ffffff;
+    border: 1px solid #7dd33e;
+}
+
+.flex .g8 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/bhbg_17.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 78rpx 79rpx;
+    background-color: #6fce29;
+    color: #ffffff;
+    border: 1px solid #7dd33e;
+}
+
+.flex .g9 {
+    background-image: url('http://img02.exam8.com/img2017/minapp/index/bhbg_15.png');
+    background-repeat: no-repeat;
+    background-position: center 50rpx;
+    background-size: 78rpx 79rpx;
+    background-color: #6fce29;
+    color: #ffffff;
+    border: 1px solid #7dd33e;
+}

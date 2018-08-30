@@ -1,0 +1,29 @@
+<template name="ads">
+    <view class="ad-box {{radius?'ad-box-radius':''}}" wx:if="{{adsList.length==1}}">
+        <ad unitId="{{adsList[0].unit_id}}" wx:if="{{adsList[0].type==3}}"></ad>
+        <image bindtap="toAdDetail" class="slide-image" data-index="0" mode="widthFix" src="{{adsList[0].banner}}" wx:else></image>
+    </view>
+    <swiper autoplay="{{swiper.autoplay}}" bindchange="swiperChange" circular="true" class="swiper {{radius?'swiper-radius':''}}" current="{{swiper.current}}" duration="{{swiper.duration}}" indicatorActiveColor="#fff" indicatorColor="rgba(255,255,255, .5)" indicatorDots="{{swiper.indicatorDots}}" interval="{{swiper.interval}}" wx:else>
+        <swiper-item wx:for="{{adsList}}" wx:key="1">
+            <ad unitId="{{item.unit_id}}" wx:if="{{item.type==3}}"></ad>
+            <image bindtap="toAdDetail" class="slide-image" data-index="{{index}}" src="{{item.banner}}" wx:else></image>
+        </swiper-item>
+    </swiper>
+</template>
+<template name="noticeBoard">
+    <view class="dialog" wx:if="{{noticeBoard.showUpgradeDialog}}">
+        <view class="dialog-bg"></view>
+        <view bindtap="closeUpgradeDialog" class="dialog-content">
+            <image class="dialog-close-btn" src="/images/dialog_close.png"></image>
+            <view catchtap="doNothing" catchtouchmove="doNothing" class="dialog-view">
+                <image class="dialog-image" src="/images/dialog_image.png"></image>
+                <view class="dialog-info">
+                    <view class="dialog-title">{{noticeBoard.title}}</view>
+                    <scroll-view class="dialog-scroll-view" scrollY="true">
+                        <text>{{noticeBoard.desc}}</text>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

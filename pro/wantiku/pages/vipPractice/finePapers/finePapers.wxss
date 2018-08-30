@@ -1,0 +1,240 @@
+@import "../../../template/examPaper/exam-paper-template.wxss";
+
+page,.finePapers-box {
+    overflow-x: hidden;
+}
+
+.finePapers-img image,.finePapers-img {
+    height: 300rpx;
+    width: 100%;
+}
+
+.questions-wrap {
+    width: 720rpx;
+    margin-left: 30rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    position: relative;
+    overflow: hidden;
+}
+
+.questions-title {
+    width: 577rpx;
+    font-size: 30rpx;
+    color: #ccc;
+    margin-top: 29rpx;
+    margin-bottom: 16rpx;
+}
+
+.questions-title-success {
+    color: #4e4e4e;
+}
+
+.questions-info {
+    padding-bottom: 26rpx;
+}
+
+.questions-info text {
+    margin-right: 30rpx;
+    font-size: 24rpx;
+    color: #ccc;
+}
+
+.questions-info-success text {
+    color: #999;
+}
+
+.pay-btn-group {
+    height: 180rpx;
+    width: 100%;
+}
+
+.questions-main {
+    float: left;
+    width: 500rpx;
+}
+
+.questions-side-btn {
+    height: 120rpx;
+    width: 100rpx;
+    text-align: right;
+    float: right;
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+    margin-right: 23rpx;
+    margin-top: 44rpx;
+}
+
+.do-exercise-icon {
+    width: 33rpx;
+    height: 37rpx;
+    background-size: 100%;
+    margin-right: 31rpx;
+    display: inline-block;
+}
+
+.remaining-days {
+    height: 86rpx;
+    line-height: 86rpx;
+    border: 1rpx solid #ebebeb;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 24rpx;
+    color: #9a9a9a;
+}
+
+.expireexpire-time {
+    width: 500rpx;
+    color: #9a9a9a;
+}
+
+.remaining-days .expireexpire-time-success {
+    color: #7a7a7a;
+}
+
+.fine-pay-bottom-box {
+    width: 100%;
+    height: 112rpx;
+    position: fixed;
+    bottom: 0;
+}
+
+.fine-pay-bottom {
+    width: 100%;
+    height: 112rpx;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border: 1rpx solid #ebebeb;
+}
+
+.fine-pay-bottom .price {
+    font-size: 24rpx;
+    color: #ff7e00;
+    padding-left: 30rpx;
+    padding-right: 40rpx;
+}
+
+.fine-pay-bottom .price text {
+    font-size: 58rpx;
+    line-height: 58rpx;
+    font-weight: 500;
+}
+
+.remaining-days .icon_time1 {
+    height: 20rpx;
+    width: 20rpx;
+    margin-left: 30rpx;
+    margin-right: 12rpx;
+    color: #ccc;
+}
+
+.pay-person {
+    color: #9a9a9a;
+    font-size: 22rpx;
+    line-height: 22rpx;
+    flex-grow: 1;
+}
+
+.pay-person1 {
+    padding-left: 30rpx;
+}
+
+.pay-person .number {
+    margin-top: 10rpx;
+}
+
+.pay-person text {
+    color: #fc6808;
+}
+
+.pay-btn {
+    width: 200rpx;
+    background: #ff7e00;
+    color: #fff;
+    height: 113rpx;
+    position: relative;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 113rpx;
+}
+
+.pay-price-symbol {
+    height: 112rpx;
+    text-align: center;
+    line-height: 112rpx;
+    margin-right: 30rpx;
+    margin-left: 30rpx;
+    color: #ff7e00;
+    font-size: 58rpx;
+    font-weight: 500;
+}
+
+.pay-price-symbol text {
+    font-size: 24rpx;
+}
+
+.finePapersBottom {
+    height: 112rpx;
+    width: 100%;
+}
+
+.pay-text .pay-text-day {
+    margin-bottom: 8rpx;
+}
+
+.fine-active {
+    height: 40rpx;
+    display: block;
+    text-align: center;
+    line-height: 40rpx;
+    border-radius: 22rpx 22rpx 22rpx 0;
+    background: #fff0e1;
+    color: #ff7e00;
+    font-size: 24rpx;
+    margin-right: 30rpx;
+}
+
+.fine-active text {
+    display: block;
+    margin-left: 16rpx;
+    margin-right: 16rpx;
+    font-size: 24rpx;
+    color: #ff7e00;
+}
+
+.fine-active-box {
+    height: 86rpx;
+    line-height: 86rpx;
+    width: 250rpx;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.remaining-days .icon_time1 {
+    font-size: 25rpx;
+}
+
+.pay-btn-end {
+    width: 200rpx;
+    background: #ccc;
+    height: 113rpx;
+    position: relative;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 113rpx;
+    color: #fff;
+}
+
+.s_hongbao {
+    bottom: 108rpx;
+}
+
+.goBackIndex {
+    bottom: 272rpx;
+    right: 22rpx;
+}

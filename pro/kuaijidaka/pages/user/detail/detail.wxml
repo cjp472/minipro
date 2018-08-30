@@ -1,0 +1,103 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<jdk-permission-checker catchpermissionpass="onPermissionPass" codeImg="{{permissionChecker.permit_image}}" courseId="{{permissionChecker.courseId}}" denyReason="{{permissionChecker.denyReason}}" tips="{{permissionChecker.tips}}" wx:if="{{permissionChecker}}"></jdk-permission-checker>
+<jdk-modal bind:moadlCancel="moadlCancel" bind:modalConfirm="modalConfirm" content="{{modalContent}}" wx:if="{{showModal}}"></jdk-modal>
+<view wx:if="{{!notLogin}}">
+    <view class="container" style="height: 1334rpx;">
+        <view class="title-top {{themeSelect}}">
+            <view class="clearfix">
+                <view class="h2">
+                    <text>{{labelText.topTitle}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="all-bg" wx:if="{{submitData.user_id}}">
+            <view class="submit-container">
+                <jdk-submit bind:assessAgain="assessAgain" catchaudioType="setAudioType" catchpreview="markPreview" currentAudioType="{{currentAudioType}}" page="detail" submitData="{{submitData}}" wx:if="{{submitData.user_id}}"></jdk-submit>
+            </view>
+            <view wx:if="{{!isEval}}">
+                <navigator class="button--primary" openType="redirect" url="{{URLCourseHome}}" wx:if="{{isShare}}">{{labelText.mainButton}}</navigator>
+                <navigator class="button--primary white" url="/pages/user_sub/invited_share/invited_share?title={{submitData.title}}&course_type={{submitData.course_type}}&course_id={{submitData.course_id}}">邀请好友打卡</navigator>
+                <view class="theBtn clearfix">
+                    <view class="btn longPic {{!isShare&&(!isMine||!isToday)?'onlyLongPic':''}}">
+                        <button catchtap="longPicture" style="background: #fff; color: #8b97a4; border: none;" wx:if="{{!submitData.question_count}}">生成长图</button>
+                    </view>
+                    <view class="btn sharePic {{!isShare&&(!isMine||!isToday)?'onlySharePic':''}} {{submitData.question_count>0?'onlySharePic--exam':''}}">
+                        <button openType="share" wx:if="{{canUseShareButton}}">
+                            <text>分享转发</text>
+                        </button>
+                        <button catchtap="shareClick" wx:else>
+                            <text>分享转发</text>
+                        </button>
+                    </view>
+                </view>
+            </view>
+            <view wx:else>
+                <navigator class="button--primary" openType="redirect" url="{{URLCourseHome}}" wx:if="{{isShare}}">去挑战</navigator>
+                <navigator class="button--primary white" url="/pages/user_sub/invited_share/invited_share?title={{submitData.title}}&course_type={{submitData.course_type}}&course_id={{submitData.course_id}}">邀请好友打卡</navigator>
+                <view class="btn longPic {{isMine&&!isToday?'onlyLongPic green':''}}" wx:if="{{isMine}}">
+                    <button catchtap="getAchievementCard" style="background: #fff; color: #8b97a4; border: none;">生成成就卡</button>
+                </view>
+                <view class="btn sharePic {{!isMine||isMine&&!isToday?'onlySharePic':''}}">
+                    <button openType="share" wx:if="{{canUseShareButton}}">
+                        <text>分享转发</text>
+                    </button>
+                    <button catchtap="shareClick" wx:else>
+                        <text>分享转发</text>
+                    </button>
+                </view>
+            </view>
+            <jdk-logo></jdk-logo>
+        </view>
+    </view>
+    <block wx:if="{{isMine&&submitData.course_type===2}}">
+        <view catchtap="goUnlockHome" class="unlock-guide" wx:if="{{submitData.unlock_next_number>submitData.sequence&&submitData.left_unlock_today>=1}}">
+            <view class="ico ico--attention"></view>
+      已满足解锁条件，点此解锁下一课。
+    </view>
+        <view class="unlock-guide" wx:if="{{submitData.unlock_next_number>submitData.sequence&&submitData.left_unlock_today===0}}">
+            <view class="ico ico--attention"></view>
+      今日解锁次数用完，次日可解锁下一课。
+    </view>
+        <view class="unlock-guide" wx:if="{{submitData.unlock_next_number===submitData.sequence}}">
+            <view class="ico ico--attention"></view>
+            <text wx:if="{{unlock_type===0}}">评测需满{{auto_unlock_threshold}}分方可解锁下一课。请再接再厉</text>
+            <text wx:if="{{unlock_type===1}}">等待管理员审核通过后，可解锁下一课。</text>
+        </view>
+        <view catchtap="goUnlockHome" class="unlock-guide" wx:if="{{unlock_type===0&&auto_unlock_type===0&&!!submitData.left_unlock_today&&submitData.unlock_next_number>submitData.sequence}}">
+            <view class="ico ico--attention"></view>
+      还可以解锁{{submitData.left_unlock_today}}课时，点此继续挑战
+    </view>
+    </block>
+    <view class="public" wx:if="{{NO1PraiseVisible}}">
+        <view class="i"></view>
+        <view class="first-punch">
+            <view class="medal"></view>
+            <view class="title">
+                <view class="first">
+                    <view class="ico left"></view>
+                    <view class="congratulation" wx:if="{{courseType==1}}">恭喜你第一个完成作业</view>
+                    <view class="congratulation" wx:else>恭喜你第一个完成打卡</view>
+                    <view class="ico right"></view>
+                </view>
+                <text>无敌是最寂寞的</text>
+            </view>
+            <view class="info">
+                <image class="avatar" src="{{submitData.avatar_url}}"></image>
+                <view class="name">{{submitData.user_name}}</view>
+                <view class="record">{{updatedAt}}</view>
+            </view>
+            <form reportSubmit bindsubmit="closeNO1Praise" class="collect-form-id">
+                <button class="confirm" formType="submit">确定</button>
+            </form>
+        </view>
+    </view>
+</view>
+<share-modal catchloginSuccess="loginSuccess" colorTheme="user" page="detail" submitId="{{submitId}}" wx:else></share-modal>
+<view wx:if="{{signImageVisible&&isMine&&isToday&&submitData.auto_create_signday==1}}">
+    <day-sign customOn="{{submitData.is_custom_on}}" imgSrc="{{signImage}}" submitId="{{submitData.submit_id}}" wx:if="{{signImage}}"></day-sign>
+</view>
+<image src="{{signImage}}" style="width:0;height:0;overflow: hidden;opacity: 0;"></image>
+<view class="share" hidden="{{shareHidden}}">
+    <view catchtap="shareClickclose" class="text2"></view>
+    <view class="bg"></view>
+</view>

@@ -1,0 +1,25 @@
+<scroll-view scrollY bindscroll="scroll" scrollIntoView="{{toView}}" style="height: {{windowHeight}}">
+    <view class="select-location  {{theme}}-select-location">
+        <view>
+            <text class="iconfont ic_dingwei"></text>{{currentLocation}}</view>
+        <view bindtap="reGetLocation" class="">
+            <text class="iconfont ic_shuaxinx"></text>重新定位</view>
+    </view>
+    <view class="scroll-group" wx:for="{{city}}" wx:key="cityKey">
+        <view class="section-item-header" id="{{item.letter}}">{{item.letter}}</view>
+        <view bindtap="bindCityTap" class="section-item-cell" data-name="{{item.name}}" wx:for="{{item.province}}" wx:for-index="cellIndex" wx:key="provinceKey">
+                    {{item.name}}
+                </view>
+    </view>
+</scroll-view>
+<view class="alphanet-selector">
+    <view class="selector-letter">定位</view>
+    <view bindtouchend="handlehandlerEnd" catchtouchmove="handlerMove" catchtouchstart="handlerAlphaTap" class="selector-letter  {{isActivate==item.letter?theme+'-activate  activate':''}}" data-index="{{index}}" data-letter="{{item.letter}}" wx:for="{{city}}" wx:key="letterKey">
+        <text>{{item.letter}}</text>
+    </view>
+    <view class="selector-letter">#</view>
+</view>
+<view class="showToastCont" wx:if="{{isShowLetter}}">
+    <text>{{showLetter}}</text>
+</view>
+<view class="section-letter {{theme}}-section-letter" wx:if="{{isFixed}}">{{showLetter}}</view>

@@ -1,0 +1,268 @@
+.public-title {
+    padding: 20rpx 30rpx 30rpx 30rpx;
+    border-bottom: 10rpx solid #f5f5f5;
+    background: #fff;
+}
+
+.public-title-head {
+    line-height: 46rpx;
+    font-size: 32rpx;
+    color: #2a2e3d;
+}
+
+.public-title-bottom {
+    box-sizing: border-box;
+    height: 33rpx;
+    padding-top: 11rpx;
+    line-height: 22rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.public-learns {
+    display: inline-block;
+    float: right;
+}
+
+.public-list-box {
+    width: 690rpx;
+    margin: 0 auto;
+}
+
+.public-des {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-top: 1rpx solid #dbdbdb;
+    border-bottom: 1rpx solid #dbdbdb;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.p-t-33 {
+    padding-top: 4rpx;
+}
+
+.public-list {
+    height: auto;
+}
+
+.list1 {
+}
+
+.public-list-item {
+    display: inline-block;
+    float: left;
+    width: 51rpx;
+    height: 45rpx;
+    line-height: 45rpx;
+    text-align: left;
+    font-size: 28rpx;
+    color: #7d829a;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.public-list-des {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    float: right;
+    width: 633rpx;
+    padding-bottom: 18rpx;
+    border-left: 1rpx solid #dbdbdb;
+}
+
+.public-list-tip {
+    position: absolute;
+    top: 0;
+    left: -6rpx;
+    width: 13rpx;
+    height: 43rpx;
+}
+
+.time-icon {
+    width: 18rpx;
+    height: 18rpx;
+    position: absolute;
+    top: 0;
+    left: 23rpx;
+}
+
+.time-icon image {
+    width: 100%;
+    height: 100%;
+}
+
+.time-range {
+    color: #7d829a;
+    line-height: 44rpx;
+    font-size: 23rpx;
+    position: relative;
+    padding-left: 52rpx;
+}
+
+.public-list-tip-3 {
+    position: absolute;
+    top: 8px;
+    left: -6rpx;
+    width: 13rpx;
+    height: 197.6rpx;
+}
+
+.public-list-title {
+    padding-left: 23rpx;
+    line-height: 43rpx;
+    font-size: 28rpx;
+    color: #2a2e3d;
+    font-weight: bold;
+}
+
+.public-list-info {
+    padding-left: 23rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.public-list-info-img {
+    display: inline-block;
+    float: left;
+    width: 18rpx;
+    height: 18rpx;
+    margin: 11rpx 10rpx 0 0;
+}
+
+.public-list-bottom {
+    box-sizing: border-box;
+    padding: 6rpx 0 0rpx 23rpx;
+}
+
+.public-padding {
+    padding-bottom: 0;
+}
+
+.border-none {
+    border-left: none;
+}
+
+.public-list-teacher {
+    display: inline-block;
+    float: left;
+    width: auto;
+    height: 44rpx;
+    line-height: 44rpx;
+    vertical-align: middle;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.public-list-learn {
+    display: inline-block;
+    float: right;
+    width: auto;
+    height: 44rpx;
+    line-height: 44rpx;
+    vertical-align: middle;
+    font-size: 24rpx;
+    color: #2a2e3d;
+}
+
+.doc {
+    display: inline-block;
+    margin-right: 30rpx;
+}
+
+.doc-img {
+    display: inline-block;
+    float: left;
+    width: 22rpx;
+    height: 22rpx;
+    margin-right: 8rpx;
+    margin-top: 11rpx;
+}
+
+.later {
+    box-sizing: border-box;
+    width: 130rpx;
+    height: 44rpx;
+    border: 1rpx solid #f99a4a;
+    display: inline-block;
+    line-height: 44rpx;
+    vertical-align: middle;
+    font-size: 24rpx;
+    color: #f99a4a;
+    text-align: center;
+    border-radius: 22rpx;
+}
+
+.wait {
+    box-sizing: border-box;
+    width: 130rpx;
+    height: 44rpx;
+    border: 1rpx solid #7d829a;
+    display: inline-block;
+    line-height: 44rpx;
+    vertical-align: middle;
+    font-size: 24rpx;
+    color: #7d829a;
+    text-align: center;
+    border-radius: 22rpx;
+}
+
+.now {
+    box-sizing: border-box;
+    width: 130rpx;
+    height: 44rpx;
+    border: 1rpx solid #ef533d;
+    display: inline-block;
+    line-height: 44rpx;
+    vertical-align: middle;
+    font-size: 24rpx;
+    color: #ef533d;
+    text-align: center;
+    border-radius: 22rpx;
+}
+
+.end {
+    box-sizing: border-box;
+    width: 130rpx;
+    height: 44rpx;
+    background: #f5f5f5;
+    display: inline-block;
+    line-height: 44rpx;
+    vertical-align: middle;
+    font-size: 24rpx;
+    color: #ef533d;
+    text-align: center;
+    border-radius: 22rpx;
+    color: #7d829a;
+}
+
+.seevideo {
+    display: inline-block;
+}
+
+.video-img {
+    display: inline-block;
+    float: left;
+    width: 22rpx;
+    height: 22rpx;
+    margin-right: 4rpx;
+    margin-top: 11rpx;
+}
+
+.novideo {
+    display: inline-block;
+}
+
+.txt-1 {
+    font-size: 24rpx;
+    color: #2a2e3d;
+}
+
+.txt-2 {
+    font-size: 22rpx;
+    color: #7d829a;
+}

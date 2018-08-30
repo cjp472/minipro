@@ -1,0 +1,9 @@
+<template name="reply-comments">
+    <view class="public" wx:if="{{readyToInputReply}}">
+        <view bindtap="{{closeReply}}" class="i"></view>
+        <view class="reply-container">
+            <input bindinput="{{saveInput}}" class="input-reply" cursorSpacing="15" placeholder="回复{{replyingTo}}：" placeholderClass="reply-placeholder" type="text"></input>
+            <button bindtap="{{sendReply}}" disabled="{{!validReply}}" size="mini" type="primary">发送</button>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,88 @@
+<jdk-modal bind:modalCancel="modalCancel" bind:modalConfirm="modalConfirm" cancelColor="{{cancelColor}}" cancelText="{{cancelText}}" confirmColor="{{confirmColor}}" confirmText="{{confirmText}}" content="{{modalContent}}" contentColor="{{contentColor}}" needCancel="{{true}}" title="{{''}}" wx:if="{{showModal}}"></jdk-modal>
+<view class="pd030">
+    <view class="tab_bg">
+        <view class="fz32 pd20-30 flex-between">
+            <text>答案解析</text>
+            <view wx:if="{{fromWrong&&classList.length>1}}">
+                <picker bindchange="bindClassChange" range="{{classList}}" value="{{classHour}}">
+                    <view class="col3 fz30 flex-center">
+                        <text>第{{classHour+1}}课时</text>
+                        <text class="iconfont icon-xiala1"></text>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="por">
+            <view class="mb20" wx:if="{{listArray.length>=1}}">
+                <view class="line-bg"></view>
+                <scroll-view scrollWithAnimation scrollX class="scroll-bg" scrollIntoView="{{'tabId'+scrollTo}}">
+                    <view class="por" style="width:{{100*listArray.length/5+'%'}};">
+                        <view class="flex-start fz28" style="width:100%">
+                            <view animation="{{animationData}}" catchtap="select" class="{{select==index?'active':'noActive'}} lh60 flex-shrink-no flex-center" data-index="{{index}}" id="{{'tabId'+index}}" style="{{index!=0?'margin-left:50rpx;':''}}" wx:for="{{listArray}}" wx:key="{{item}}">{{item.chapter_name}}</view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="pd0-30 oh">
+                <view class="flex-start-w w680 mb10">
+                    <block wx:for="{{questionArray}}" wx:key="{{item}}">
+                        <view catchtap="switchQs" class="qs_title {{qsIndex==index?'s_active':''}}" data-index="{{index}}" wx:if="{{item.kind==1||item.kind==2||item.kind==4||item.kind==5}}">
+                            <text class="error_icon opcity0 shrink_no" wx:if="{{!item.answer_correct}}">×</text>
+                            <text class="qs_title_txt shrink_no">第{{index+1}}题</text>
+                            <text class="error_icon shrink_no" wx:if="{{!item.answer_correct}}">×</text>
+                        </view>
+                        <view catchtap="switchQs" class="qs_title {{qsIndex==index?'s_active':''}}" data-index="{{index}}" wx:if="{{item.kind==0||item.kind==3||item.kind==6||item.kind==9||item.kind==10}}">
+                            <text class="qs_title_txt">第{{index+1}}题</text>
+                        </view>
+                    </block>
+                </view>
+                <view wx:if="{{(listArray[select].question_list[qsIndex].kind==0||listArray[select].question_list[qsIndex].kind==5)&&listArray[select].question_list[qsIndex].answer_score>0||listArray[select].question_list[qsIndex].kind==1||listArray[select].question_list[qsIndex].kind==2||listArray[select].question_list[qsIndex].kind==4}}">
+                    <view class="bdb1"></view>
+                    <view class="fz28 flex-start mt20 mb20">
+                        <view class="mr20" wx:if="{{questionArray[qsIndex].kind==1||questionArray[qsIndex].kind==2||questionArray[qsIndex].kind==4}}">
+                            <text style="color:#8d96a5;">您的答案</text>
+                            <text style="color:#fe7676;" wx:if="{{!questionArray[qsIndex].answer_correct}}"> {{answer_content}}</text>
+                            <text style="color:#25de83;" wx:else> {{answer_content}}</text>
+                        </view>
+                        <view class="mr20" wx:if="{{questionArray[qsIndex].kind==1||questionArray[qsIndex].kind==2||questionArray[qsIndex].kind==4}}">
+                            <text style="color:#8d96a5;">正确答案</text>
+                            <text style="color:#25de83;" wx:if="{{!!standard_answer}}"> {{standard_answer}}</text>
+                            <text style="color:#25de83;" wx:if="{{!standard_answer}}"> 无</text>
+                        </view>
+                        <view wx:if="{{listArray[select].question_list[qsIndex].answer_score>0}}">
+                            <text style="color:#8d96a5;">得分</text>
+                            <text style="color:#3c4856;"> {{listArray[select].question_list[qsIndex].answer_score}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="bdt1" wx:if="{{questionArray[qsIndex].analysis.length>22}}">
+                    <text class="block fz32 pd20-0">第{{qsIndex+1}}题解析</text>
+                    <view class="fz28 word-wrap" style="color:#3c4856;">
+                        <question-title content="{{questionArray[qsIndex].analysis}}" haveBg="{{false}}" kind="-1"></question-title>
+                    </view>
+                </view>
+                <view class="{{questionArray[qsIndex].analysis.length>22?'mt20':''}}" wx:if="{{questionArray[qsIndex].remark.length>0}}">
+                    <record-comment commont="{{questionArray[qsIndex].remark}}"></record-comment>
+                </view>
+                <view wx:if="{{questionArray[qsIndex].eval_voice.voice_url}}">
+                    <assess-result isChinese="{{questionArray[qsIndex].eval_voice.eval_state===2}}" scoreData="{{questionArray[qsIndex].eval_voice}}" translate="{{questionArray[qsIndex].question_content}}"></assess-result>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="qs_bg pdt1" wx:if="{{fromWrong&&listArray[select].question_list[qsIndex].chapter_content!=''&&listArray[select].question_list[qsIndex].chapter_content!='[]'}}">
+        <view class="flex-center pdb20 col3">
+            <jdk-theme applyType="question" foldBack="white" foldedTxt="全文" hybrid_content="{{listArray[select].question_list[qsIndex].chapter_content}}" pc_content="{{listArray[select].question_list[qsIndex].chapter_content}}" title="{{listArray[select].chapter_name}}"></jdk-theme>
+        </view>
+    </view>
+    <view class="qs_bg pdt1" wx:if="{{!fromWrong&&listArray[select].chapter_content!=''&&listArray[select].chapter_content!='[]'}}">
+        <view class="flex-center pdb20 col3">
+            <jdk-theme applyType="question" foldBack="white" foldedTxt="全文" hybrid_content="{{listArray[select].chapter_content}}" pc_content="{{listArray[select].chapter_content}}" title="{{listArray[select].chapter_name}}"></jdk-theme>
+        </view>
+    </view>
+    <view class="qs_bg" wx:if="{{questionArray[qsIndex].question_content}}">
+        <view class="pd0-30">
+            <choice answerContent="{{questionArray[qsIndex].answer_content||''}}" page="result" pictureList="{{questionArray[qsIndex].picture_list||[]}}" qsList="{{questionArray[qsIndex].items}}" remark="{{questionArray[qsIndex].remark}}" selectType="{{questionArray[qsIndex].kind}}" standardAnswer="{{questionArray[qsIndex].standard_answer}}" title="{{questionArray[qsIndex].question_content}}" videoList="{{questionArray[qsIndex].video_list||[]}}" voiceList="{{questionArray[qsIndex].voice_list||[]}}" website="{{questionArray[qsIndex].website||''}}" webtitle="{{questionArray[qsIndex].web_title||''}}"></choice>
+        </view>
+    </view>
+</view>

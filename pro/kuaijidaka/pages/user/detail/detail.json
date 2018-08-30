@@ -1,0 +1,15 @@
+{
+    "navigationBarTitleText": "",
+    "backgroundColor": "#22dd82",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "jdk-submit": "/components/user-submit/submit/submit",
+        "day-sign": "/components/daySign/daySign",
+        "jdk-logo": "/components/logo/logo",
+        "jdk-permission-checker": "/components/permission-checker/permission-checker",
+        "login-button": "/components/loginBtn/loginBtn",
+        "jdk-modal": "/components/modal/modal",
+        "share-modal": "/components/shareModal/shareModal"
+    }
+}

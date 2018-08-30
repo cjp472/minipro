@@ -1,0 +1,66 @@
+.container {
+    padding: 155rpx 80rpx 0;
+}
+
+.content {
+    font-size: 32rpx;
+    color: #afb3c3;
+    height: 100rpx;
+    border-bottom: 1px solid #e6e6e6;
+    position: relative;
+    margin-bottom: 40rpx;
+}
+
+input {
+    display: block;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #2a2e3d;
+}
+
+.err-tip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 20rpx;
+    color: #ef533d;
+}
+
+.placeholdercolor {
+    color: #afb3c3;
+}
+
+.code {
+    width: 154rpx;
+    position: absolute;
+    top: 20rpx;
+    right: 0;
+    color: #ef533d;
+    border: 1px solid #ef533d;
+    font-size: 22rpx;
+    line-height: 58rpx;
+    text-align: center;
+    border-radius: 12rpx;
+    z-index: 9;
+    background: #fff;
+    padding: 0;
+}
+
+button[disabled] {
+    border: 1rpx solid #eee;
+}
+
+.login-in {
+    margin-top: 100rpx;
+    background: #ef533d;
+    color: #fff;
+    text-align: center;
+    height: 98rpx;
+    line-height: 98rpx;
+    padding: 0 80rpx;
+    border-radius: 49rpx;
+    font-size: 34rpx;
+}

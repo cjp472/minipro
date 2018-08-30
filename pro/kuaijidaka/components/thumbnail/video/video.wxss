@@ -1,0 +1,123 @@
+@import "../../../__wuBaseWxss__/8.wxss";
+
+.w_100 {
+    width: 100%;
+}
+
+.h_100 {
+    height: 100%;
+}
+
+.hiddenVideo {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.size100 {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
+.m10-10-0 {
+    margin: 10rpx 10rpx 0 0;
+}
+
+.m25-25-0 {
+    margin: 25rpx 25rpx 0 0;
+}
+
+.pd20-0 {
+    padding: 20rpx 0;
+}
+
+.por {
+    position: relative;
+}
+
+.read-reading image,.por.read-reading,.read-reading .image-box,.read-punching image,.por.read-punching,.read-punching .image-box {
+    border-radius: 8rpx;
+}
+
+.poa {
+    position: absolute;
+}
+
+.z1 {
+    z-index: 1;
+}
+
+.z2 {
+    z-index: 2;
+}
+
+.z3 {
+    z-index: 3;
+}
+
+.oh {
+    overflow: hidden;
+}
+
+.flex-l-t {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.delete_icon {
+    width: 40rpx;
+    height: 40rpx;
+    background: url(https://cdn-qiye.jingdaka.com/images/sprites.png?v=40);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    background-position: -120rpx -90rpx;
+    right: -20rpx;
+    top: -20rpx;
+}
+
+.play_icon {
+    width: 48rpx;
+    height: 48rpx;
+    background: url(https://cdn-qiye.jingdaka.com/images/sprites.png?v=40);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    background-position: -245rpx -861rpx;
+    left: 50%;
+    top: 50%;
+    margin-left: -24rpx;
+    margin-top: -24rpx;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.play_icon_big {
+    width: 100rpx;
+    height: 100rpx;
+    background-position: -15rpx -1997rpx;
+    margin-left: -50rpx;
+    margin-top: -50rpx;
+}
+
+.delete {
+    width: 40rpx;
+    height: 40rpx;
+    background-position: 0 -476rpx;
+    position: absolute;
+    top: 170rpx;
+    right: -70rpx;
+}
+
+.offVideo {
+    width: 160rpx;
+    height: 140rpx;
+    font-size: 34px;
+    color: #fff;
+    line-height: 140rpx;
+    text-align: center;
+    position: absolute;
+    right: 0rpx;
+    top: 0;
+}

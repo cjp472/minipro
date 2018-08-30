@@ -1,0 +1,8 @@
+<template name="video-component">
+    <view catchtap="{{preventNavToDetail}}" class="video-component" wx:if="{{!isHideVideo}}">
+        <view wx:for="{{videos}}" wx:for-item="video" wx:key="unique">
+            <video controls customCache="{{false}}" objectFit="cover" poster="{{videoFirstFrame}}" src="{{video}}"></video>
+            <text catchtap="{{deleteVideo}}" class="ico video-delete" wx:if="{{isShowDeleteButton}}"></text>
+        </view>
+    </view>
+</template>

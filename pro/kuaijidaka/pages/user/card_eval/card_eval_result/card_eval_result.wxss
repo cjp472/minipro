@@ -1,0 +1,257 @@
+@import "../../../../__wuBaseWxss__/9.wxss";
+
+@import "../../../../__wuBaseWxss__/8.wxss";
+
+page {
+    padding-bottom: 60rpx;
+}
+
+.content_bg {
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+.score_bg {
+    background-color: #fff;
+    border-radius: 8rpx 8rpx 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.words {
+    color: #22dd82;
+    font-size: 32rpx;
+    margin-top: 400rpx;
+}
+
+.score_number .words {
+    margin-top: 220rpx;
+}
+
+.words--no-eval {
+    color: rgb(85,94,105);
+    font-size: 32rpx;
+    margin-bottom: 30rpx;
+}
+
+.qs_content_bg {
+    background-color: #fff;
+    border-radius: 8rpx;
+}
+
+.icon.score_1 {
+    width: 563rpx;
+    height: 525rpx;
+    background: url('http://static3topen.jingdaka.com/images/score_star.png?v=3') no-repeat;
+    background-size: 750rpx;
+    background-position: -94rpx -48rpx;
+    overflow: hidden;
+}
+
+.icon.score_2 {
+    width: 563rpx;
+    height: 525rpx;
+    background: url('http://static3topen.jingdaka.com/images/score_star.png?v=3') no-repeat;
+    background-size: 750rpx;
+    background-position: -94rpx -613rpx;
+    overflow: hidden;
+}
+
+.icon.score_3 {
+    width: 563rpx;
+    height: 525rpx;
+    background: url('http://static3topen.jingdaka.com/images/score_star.png?v=3') no-repeat;
+    background-size: 750rpx;
+    background-position: -94rpx -1178rpx;
+    overflow: hidden;
+}
+
+.icon.score_4 {
+    width: 563rpx;
+    height: 525rpx;
+    background: url('http://static3topen.jingdaka.com/images/score_star.png?v=3') no-repeat;
+    background-size: 750rpx;
+    background-position: -94rpx -1743rpx;
+    overflow: hidden;
+}
+
+.icon.score_5 {
+    width: 563rpx;
+    height: 525rpx;
+    background: url('http://static3topen.jingdaka.com/images/score_star.png?v=3') no-repeat;
+    background-size: 750rpx;
+    background-position: -94rpx -2308rpx;
+    overflow: hidden;
+}
+
+.score_content {
+    padding-bottom: 5rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.score_list {
+    width: 135rpx;
+    height: 68rpx;
+    margin-left: 30rpx;
+    margin-bottom: 35rpx;
+    position: relative;
+    background-color: #f8fafb;
+    border-radius: 4rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.score_icon {
+    width: 160rpx;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    bottom: -25rpx;
+    margin-left: -80rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    transform: scale(0.7);
+}
+
+.star_score {
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -134rpx -990rpx;
+}
+
+.star_score2 {
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -200rpx -990rpx;
+}
+
+.no_eval_data {
+    height: 239rpx;
+    background-color: #fff;
+    border-radius: 4px;
+    font-size: 28rpx;
+    color: #b4bcc6;
+    text-align: center;
+    line-height: 239rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.wx-button2 {
+    margin-right: 30rpx;
+    border: 1rpx solid #e3e8ee;
+}
+
+.wx-button3 {
+    border: 1rpx solid #22dd82;
+}
+
+.fz24 {
+    font-size: 24rpx;
+}
+
+.fz28 {
+    font-size: 28rpx;
+}
+
+.fz32 {
+    font-size: 32rpx;
+}
+
+.col3e4855 {
+    color: #3e4855;
+}
+
+.col8 {
+    color: #8b97a4;
+}
+
+.colb4bcc6 {
+    color: #b4bcc6;
+}
+
+.score_no_eval {
+    width: 249rpx;
+    height: 211rpx;
+    background: url('http://static3topen.jingdaka.com/images/sprites.png?v=41');
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    background-position: -30rpx -1388rpx;
+    margin-top: 20rpx;
+}
+
+.my_score {
+    color: #fff;
+    margin-top: 75rpx;
+    font-size: 36rpx;
+}
+
+.score {
+    color: #fff;
+    position: absolute;
+    top: 120rpx;
+    left: 115rpx;
+}
+
+.score_number {
+    width: 260rpx;
+    height: 211rpx;
+    background: url('http://static3topen.jingdaka.com/images/sprites.png?v=41');
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    background-position: -30rpx -1388rpx;
+    margin: 20rpx 0 70rpx;
+    position: relative;
+    text-align: center;
+}
+
+.score_list--number {
+    flex-direction: row;
+}
+
+.item-text {
+    margin: 0 23rpx;
+}
+
+.item-score {
+    font-size: 24rpx;
+    color: #fed814;
+    text-align: center;
+    line-height: 40rpx;
+    position: absolute;
+    left: 50%;
+    bottom: -20rpx;
+    margin-left: -38rpx;
+}
+
+.ml5 {
+    margin-left: 5rpx;
+}
+
+.submit-container {
+    width: 100%;
+    background: #fff;
+    border-radius: 0 0 8rpx 8rpx;
+    box-sizing: border-box;
+    font-size: 22rpx;
+    color: #8b97a4;
+}
+
+.border-top {
+    height: 1rpx;
+    width: 638rpx;
+    margin: 0 auto 15rpx;
+    background: #edf0f3;
+}

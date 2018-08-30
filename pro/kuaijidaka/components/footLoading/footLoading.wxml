@@ -1,0 +1,5 @@
+<view class="loader-bg" wx:if="{{loadMore&&!noMore}}">
+    <view class="loader {{pageType=='admin'?'loader2':''}}"></view>
+    <text>加载中…</text>
+</view>
+<view class="no-more" wx:if="{{!loadMore&&noMore}}">{{pageTxt}}</view>

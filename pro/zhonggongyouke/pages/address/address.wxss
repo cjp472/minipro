@@ -1,0 +1,135 @@
+page {
+    background-color: #f5f5f5;
+}
+
+.clear {
+    clear: both;
+}
+
+.p-t-40 {
+    padding-bottom: 40rpx;
+}
+
+.container {
+    background: #f5f5f5;
+    padding-top: 10rpx;
+}
+
+form {
+    display: block;
+    width: 100%;
+}
+
+.section {
+    clear: both;
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 110rpx;
+    border-bottom: 1rpx solid #dbdbdb;
+    background: #fff;
+}
+
+.border-none {
+    border-bottom: none;
+}
+
+.section_title {
+    display: inline-block;
+    float: left;
+    width: 189rpx;
+    height: 110rpx;
+    line-height: 110rpx;
+    font-size: 30rpx;
+    color: #2a2e3d;
+    text-indent: 30rpx;
+}
+
+.detail_address {
+    display: inline-block;
+    float: left;
+    width: 189rpx;
+    height: 138rpx;
+    font-size: 30rpx;
+    color: #2a2e3d;
+    text-indent: 30rpx;
+}
+
+.section_input {
+    display: inline-block;
+    float: right;
+    width: 531rpx;
+    height: 110rpx;
+    margin-right: 30rpx;
+    line-height: 110rpx;
+    font-size: 30rpx;
+    color: #2a2e3d;
+}
+
+.section_textarea {
+    display: inline-block;
+    float: left;
+    width: 531rpx;
+    padding-top: 36rpx;
+    height: 102rpx;
+    font-size: 30rpx;
+    color: #2a2e3d;
+}
+
+textarea {
+    height: 138rpx;
+}
+
+.picker-list {
+    width: 531rpx;
+    float: right;
+    margin-right: 30rpx;
+    height: 30rpx;
+    padding-top: 40rpx;
+    line-height: 30rpx;
+    font-size: 30rpx;
+    color: #2a2e3d;
+}
+
+.picker {
+    position: relative;
+}
+
+.picker-title {
+    position: absolute;
+    left: 190rpx;
+    top: 36rpx;
+    font-size: 30rpx;
+    color: #808080;
+}
+
+.del {
+    height: 96rpx;
+    margin-top: 30rpx;
+    line-height: 96rpx;
+    font-size: 30rpx;
+    color: #2a2e3d;
+    background: #fff;
+}
+
+.del-img {
+    display: inline-block;
+    float: left;
+    width: 28rpx;
+    height: 28rpx;
+    margin: 34rpx 20rpx 0 292rpx;
+}
+
+.add {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 96rpx;
+    line-height: 96rpx;
+    background: #ef533d;
+    border-radius: 0;
+    font-size: 34rpx;
+    color: #fff;
+    letter-spacing: 10rpx;
+}

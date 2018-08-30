@@ -1,0 +1,108 @@
+@import "../../../__wuBaseWxss__/12.wxss";
+
+@import "../../../__wuBaseWxss__/16.wxss";
+
+.title-top {
+    background: #4f598f;
+    overflow: hidden;
+    padding: 0 75rpx 46rpx 75rpx;
+}
+
+.btn button {
+    background: #4f598f;
+    color: #fff;
+    font-size: 36rpx;
+}
+
+.title-top .h2 text {
+    max-width: 562rpx;
+    line-height: 30rpx;
+    font-size: 30rpx;
+    color: #353c63;
+    float: left;
+    position: relative;
+    right: 50%;
+    overflow: hidden;
+}
+
+.title-top .title {
+    width: 550rpx;
+    text-align: left;
+    margin: 30rpx auto 0 auto;
+    font-size: 24rpx;
+    color: #353c63;
+    line-height: 45rpx;
+}
+
+@import "../../../__wuBaseWxss__/13.wxss";
+
+@import "../../../__wuBaseWxss__/9.wxss";
+
+.operateBtn {
+    margin: 0 30rpx;
+}
+
+.longPic {
+    width: 45%;
+}
+
+.longPic:nth-child(1) {
+    float: left;
+}
+
+.longPic:nth-child(2) {
+    float: right;
+}
+
+.commentOther {
+    margin: 30rpx;
+}
+
+.submit-container {
+    padding: 0 30rpx;
+    min-height: 100rpx;
+}
+
+.button--primary {
+    border-radius: 4px;
+    width: 690rpx;
+    margin: 0 auto;
+    background: #4f598f;
+    color: #fff;
+    text-align: center;
+    line-height: 90rpx;
+    font-size: 36rpx;
+    margin-top: 30rpx;
+}
+
+.toggle {
+    position: fixed;
+    width: 98rpx;
+    height: 98rpx;
+    background-color: #fff;
+    box-shadow: 0 0 20rpx 0 rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    border-radius: 50%;
+}
+
+.toggle .iconfont {
+    font-size: 40rpx;
+    color: #4f598f;
+}
+
+.grey .iconfont {
+    color: #c5c8cc;
+}
+
+.last-submit {
+    right: 30rpx;
+    bottom: 100rpx;
+}
+
+.next-submit {
+    right: 30rpx;
+    bottom: 238rpx;
+}

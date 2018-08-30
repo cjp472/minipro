@@ -1,0 +1,19 @@
+<view class="user-modify-box {{theme}}">
+    <view bindtap="onPhoneModifyJs" class="user-modify user-modify-img">
+        <view>头像</view>
+        <view>
+            <image class="user-img" src="{{avatar}}"></image>
+            <image class="icon-right" src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_arrow_righe@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="onModifyNickNameJs" class="user-modify user-modify-img">
+        <view>昵称</view>
+        <view>
+            <text>{{nickName}}</text>
+            <image class="icon-right" src="http://img02.exam8.com/img2017/minapp/user_icon/user_icon_arrow_righe@2x.png"></image>
+        </view>
+    </view>
+    <view bindtap="logout" class="user-continue">
+    退出登录
+  </view>
+</view>

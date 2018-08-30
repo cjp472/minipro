@@ -1,0 +1,40 @@
+<view class="questions-feedback-box {{theme}}">
+    <view class="questions-feedback-choose">
+        <view bindtap="onFeedbackBtnJs" class="questions-feedback-btn-box" data-postion-id="{{0}}">
+            <view class="questions-feedback-choose-btn">
+                <view class="iconfont icon_duigou {{feedInfoList[0].state?'active':''}}"></view>
+            </view>
+            <view class="questions-feedback-choose-cont">答案有问题</view>
+        </view>
+        <view bindtap="onFeedbackBtnJs" class="questions-feedback-btn-box" data-postion-id="{{1}}">
+            <view class="questions-feedback-choose-btn">
+                <view class="iconfont icon_duigou {{feedInfoList[1].state?'active':''}}"></view>
+            </view>
+            <view class="questions-feedback-choose-cont">答案与解析不相符</view>
+        </view>
+        <view bindtap="onFeedbackBtnJs" class="questions-feedback-btn-box" data-postion-id="{{2}}">
+            <view class="questions-feedback-choose-btn">
+                <view class="iconfont icon_duigou {{feedInfoList[2].state?'active':''}}"></view>
+            </view>
+            <view class="questions-feedback-choose-cont">有错别字</view>
+        </view>
+        <view bindtap="onFeedbackBtnJs" class="questions-feedback-btn-box" data-postion-id="{{3}}">
+            <view class="questions-feedback-choose-btn">
+                <view class="iconfont icon_duigou {{feedInfoList[3].state?'active':''}}"></view>
+            </view>
+            <view class="questions-feedback-choose-cont">选项有问题</view>
+        </view>
+        <view bindtap="onFeedbackBtnJs" class="questions-feedback-btn-box" data-postion-id="{{4}}">
+            <view class="questions-feedback-choose-btn">
+                <view class="iconfont icon_duigou {{feedInfoList[4].state?'active':''}}"></view>
+            </view>
+            <view class="questions-feedback-choose-cont">其他</view>
+        </view>
+        <view class="questions-feedback-textarea">
+            <textarea bindinput="onbindinput" placeholder="请输入您要评价的内容" placeholderClass="questions-feedback-textarea-placeholder"></textarea>
+        </view>
+        <view bindtap="onSubmitJs" class="questions-feedback-btn {{btnStatus?'':'disable'}}">
+            <text>提交</text>
+        </view>
+    </view>
+</view>

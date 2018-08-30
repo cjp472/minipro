@@ -1,0 +1,480 @@
+page {
+    min-height: 100%;
+    background: #FCE9DD;
+}
+
+.group-buy-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 750rpx;
+}
+
+.group-buy-banner-title {
+    position: absolute;
+    top: 187rpx;
+    left: 165rpx;
+    width: 420rpx;
+    height: 75rpx;
+    line-height: 74rpx;
+    color: #ff5d5d;
+    text-align: center;
+    font-weight: 800;
+    font-size: 41rpx;
+}
+
+.group-buy-info {
+    width: 690rpx;
+    padding: 66rpx 0 46rpx 0;
+    background: #ffffff;
+    background-color: #fff8f5;
+    box-shadow: 0rpx 8rpx 24rpx #f5dfd1;
+    border-radius: 10rpx;
+    margin: 398rpx auto 0 auto;
+}
+
+.group-buy-user-pic {
+    width: 690rpx;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding: 0 55rpx;
+    position: relative;
+}
+
+.group-buy-user-pic .user {
+    position: relative;
+    width: 120rpx;
+}
+
+.group-buy-user-pic .user-img {
+    width: 100rpx;
+    height: 100rpx;
+    position: relative;
+    margin: 0 auto;
+}
+
+.group-buy-user-pic .tuhao {
+    display: block;
+    width: 42rpx;
+    height: 31rpx;
+    position: absolute;
+    right: -8rpx;
+    top: -14rpx;
+}
+
+.group-buy-user-pic.success .user-img,.group-buy-user-pic .leader .user-img {
+    width: 100rpx;
+    height: 100rpx;
+    padding: 3rpx;
+    box-sizing: border-box;
+    background-color: #fead47;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.group-buy-user-pic .user-img image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.group-buy-user-pic .user-text {
+    margin-top: 14rpx;
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: #9a9a9a;
+    text-align: center;
+    max-width: 120rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.group-buy-user-pic.success .user-text {
+    color: #a18180;
+}
+
+.group-status-text {
+    height: 240rpx;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 2rpx;
+}
+
+.group-status-text .h1 {
+    font-size: 34rpx;
+    line-height: 34rpx;
+    color: #4e4e4e;
+    width: 690rpx;
+}
+
+.group-status-text .h2 {
+    font-size: 34rpx;
+    line-height: 34rpx;
+    color: #9a9a9a;
+    width: 690rpx;
+    margin-top: 22rpx;
+    font-weight: 600;
+}
+
+.group-buy-button {
+    width: 580rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    border-radius: 50rpx;
+    background-color: #f84744;
+    font-size: 32rpx;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.group-buy-button .icon_weixin1 {
+    margin-right: 16rpx;
+}
+
+.group-buy-rule {
+    margin-top: 70rpx;
+    padding: 0 53rpx 60rpx 53rpx;
+    color: #a18180;
+    font-size: 26rpx;
+}
+
+.group-buy-rule.group-buy-person {
+    padding: 0 53rpx 10rpx 53rpx;
+}
+
+.group-buy-rule .group-buy-rule-title {
+    width: 315rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    text-align: center;
+    margin: 0 auto;
+    background: url('http://img02.exam8.com/img2017/minapp/group/rule_newbg.png') no-repeat;
+    background-size: 315rpx 56rpx;
+    margin-bottom: 40rpx;
+    color: #ff6a65;
+}
+
+.group-buy-rule .group-buy-rule-title image {
+    display: block;
+    width: 315rpx;
+    height: 56rpx;
+}
+
+.group-buy-rule .group-buy-rule-cont {
+}
+
+.group-buy-rule .text {
+    margin-top: 28rpx;
+}
+
+.group-buy-point {
+    justify-content: center;
+    align-items: center;
+    color: #4e4e4e;
+    font-size: 34rpx;
+    padding-bottom: 16rpx;
+}
+
+.group-buy-point.end {
+    padding: 54rpx 0 76rpx 0rpx;
+}
+
+.group-buy-point .text {
+    display: block;
+    padding: 0 20rpx;
+    color: #4e4e4e;
+    line-height: 34rpx;
+}
+
+.group-buy-point.end .text {
+    color: #9a9a9a;
+}
+
+.group-buy-point .line {
+    display: block;
+    height: 1rpx;
+    width: 34rpx;
+    background: #cccccc;
+}
+
+.group-buy-point-text {
+    font-size: 24rpx;
+    color: #9a9a9a;
+    text-align: center;
+    line-height: 24rpx;
+    margin-bottom: 54rpx;
+}
+
+.group-buy-point-cont {
+    display: none;
+}
+
+.group-buy-info.point {
+}
+
+.group-buy-info.point .group-buy-point-cont {
+    display: block;
+}
+
+.group-buy-user-pic.success .tourist {
+    background-image: none;
+    border: solid 3rpx #f9c8a9;
+    box-sizing: border-box;
+    line-height: 96rpx;
+    text-align: center;
+}
+
+.group-buy-user-pic .iconfont {
+    display: none;
+}
+
+.group-buy-user-pic.success .tourist image {
+    display: none;
+}
+
+.group-buy-user-pic.success .tourist .iconfont {
+    display: inline-block;
+    font-size: 39rpx;
+    color: #fdc7a5;
+    margin: 0 auto;
+    line-height: 39rpx;
+}
+
+.group-buy-doc-cont {
+    width: 690rpx;
+    height: 325rpx;
+    margin-bottom: 56rpx;
+}
+
+.group-buy-doc-box {
+    width: 1280rpx;
+    padding-right: 55rpx;
+}
+
+.group-buy-doc-cont image {
+    display: block;
+    width: 201rpx;
+    height: 244rpx;
+}
+
+.group-buy-doc-detail {
+    float: left;
+    padding-left: 55rpx;
+    width: 201rpx;
+    position: relative;
+}
+
+.group-buy-doc-detail .pay-success {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 38rpx;
+    height: 38rpx;
+    display: none;
+}
+
+.group-buy-doc-detail.success .pay-success {
+    display: block;
+}
+
+.group-buy-doc-detail .pay-success image {
+    width: 100%;
+    height: 100%;
+}
+
+.group-buy-doc-detail:last-child {
+}
+
+.group-buy-doc-detail .text {
+    font-size: 24rpx;
+    color: #7a7a7a;
+    text-align: center;
+    margin-top: 14rpx;
+}
+
+.group-buy-popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 750rpx;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+}
+
+.group-buy-popup-cont {
+    width: 600rpx;
+    height: 751rpx;
+    background-color: #fff8f5;
+    border-radius: 14rpx;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate3d(-50%,-50%,0);
+    text-align: center;
+}
+
+.group-buy-popup-cont .h1 {
+    font-size: 24rpx;
+    margin-top: 41rpx;
+    margin-bottom: 30rpx;
+    color: #9a9a9a;
+}
+
+.group-buy-popup-cont .h2 {
+    font-size: 34rpx;
+    color: #4e4e4e;
+}
+
+.group-buy-popup-doc {
+}
+
+.group-buy-popup-doc image {
+    display: block;
+    width: 223rpx;
+    height: 238rpx;
+    margin: 58rpx auto 14rpx auto;
+}
+
+.group-buy-popup-doc .text {
+    font-size: 24rpx;
+    color: #7a7a7a;
+}
+
+.group-buy-popup-cont .group-buy-button {
+    width: 488rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 31rpx;
+    margin-top: 58rpx;
+}
+
+.user-pay {
+    margin-top: 36rpx;
+    font-size: 24rpx;
+    color: #9a9a9a;
+    text-align: center;
+}
+
+.group-buy-user-pic .leader-icon {
+    display: none;
+}
+
+.group-buy-user-pic .leader .leader-icon {
+    display: block;
+    position: absolute;
+    width: 55rpx;
+    height: 25rpx;
+    background: #fead47;
+    color: #ffffff;
+    bottom: -4rpx;
+    left: 22rpx;
+    border-radius: 15rpx;
+    font-size: 19rpx;
+    line-height: 25rpx;
+    text-align: center;
+}
+
+.group-buy-point-cont.end .group-buy-point {
+    margin: 66rpx 0;
+}
+
+.group-buy-user-pic .user-img.tourist {
+    background-image: none;
+    border: solid 3rpx #f9c8a9;
+    background-color: #fff8f5;
+    box-sizing: border-box;
+    line-height: 96rpx;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.group-buy-user-pic .iconfont {
+    display: none;
+}
+
+.group-buy-user-pic .tourist image {
+    display: none;
+}
+
+.group-buy-user-pic .tourist .iconfont {
+    display: inline-block;
+    font-size: 39rpx;
+    color: #fdc7a5;
+    margin: 0 auto;
+    line-height: 39rpx;
+}
+
+.group-buy-user-pic .leader .user-img.tourist {
+    border: solid 3rpx #fead47;
+    line-height: 84rpx;
+}
+
+.group-buy-button.weChat {
+    animation: weChatButton 1s ease infinite;
+}
+
+@-webkit-keyframes weChatButton {
+    0% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes weChatButton {
+    0% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.goBackIndex {
+    border: 1px solid #EBCBB7;
+    right: 30rpx;
+    bottom: 36rpx;
+}
+
+.goBackIndex .iconfont {
+    color: #FF6a65;
+}
+
+.noContent {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.pintuan-text {
+    width: 469rpx;
+    height: 183rpx;
+    margin: 120rpx auto 0;
+    background: url(http://img02.exam8.com/img2017/minapp/group/pintuan_bg_wenzi.png) no-repeat;
+    background-size: 100%;
+}
+
+.pintuan-bg {
+    width: 100%;
+    height: 709rpx;
+    margin-top: 120rpx;
+    background: url(http://img02.exam8.com/img2017/minapp/group/pintuan_bg_pic.png) no-repeat right;
+    background-size: 723rpx 709rpx;
+}

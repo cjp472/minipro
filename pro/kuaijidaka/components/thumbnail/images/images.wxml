@@ -1,0 +1,9 @@
+<view class="{{width>140||height>140?'m10-10-0':'m25-25-0'}} por" style="width:{{width}}rpx;height:{{height}}rpx;" wx:if="{{!singleImg}}">
+    <view catchtap="{{disable?'':'preview'}}" class="w_100 h_100 oh" data-imgarr="{{imgArr}}" data-index="{{index}}">
+        <image lazyLoad mode="aspectFill" src="{{url}}" style="width:100%;height:100%;overflow: hidden;"></image>
+    </view>
+    <view catchtap="deleteItem" class="delete_icon poa" data-index="{{index}}" wx:if="{{deleteBtn}}"></view>
+</view>
+<view catchtap="{{disable?'':'preview'}}" class="m10-10-0" data-imgarr="{{imgArr}}" data-index="{{index}}" style="width:{{width}}rpx;" wx:else>
+    <image lazyLoad mode="widthFix" src="{{url}}" style="width:100%;overflow: hidden;display: block;"></image>
+</view>

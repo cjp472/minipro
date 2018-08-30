@@ -1,0 +1,31 @@
+<import src="../livelist/livelist.wxml"></import>
+<view class="container">
+    <view class="live">
+        <view class="live-head">{{coursemenu.name}}</view>
+        <view class="live-info">
+            <image class="live-info-img" src="/resources/time.png"></image>
+            <text>{{coursemenu.time_section}}</text>
+            <text> | {{coursemenu.chapter_num}}课时</text>
+        </view>
+        <view class="teacher" wx:if="{{coursemenu.teachers.length>0}}">授课老师：<text wx:for="{{coursemenu.teachers}}" wx:key="*teachers">{{item.name}} </text>
+        </view>
+    </view>
+    <view class="tab-box" wx:if="{{type==1||type==2}}">
+        <view bindtap="selected1" class="{{selected1?'tab on':'tab'}}">
+            <text class="tab-title">待上 / {{coursemenu.wait_list.length}}</text>
+            <text class="tab-line"></text>
+        </view>
+        <view bindtap="selected2" class="{{selected2?'tab on':'tab'}}">
+            <text class="tab-title">已结束 / {{coursemenu.finish_list.length}}</text>
+            <text class="tab-line"></text>
+        </view>
+    </view>
+    <view class="list-box {{selected1?'show':'hide'}}">
+        <template is="livelist" data="{{coursemenu:coursemenu}}" wx:if="{{coursemenu.wait_list.length!=0}}"></template>
+        <view class="menutip" wx:if="{{coursemenu.wait_list.length==0}}">直播课已全部结束~</view>
+    </view>
+    <view class="list-box {{selected2?'show':'hide'}}">
+        <template is="livelist" data="{{coursemenu:coursemenu}}" wx:if="{{coursemenu.finish_list.length!=0}}"></template>
+        <view class="menutip" wx:if="{{coursemenu.finish_list.length==0}}">还没有已结束的直播课~</view>
+    </view>
+</view>

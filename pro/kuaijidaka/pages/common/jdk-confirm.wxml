@@ -1,0 +1,15 @@
+<template name="jdk-confirm">
+    <view class="public del-public">
+        <view class="i"></view>
+        <view class="content">
+            <view class="h2">
+                <text>{{jdkConfirm.txt}}</text>
+            </view>
+            <view class="btn btn50">
+                <text bindtap="cancleConfirm">{{jdkConfirm.cancleBtnText}}</text>
+                <text bindtap="submitConfirm">{{jdkConfirm.submitBtnText}}</text>
+                <view class="online"></view>
+            </view>
+        </view>
+    </view>
+</template>

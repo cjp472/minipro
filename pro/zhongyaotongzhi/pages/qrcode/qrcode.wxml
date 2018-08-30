@@ -1,0 +1,12 @@
+<form bindsubmit="postFormId" reportSubmit="true">
+    <view class="qrcode-header">
+        <button bindtap="back" class="back" formType="submit">返回</button>
+        <button bindtap="showTips" class="tips" formType="submit">提示</button>
+        <button bindtap="save" class="save" formType="submit">保存</button>
+    </view>
+    <view class="qrcode-pic-container">
+        <button bindlongtap="save" bindtap="showPic">
+            <image class="qrcode-pic" formType="submit" mode="aspectFill" src="{{imageUrl}}"></image>
+        </button>
+    </view>
+</form>

@@ -1,0 +1,10 @@
+<import src="../publiclist/publiclist.wxml"></import>
+<view class="public-title">
+    <view class="public-title-head">{{name}}</view>
+    <view class="public-title-bottom">
+      {{chapter_num}}课时，每课时约15分钟 | 已学{{has_study}}课时，未学{{not_study}}课时
+    </view>
+    <view class="public-title-bottom" wx:if="{{teachers.length>0}}">授课老师：<text wx:for="{{teachers}}" wx:key="*teachers">{{item.name}}</text>
+    </view>
+</view>
+<template is="publiclist" data="{{coursemenu:coursemenu}}"></template>

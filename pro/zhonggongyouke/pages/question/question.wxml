@@ -1,0 +1,54 @@
+<view class="container">
+    <view class="list">
+        <view class="question">
+            <text>1.</text>什么是中公优课？</view>
+        <view class="answer">
+            <view>优课，是中公教育集团旗下在线教育品牌，覆盖公考、事业单位、教资等考试项目，为学员提供优质学习资源。让中公名师离你更近，让备考更轻松高效。</view>
+            <view>我们相信，优课，改变就在此课。</view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="question">
+            <text>2.</text>中公优课有哪些课程？</view>
+        <view class="answer">主要覆盖公务员、事业单位、教师资格等考试领域，更多考试项目将陆续上线。课程类型包括公开课和直播课两种，其中直播课又分为专题课和系列课。在课程设计上，采用阶段式、梯度式设计，对学员进行分层，推出适合各类学员的优质课程。</view>
+    </view>
+    <view class="list">
+        <view class="question">
+            <text>3.</text>如何上课？</view>
+        <view class="answer">报名后，在优课小程序中点击“我的”—“公开课”或者“直播课”，即可查看课程；也可在首页中点击已报名课程，进入课程详情页观看。</view>
+    </view>
+    <view class="list">
+        <view class="question">
+            <text>4.</text>如何观看课程回放？</view>
+        <view class="answer">课程结束后，在小程序中点击“我的”—“直播课”，进入课程详情即可观看回放，课程回放会在课后24小时内生成，请耐心等待。</view>
+    </view>
+    <view class="list">
+        <view class="question">
+            <text>5.</text>如何退课？</view>
+        <view class="answer">请参考具体课程详情页介绍中的退课说明</view>
+    </view>
+    <view class="list">
+        <view class="question">
+            <text>6.</text>图书发货说明</view>
+        <view class="answer">报名课程后，我们将在24小时内根据您的收货地址和联系方式安排发货，到货时间根据各地物流情况而定。提交订单后，收货地址无法更改，请认真填写，避免影响邮寄。</view>
+    </view>
+    <view class="list">
+        <view class="question">
+            <text>7.</text>如何加备考QQ群？</view>
+        <view class="answer">点击“我的”—“加备考群”，根据考试项目选择加入对应备考QQ群；另外，在部分课程的课详页中，也会有对应QQ群，直接添加即可。</view>
+    </view>
+    <view class="list">
+        <view class="question">
+            <text>8.</text>遇到系统bug怎么解决？</view>
+        <view class="answer">在使用优课小程序期间，如遇到无法解决的问题请及时联系在线客服、拨打客服热线，或将问题反馈到“中公教育优课”微信公众号，我们将飞速为你解决问题。</view>
+    </view>
+    <view class="list">
+        <view class="question">
+            <text>9.</text>如何联系客服？</view>
+        <view class="answer">
+            <view>客服电话：400-900-8885（售前转1，售后转2）</view>
+            <view>课程咨询：点击课程详情页中的“咨询”即可在线咨询</view>
+            <view>工作时间：周一至周日9:00-22:00</view>
+        </view>
+    </view>
+</view>

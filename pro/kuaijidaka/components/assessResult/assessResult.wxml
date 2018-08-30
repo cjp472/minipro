@@ -1,0 +1,46 @@
+<view class="assess-li">
+    <view class="assess-fail" wx:if="{{!scoreData&&page==='detail'}}">
+        <text wx:if="{{colorScheme==='admin'}}">音频文件无效,需要学员重新录音</text>
+        <view wx:else>
+            <text>评测失败，请点击重测。</text>
+            <view catchtap="assessAgain" class="again">重测</view>
+        </view>
+    </view>
+    <view class="assess-chinese" wx:elif="{{isChinese}}">
+        <view class="score-item">
+            <progress-circle scoreData="{{scoreData}}"></progress-circle>
+        </view>
+    </view>
+    <view class="assess-li-score" wx:else>
+        <view class="total-score">
+            <span class="ico">
+                <text class="total">{{score}}</text>
+                <text class="content">总分</text>
+            </span>
+        </view>
+        <view class="score-display">
+            <label class="score-name1">准确度：
+        <view>
+                    <view class="selected" style="width:{{2.8*scoreData.pronunciation}}rpx"></view>
+                </view>{{pronunciation}}</label>
+            <label class="score-name2">流利度：
+        <view>
+                    <view class="selected" style="width:{{2.8*scoreData.fluency}}rpx"></view>
+                </view>{{fluency}}</label>
+            <label class="score-name3">完整度：
+        <view>
+                    <view class="selected" style="width:{{2.8*scoreData.integrity}}rpx"></view>
+                </view>{{integrity}}</label>
+        </view>
+    </view>
+    <view class="assess-li-content {{!scoreData&&page==='detail'?'no-content':''}}">
+        <view class="assess-tips">标灰为漏读，标红为读错</view>
+        <view class="rich-text word-wrap" wx:if="{{words}}">
+            <rich-text nodes="{{words}}"></rich-text>
+            <view class="mt20 col8">{{notes}}</view>
+        </view>
+        <view class="mt20" wx:if="{{voice}}">
+            <jdk-theme-audio colorScheme="{{colorScheme}}" voice="{{voice}}"></jdk-theme-audio>
+        </view>
+    </view>
+</view>

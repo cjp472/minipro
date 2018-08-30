@@ -1,0 +1,308 @@
+@import "../../../template/examPaper/exam-paper-template.wxss";
+
+.red .add-blood-bag .add-blood-bag-text,.red .add-blood-bag .icon_arrow_right {
+    color: #ff5757;
+}
+
+.blue .add-blood-bag .add-blood-bag-text,.blue .add-blood-bag .icon_arrow_right {
+    color: #4380db;
+}
+
+.green .add-blood-bag .add-blood-bag-text,.green .add-blood-bag .icon_arrow_right {
+    color: #0e9900;
+}
+
+.Lightblue .add-blood-bag .add-blood-bag-text,.Lightblue .add-blood-bag .icon_arrow_right {
+    color: #27c1f4;
+}
+
+.orange .add-blood-bag .add-blood-bag-text,.orange .add-blood-bag .icon_arrow_right {
+    color: #ff7e00;
+}
+
+.yellow .add-blood-bag .add-blood-bag-text,.yellow .add-blood-bag .icon_arrow_right {
+    color: #db9b00;
+}
+
+.purple .add-blood-bag .add-blood-bag-text,.purple .add-blood-bag .icon_arrow_right {
+    color: #a066e8;
+}
+
+page {
+    background: #FAFAFA;
+}
+
+.burning-box {
+    width: 750rpx;
+    background: #fff;
+}
+
+.burning-box .burning-hidden {
+    height: 0rpx;
+    overflow: hidden;
+}
+
+.burning-box .burning-top {
+    width: 750rpx;
+    height: 158rpx;
+    background: #fff;
+    box-shadow: 0 6rpx 24rpx 0 #ededed;
+    border-radius: 0 0 24rpx 24rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5rpx;
+    overflow: auto;
+}
+
+.burning-top-text {
+    height: 90rpx;
+    width: 570rpx;
+    margin-left: 30rpx;
+}
+
+.burning-title {
+    font-size: 32rpx;
+    color: #4e4e4e;
+}
+
+.burning-info-text {
+    font-size: 24rpx;
+    color: #9a9a9a;
+    margin-top: 12rpx;
+}
+
+.burning-info-text text {
+    font-size: 24rpx;
+    color: red;
+}
+
+.burning-buy {
+    width: 120rpx;
+    height: 50rpx;
+    background: #ff7e00;
+    border: 1rpx solid #ff7e00;
+    border-radius: 100px;
+    line-height: 50rpx;
+    font-size: 28rpx;
+    color: #fff;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.burning-course {
+    width: 750rpx;
+    min-height: 190rpx;
+    background: #fff;
+}
+
+.burning-bottom-line {
+    width: 720rpx;
+    min-height: 190rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    margin-left: 30rpx;
+    padding-bottom: 33rpx;
+}
+
+.burning-sub-title {
+    font-size: 30rpx;
+    color: #ccc;
+    margin-top: 30rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.do-exercise-icon {
+    height: 35rpx;
+    width: 31rpx;
+    margin-right: 30rpx;
+    display: block;
+}
+
+.success-do-exercise-icon {
+    background: url('http://img02.exam8.com/img2017/minapp/user_icon/icon_zuoti@2x.png') no-repeat no-repeat;
+    background-size: 100%;
+}
+
+.burning-time {
+    margin-top: 30rpx;
+    font-size: 24rpx;
+    color: #9a9a9a;
+}
+
+.burning-time-icon {
+    margin-right: 12rpx;
+}
+
+.burning-progress {
+    width: 560rpx;
+    height: 44rpx;
+    margin-top: 12rpx;
+    margin-left: 30rpx;
+    position: relative;
+    overflow: hidden;
+}
+
+.burning-gif-line {
+    width: 558rpx;
+    height: 4rpx;
+    background: #ebebeb;
+    border-radius: 100px;
+    position: absolute;
+    bottom: 0rpx;
+}
+
+.burning-gif-img {
+    width: 560rpx;
+    height: 44rpx;
+    position: absolute;
+    bottom: 0rpx;
+}
+
+.burning-deadline text {
+    color: red;
+}
+
+.import-reminder {
+    width: 750rpx;
+    height: 538rpx;
+}
+
+.import-reminder image {
+    width: 750rpx;
+    height: 538rpx;
+}
+
+.add-blood-bag {
+    width: 750rpx;
+    height: 100rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    line-height: 100rpx;
+    font-size: 30rpx;
+    color: #6fce29;
+}
+
+.add-blood-bag-text {
+    margin-left: 30rpx;
+}
+
+.add-blood-bag .icon_arrow_right {
+    float: right;
+    margin-right: 30rpx;
+    font-size: 25rpx;
+}
+
+.burning-buy-success {
+    color: #4e4e4e;
+}
+
+.burning-time .icon_time1 {
+    font-size: 24rpx;
+    color: #ccc;
+}
+
+.dataloading_box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.data_Loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 534rpx;
+    height: 263rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-top: -100rpx;
+}
+
+.progress {
+    width: 420rpx;
+    height: 8rpx;
+}
+
+.data_loading_con {
+    height: 159rpx;
+    width: 420rpx;
+    position: relative;
+}
+
+.Loading_text {
+    width: 192rpx;
+    height: 45rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0rpx;
+    color: #4e4e4e;
+    position: absolute;
+    top: 0;
+    left: 114rpx;
+    line-height: 45rpx;
+    text-align: center;
+}
+
+.loading_cont {
+    width: 100rpx;
+    height: 33rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0rpx;
+    color: #888;
+    position: absolute;
+    top: 60rpx;
+    line-height: 33rpx;
+    left: 160rpx;
+    text-align: center;
+}
+
+.data_loading_con .pdf-progress {
+    margin-top: 150rpx;
+}
+
+.num {
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    font-weight: normal;
+    color: #37ce00;
+}
+
+.burning-sub-title-text {
+    display: block;
+    width: 620rpx;
+    margin-right: 30rpx;
+}
+
+.burning-buy-end {
+    width: 120rpx;
+    height: 50rpx;
+    background: #cccccc;
+    border-radius: 100px;
+    line-height: 50rpx;
+    font-size: 28rpx;
+    color: #fff;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.s_hongbao {
+    bottom: 108rpx;
+}
+
+.goBackIndex {
+    bottom: 272rpx;
+    right: 22rpx;
+}

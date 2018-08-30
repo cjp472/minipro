@@ -1,0 +1,90 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="home-tools__container" wx:if="{{admin}}">
+    <view class="home-tools">
+        <view catchtap="shareCourse" class="home-tools__cube">
+            <view class="home-tools__ico">
+                <view class="iconfont icon-fenxiang"></view>
+            </view>
+            <view class="home-tools__items">分享课程</view>
+        </view>
+        <view catchtap="toRank" class="home-tools__cube">
+            <view class="home-tools__ico">
+                <view class="iconfont icon-paihangbang-guanliyuan"></view>
+            </view>
+            <view class="home-tools__items">排行榜</view>
+        </view>
+        <view catchtap="participate" class="home-tools__cube">
+            <view class="home-tools__ico">
+                <view class="iconfont icon-canyugaikuang"></view>
+            </view>
+            <view class="home-tools__items">参与概况</view>
+        </view>
+        <view catchtap="{{topicParams.category===1?'goQuestionList':topicParams.category===3?'goRead':'editTheme'}}" class="home-tools__cube">
+            <view class="home-tools__ico">
+                <view class="iconfont icon-bianji"></view>
+            </view>
+            <view class="home-tools__items" wx:if="{{topicParams.category===1}}">预览试卷</view>
+            <view class="home-tools__items" wx:elif="{{topicParams.category===3}}">预览内容</view>
+            <view class="home-tools__items" wx:else>编辑主题</view>
+        </view>
+        <view catchtap="courseInform" class="home-tools__cube">
+            <view class="home-tools__ico">
+                <view class="iconfont icon-tongzhi-guanliyuan"></view>
+            </view>
+            <view class="home-tools__items">课程通知</view>
+        </view>
+    </view>
+</view>
+<view class="home-tools__container user" wx:else>
+    <view class="home-tools">
+        <view catchtap="invite" class="home-tools__cube">
+            <view class="home-tools__ico">
+                <view class="iconfont icon-yaoqing"></view>
+            </view>
+            <view class="home-tools__items">邀请好友</view>
+        </view>
+        <view catchtap="toRank" class="home-tools__cube">
+            <view class="home-tools__ico">
+                <view class="iconfont icon-paihangbang"></view>
+            </view>
+            <view class="home-tools__items">排行榜</view>
+        </view>
+        <view catchtap="daySign" class="home-tools__cube">
+            <view class="home-tools__ico">
+                <view class="iconfont icon-riqian"></view>
+            </view>
+            <view class="home-tools__items">生成日签</view>
+        </view>
+        <view catchtap="toRecord" class="home-tools__cube">
+            <view class="home-tools__ico">
+                <view class="iconfont icon-daqiajilu"></view>
+            </view>
+            <view class="home-tools__items">学习记录</view>
+        </view>
+        <view catchtap="userCourseInform" class="home-tools__cube">
+            <view class="red-dot" wx:if="{{topicParams.is_push_message===1&&(topicParams.push_message_type===1||topicParams.push_message_type===2&&topicParams.is_submited||topicParams.push_message_type===3&&!topicParams.is_submited)&&!topicParams.is_message_entered}}"></view>
+            <view class="home-tools__ico">
+                <view class="iconfont icon-tongzhi"></view>
+            </view>
+            <view class="home-tools__items">课程通知</view>
+        </view>
+    </view>
+</view>
+<jdk-modal bind:modalCancel="inviteCard" bind:modalConfirm="modalConfirm" cancelText="继续原操作" confirmColor="#0cd974" confirmText="切换管理员" content="如需请学员参与课程，请切换到管理员后转发到课程群。" contentColor="#969696" needCancel="{{true}}" title="系统提示" wx:if="{{showInviteModal}}"></jdk-modal>
+<view class="share-window" wx:if="{{showShareOptions}}">
+    <view catchtap="closeWindow" class="share-window__shade"></view>
+    <view class="share-window__content">
+        <view catchtap="toQRpage" class="share-window__QR share-window__line">
+            <view class="iconfont icon-erweima share-window__ico"></view>
+            <view>课程二维码</view>
+        </view>
+        <button class="share-window__share share-window__line" data-sharetype="share" hoverStopPropagation="true" openType="share">
+            <view class="iconfont icon-fenxiang share-window__ico"></view>
+            <view class="share-window__text clear-button-style">转发课程</view>
+        </button>
+        <button catchtap="sendCourseInvitation" class="share-window__invite share-window__line" data-sharetype="invitation" hoverStopPropagation="true" openType="share">
+            <view class="iconfont icon-yuanjiaojuxingkaobei2 share-window__ico"></view>
+            <view class="share-window__text clear-button-style">邀请学员（无需校验权限）</view>
+        </button>
+    </view>
+</view>

@@ -1,0 +1,11 @@
+<template name="deblockingTemplate">
+    <view class="share_practice">
+        <image class="share_image" mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/icon_jiesuo_{{theme}}@2x.png"></image>
+        <view class="share_text">分享万题库小程序</view>
+        <view class="share_text">解锁{{courseShareName}}练习</view>
+        <button catchtap="onbtnShera" class="share_btn" hoverClass="none" openType="share">
+            <view class="iconfont  icon_fenxiangweixin"></view>
+            <view>分享给微信群好友</view>
+        </button>
+    </view>
+</template>

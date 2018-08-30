@@ -1,0 +1,105 @@
+.invitation {
+    margin: 40rpx;
+    background: #fff url(http://static3topen.jingdaka.com/images/bg_invitation.jpg);
+    background-repeat: no-repeat;
+    background-size: 670rpx;
+    width: 670rpx;
+    border-radius: 10rpx;
+    padding-bottom: 30rpx;
+}
+
+.invitation .img {
+    padding-top: 274rpx;
+    width: 135rpx;
+    margin: 0 auto;
+}
+
+.invitation .img image {
+    width: 135rpx;
+    height: 135rpx;
+    border-radius: 135rpx;
+    border: 4rpx solid #fff;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.14),0px 4px 2px 0px rgba(0,0,0,0.04);
+}
+
+.invitation .text {
+    position: relative;
+}
+
+.invitation .name,.invitation .userName {
+    width: 100%!important;
+    text-align: center;
+    color: #3c4856;
+    line-height: 80rpx;
+}
+
+.invitation .name {
+    font-size: 26rpx;
+    color: #3f497f;
+    font-family: 'microsoft yahei';
+}
+
+.invitation .userName {
+    font-size: 34rpx;
+    font-weight: bold;
+}
+
+.split-line {
+    width: 36rpx;
+    margin-left: 50%;
+    transform: translate(-50%);
+    height: 2rpx;
+    background-color: #cfcfd5;
+}
+
+.invitation .text .title {
+    width: 520rpx;
+    margin: 60rpx auto 0 auto;
+    text-align: center;
+    line-height: 50rpx;
+    color: #3c4856;
+    font-size: 36rpx;
+}
+
+.invitation .text .tit_left {
+    width: 30rpx;
+    height: 30rpx;
+    background-position: -240rpx -60rpx;
+    position: absolute;
+    left: 40rpx;
+    top: 100rpx;
+    z-index: 9;
+}
+
+.invitation .text .tit_right {
+    width: 30rpx;
+    height: 30rpx;
+    background-position: -270rpx -60rpx;
+    position: absolute;
+    right: 40rpx;
+    top: 100rpx;
+    z-index: 9;
+}
+
+.invitation .btn {
+    width: 240rpx;
+    height: 85rpx;
+    color: #4f598f;
+    border: 2rpx solid #4f598f;
+    border-radius: 10rpx;
+    margin: 90rpx auto 0 auto;
+    line-height: 85rpx;
+    text-align: center;
+}
+
+.invitation .p {
+    font-size: 26rpx;
+    color: #c1c1c1;
+    line-height: 43rpx;
+    margin: 50rpx 120rpx;
+    text-align: center;
+}
+
+button {
+    background-color: white;
+}

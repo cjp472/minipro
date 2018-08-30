@@ -1,0 +1,27 @@
+<form bindsubmit="postFormId" reportSubmit="true">
+    <view class="root">
+        <view>
+            <view class="text">
+        上传背景图片(建议尺寸750*350)
+      </view>
+            <view class="cover-info">
+                <button bindtap="chooseImage" class="pic-container" formType="submit">
+                    <view class="choose-pic">
+                        <image class="upload" src="/images/upload.png"></image>
+                    </view>
+                </button>
+            </view>
+        </view>
+        <view wx:if="{{pics.length>0}}">
+            <view class="text">
+        或者选择其他图片
+      </view>
+            <view class="cover-info">
+                <button bindtap="selectImage" class="pic-container" data-index="{{index}}" formType="submit" wx:for="{{pics}}" wx:key="*this">
+                    <image class="select-pic" mode="aspectFill" src="{{item}}"></image>
+                    <view class="pic-overshadow"></view>
+                </button>
+            </view>
+        </view>
+    </view>
+</form>

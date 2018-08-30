@@ -1,0 +1,7 @@
+<view bindtap="toAlbumDetail" class="album-container">
+    <view class="album-cover vip-free" style="background-image: url({{albumCoverDefault}});"></view>
+    <view class="album-tit">王英军律师创业法律专家</view>
+    <view class="album-price">
+        <text class="price-count">198</text>元
+    </view>
+</view>

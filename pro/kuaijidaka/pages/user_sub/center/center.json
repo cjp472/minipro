@@ -1,0 +1,12 @@
+{
+    "navigationBarTitleText": "个人中心",
+    "backgroundColor": "#22dd82",
+    "enableOnReachBottom": true,
+    "usingComponents": {
+        "jdk-submit": "/components/user-submit/submit/submit",
+        "jdk-logo": "/components/logo/logo",
+        "foot-loading": "/components/footLoading/footLoading",
+        "user-table": "/components/user-table/user-table",
+        "jdk-modal": "/components/modal/modal"
+    }
+}

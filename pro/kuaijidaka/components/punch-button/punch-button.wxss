@@ -1,0 +1,70 @@
+@import "../../__wuBaseWxss__/8.wxss";
+
+@import "../../__wuBaseWxss__/11.wxss";
+
+@import "../../__wuBaseWxss__/6.wxss";
+
+.button-box {
+    margin: 40rpx auto 0;
+    position: relative;
+}
+
+.collect-form-id button {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    background-color: inherit;
+    box-sizing: unset!important;
+    background: #22dd82;
+    width: 500rpx;
+    height: 88rpx;
+    border-radius: 10rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 34rpx;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-left: -250rpx;
+}
+
+.collect-form-id button::after {
+    content: none;
+}
+
+.ico--remedy {
+    position: absolute;
+    right: 270rpx;
+    bottom: 32rpx;
+    z-index: 200;
+}
+
+.public .public-content .mobile {
+    font-size: 36rpx;
+    color: #000;
+    padding-left: 40rpx;
+    font-weight: bold;
+}
+
+.public .public-content .sub-mobile {
+    font-size: 28rpx;
+    color: #999;
+    padding-left: 40rpx;
+    margin-top: 20rpx;
+}
+
+.public .public-content input {
+    margin: 40rpx 40rpx 0rpx 40rpx;
+    padding-left: 34rpx;
+    height: 84rpx;
+    line-height: 84rpx;
+    vertical-align: middle;
+    border-radius: 5rpx;
+    color: #8b97a4;
+    font-size: 28rpx;
+    background: #edf0f3;
+}

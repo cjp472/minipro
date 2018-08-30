@@ -1,0 +1,147 @@
+<view class="live-video-box {{theme}}" wx:if="{{!Review}}">
+    <view class="live-video-select flex-row">
+        <view bindtap="selectLive" class="{{selectLiveState=='0'?'active':''}}" data-name="0">
+            <text>今日直播</text>
+        </view>
+        <view bindtap="selectLive" class="{{selectLiveState=='1'?'active':''}}" data-name="1">
+            <text>近期直播</text>
+        </view>
+    </view>
+    <view class="live-video-list">
+        <form bindsubmit="onClickLiveInfoJS" reportSubmit="true">
+            <swiper bindchange="changeCurrent" class="live-video-content flex-row {{selectLiveState=='late'?'active':''}}" current="{{selectLiveState}}">
+                <swiper-item>
+                    <scroll-view class="live-today" scrollY="{{!empty}}">
+                        <view class="no-live-box" wx:if="{{empty}}">
+                            <view class="no-live">
+                                <view class="image">
+                                    <image src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/empty_video_{{theme}}@2x.png"></image>
+                                </view>
+                                <view class="text">今日暂无直播</view>
+                                <view bindtap="selectLive" class="redirect-late" data-name="1">查看近期直播</view>
+                            </view>
+                        </view>
+                        <view style="background:#ffffff">
+                            <button class="live-teacher flex-row {{item.LiveType==3?'':'zs-video'}}" data-CCUserId="{{item.CCUserId}}" data-CourseID="{{item.CourseID}}" data-CourseTitle="{{item.CourseTitle}}" data-HeadMasterId="{{item.HeadMasterId}}" data-IsShowBookingNum="{{item.IsShowBookingNum}}" data-JoinPassword="{{item.JoinPassword}}" data-LiveVideoType="{{item.LiveType}}" data-dataEndTime="{{item.dataEndTime}}" data-dataStartTime="{{item.dataStartTime}}" data-livetype="today" data-playState="{{item.PlayState}}" data-roomId="{{item.RoomNumber}}" formType="submit" hoverClass="" wx:for="{{mockDataToday}}" wx:key="live-teacher-key">
+                                <view class="cc-live" wx:if="{{item.LiveType==3}}">
+                                    <text class="iconfont xiaochengxu"></text>
+                                </view>
+                                <view class="teacher-img">
+                                    <image src="{{item.TeacherUrl}}"></image>
+                                </view>
+                                <view class="live-subject-info">
+                                    <view class="live-subject-title">
+                                        <view class="text">
+                                            <view class="recommend" wx:if="{{item.IsRecommend==1}}">荐</view>
+                                            <text>{{item.CourseTitle}}</text>
+                                        </view>
+                                    </view>
+                                    <view class="live-subject-time">
+                                        <text>{{item.TeacherName}}</text>
+                                        <text>
+                                            <text class="iconfont icon_time"></text>{{item.PlayTime}}</text>
+                                    </view>
+                                </view>
+                                <view class="live-button-state">
+                                    <view class="live-button-box  {{item.PlayState=='0'||item.PlayState=='1'?'':'margin-top-50'}}">
+                                        <view class="live-button flex-row {{playstate[item.PlayState].style}}">
+                                            <view class="{{playstate[item.PlayState].icon}}"></view>
+                                            <view class="text">{{playstate[item.PlayState].text}}</view>
+                                            <view class="zs-text"></view>
+                                        </view>
+                                    </view>
+                                    <block wx:if="{{item.PlayState=='0'||item.PlayState=='1'}}">
+                                        <view class="live-user-number" wx:if="{{item.IsShowBookingNum==1}}">
+                                            <view>剩余
+                        <text>{{item.RemainBookingNum}}</text>
+                                            </view>
+                                            <view>限约
+                        <text>{{item.LimitBookingNum}}</text>
+                                            </view>
+                                        </view>
+                                        <view class="live-user-number" wx:if="{{item.IsShowBookingNum==0}}">
+                                            <text>{{item.BookingNum}}</text>人已约
+                    </view>
+                                    </block>
+                                </view>
+                            </button>
+                        </view>
+                        <view bindtap="selectLive" class="live-end-late-list" data-name="1" hidden="{{!todayLiveState||empty}}">
+              查看近期直播
+            </view>
+                    </scroll-view>
+                </swiper-item>
+                <swiper-item>
+                    <scroll-view class="live-late" scrollY="{{true}}">
+                        <view class="no-live-box" wx:if="{{mockDataLate.length<=0}}">
+                            <view class="no-live">
+                                <view class="image">
+                                    <image src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/empty_video_{{theme}}@2x.png"></image>
+                                </view>
+                                <view class="text">近期暂无直播</view>
+                            </view>
+                        </view>
+                        <block wx:for="{{mockDataLate}}" wx:for-item="CourseList" wx:key="live-late-courseList-key">
+                            <block wx:for="{{CourseList.DayList}}" wx:for-item="DayList" wx:key="live-late-dayList-key">
+                                <view class="live-title">{{CourseList.month}}{{DayList.day}}</view>
+                                <view class="live-list">
+                                    <view style="background:#ffffff;">
+                                        <button class="live-teacher flex-row {{item.LiveType==3?'':'zs-video'}}" data-CCUserId="{{item.CCUserId}}" data-CourseID="{{item.CourseID}}" data-CourseTitle="{{item.CourseTitle}}" data-HeadMasterId="{{item.HeadMasterId}}" data-IsShowBookingNum="{{item.IsShowBookingNum}}" data-JoinPassword="{{item.JoinPassword}}" data-LiveVideoType="{{item.LiveType}}" data-dataEndTime="{{item.dataEndTime}}" data-dataStartTime="{{item.dataStartTime}}" data-livetype="late" data-playState="{{item.PlayState}}" data-roomId="{{item.RoomNumber}}" formType="submit" hoverClass="" wx:for="{{DayList.CourseList}}" wx:key="live-teacher-key">
+                                            <view class="cc-live" wx:if="{{item.LiveType==3}}">
+                                                <text class="iconfont xiaochengxu"></text>
+                                            </view>
+                                            <view class="teacher-img">
+                                                <image src="{{item.TeacherUrl}}"></image>
+                                            </view>
+                                            <view class="live-subject-info">
+                                                <view class="live-subject-title">
+                                                    <view class="text">
+                                                        <view class="recommend" wx:if="{{item.IsRecommend==1}}">荐</view>
+                                                        <text>{{item.CourseTitle}}</text>
+                                                    </view>
+                                                </view>
+                                                <view class="live-subject-time">
+                                                    <text>{{item.TeacherName}}</text>
+                                                    <text>
+                                                        <text class="iconfont icon_time"></text>{{item.PlayTime}}</text>
+                                                </view>
+                                            </view>
+                                            <view class="live-button-state">
+                                                <view class="live-button-box">
+                                                    <view class="live-button flex-row {{playstate[item.PlayState].style}}">
+                                                        <view class="{{playstate[item.PlayState].icon}}"></view>
+                                                        <view class="text">{{playstate[item.PlayState].text}}</view>
+                                                        <view class="zs-text"></view>
+                                                    </view>
+                                                </view>
+                                                <view class="live-user-number" wx:if="{{item.IsShowBookingNum==1||!item.PlayState=='2'||!item.PlayState=='3'}}">
+                                                    <view>剩余
+                            <text>{{item.RemainBookingNum}}</text>
+                                                    </view>
+                                                    <view>限约
+                            <text>{{item.LimitBookingNum}}</text>
+                                                    </view>
+                                                </view>
+                                                <view class="live-user-number" wx:if="{{item.IsShowBookingNum==0}}">
+                                                    <text>{{item.BookingNum}}</text>人已约
+                        </view>
+                                            </view>
+                                        </button>
+                                    </view>
+                                </view>
+                            </block>
+                        </block>
+                    </scroll-view>
+                </swiper-item>
+            </swiper>
+        </form>
+    </view>
+</view>
+<view class="no-live-box" wx:else>
+    <view class="no-live">
+        <view class="image">
+            <image src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/empty_video_{{theme}}@2x.png"></image>
+        </view>
+        <view class="text">暂无发现</view>
+    </view>
+</view>

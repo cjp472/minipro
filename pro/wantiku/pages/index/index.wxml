@@ -1,0 +1,136 @@
+<import src="/template/deblocking/deblocking_template.wxml"></import>
+<import src="./template/homeIcon.template.wxml"></import>
+<view class="index-box {{theme}} {{ifCloseHb||!ifHongb?'':'haveHb_active'}}">
+    <view class="subject">
+        <view class="subject-number">
+            <block wx:if="{{hasLogin}}">
+                <view class="subject-number-title">
+                    <text>预测分</text>
+                </view>
+                <view class="subject-number-cont">
+                    <text class="bold">{{subjectScore.MyPredictScore==0?'?':subjectScore.MyPredictScore}}</text>
+                    <text> / {{subjectScore.SubjectScore}} </text>
+                </view>
+            </block>
+            <view bindtap="OnNoLoaginJs" class="no-login" wx:else>查看全面成绩预测</view>
+        </view>
+        <view bindtap="changeSubject" class="subject-choose">
+            <view>
+                <text>{{subjectInfo.SubjectName}}</text>
+                <image mode="widthFix" src="/images/newIndex/icon_arrow_down@2x.png"></image>
+            </view>
+        </view>
+    </view>
+    <form bindsubmit="formSubmit" reportSubmit="true">
+        <view class="column-list" wx:if="{{!homeIconListType}}">
+            <view class="home-icon-list">
+                <template is="homeIconList" data="{{...item,IOS:IOS}}" wx:for="{{homeIconList}}" wx:key="homeIcon-key"></template>
+            </view>
+        </view>
+        <view class="column-list swiper-wrap" wx:if="{{homeIconListType}}">
+            <swiper indicatorActiveColor="{{color}}" indicatorColor="#DDD" indicatorDots="{{true}}">
+                <swiper-item wx:for="{{homeIconList}}" wx:key="homeIcon-key">
+                    <view class="home-icon-list">
+                        <template is="homeIconList" data="{{...item,IOS:IOS}}" wx:for="{{item}}" wx:key="key"></template>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </form>
+    <view class="subject-progress">
+        <view class="subject-progress-canvas">
+            <canvas canvasId="myCanvas" wx:if="{{ifCloseHb||!ifHongb}}">
+                <view class="subject-progress-canvas-text">
+                    <view class="h1">{{progress.userPercent}}%</view>
+                    <view class="h2" style="margin-top:0;">学习进度</view>
+                </view>
+            </canvas>
+        </view>
+        <view class="subject-progress-item">
+            <view class="h1">{{progress.userHour}}时{{progress.userMinute}}分</view>
+            <view class="h2">已学</view>
+        </view>
+        <view class="subject-progress-item">
+            <view class="h1">{{progress.totalHour}}时{{progress.totalMinute}}分</view>
+            <view class="h2">总时长</view>
+        </view>
+    </view>
+    <view class="sale {{progress.lastCourseSiteId>0?'':'sale-border'}}" wx:if="{{data.IsSaleDiscount===1}}">
+        <text class="iconfont icon_tips"></text>
+        <text class="">{{data.SaleDiscountDesc}}</text>
+    </view>
+    <form bindsubmit="formSubmitLastVideo" reportSubmit="{{true}}">
+        <button class="subject-continue" data-courseId="{{progress.lastCourseId}}" data-lecture_image="{{progress.last.lectureImageUrl}}" data-lecture_image_count="{{progress.last.lectureImageCount}}" data-name="{{progress.last.siteName}}" data-needbuy="{{progress.last.needBuy}}" data-root-id="{{progress.last.rootId}}" data-siteId="{{progress.lastCourseSiteId}}" data-size="{{progress.last.courseSize}}" data-videoId="{{progress.last.videoId}}" formType="submit" hoverClass="" wx:if="{{progress.lastCourseSiteId>0}}">
+            <view>
+                <text>继续学习：{{progress.lastCourseName}}</text>
+            </view>
+            <view class="subject-continue-jiantou-icon">
+                <view class="iconfont icon_arrow_right"></view>
+            </view>
+        </button>
+    </form>
+    <view class="subject-class-list">
+        <view class="no-subject" wx:if="{{!hasCourse}}">
+            <view>
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/new_index/empty_zhangjieke@2x.png"></image>
+            </view>
+            <view class="text">
+                <text>章节课即将上线</text>
+            </view>
+        </view>
+        <form bindsubmit="formSubmitVideo" reportSubmit="{{true}}">
+            <view catchtap="bindCourse" class="subject-class {{node.style}}  {{node.needBuy?'disable':''}} {{node.IsLockVideo==1&&!IsUnlock?'disabled':''}}" data-IsLockVideo="{{node.IsLockVideo}}" data-level="{{node.siteLevel}}" data-parentid="{{node.parentId}}" data-rootid="{{node.rootId}}" data-siteid="{{node.siteId}}" style="display:{{node.display?'block':'none'}}" wx:for="{{treeData}}" wx:for-item="node" wx:key="siteId">
+                <view class="subject-class-title">
+                    <view class="subject-class-title-text">
+                        <text>{{node.siteName}}</text>
+                    </view>
+                    <button class="subject-class-video flex-row {{node.IsLockVideo==1&&!IsUnlock&&node.siteLevel==1?'iconfont icon_suo':''}}  {{node.IsLockVideo==1&&!IsUnlock&&node.siteLevel!=1?'icon_video_disabled':''}} {{node.needBuy&&node.siteLevel===1?'shop-icon':''}}  " hoverClass="none" id="analyze_xiaoneng" openType="contact" sessionFrom="{{XNConfigInfo.sessionFrom}}" wx:if="{{isIos&&node.needBuy&&node.siteLevel===1}}">
+                        <text>{{node.needBuy&&node.siteLevel===1?' 专享':''}}</text>
+                    </button>
+                    <button catchtap="bindvideo" class="subject-class-video flex-row {{node.IsLockVideo==1&&!IsUnlock&&node.siteLevel==1?'iconfont icon_suo':''}}  {{node.IsLockVideo==1&&!IsUnlock&&node.siteLevel!=1?'icon_video_disabled':''}} {{node.needBuy&&node.siteLevel===1?'shop-icon':''}}  " data-courseid="{{node.viewSite.courseId}}" data-islockvideo="{{node.IsLockVideo}}" data-learnusercount="{{node.LearnUserCount}}" data-lecture-url="{{node.viewSite.LectureURL}}" data-lecture_image="{{node.viewSite.lectureImageUrl}}" data-lecture_image_count="{{node.viewSite.lectureImageCount}}" data-name="{{node.viewSite.siteName}}" data-needbuy="{{node.viewSite.needBuy}}" data-realcourseprice="{{node.RealCoursePrice}}" data-root-siteid="{{node.rootId}}" data-siteid="{{node.viewSite.siteId}}" data-sitelevel="{{node.siteLevel}}" data-size="{{node.viewSite.courseSize}}" data-vid="{{node.viewSite.videoId}}" formType="submit" hoverClass="" wx:else>
+                        <text class="iconfont  home_icon_goumai" wx:if="{{node.needBuy&&node.siteLevel===1}}"></text>
+                        <text>{{node.needBuy&&node.siteLevel===1?' 购买':''}}</text>
+                    </button>
+                    <text class="btn-text"></text>
+                </view>
+                <view class="subject-class-info">
+                    <text>{{node.learnDur}}分／{{node.duration}}分</text>
+                    <text>{{node.userCount}}人学习</text>
+                </view>
+            </view>
+        </form>
+    </view>
+    <view bindtap="onInotView" class="circle-box {{hbanmationState?'hide':''}} {{ifCloseHb&&groupRecommend?'bottom172':''}}" wx:if="{{recommendCardData!=''&&!recommendCardData.IsCheckIn&&recommendCardData.CircleID!=0}}">
+        <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/circle/btn_daka.png"></image>
+    </view>
+    <form bindsubmit="formSubmitHongBao" reportSubmit="{{true}}" wx:if="{{ifHongb}}">
+        <view bindtap="clickHongbaoBackground" class="hongbaobox" wx:if="{{!ifCloseHb}}">
+            <view class="hongbaoImage {{hbAnimation?'animation':''}}">
+                <view bindtap="closeBtn" class="closeHbButton" hoverClass="none">
+                    <text class="iconfont icon_closex"></text>
+                </view>
+                <button class="lqhbButton" formType="submit" hoverClass="none">
+                    <image class="lqhbButtonImage" src="http://img02.exam8.com/img2017/minapp/group/lqbatten.png"></image>
+                </button>
+                <view class="textBox">
+                    <view class="titleText">万题库给你发了一份</view>
+                    <view class="title">{{subjectInfo.SubjectParentName}}</view>
+                    <view class="content">{{GoodsName}}</view>
+                </view>
+            </view>
+        </view>
+        <button animation="{{s_animationData}}" class="s_hongbao {{hbanmationState?'hide':''}}" formType="submit" hoverClass="" wx:if="{{ifCloseHb&&groupRecommend}}">
+            <image class="s_hongbaoImage" src="http://img02.exam8.com/img2017/minapp/group/hongbaox.png"></image>
+        </button>
+    </form>
+    <view bindtap="shareBoxBackground" class="share_practice_box" wx:if="{{sharePractice}}">
+        <template is="deblockingTemplate" data="{{theme:theme,courseShareName:courseShareName}}"></template>
+    </view>
+    <view></view>
+    <block wx:if="{{showModal}}">
+        <import src="/template/modal/modal.template.wxml"></import>
+        <view bindtap="hideModal">
+            <template is="modal" data="{{...modalData}}"></template>
+        </view>
+    </block>
+</view>

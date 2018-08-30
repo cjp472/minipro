@@ -1,0 +1,89 @@
+<import src="../../common/nonet.wxml"></import>
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<jdk-permission-checker catchpermissionpass="onPermissionPass" codeImg="{{permissionChecker.permit_image}}" courseId="{{permissionChecker.courseId}}" denyReason="{{permissionChecker.denyReason}}" tips="{{permissionChecker.tips}}" wx:if="{{permissionChecker}}"></jdk-permission-checker>
+<view class="inform-content">
+    <view catchtap="{{courseType==1?'toHomeworkCourse':'toCalendarCourse'}}" class="course-name {{isAdmin?'admin':'user'}}">
+        <view class="ico"></view>{{courseName}}</view>
+    <view catchtap="toHomeworkCourse" class="homework-title" wx:if="{{courseType==1}}">
+        <view class="ico"></view>{{homeworkTitle}}</view>
+    <view catchtap="toCalendarCourse" class="day" wx:if="{{courseType==0}}">
+        <view class="ico"></view>第{{day+1}}天</view>
+    <view catchtap="toCalendarCourse" class="day" wx:if="{{courseType==2}}">
+        <view class="ico"></view>第{{course_started_days}}关</view>
+    <view class="inform-operation">
+        <view class="time">
+            <view>{{createTime}}</view>
+        </view>
+        <view class="edit-share" wx:if="{{!isTimeOut}}">
+            <view catchtap="editInform" class="edit-button" wx:if="{{isAdmin}}">
+                <view class="ico"></view>编辑</view>
+            <button class="share-button" openType="share">
+                <view class="ico"></view>分享</button>
+        </view>
+    </view>
+    <jdk-course-inform colorScheme="{{isAdmin?'admin':'user'}}" hybrid_content="{{informDataApp}}" pc_content="{{informDataPc}}" title="{{courseName}}" wx:if="{{informDataPc||informDataApp}}"></jdk-course-inform>
+</view>
+<view class="visitors">
+    <view class="visitors-count">已有{{visitorsCount}}人查看</view>
+    <view class="visitors-list">
+        <view class="visitors-detail" wx:for="{{visitorsList}}" wx:key="{{index}}">
+            <image class="avatar" src="{{item.url}}"></image>
+            <view class="nickname">{{item.name}}</view>
+            <view class="visit-time">{{item.time}}</view>
+        </view>
+    </view>
+</view>
+<view class="public password-public" wx:if="{{readyToInputPwd}}">
+    <view class="i"></view>
+    <view class="content">
+        <view class="h2">
+            <text>请输入课程密码</text>
+        </view>
+        <view class="pwdtip" wx:if="{{tip.length>0}}">提示：{{tip}}</view>
+        <view class="p">
+            <input catchtap="onInputingPwd" class="inputext" type="text"></input>
+        </view>
+        <view catchtap="pwdSub" class="confirm">确认</view>
+        <view catchtap="toHome" class="backHome">回到首页</view>
+    </view>
+</view>
+<view class="no-permission" wx:if="{{noPermission}}">
+    <view class="shade"></view>
+    <view class="no-permission-back">
+        <view class="highlight">
+            <view class="no-permission-pic"></view>
+            <view class="official-tip">
+                <view>请加入课程群，</view>
+                <view>并点击群内课程链接进入学习</view>
+            </view>
+            <view class="admin-tip" wx:if="{{tip.length>0}}">
+                <view class="tip-text">课程管理员提示</view>
+                <text>{{tip}}</text>
+            </view>
+            <view catchtap="tipsOk" class="btn {{tip.length==0?'no-tip':''}}">返回首页</view>
+        </view>
+    </view>
+</view>
+<view class="no-permission" wx:if="{{needPunch}}">
+    <view class="shade"></view>
+    <view class="no-permission-back">
+        <view class="highlight">
+            <view class="no-permission-pic"></view>
+            <view class="official-tip">需打卡后方可查看课程通知</view>
+            <view catchtap="tipsOk" class="btn no-tip}}">返回首页</view>
+        </view>
+    </view>
+</view>
+<view catchtap="toCalendarCourse" class="bottom-back-btn {{isAdmin?'admin-back':'user-back'}}" wx:if="{{courseType==0}}">
+    <text>返回</text>
+    <view>打卡</view>
+</view>
+<view catchtap="toHomeworkCourse" class="bottom-back-btn {{isAdmin?'admin-back':'user-back'}}" wx:if="{{courseType==1}}">
+    <text>返回</text>
+    <view>作业</view>
+</view>
+<view catchtap="toUnlockCourse" class="bottom-back-btn {{isAdmin?'admin-back':'user-back'}}" wx:if="{{courseType==2}}">
+    <text>返回</text>
+    <view>课时</view>
+</view>
+<template is="nonet" data wx:if="{{!netWorkStatus}}"></template>

@@ -1,0 +1,85 @@
+<view class="practice {{theme}} {{iPhoneX?'iphoneX':''}}">
+    <scroll-view class="practice-box {{progress.ExamSiteId==0?'hei100':''}}" scrollY="true">
+        <view wx:if="{{FrequencyTest.FreqRealList}}">
+            <view class="practice-title">
+                <view>
+                    <text class="iconfont icon_gaopinkaodian"></text>
+                    <text class="practice-title-text">高频考点</text>
+                </view>
+                <block wx:if="{{isIos}}">
+                    <button catchtap="buyCourse" class="shop-icon-buy" data-id="80001" hoverClass="none" id="analyze_xiaoneng" openType="contact" sessionFrom="{{XNConfigInfo.sessionFrom}}" wx:if="{{FrequencyTest.BuyState!=1}}">
+                        <text>专享</text>
+                    </button>
+                </block>
+                <block wx:else>
+                    <view catchtap="buyCourse" class="shop-icon-buy" data-id="80001" wx:if="{{FrequencyTest.BuyState!=1}}">
+                        <text class="iconfont home_icon_goumai"></text>
+                        <text>购买</text>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <form bindsubmit="formSubmit" data-id="0" reportSubmit="true">
+            <view class="subject-class-list">
+                <view class="subject-class class-one {{FrequencyTest.BuyState==1?'':'disable'}}" wx:for="{{FrequencyTest.FreqRealList}}" wx:for-item="node" wx:key="{{index}}">
+                    <view class="subject-class-title" style="background: none">
+                        <view class="subject-class-title-text">
+                            <text>{{node.FrequencyName}}</text>
+                        </view>
+                        <button class="subject-class-video" data-buy-state="{{FrequencyTest.BuyState}}" data-exam-frequency="{{node.ExamFrequency}}" data-total-count="{{node.TotalCount}}" data-user-total-count="{{node.UserTotalCount}}" formType="submit" hoverClass="none"></button>
+                    </view>
+                    <view class="subject-class-info">
+                        <progress activeColor="{{color}}" class="progress" percent="{{node.UserTotalCount/node.TotalCount*100}}" strokeWidth="2"></progress>
+                        <text>{{node.UserTotalCount}}/{{node.TotalCount}}道</text>
+                    </view>
+                </view>
+            </view>
+        </form>
+    </scroll-view>
+    <view class="box-shadow"></view>
+    <scroll-view class="practice-box {{progress.ExamSiteId==0?'hei100':''}}" scrollY="true">
+        <view wx:if="{{FrequencyWrong.FreqErrorList}}">
+            <view class="practice-title">
+                <view>
+                    <text class="iconfont icon_gaopincuoti"></text>
+                    <text>高频错题</text>
+                </view>
+                <block wx:if="{{isIos}}">
+                    <button catchtap="buyCourse" class="shop-icon-buy" data-id="80002" hoverClass="none" id="analyze_xiaoneng" openType="contact" sessionFrom="{{XNConfigInfo.sessionFrom}}" wx:if="{{FrequencyWrong.BuyState!=1}}">
+                        <text>专享</text>
+                    </button>
+                </block>
+                <block wx:else>
+                    <view catchtap="buyCourse" class="shop-icon-buy" data-id="80002" wx:if="{{FrequencyWrong.BuyState!=1}}">
+                        <text class="iconfont home_icon_goumai"></text>
+                        <text>购买</text>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <form bindsubmit="formSubmit" data-id="1" reportSubmit="true">
+            <view class="subject-class-list">
+                <view bindtap="" class="subject-class class-one {{FrequencyWrong.BuyState==1?'':'disable'}}" data-level="" data-parentid="" data-rootid="" data-siteid="" style="display: block" wx:for="{{FrequencyWrong.FreqErrorList}}" wx:for-item="node" wx:key="{{index}}">
+                    <view class="subject-class-title" style="background: none;">
+                        <view class="subject-class-title-text">
+                            <text>{{node.ErrorName}}</text>
+                        </view>
+                        <button class="subject-class-video" data-buy-state="{{FrequencyWrong.BuyState}}" data-exam-frequency="{{node.ErrorType}}" data-total-count="{{node.ErrorCount}}" data-user-total-count="{{node.UserTotalCount}}" formType="submit" hoverClass="none"></button>
+                    </view>
+                    <view class="subject-class-info">
+                        <progress activeColor="{{color}}" class="progress" percent="{{node.UserTotalCount/node.ErrorCount*100}}" strokeWidth="2"></progress>
+                        <text>{{node.UserTotalCount}}/{{node.ErrorCount}}道</text>
+                    </view>
+                </view>
+            </view>
+        </form>
+    </scroll-view>
+    <view bindtap="goBackIndex" class="goBackIndex" wx:if="{{IsShare==1}}">
+        <text class="iconfont icon_home"></text>
+    </view>
+    <form bindsubmit="formSubmitHongBao" reportSubmit="{{true}}">
+        <button animation="{{s_animationData}}" class="s_hongbao {{hbanmationState?'hide':''}}" formType="submit" hoverClass="none" wx:if="{{ifHongb&&IsShare==1&&buyState}}">
+            <image class="s_hongbaoImage" src="http://img02.exam8.com/img2017/minapp/group/hongbaox.png"></image>
+        </button>
+    </form>
+</view>

@@ -1,0 +1,44 @@
+.preview-img {
+    height: 40rpx;
+    display: inline-block;
+    margin-left: 10rpx;
+    font-size: 24rpx;
+    color: #5093d2;
+}
+
+.preview-img-icon {
+    width: 26rpx;
+    height: 24rpx;
+    background: url(https://cdn-qiye.jingdaka.com/images/sprites.png?v=40);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+    background-position: -11rpx -1237rpx;
+    margin-right: 5rpx;
+}
+
+.flex_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.w370 {
+    width: 370rpx;
+}
+
+.optionImg {
+    overflow: hidden;
+}
+
+.mt10 {
+    margin-top: 10rpx;
+}
+
+.mt20 {
+    margin-top: 20rpx;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+    white-space: pre-line;
+}

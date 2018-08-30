@@ -1,0 +1,9 @@
+<view class="switch">
+    <view class="switch__name" wx:if="{{itemName}}">{{itemName}}</view>
+    <view catchtap="toggleSwitch" class="{{choosed?'switch__slideController--on':'switch__slideController--off'}}" wx:if="{{page=='user'}}">
+        <view class="{{choosed?'switch__slideBall--on':'switch__slideBall--off'}}"></view>
+    </view>
+    <view catchtap="toggleSwitch" class="{{choosed?'switch__slideController--on-admin':'switch__slideController--off'}}" wx:if="{{page=='admin'}}">
+        <view class="{{choosed?'switch__slideBall--on':'switch__slideBall--off'}}"></view>
+    </view>
+</view>

@@ -1,0 +1,71 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view hoverStopPropagation catchtap="stopPropagation" class="reply__container" wx:if="{{replyInputVisible}}">
+    <view catchtap="closeReply" class="reply__mask"></view>
+    <view class="reply__input">
+        <input focus bindfocus="inputFocus" bindinput="inputReply" class="input-reply" cursorSpacing="15" placeholder="回复{{commentToReply.user_name}}：" placeholderClass="input__placeholder" style="margin-bottom: {{inputBottom}}px" type="text"></input>
+        <button catchtap="sendReply" disabled="{{!replyIsValid}}" size="mini" type="primary">发送</button>
+    </view>
+</view>
+<view hoverStopPropagation class="actions">
+    <view class="date__container" wx:if="{{page!=='detail'}}">
+        <text class="date">{{createdAtFull}}</text>
+        <view class="visible" wx:if="{{visible==='admin'&&(self||isAdmin)}}">
+            <view class="ico"></view>
+            <text>仅管理员可见</text>
+        </view>
+    </view>
+    <view class="date__container" wx:if="{{page==='detail'}}">
+        <block wx:if="{{createdAt!==updatedAt}}">
+            <text class="date">首次提交：{{createdAt}}</text>
+            <text class="date date--update" wx:if="{{updatedAt}}">最后编辑：{{updatedAt}}</text>
+        </block>
+        <text class="date" wx:else>{{createdAtFull}}</text>
+    </view>
+    <view catchtap="stopPropagation" class="buttons" wx:if="{{visible!=='admin'||isAdmin||self||page==='detail'}}">
+        <form reportSubmit catchsubmit="goComment" wx:if="{{!isAdmin}}">
+            <button class="button button--comment button--formid" formType="submit" hoverClass="btn-hover-class">
+                <view class="ico"></view>评论
+      </button>
+        </form>
+        <form reportSubmit catchsubmit="goToAdminComment" wx:else>
+            <button class="button button--comment button--formid" formType="submit" hoverClass="btn-hover-class">
+                <view class="ico"></view>点评
+      </button>
+        </form>
+        <form reportSubmit catchsubmit="praiseSubmit" catchtap="stopPropagation">
+            <button hoverStopPropagation class="button button--praise {{hasPraised?'praised':''}} button--formid" formType="submit" hoverClass="btn-hover-class">
+                <view class="ico"></view>{{hasPraised?'已赞':'点赞'}}
+      </button>
+        </form>
+    </view>
+</view>
+<view hoverStopPropagation class="comments" wx:if="{{praisesFormatted.length>0||remarksFormatted.length>0||commentsFormatted.length>0}}">
+    <view class="praises {{remarksFormatted.length>0||commentsFormatted.length>0?'split-line':''}}" wx:if="{{praisesFormatted.length>0}}">
+        <span>
+            <navigator hoverStopPropagation catchtap="stopPropagation" class="inline-block" url="{{submitData.is_hide?'':pageRecord+'?courseId='+submitData.course_id+'&userId='+praise.user_id}}" wx:for="{{praisesFormatted}}" wx:for-item="praise" wx:key="user_id">
+        {{praise.user_name}}
+        <span wx:if="{{index!==praisesFormatted.length-1}}">，</span>
+            </navigator>
+        </span>
+    </view>
+    <view hoverStopPropagation catchlongpress="deleteRemark" catchtap="replyAdminComment" class="comment__container" data-comment="{{remark}}" hoverClass="btn-hover-class" wx:if="{{remarksFormatted.length>0}}" wx:for="{{remarksFormatted}}" wx:for-item="remark" wx:key="remark_id">
+        <label class="comment__username comment__username--admin" wx:if="{{remark.content||remark.picture_list.length>0||remark.voice_list.length>0}}">{{remark.user_name}}：</label>
+        <text class="remark__text word-wrap" wx:if="remark.content">{{remark.content}}</text>
+        <view catchtap="preview" class="comment__pictures" data-pictures="{{remark.picture_list}}" wx:if="{{remark.picture_list.length>0}}">查看图片</view>
+        <view class="comment__voice" wx:for="{{remark.voice_list}}" wx:for-item="voice" wx:key="voice_url">
+            <jdk-silk-voice bind:playAudio="playAudio" bind:stopAudio="stopAudio" isPlaying="{{currentAudioType==voice.voice_url&&playingVoice.isPlaying?true:false}}" size="small" theme="{{isAdmin?'admin':''}}" voice="{{voice}}" voiceStatus="{{playingVoice.voice_url==voice.voice_url?voiceStatus:''}}"></jdk-silk-voice>
+        </view>
+    </view>
+    <view hoverStopPropagation catchlongpress="deleteComment" catchtap="replyUserComment" class="comment__container" data-comment="{{comment}}" hoverClass="btn-hover-class" wx:if="{{commentsFormatted.length>0}}" wx:for="{{commentsFormatted}}" wx:for-item="comment" wx:key="comment_id">
+        <navigator hoverStopPropagation catchtap="stopPropagation" class="comment__username" url="{{submitData.is_hide?'':pageRecord+'?courseId='+submitData.course_id+'&userId='+comment.user_id}}" wx:if="{{!comment.replyto_user_name}}">{{comment.user_name}}</navigator>
+        <view class="comment__reply" wx:else>
+            <navigator hoverStopPropagation catchtap="stopPropagation" class="comment__username" url="{{submitData.is_hide?'':pageRecord+'?courseId='+submitData.course_id+'&userId='+comment.user_id}}">{{comment.user_name}}</navigator>回复
+      <navigator hoverStopPropagation catchtap="stopPropagation" class="comment__username" url="{{submitData.is_hide?'':pageRecord+'?courseId='+submitData.course_id+'&userId='+comment.replyto_user_id}}">{{comment.replyto_user_name}}</navigator>
+        </view>
+        <text class="word-wrap">：{{comment.content}}</text>
+        <view class="comment__voice" wx:for="{{comment.voice_list}}" wx:for-item="voice" wx:key="voice_url">
+            <jdk-silk-voice bind:playAudio="playAudio" bind:stopAudio="stopAudio" isPlaying="{{currentAudioType==voice.voice_url&&playingVoice.isPlaying?true:false}}" size="small" theme="{{isAdmin?'admin':''}}" voice="{{voice}}" voiceStatus="{{playingVoice.voice_url==voice.voice_url?voiceStatus:''}}"></jdk-silk-voice>
+        </view>
+    </view>
+</view>
+<global-audio catchaudioType="setAudioType" catchendplay="playEnd" catchstartPlay="startPlay" catchstopPlay="stopPlay" catchupdate="voiceUpdate" colorScheme="{{isAdmin?'admin':''}}" currentAudioType="{{currentAudioType}}" page="{{playingVoice.voice_url}}" voice="{{playingVoice}}"></global-audio>

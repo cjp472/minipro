@@ -1,0 +1,108 @@
+/*! Import by _C[3], whose real path we cannot found. */
+.blue .pj-submit {
+    width: 660rpx;
+    height: 88rpx;
+    background-color: #4380db;
+}
+
+.green .pj-submit {
+    background-color: #0e9900;
+}
+
+.Lightblue .pj-submit {
+    background-color: #27c1f4;
+}
+
+.orange .pj-submit {
+    background-color: #ff7e00;
+}
+
+.red .pj-submit {
+    background-color: #ff5757;
+}
+
+.yellow .pj-submit {
+    background-color: #db9b00;
+}
+
+.purple .pj-submit {
+    background-color: #a066e8;
+}
+/*! Import end */
+.pj-title {
+    text-align: center;
+    font-size: 32rpx;
+    color: #666;
+    margin: 70rpx 0 40rpx 0;
+}
+
+.pj-star {
+    width: 100%;
+}
+
+.star {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.star-list {
+    width: 47rpx;
+    height: 48rpx;
+    background-image: url('http://img02.exam8.com/img2017/minapp/newIndex/star_03.png');
+    background-size: 47rpx 48rpx;
+    background-position: center;
+    padding: 15rpx;
+    background-repeat: no-repeat;
+}
+
+.starhv-list {
+    width: 47rpx;
+    height: 48rpx;
+    background-image: url('http://img02.exam8.com/img2017/minapp/newIndex/star-hv_03.png');
+    background-size: 47rpx 48rpx;
+    background-position: center;
+    padding: 15rpx;
+    background-repeat: no-repeat;
+}
+
+.pj-cont {
+    margin-top: 45rpx;
+}
+
+.pj-text {
+    width: 660rpx;
+    height: 280rpx;
+    margin: 0 auto;
+    border-radius: 10rpx;
+    background-color: #f2f3f4;
+    padding: 20rpx;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 28rpx;
+}
+
+.pj-submit {
+    width: 660rpx;
+    height: 88rpx;
+    background-color: #6fce29;
+    margin: 0 auto;
+    border-radius: 10rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 88rpx;
+    font-size: 36rpx;
+    margin-top: 40rpx;
+}
+
+.pj-contm {
+    color: #ccc;
+}
+
+.pj-submit.initial {
+    background: #cccccc;
+}
+
+button::after {
+    border: 0;
+}

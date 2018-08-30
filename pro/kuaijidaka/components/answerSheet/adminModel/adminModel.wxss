@@ -1,0 +1,33 @@
+@import "../questionList/questionList.wxss";
+
+.user-in-btn {
+    position: fixed;
+    bottom: 128rpx;
+    right: 30rpx;
+    width: 112rpx;
+    height: 112rpx;
+    border-radius: 50%;
+    background-color: #4f598f;
+    color: #fff;
+    font-size: 26rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -3px 6px 0px rgba(238,238,238,0.4);
+    z-index: 99;
+}
+
+.user-in-btn view {
+    width: 65rpx;
+    line-height: 32rpx;
+    text-align: center;
+}
+
+.lh45 {
+    line-height: 45rpx;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+    white-space: pre-line;
+}

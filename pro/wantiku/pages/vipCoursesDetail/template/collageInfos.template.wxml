@@ -1,0 +1,24 @@
+<template name="grops">
+    <view animation="{{animationData}}" class="group-item" wx:for="{{groups}}" wx:key="item">
+        <view class="user-data-box" wx:if="{{item.IsMaster}}" wx:for="{{item.UserList}}" wx:key="userKey">
+            <image class="avatar" src="{{item.AvatarUrl?item.AvatarUrl:userDefaultfAvatar}}"></image>
+            <text class="nick-name">{{item.NickName}}</text>
+        </view>
+        <view class="group-info-box">
+            <view>
+                    还差
+                    <text class="highlight">{{item.SuccessCount-item.UserList.length}}人</text>
+                    成团
+                </view>
+            <view class="time-box">{{timers[index]}}</view>
+        </view>
+        <view class="group-btn-box">
+            <view bindtap="joinActivities" class="join-btn join-btn-{{theme}} " data-GroupInfoId="{{item.GroupInfoId}}" data-GroupState="1" wx:if="{{timers[index]!='剩余00:00:00'}}">
+                    去参团
+                </view>
+            <view bindtap="joinActivities" class="join-btn join-btn-dis join-btn-{{theme}} " data-GroupInfoId="{{item.GroupInfoId}}" data-GroupState="0" wx:else>
+                    已结束
+                </view>
+        </view>
+    </view>
+</template>

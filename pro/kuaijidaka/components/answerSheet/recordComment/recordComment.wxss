@@ -1,0 +1,145 @@
+@import "../../../__wuBaseWxss__/8.wxss";
+
+.record_comment {
+    border-radius: 4px;
+    border: 1rpx solid #e0e3e7;
+    padding: 30rpx 20rpx;
+}
+
+.comment_icon {
+    width: 75rpx;
+    height: 75rpx;
+    background: url('https://cdn-qiye.jingdaka.com/images/sprites.png?v=40') no-repeat;
+    background-position: -13rpx -1306rpx;
+    background-size: 300rpx;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.photo_bg {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 100%;
+    background-color: #eee;
+    box-shadow: 0px 5px 6px #ccc;
+    border: 2px solid #fff;
+    overflow: hidden;
+    margin-right: 20rpx;
+}
+
+.por {
+    position: relative;
+}
+
+.pd4 {
+    padding: 4rpx;
+}
+
+.fz28 {
+    font-size: 28rpx;
+}
+
+.fz24 {
+    font-size: 24rpx;
+}
+
+.fz20 {
+    font-size: 20rpx;
+}
+
+.col3 {
+    color: #3c4856;
+}
+
+.col8 {
+    color: #8b97a4;
+}
+
+.mt20 {
+    margin-top: 20rpx;
+}
+
+.mb10 {
+    margin-bottom: 10rpx;
+}
+
+.block {
+    display: block;
+}
+
+.flex-satrt {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-s-c {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+.answer-score {
+    margin: 0 8rpx 0 40rpx;
+}
+
+.answer-score-num {
+    font-weight: bold;
+    color: #ff6e2e;
+}
+
+.score {
+    position: relative;
+    display: inline-block;
+    margin-right: 50rpx;
+    margin-left: 10rpx;
+    vertical-align: bottom;
+}
+
+.score__ico {
+    width: 150rpx;
+    height: 30rpx;
+    display: block;
+    float: left;
+    margin-top: 10rpx;
+    margin-right: 10rpx;
+    background-position: -150rpx -330rpx;
+}
+
+.score--1 .score__ico {
+    background-position: -150rpx -330rpx;
+}
+
+.score--2 .score__ico {
+    background-position: 0 -360rpx;
+}
+
+.score--3 .score__ico {
+    background-position: -150rpx -360rpx;
+}
+
+.score--4 .score__ico {
+    background-position: 0 -390rpx;
+}
+
+.score--5 .score__ico {
+    background-position: -150rpx -390rpx;
+}
+
+.score__text {
+    font-size: 36rpx;
+    color: #ffd200;
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 5rpx;
+    position: absolute;
+    top: 0;
+    left: 160rpx;
+}

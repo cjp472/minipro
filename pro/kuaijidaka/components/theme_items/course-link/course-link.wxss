@@ -1,0 +1,41 @@
+@import "../../../__wuBaseWxss__/8.wxss";
+
+.course-link {
+    width: 630rpx;
+    height: 88rpx;
+    background-color: #edf0f3;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30rpx;
+}
+
+.course-link .ico {
+    background-position: -5rpx -640rpx;
+    width: 30rpx;
+    height: 30rpx;
+    margin: 29rpx 20rpx;
+}
+
+.course-link__name {
+    color: #3c4856;
+    font-size: 24rpx;
+    width: 400rpx;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course-link__enter {
+    margin: 10rpx;
+    width: 132rpx;
+    height: 68rpx;
+    line-height: 68rpx;
+    background-color: #fff;
+    border-radius: 4rpx;
+    color: #22dd82;
+    font-size: 24rpx;
+    text-align: center;
+}

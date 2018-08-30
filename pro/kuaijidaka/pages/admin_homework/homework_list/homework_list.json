@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "作业列表",
+    "navigationBarBackgroundColor": "#4f598f",
+    "backgroundColor": "#4f598f",
+    "usingComponents": {
+        "foot-loading": "/components/footLoading/footLoading"
+    }
+}

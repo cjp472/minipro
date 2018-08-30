@@ -1,0 +1,167 @@
+<import src="../shared/globalMsg/globalMsg.wxml"></import>
+<import src="../shared/modal/modal.wxml"></import>
+<import src="../shared/tab/tab.wxml"></import>
+<view class="container container-index {{'login-'+(isLogin?'yes':isLogin===false?'no':'default')}} {{player.sound.title?'container-footer-empty':''}} {{actionSheet.showActionSheet?'no-scroll':''}}">
+    <view class="my-page">
+        <view class="user-info">
+            <view class="user-info-inner">
+                <view class="user-info-inner-left">
+                    <view bindtap="toggleLogin" class="user-avator-outer">
+                        <image bindload="getInfoBlockHeight" class="user-avator {{isWechatLogin?'is-wechat-login':''}}" src="{{mobileAvatar||userInfo.avatarUrl}}"></image>
+                    </view>
+                    <view class="user-vip-info-wrap">
+                        <view class="user-box">
+                            <text class="text-nick">{{userInfo.wxNickName||myPage.nickname||'--'}}</text>
+                            <view class="vip-icon {{vipExpireTime!==0?'is-vip':'not-vip'}}"></view>
+                        </view>
+                        <view class="vip-info-text" wx:if="{{vipExpireTime!==0}}">
+              {{vipExpireTimeStr}}
+            </view>
+                    </view>
+                </view>
+                <view class="feedback-wrap">
+                    <button plain class="btn-feedback" openType="feedback">
+                        <image mode="widthFix" src="../../images/icon-feedback.png"></image>
+                    </button>
+                </view>
+            </view>
+        </view>
+        <sign-in wx:if="{{isLogin}}"></sign-in>
+        <view class="fixed-view {{fixed?'fixed':''}}">
+            <template is="tab" data="{{Tab:Tab}}"></template>
+        </view>
+        <block wx:if="{{isLogin}}">
+            <view class="subscription {{fixed?'fixed':''}}" wx:if="{{Tab.index===0}}">
+                <block wx:if="{{subscription}}">
+                    <view class="history-list" wx:if="{{subscription.length>0}}">
+                        <view bindtap="toAlbumDetail" class="history-list-item" data-album-id="{{item.id}}" data-ispaid="{{item.isPaid?1:0}}" wx:for="{{subscription}}">
+                            <image class="history-image" src="{{item.coverUrlMiddle}}"></image>
+                            <view class="history-info">
+                                <icon catchtap="unsubscribeAlbum" class="icon icon-dropdown-down" data-album-id="{{item.id}}"></icon>
+                                <view class="history-title-wrap">
+                                    <text class="history-title">{{item.albumTitle}}</text>
+                                </view>
+                                <text class="history-intro">{{item.lastUpTrack.trackTitle}}</text>
+                                <view class="history-user-wrap">
+                                    <view class="history-user-left">
+                                        <icon class="icon icon-user"></icon>
+                                        <text class="text-user">{{item.announcer.nickName}}</text>
+                                        <icon class="icon icon-calendar"></icon>
+                                        <text class="text-user">{{item.updatedAt}}</text>
+                                    </view>
+                                    <view class="history-user-right" wx:if="{{item.hasNew}}">
+                                        <text class="text-unread">{{item.unreadNum}}集</text>更新
+                        </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="subscription-empty" wx:else>
+                        <image class="subscription-empty-image"></image>
+                        <view bindtap="toHome" class="btn-recommend">看看推荐</view>
+                    </view>
+                </block>
+            </view>
+            <view class="subscription {{fixed?'fixed':''}}" wx:if="{{Tab.index===1}}">
+                <block wx:if="{{boughtAlbums}}">
+                    <view class="history-list" wx:if="{{boughtAlbums.length>0}}">
+                        <view bindtap="toAlbumDetail" class="history-list-item" data-album-id="{{item.id}}" data-ispaid="1" wx:for="{{boughtAlbums}}">
+                            <image class="history-image" src="{{item.coverUrlMiddle}}"></image>
+                            <view class="history-info">
+                                <view class="history-title-wrap">
+                                    <text class="history-title">{{item.albumTitle}}</text>
+                                </view>
+                                <text class="history-intro">{{item.lastUpTrack.trackTitle}}</text>
+                                <view class="history-user-wrap">
+                                    <view class="history-user-left">
+                                        <icon class="icon icon-user"></icon>
+                                        <text class="text-user">{{item.announcer.nickName}}</text>
+                                        <icon class="icon icon-calendar"></icon>
+                                        <text class="text-user">{{item.updatedAt}}</text>
+                                    </view>
+                                    <view class="history-user-right" wx:if="{{item.hasNew}}">
+                                        <text class="text-unread">{{item.unreadNestimatedTrackCountum}}集</text>更新
+                        </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="subscription-empty" wx:else>
+                        <image class="subscription-empty-image"></image>
+                        <view bindtap="toPaidRank" class="btn-recommend">看看推荐</view>
+                    </view>
+                </block>
+            </view>
+            <view class="subscription {{fixed?'fixed':''}}" wx:if="{{Tab.index===2}}">
+                <block wx:if="{{historyList}}">
+                    <view class="history-list" wx:if="{{historyList.length>0}}">
+                        <view bindtap="toAlbumDetail" class="history-list-item" data-album-id="{{item.albumId}}" data-ispaid="{{item.isPaid?1:0}}" wx:for="{{historyList}}">
+                            <image class="history-image" src="{{item.coverMiddle}}"></image>
+                            <view class="history-info">
+                                <icon catchtap="deleteHistory" class="icon icon-dropdown-down" data-id="{{item.uid}}"></icon>
+                                <view class="history-title-wrap">
+                                    <text class="history-title">{{item.albumTitle}}</text>
+                                </view>
+                                <text class="history-intro">{{item.title}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="subscription-empty" wx:else>
+                        <image class="subscription-empty-image history-empty" src="../../images/no-history.png"></image>
+                        <view bindtap="toHome" class="btn-recommend">看看推荐</view>
+                    </view>
+                </block>
+            </view>
+        </block>
+    </view>
+    <view class="authorization">
+        <form class="auth-form" wx:if="{{mobileShow}}">
+            <view class="auth-form-title">－ 登录后即可收听你的收藏专辑哦 －</view>
+            <view class="input-num-wrap">
+                <view bindtap="clearPhoneNum" class="icon-close-wrap" wx:if="{{phoneNum.length>0}}">
+                    <icon class="icon icon-close"></icon>
+                </view>
+                <text class="num-text">＋86</text>
+                <input bindinput="inputPhoneNum" class="input-num" maxlength="11" placeholder="请输入手机号" placeholderClass="input-ph" type="number" value="{{phoneNum}}"></input>
+            </view>
+            <view class="input-code-wrap">
+                <view bindtap="clearSmsCode" class="icon-close-wrap" wx:if="{{smsCode.length>0}}">
+                    <icon class="icon icon-close"></icon>
+                </view>
+                <input bindinput="inputVerifyCode" class="input-code" placeholder="输入验证码" placeholderClass="input-ph" type="number" value="{{smsCode}}"></input>
+                <block wx:if="{{phoneError}}"></block>
+                <view bindtap="{{phoneNum?'getVerifyCode':''}}" class="btn-fetch-identity {{phoneNum?'':'disabled'}}" hoverClass="btn-hover" wx:if="{{!isSending}}">
+            获取验证码
+          </view>
+                <view class="btn-fetch-identity disabled" wx:else>{{seconds}}s后重发</view>
+            </view>
+            <view bindtap="{{phoneNum&&smsCode?'login':''}}" class="btn-login {{phoneNum&&smsCode?'':'disabled'}}" hoverClass="btn-hover" wx:if="{{!phoneIsLoading}}">立即登录</view>
+            <view class="btn-login {{phoneNum&&smsCode?'':'disabled'}}" wx:else>登录中...</view>
+        </form>
+        <view class="xmlogo-wrap" wx:else>
+            <image class="xmlogo" src="../../images/xmlogo.png"></image>
+        </view>
+        <view class="auth-wrap">
+            <view class="auth-header" wx:if="{{mobileShow}}">
+                <view class="header-inner">
+                    <text class="header-inner-text">其他账户登录</text>
+                </view>
+            </view>
+            <button plain bindgetuserinfo="wechatLogin" class="btn-wx-login" hoverClass="btn-hover" lang="zh_CN" openType="getUserInfo">
+                <block wx:if="{{wxIsLoading}}">
+                    <icon class="icon icon-wechat"></icon>
+                    <text class="">登录中...</text>
+                </block>
+                <block wx:else>
+                    <icon class="icon icon-wechat"></icon>
+                    <text class="">微信登录</text>
+                </block>
+            </button>
+            <button plain bindtap="switchMobileLogin" class="btn-wx-login btn-wx-login-mobile" hoverClass="btn-hover" wx:if="{{!mobileShow}}">
+                <text class="">手机号登录</text>
+            </button>
+        </view>
+    </view>
+    <template is="globalMsg" data="{{globalMsg:globalMsg}}" wx:if="{{globalMsg}}"></template>
+    <template is="modal" data="{{phoneNum:phoneNum,verifyCodeRes:verifyCodeRes,globalMsg:globalMsg,checkCode:checkCode,showModal:showModal,isInputing:isInputing}}" wx:if="{{showModal}}"></template>
+</view>

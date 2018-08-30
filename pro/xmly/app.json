@@ -1,0 +1,66 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/myPage/myPage",
+        "pages/albumDetail/albumDetail",
+        "pages/activityDetail/activityDetail",
+        "pages/soundPage/soundPage",
+        "pages/historyList/historyList",
+        "pages/channel/channel",
+        "pages/categories/categories",
+        "pages/search/search",
+        "pages/announcer/announcer",
+        "pages/rank/rank",
+        "pages/paidRank/paidRank",
+        "pages/channelList/channelList",
+        "pages/confirmPayment/confirmPayment",
+        "pages/freeGetList/freeGetList",
+        "pages/paidPackage/pages/albumDetailPaid/albumDetailPaid",
+        "pages/paidPackage/pages/vipRank/vipRank",
+        "pages/paidPackage/pages/vipActivity/vipActivity"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "喜马拉雅FM",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": false,
+        "backgroundColor": "#f8f8f8"
+    },
+    "tabBar": {
+        "color": "#4A4A4A",
+        "selectedColor": "#F86442",
+        "backgroundColor": "#fff",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/icon-home.png",
+                "selectedIconPath": "images/icon-home-active.png"
+            },
+            {
+                "pagePath": "pages/categories/categories",
+                "text": "分类",
+                "iconPath": "images/icon-cate.png",
+                "selectedIconPath": "images/icon-cate-active.png"
+            },
+            {
+                "pagePath": "pages/myPage/myPage",
+                "text": "我的",
+                "iconPath": "images/icon-user.png",
+                "selectedIconPath": "images/icon-user-active.png"
+            }
+        ]
+    },
+    "subPackages": [
+        {
+            "root": "pages/paidPackage",
+            "pages": [
+                "pages/paidPackage/pages/albumDetailPaid/albumDetailPaid",
+                "pages/paidPackage/pages/vipRank/vipRank",
+                "pages/paidPackage/pages/vipActivity/vipActivity"
+            ]
+        }
+    ]
+}

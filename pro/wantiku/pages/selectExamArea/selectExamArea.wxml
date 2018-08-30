@@ -1,0 +1,12 @@
+<view class="container {{theme}}">
+    <view class="title">
+        <text>选择考区</text>
+    </view>
+    <scroll-view bindscroll="bindscroll" bindscrolltolower="bindBottom" class="kemu" lowerThreshold="{{bottomTHD}}" scrollY="true">
+        <view bindtap="bindChoose" class="kcbtn kcbtn1" data-id="{{item.AreaId}}" data-name="{{item.AreaName}}" hover="true" hoverClass="kcbtn2" wx:for="{{examAreas}}" wx:key="examAreasId-key">
+            <text>{{item.AreaName}}</text>
+        </view>
+    </scroll-view>
+    <view class="btm-icon" style="display:{{bottom?'block':'none'}}"></view>
+    <view class="top-icon"></view>
+</view>

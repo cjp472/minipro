@@ -1,0 +1,307 @@
+/*! Import by _C[9], whose real path we cannot found. */
+.red .paper-all-btn {
+    background: #ff5757;
+}
+
+.blue .paper-all-btn {
+    background: #4380db;
+}
+
+.green .paper-all-btn {
+    background: #0e9900;
+}
+
+.orange .paper-all-btn {
+    background: #ff7e00;
+}
+
+.Lightblue .paper-all-btn {
+    background: #27c1f4;
+}
+
+.yellow .paper-all-btn {
+    background: #db9b00;
+}
+
+.purple .paper-all-btn {
+    background: #a066e8;
+}
+
+.wantiku .paper-all-btn {
+    background: #6fce29;
+}
+/*! Import end */
+@import "../../template/courseList/courseList_template.wxss";
+
+@import "../../template/userPractice/userPracticeInfo/userPracticeInfo_template.wxss";
+
+page {
+    background: #fff;
+}
+
+.paper-error-cont {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.paper-error-title {
+    margin-top: 110rpx;
+    padding-top: 10rpx;
+    width: 100%;
+    text-align: center;
+    height: 230rpx;
+    background: #fff;
+    border-bottom: 1rpx solid #ebebeb;
+    z-index: 1;
+}
+
+.paper-error-title .title {
+    font-size: 24rpx;
+    color: #9a9a9a;
+    line-height: 24rpx;
+    margin-top: 55rpx;
+}
+
+.paper-error-title .number {
+    font-size: 72rpx;
+    line-height: 72rpx;
+    color: #4e4e4e;
+    margin-top: 24rpx;
+    font-weight: 400;
+}
+
+.paper-error-switch {
+    width: 750rpx;
+    box-sizing: border-box;
+    padding: 0 0 0 30rpx;
+    line-height: 100rpx;
+    background: #fff;
+}
+
+.paper-error-switch-cont {
+    padding: 0 30rpx 0 0;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx solid #ebebeb;
+}
+
+.paper-error-switch-cont:last-child {
+    border: 0;
+}
+
+.paper-error-switch-cont .text {
+    font-size: 30rpx;
+    color: #4e4e4e;
+}
+
+.paper-error-switch-cont switch .wx-checkbox-input {
+    width: 100rpx;
+    height: 56rpx;
+}
+
+.paper-list {
+    border-top: 14rpx solid #f2f3f4;
+    position: relative;
+}
+
+.paper-all-btn-cont {
+    position: fixed;
+    bottom: 0;
+    padding: 30rpx 0rpx;
+    width: 750rpx;
+    z-index: 999;
+    background: #fff;
+}
+
+.paper-all-btn {
+    height: 88rpx;
+    line-height: 88rpx;
+    width: 690rpx;
+    margin: 0 auto;
+    background: #6fce29;
+    color: #fff;
+    text-align: center;
+    border-radius: 10rpx;
+    font-size: 32rpx;
+}
+
+@-webkit-keyframes BtnAnimate {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0;
+        transform: translateY(140%);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes BtnAnimate {
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0;
+        transform: translateY(140%);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.btn-animated {
+    animation-play-state: paused;
+}
+
+.clear-animated {
+    opacity: 0;
+}
+
+.animated {
+    animation: BtnAnimate 0.3s 1 linear;
+    animation-play-state: running;
+}
+
+.subject-class-list {
+    width: 720rpx;
+    padding-left: 30rpx;
+    margin-left: 0;
+    background: #fff;
+}
+
+.paper-error-cont .no-content {
+    position: absolute;
+    top: 454rpx;
+    bottom: 0;
+    padding-top: 0;
+    background: #fff;
+}
+
+.paper-error-cont .no-content .cont {
+    position: absolute;
+    top: 50%;
+    transform: translate3d(-50%,-40%,0);
+    left: 50%;
+}
+
+.paper-nav-cont {
+    position: fixed;
+    top: 0;
+    height: 100rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    width: 750rpx;
+    background: #fff;
+    z-index: 9;
+}
+
+.paper-nav-cont .paper-nav-list {
+    font-size: 30rpx;
+    color: #4e4e4e;
+    height: 100rpx;
+    width: 660rpx;
+    padding: 0 10rpx;
+    box-sizing: border-box;
+}
+
+.paper-nav-cont .paper-nav-list view {
+    padding: 0 20rpx;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.paper-nav-cont .swiper-cont {
+    width: 660rpx;
+    height: 100rpx;
+}
+
+.paper-nav-cont .swiper-cont .active {
+    position: relative;
+    color: #6fce29;
+}
+
+.paper-nav-cont .swiper-cont .active::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 55rpx;
+    height: 4rpx;
+    border-radius: 6rpx;
+    background: #6fce29;
+    content: '';
+    transform: translateX(-50%);
+}
+
+.red .paper-nav-cont .swiper-cont .active {
+    color: #ff5757;
+}
+
+.red .paper-nav-cont .swiper-cont .active::after {
+    background: #ff5757;
+}
+
+.blue .paper-nav-cont .swiper-cont .active {
+    color: #4380db;
+}
+
+.blue .paper-nav-cont .swiper-cont .active::after {
+    background: #4380db;
+}
+
+.green .paper-nav-cont .swiper-cont .active {
+    color: #0e9900;
+}
+
+.green .paper-nav-cont .swiper-cont .active::after {
+    background: #0e9900;
+}
+
+.orange .paper-nav-cont .swiper-cont .active {
+    color: #ff7e00;
+}
+
+.orange .paper-nav-cont .swiper-cont .active::after {
+    background: #ff7e00;
+}
+
+.Lightblue .paper-nav-cont .swiper-cont .active {
+    color: #27c1f4;
+}
+
+.Lightblue .paper-nav-cont .swiper-cont .active::after {
+    background: #27c1f4;
+}
+
+.yellow .paper-nav-cont .swiper-cont .active {
+    color: #db9b00;
+}
+
+.yellow .paper-nav-cont .swiper-cont .active::after {
+    background: #db9b00;
+}
+
+.purple .paper-nav-cont .swiper-cont .active {
+    color: #a066e8;
+}
+
+.purple .paper-nav-cont .swiper-cont .active::after {
+    background: #a066e8;
+}

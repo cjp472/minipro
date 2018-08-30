@@ -1,0 +1,73 @@
+<import src="../../common/nonet.wxml"></import>
+<import src="../../common/home-search-box.wxml"></import>
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<jdk-navi naviList="{{naviList}}" wx:if="{{naviList.length>0}}"></jdk-navi>
+<view class="container" wx:if="{{netWorkStatus&&courseDetail.title}}">
+    <view class="calendar-list" wx:if="{{calendar.seven_data}}">
+        <view class="calendar-list__banner">
+            <view bindtap="changeDay" class="calendar-list__box {{item.weekSelect}}" data-day="{{item}}" wx:for="{{calendar.seven_data}}" wx:key="{{item}}">
+                <view class="calendar-list__circle" wx:if="{{item.state==='ok-bg'}}">
+                    <view class="iconfont icon-duihao-zhuye"></view>
+                </view>
+                <view class="weeks">
+                    <view class="week {{item.grid}} {{item.weekSelect}}">{{item.week}}</view>
+                </view>
+                <view class="days">
+                    <view class="day {{item.grid}} {{item.weekSelect}} {{item.state}}">
+                        <view class="dd">{{item.dd}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="calendar-list__line"></view>
+            <navigator hoverClass="none" url="{{URLFullCalendar}}">
+                <view class="iconfont icon-rili"></view>
+                <view class="iconfont icon-xiala"></view>
+            </navigator>
+        </view>
+    </view>
+    <home-tools admin="{{true}}" courseParams="{{courseDetail}}" topicParams="{{topic}}" wx:if="{{courseDetail&&topic}}"></home-tools>
+    <view class="theme">
+        <view class="h50">
+            <view class="admin-ico2 theme__title"></view>
+            <view class="theme__title-text">{{topic.category===3?'阅读说明':'主题'}}</view>
+        </view>
+        <jdk-theme applyType="topic" catchaudioType="setAudioType" catchpreview="markPreview" colorScheme="admin" currentAudioType="{{currentAudioType}}" hybrid_content="{{topic.hybrid_content}}" pc_content="{{topic.pc_content}}" playRule="{{topic.play_rule||0}}" title="{{courseDetail.course_title}}" wx:if="{{topic.pc_content||topic.hybrid_content}}"></jdk-theme>
+        <view catchtap="setTheme" class="theme__blank" wx:else>
+            <view class="iconfont icon-bianji1"></view>
+            <view class="theme__tips">点击此处编辑打卡主题</view>
+        </view>
+    </view>
+    <view bindtap="toMsg" class="prompt-message" wx:if="{{selfMsg>0}}">
+        <span>
+            <text>{{selfMsg}}条新消息</text>
+        </span>
+    </view>
+    <home-select bind:changeSort="changeSort" isEval="{{topic.eval_state}}" resetTrigger="{{selectReset}}" submitCount="{{submitListObj.submit_count}}" wx:if="{{submitListObj.submit_count>=0}}"></home-select>
+    <view class="user-list" id="userList" wx:if="{{submitListObj.submit_list}}">
+        <view class="ul" wx:if="{{submitListObj.submit_list&&submitListObj.submit_list.length>0}}">
+            <view wx:for="{{submitListObj.submit_list}}" wx:key="submit_id">
+                <jdk-submit binddeletesubmit="deleteSubmit" catchaudioType="setAudioType" catchpreview="markPreview" currentAudioType="{{currentAudioType}}" page="home" selectType="{{selectType}}" submitData="{{item}}"></jdk-submit>
+            </view>
+            <foot-loading loadMore="{{isLoadingMore}}" noMore="{{noMore}}" pageType="admin"></foot-loading>
+        </view>
+        <view wx:elif="{{!hideShareMenu}}">
+            <view class="group-punchcard-tip" wx:if="{{courseDetail.permit_type===3}}">
+                <view class="ico left-tit"></view>
+                <view class="ico right-tit"></view>
+                <text>请转发此页面至课程群，群内学员点击进入后即可识别为本课程学员，否则将无法打卡。</text>
+            </view>
+            <view class="btn">
+                <button class="main-green-bg-color" openType="share" type="primary" wx:if="{{canUseShareButton}}">{{courseDetail.permit_type===3?'转发到群内打卡':'转发给学员打卡'}}</button>
+                <button catchtap="shareClick" class="main-green-bg-color" type="primary" wx:else>{{courseDetail.permit_type===3?'转发到群内打卡':'转发给学员打卡'}}</button>
+            </view>
+        </view>
+    </view>
+</view>
+<share-modal catchloginSuccess="loginSuccess" colorTheme="admin" courseId="{{courseId}}" page="home" wx:if="{{notLogin}}"></share-modal>
+<view class="share" hidden="{{shareHidden}}">
+    <view catchtap="shareClickclose" class="text"></view>
+    <view class="bg"></view>
+</view>
+<template is="nonet" data wx:if="{{!netWorkStatus}}"></template>
+<template is="home-search-box" data="{{...searchBoxData}}" wx:if="{{searchBoxData.isShowSearchBox}}"></template>
+<modal-input catchcancel="cancelNaming" catchconfirm="nameWXGroup" placeholder="{{namingModal.placeholder}}" tips="{{namingModal.tips}}" title="{{namingModal.title}}" wx:if="{{namingInputVisible}}"></modal-input>

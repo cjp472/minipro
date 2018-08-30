@@ -1,0 +1,20 @@
+<template name="show-link2">
+    <view class="link" wx:if="{{linkTitle}}">
+        <view catchtap="toLink" class="link-jump" data-website="{{website}}">
+            <view class="link-left">
+                <view class="ico link-book"></view>
+            </view>
+            <view class="link-title" hoverClass="tap-hover">{{linkTitle}}</view>
+        </view>
+    </view>
+</template>
+<template name="show-link">
+    <view class="link" wx:if="{{linkTitle}}">
+        <navigator class="link-jump" url="/pages/user_sub/link_article/link_article?website={{website}}">
+            <view class="link-left">
+                <view class="ico link-book"></view>
+            </view>
+            <view class="link-title" hoverClass="tap-hover">{{linkTitle}}</view>
+        </navigator>
+    </view>
+</template>

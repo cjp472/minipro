@@ -1,0 +1,360 @@
+@import "../livelist/livelist.wxss";
+
+page {
+    background: #ffffff;
+}
+
+.fn {
+    float: none!important;
+}
+
+.h-32 {
+    height: 32rpx;
+    border-left: 1rpx solid #dbdbdb;
+}
+
+.container {
+    background: #ffffff;
+}
+
+.top {
+    padding: 21rpx 30rpx 40rpx 30rpx;
+    background: #fff;
+}
+
+.title {
+    line-height: 48rpx;
+    font-size: 32rpx;
+    color: #2a2e3d;
+    font-weight: bold;
+}
+
+.info {
+    position: relative;
+    width: 100%;
+    height: 100rpx;
+}
+
+.lesson {
+    height: 37rpx;
+    line-height: 37rpx;
+    font-size: 23rpx;
+    color: #7d829a;
+}
+
+.date-icon {
+    display: inline-block;
+    float: left;
+    width: 18rpx;
+    height: 18rpx;
+    margin: 10rpx 8rpx 0 0;
+}
+
+.tag-box {
+    height: 34rpx;
+    margin-top: 28rpx;
+    line-height: 30rpx;
+}
+
+.tag {
+    display: inline-block;
+    float: left;
+    width: auto;
+    height: 30rpx;
+    margin-right: 10rpx;
+    padding: 0 10rpx;
+    line-height: 30rpx;
+    border: 1rpx solid #7d829a;
+    border-radius: 15rpx;
+    font-size: 20rpx;
+    color: #7d829a;
+}
+
+.consult {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 85rpx;
+    height: 74rpx;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 24rpx;
+    background: #fff;
+}
+
+.consult-icon {
+    display: inline-block;
+    float: left;
+    width: 35rpx;
+    height: 31rpx;
+    margin: 8rpx 25rpx;
+}
+
+.consult-txt {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    height: 27rpx;
+    line-height: 27rpx;
+    text-align: center;
+}
+
+.top2 {
+    position: relative;
+    width: 100%;
+    height: 422rpx;
+}
+
+.top2-img {
+    width: 100%;
+    height: 422rpx;
+}
+
+.consult2 {
+    position: absolute;
+    right: 30rpx;
+    top: 278rpx;
+    width: 104rpx;
+    height: 104rpx;
+    border-radius: 50%;
+    background: #fff;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 24rpx;
+}
+
+.consult2-icon {
+    display: inline-block;
+    float: left;
+    width: 34rpx;
+    height: 31rpx;
+    margin: 20rpx 35rpx 8rpx 35rpx;
+}
+
+.consult2-txt {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    height: 27rpx;
+    line-height: 27rpx;
+    text-align: center;
+}
+
+.teacher-box {
+    height: auto;
+    padding: 0 30rpx 30rpx 30rpx;
+    background: #f5f5f5;
+}
+
+.teacher-title {
+    height: 99rpx;
+    line-height: 99rpx;
+    font-size: 32rpx;
+    color: #2a2e3d;
+}
+
+.teacher-title text {
+    float: left;
+}
+
+.teacher-title .text {
+    display: inline-block;
+    float: left;
+    width: auto;
+    height: 99rpx;
+    line-heihgt: 99rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.teacher-box-line {
+    display: inline-block;
+    float: left;
+    width: 18rpx;
+    height: 18rpx;
+    margin-top: 41rpx;
+}
+
+swiper {
+    height: 278rpx;
+}
+
+.teacher-list-bg {
+    box-sizing: border-box;
+    background: red;
+    padding-right: 20rpx;
+}
+
+.teacher-list {
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+    height: 278rpx;
+    padding: 30rpx;
+    background: #fff;
+    border-radius: 10rpx;
+}
+
+.teacher-info {
+    width: 100%;
+    height: 93rpx;
+}
+
+.head-img {
+    display: inline-block;
+    float: left;
+    width: 70rpx;
+    height: 70rpx;
+    margin-right: 32rpx;
+    border-radius: 50%;
+    background: #e4e4ed;
+}
+
+.teacher-name {
+    height: 34rpx;
+    line-height: 34rpx;
+    margin-right: 102rpx;
+    font-size: 28rpx;
+    color: #2a2e3d;
+}
+
+.teacher-detail {
+    display: inline-block;
+    float: right;
+    width: 480rpx;
+}
+
+.teacher-honor {
+    height: 53rpx;
+    line-height: 53rpx;
+    font-size: 24rpx;
+    color: #7d829a;
+}
+
+.teacher-intro {
+    clear: both;
+    line-height: 39rpx;
+    font-size: 24rpx;
+    color: #2a2e3d;
+}
+
+.m-t-19 {
+    margin-top: 19rpx;
+}
+
+.lib {
+    padding: 0 30rpx 150rpx 30rpx;
+    background: #fff;
+}
+
+.intro-img-big {
+    display: block;
+    width: 100%;
+}
+
+.intro-title {
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.intro-intro {
+    font-size: 28rpx;
+}
+
+.intro-img {
+    display: block;
+}
+
+.contact-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    background: #000;
+}
+
+.contact-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10000;
+    width: 550rpx;
+    height: 396rpx;
+    margin-left: -275rpx;
+    margin-top: -258rpx;
+    background: #fff;
+    border-radius: 20rpx;
+}
+
+.close2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 84rpx;
+    height: 84rpx;
+}
+
+.c-tip2 {
+    line-height: 96rpx;
+    font-size: 34rpx;
+    color: #2a2e3d;
+    text-align: center;
+}
+
+.success-img {
+    display: block;
+    width: 110rpx;
+    height: 110rpx;
+    margin: 18rpx auto 0;
+}
+
+.bind-url {
+    display: block;
+    width: 450rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #ef533d;
+    border: 2rpx solid #ef533d;
+    border-radius: 10rpx;
+    margin: 40rpx auto 0;
+}
+
+.wxParse-inline {
+    display: inline!important;
+}
+
+.p-t-120 {
+    padding-top: 120rpx;
+}
+
+.h-228 {
+    height: 228rpx;
+}
+
+.h-114 {
+    height: 114rpx;
+}
+
+.intro-list {
+    float: left;
+}
+
+.intro-img {
+    margin-bottom: 0!important;
+}
+
+.cover-img {
+    position: fixed;
+    bottom: 160rpx;
+    right: 30rpx;
+    z-index: 1000000000;
+    width: 90rpx;
+    height: 90rpx;
+}

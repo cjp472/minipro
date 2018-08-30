@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "通知",
+    "navigationBarBackgroundColor": "#22dd82",
+    "enableOnReachBottom": true,
+    "usingComponents": {
+        "jdk-permission-checker": "/components/permission-checker/permission-checker",
+        "jdk-course-inform": "/components/topic/topic"
+    }
+}

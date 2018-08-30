@@ -1,0 +1,40 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="reading__container {{scene}} {{fold&&tooManyContent&&fold?'fold':''}}" wx:if="{{contentArray}}">
+    <view wx:for="{{contentArray}}" wx:for-index="idx" wx:for-item="list" wx:key="{{idx}}">
+        <view class="reading__title">{{list.chapter_name}}</view>
+        <view class="reading__part mb-30" wx:for="{{list.chapter_content}}" wx:key="{{index}}">
+            <image class="reading__avatar" src="{{avatar}}"></image>
+            <view class="reading__content">
+                <view class="reading__author">{{author}}</view>
+                <view class="reading__elements">
+                    <view wx:if="{{item.type==='richText'}}">
+                        <jdk-theme-rich-text applyType="{{scene}}" richTextContent="{{item.content[0]}}"></jdk-theme-rich-text>
+                    </view>
+                    <view wx:if="{{item.type=='picture'}}">
+                        <jdk-theme-picture applyType="{{scene}}" catch:previewImage="previewImage" editImg="{{item.content[0].picture_width}}" editedHeight="{{item.content[0].editedHeight}}" editedWidth="{{item.content[0].editedWidth}}" ifCut="{{item.content[0].cut}}" imgAlign="left" pictureMaxWidth="{{278}}" pictureUrl="{{item.content[0].picture_url}}" readIndex="{{idx}}"></jdk-theme-picture>
+                    </view>
+                    <view wx:if="{{item.type=='voice'||item.type=='recording'}}">
+                        <jdk-theme-audio apply="read" bind:clearPrepareToPlay="clearPrepareToPlay" bind:endplay="endplay" colorScheme="{{isAdmin?'admin':'user'}}" prepareToPlay="{{prepareToPlay}}" readIndex="{{idx}}" voice="{{item.content[0]}}"></jdk-theme-audio>
+                    </view>
+                    <view wx:if="{{item.type=='video'}}">
+                        <jdk-theme-video applyScene="{{scene}}" catchvideoplay="toFold" deleteBtn="{{false}}" index="{{0}}" url="{{item.content[0].video_url}}" videoArr="{{[item.content[0].video_url]}}" width="{{360}}"></jdk-theme-video>
+                    </view>
+                    <view wx:if="{{item.type=='link'}}">
+                        <jdk-theme-link applyType="{{scene}}" linkTitle="{{item.content[0].linkTitle}}" linkType="{{item.content[0].linkType}}" linkUrl="{{item.content[0].link}}"></jdk-theme-link>
+                    </view>
+                    <view wx:if="{{item.type==='eval'}}">
+                        <jdk-theme-eval applyType="{{scene}}" notes="{{item.content[0].notes}}" text="{{item.content[0].text}}" voice="{{item.content[0].voice}}"></jdk-theme-eval>
+                    </view>
+                    <view wx:if="{{item.type==='doc'||item.type==='pdf'||item.type==='ppt'||item.type==='xslx'||item.type==='xls'}}">
+                        <jdk-theme-accessory accessoryItem="{{item}}" applyType="{{scene}}"></jdk-theme-accessory>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view catchtap="toggleFold" class="fold-box {{fold?'down':'up'}}" wx:if="{{tooManyContent}}">
+    <view class="fold-tip">
+        <view class="ico {{fold?'down':'up'}}"></view>
+    </view>
+</view>

@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('//at.alicdn.com/t/font_428828_wu51t0ggeuqv9529.eot');
+    src: url('//at.alicdn.com/t/font_428828_wu51t0ggeuqv9529.eot?#iefix') format('embedded-opentype'),url('//at.alicdn.com/t/font_428828_wu51t0ggeuqv9529.woff') format('woff'),url('//at.alicdn.com/t/font_428828_wu51t0ggeuqv9529.ttf') format('truetype'),url('//at.alicdn.com/t/font_428828_wu51t0ggeuqv9529.svg#iconfont') format('svg');
+}
+
+.icon_time1:before {
+    content: "\e607";
+}
+
+.questions-wrap {
+    margin-left: 20rpx;
+    padding: 20rpx 20rpx 20rpx 0;
+    border-bottom: 2rpx solid #ccc;
+    font-size: 24rpx;
+}
+
+.questions-title {
+    color: #4e4e4e;
+    font-size: 30rpx;
+}
+
+.questions-info {
+    color: #9a9a9a;
+}
+
+.questions-info .lable-text {
+    display: inline-block;
+    margin-right: 40rpx;
+}
+
+.questions-wrap-flex {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.questions-main {
+    flex: 1;
+}
+
+.questions-side {
+    width: 100rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+}
+
+.questions-side .number-box {
+    color: blue;
+    display: block;
+}
+
+.questions-side image {
+    display: inline-block;
+    width: 33rpx;
+    height: 37rpx;
+}
+
+.gray-text .questions-title,.gray-text .questions-info {
+    color: #ccc;
+}
+
+.gray-text .questions-side image {
+    filter: grayscale(100%);
+}

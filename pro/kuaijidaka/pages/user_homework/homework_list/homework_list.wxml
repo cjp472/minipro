@@ -1,0 +1,45 @@
+<import src="../../common/common-widget.wxml"></import>
+<jdk-permission-checker catchpermissionpass="onPermissionPass" codeImg="{{permissionChecker.permit_image}}" courseId="{{permissionChecker.courseId}}" denyReason="{{permissionChecker.denyReason}}" tips="{{permissionChecker.tips}}" wx:if="{{permissionChecker}}"></jdk-permission-checker>
+<view wx:if="{{shutDown===1}}">
+    <jdk-guide-card scene="{{5}}"></jdk-guide-card>
+</view>
+<view wx:elif="{{hasInited}}">
+    <view class="user_top_bg pd030" wx:if="{{courseHomeworkList.length>0}}">
+        <view class="card-top-status">
+            <view class="grow flex_c_c">
+                <text class="icon icon-punched mb5"></text>
+                <text class="fz28 col-8b97a4 mb5">完成作业</text>
+                <text class="fz34">{{finish}}</text>
+            </view>
+            <view class="grow flex_c_c">
+                <text class="icon icon-lesson mb5"></text>
+                <text class="fz28 col-8b97a4 mb5">作业总数</text>
+                <text class="fz34">{{count}}</text>
+            </view>
+        </view>
+        <view class="flex_between fz28 pd10-0 col-3B4755">
+            <view>未完成：
+        <text class="col-green">{{count-finish}}</text>
+            </view>
+            <view catchtap="_sortList" class="flex_center" hoverClass="opcity5" wx:if="{{courseHomeworkList.length>1}}">
+                <text>{{sort_type==2?'切换倒序':sort_type==1?'切换正序':sort_type==0?'切换默认':'切换默认'}}</text>
+                <text class="icon {{sort_type==2?'icon-sort':'icon-sort2'}}  ml8"></text>
+            </view>
+        </view>
+        <view class="pdb60">
+            <view bindtap="toHome" class="card-list-bg bd_b1" data-homework-id="{{item.courseHomeworkId}}" hoverClass="card-hover-class" wx:for="{{courseHomeworkList}}" wx:key="{{item.courseHomeworkId}}">
+                <view>
+                    <view class="flex_start mb20">
+                        <view class="beyond_1 col-3B4755 fz28 min-w100 {{item.state==3||item.state==2?'opcity5':''}}">{{item.courseHomeworkTitle}}</view>
+                        <view class="shrink_no ml20 list_status" wx:if="{{item.is_submit==0}}">未完成</view>
+                    </view>
+                    <text class="beyond_1 col-8b97a4 fz26 {{item.state==3||item.state==2?'opcity5':''}}">{{item.startTime}} 至 {{item.endTime}}</text>
+                </view>
+                <view class="arrow_icon shrink_no ml20"></view>
+            </view>
+            <foot-loading loadMore="{{isLoadingMore}}" noMore="{{maxOffset}}"></foot-loading>
+        </view>
+    </view>
+    <view class="empty_homework" wx:if="{{courseHomeworkList.length==0}}">没有可提交的作业</view>
+</view>
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>

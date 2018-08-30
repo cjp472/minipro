@@ -1,0 +1,41 @@
+page {
+    background: #fff;
+}
+
+.banner {
+    width: 750rpx;
+    height: 600rpx;
+    background: #ccc;
+}
+
+.desc {
+    text-align: center;
+    padding: 30rpx 0;
+}
+
+.gray {
+    font-size: 30rpx;
+    color: #999;
+    margin-bottom: 10rpx;
+}
+
+.item {
+    font-size: 32rpx;
+    color: #333;
+    line-height: 1.5;
+}
+
+.item text {
+    font-weight: 900;
+    color: #12b7f5;
+}
+
+.qrcode {
+    width: 300rpx;
+    height: 300rpx;
+    background: #ccc;
+}
+
+.gray.f26 {
+    font-size: 26rpx;
+}

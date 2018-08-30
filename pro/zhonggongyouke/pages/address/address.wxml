@@ -1,0 +1,39 @@
+<view class="container">
+    <form bindsubmit="formSubmit">
+        <view class="section">
+            <text class="section_title">收货人</text>
+            <input bindinput="receiverInput" class="section_input" placeholder="姓名" value="{{receiver}}"></input>
+        </view>
+        <view class="section">
+            <text class="section_title">手机号码</text>
+            <input bindinput="phoneInput" class="section_input" maxlength="11" placeholder="11位手机号码" type="number" value="{{phone}}"></input>
+        </view>
+        <view class="section">
+            <text class="section_title">所在地址</text>
+            <picker bindchange="bindRegionChange" customItem="{{customItem}}" mode="region" value="{{region}}">
+                <view class="picker">
+                    <span class="picker-title" wx:if="{{is_choose}}">请选择</span>
+                    <block wx:else>
+                        <view class="picker-list">{{region[0]}}</view>
+                        <view class="picker-list">{{region[1]}}</view>
+                        <view class="picker-list p-t-40">{{region[2]}}</view>
+                    </block>
+                </view>
+            </picker>
+            <view class="clear"></view>
+        </view>
+        <view class="section border-none">
+            <text class="section_title detail_address">详细地址</text>
+            <textarea bindinput="detailAddressInput" class="section_textarea" maxlength="34" placeholder="街道门牌信息，请不要超过34个字符" value="{{detail_address}}"></textarea>
+            <view class="clear"></view>
+        </view>
+        <view bindtap="deleteAddress" class="del" wx:if="{{address_id}}">
+            <image class="del-img" src="/resources/address/del.png"></image>
+      删除地址
+    </view>
+        <view bindtap="address">
+            <button class="add" formType="submit" wx:if="{{!address_id}}">添加</button>
+            <button class="add" formType="submit" wx:if="{{address_id}}">保存</button>
+        </view>
+    </form>
+</view>

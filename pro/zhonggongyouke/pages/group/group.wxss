@@ -1,0 +1,110 @@
+.container {
+    padding-top: 20rpx;
+}
+
+.lists {
+    padding: 0 30rpx 0 85rpx;
+}
+
+.list {
+    color: #7d829a;
+    font-size: 28rpx;
+    margin-bottom: 40rpx;
+}
+
+.lists .title {
+    padding-bottom: 38rpx;
+    position: relative;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #2a2e3d;
+}
+
+.title-icon {
+    width: 36rpx;
+    height: 36rpx;
+    position: absolute;
+    left: -54rpx;
+    top: 5rpx;
+}
+
+.title-icon image {
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    display: inline-block;
+    margin-right: 10rpx;
+    text-align: justify;
+}
+
+.info text {
+    letter-spacing: 13rpx;
+}
+
+.wx-list {
+    padding-top: 12rpx;
+}
+
+.copy {
+    color: #ee543d;
+    font-size: 20rpx;
+    padding: 0 20rpx;
+    border: 1px solid #ee543d;
+    line-height: 38rpx;
+    border-radius: 19rpx;
+    font-weight: normal;
+}
+
+.wx-list {
+    margin-bottom: 64rpx;
+}
+
+.benefits {
+    position: relative;
+}
+
+.benefits-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 28rpx;
+    padding-bottom: 6rpx;
+}
+
+.title-l,.title-r {
+    width: 224rpx;
+    height: 26rpx;
+    position: absolute;
+    top: 9rpx;
+}
+
+.title-l {
+    left: 30rpx;
+}
+
+.title-r {
+    right: 30rpx;
+}
+
+.benefits-lists {
+    padding: 0 30rpx;
+}
+
+.benefits-list {
+    display: inline-block;
+    text-align: center;
+    width: 33.3%;
+    padding-top: 35rpx;
+}
+
+image {
+    width: 46rpx;
+    height: 46rpx;
+    margin-bottom: 6rpx;
+}
+
+.benefits-des {
+    color: #a3a7b6;
+    font-size: 22rpx;
+}

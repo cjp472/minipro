@@ -1,0 +1,78 @@
+page {
+    background: #fff;
+}
+
+.title-top {
+    width: 100%;
+    background: #22dd82 url(https://cdn-qiye.jingdaka.com/images/bg_toplogin.png);
+    background-repeat: no-repeat;
+    background-size: 750rpx;
+    height: 285rpx;
+}
+
+.relative {
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: -120rpx;
+    left: 50%;
+    margin-left: -103rpx;
+}
+
+.logo .img {
+    background-repeat: no-repeat;
+    background-size: 206rpx;
+    width: 206rpx;
+    height: 206rpx;
+    border-radius: 206rpx;
+}
+
+.logo .h2 {
+    font-size: 36rpx;
+    color: #3c4856;
+    width: 206rpx;
+    text-align: center;
+    padding-top: 30rpx;
+}
+
+.login {
+    margin-top: 450rpx;
+}
+
+.login .btn button {
+    width: 249rpx;
+    height: 76rpx;
+    border: 1px solid #22dd82;
+    background: #fff;
+    line-height: 75rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    margin: 0 auto;
+    font-size: 36rpx;
+    color: #22dd82;
+}
+
+.btn button::after {
+    content: none;
+}
+
+.login .p {
+    text-align: center;
+    font-size: 30rpx;
+    color: #8b97a4;
+    padding: 30rpx 0;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 50rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.bottom text {
+    font-size: 26rpx;
+    color: #c9c9c9;
+}

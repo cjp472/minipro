@@ -1,0 +1,27 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="button-box" wx:if="{{!!goPunchText}}">
+    <view class="ico ico--remedy" wx:if="{{isRemedying}}"></view>
+    <form reportSubmit bindsubmit="getFormId" class="collect-form-id" wx:if="{{courseDetail.mobile_require&&!courseDetail.user_mobile||onelyPhone}}">
+        <button bindgetphonenumber="getPhoneNumber" class="btn" formType="submit" openType="getPhoneNumber">{{goPunchText}}</button>
+    </form>
+    <form reportSubmit bindsubmit="goPunch" class="collect-form-id" wx:else>
+        <button class="btn" formType="submit">{{goPunchText}}</button>
+    </form>
+</view>
+<view class="public del-public" wx:if="{{show_user_mobile}}">
+    <view class="i"></view>
+    <view class="public-content">
+        <view class="mobile">
+      手动填写手机号码
+    </view>
+        <view class="sub-mobile">
+      参与此打卡需要填写手机号
+    </view>
+        <input bindinput="mobileEvent" placeholder="请输入手机号码" type="text"></input>
+        <view class="btn btn50">
+            <text bindtap="cancleInput">取消</text>
+            <text bindtap="subInput">确定</text>
+            <view class="online"></view>
+        </view>
+    </view>
+</view>

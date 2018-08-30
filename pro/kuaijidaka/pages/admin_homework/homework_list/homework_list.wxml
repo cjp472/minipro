@@ -1,0 +1,57 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="container homeworks admin_top_bg pd030">
+    <view class="card-top-status">
+        <view class="grow flex_c_c">
+            <text class="admin-ico2 icon-punched mb5"></text>
+            <text class="fz28 col-8b97a4 mb5">已提交次数</text>
+            <text class="fz34">{{submit_count||0}}</text>
+        </view>
+        <view class="grow flex_c_c">
+            <text class="admin-ico2 icon-people mb5"></text>
+            <text class="fz28 col-8b97a4 mb5">作业打卡人数</text>
+            <text class="fz34">{{user_count||0}}</text>
+        </view>
+        <view class="grow flex_c_c">
+            <text class="admin-ico2 icon-lesson mb5"></text>
+            <text class="fz28 col-8b97a4 mb5">作业总数</text>
+            <text class="fz34">{{count||0}}</text>
+        </view>
+    </view>
+    <view class="user-in-btn">
+        <view catchtap="createHomework" class="classname">新建作业</view>
+    </view>
+    <view class="flex_between fz28 pd10-0 col-3B4755">
+        <view>进行中：<text class="col-purple">{{undering_count||0}}</text>
+        </view>
+        <view catchtap="_sortList" class="flex_center" hoverClass="opcity5" wx:if="{{courseHomeworkList.length>1}}">
+            <text>{{sort_type==2?'切换倒序':sort_type==1?'切换正序':sort_type==0?'切换默认':'切换默认'}}</text>
+            <text class="icon {{sort_type==2?'icon-sort':'icon-sort2'}}  ml8"></text>
+        </view>
+    </view>
+    <view bindtap="toHome" class="homework {{item.state==3?'homework-ended':''}}" data-calendarid="{{item.course_calendar_id}}" hoverClass="card-hover-class" wx:for="{{courseHomeworkList}}" wx:key="course_calendar_id">
+        <view class="homework-left">
+            <text class="homework-name">{{item.title}}</text>
+            <view class="homework-time">
+                <text>{{item.startTime}}</text>
+                <text class="homework-time-text">至</text>
+                <text>{{item.endTime}}</text>
+            </view>
+        </view>
+        <view class="homework-right">
+            <view class="homework-state-unstart" wx:if="{{item.state==2}}">
+                <text>未开始</text>
+            </view>
+            <view class="homework-state-processing" wx:elif="{{item.state==1}}">
+                <text></text>
+            </view>
+        </view>
+        <view class="homework-statistics">
+            <text class="statistics-item">已提交: <text class="num">{{item.submit_count||0}} </text>次</text>
+            <text class="statistics-item">未点评: <text class="num red">{{item.no_remark||0}}</text>
+            </text>
+            <text class="statistics-item">精选: <text class="num">{{item.submit_top||0}}</text>
+            </text>
+        </view>
+    </view>
+</view>
+<foot-loading loadMore="{{isLoadingMore}}" noMore="{{maxOffset}}" pageType="admin"></foot-loading>

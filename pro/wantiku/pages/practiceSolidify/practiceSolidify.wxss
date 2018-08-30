@@ -1,0 +1,78 @@
+@import "../practicePapers/practicePapers.wxss";
+
+@font-face {
+    font-family:'iconfont';src:url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.eot');src:url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.eot?#iefix') format('embedded-opentype'),url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.woff') format('woff'),url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.ttf') format('truetype'),url('//at.alicdn.com/t/font_428828_dv7qat8r9n8hyqfr.svg#iconfont') format('svg');
+}
+
+.icon_fenxiangweixin:before {
+    content: "\e639";
+}
+
+.s_hongbao {
+    bottom: 59rpx;
+}
+
+.goBackIndex {
+    bottom: 214rpx;
+    right: 22rpx;
+}
+
+.share_practice_box {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 9999;
+    background: rgba(0,0,0,0.6);
+}
+
+.share_practice {
+    height: 541rpx;
+    width: 534rpx;
+    background: #fff;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.share_text {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #4e4e4e;
+    line-height: 46rpx;
+}
+
+.share_btn {
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #FFFFFF;
+    height: 80rpx;
+    width: 420rpx;
+    border-radius: 100rpx;
+    background: #6fce29;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.share_image {
+    height: 168rpx;
+    width: 169rpx;
+    margin-top: 50rpx;
+    margin-bottom: 34rpx;
+}
+
+.share_btn {
+    margin-top: 60rpx;
+}
+
+.practice-papers-box {
+    background: #FFFFFF;
+}

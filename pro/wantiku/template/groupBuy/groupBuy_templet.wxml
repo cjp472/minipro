@@ -1,0 +1,21 @@
+<template name="groupBuyUser">
+    <view class="group-buy-user-pic flex-row {{bottom?'suceess':''}}">
+        <block wx:for="{{UserList}}" wx:key="key-UserList">
+            <view class="user {{item.IsMaster?'leader':''}}" wx:if="{{!item.IsWaitingUser}}">
+                <view class="user-img {{item.AvatarUrl==''||item.AvatarUrl==null?'tourist':''}}">
+                    <text class="iconfont icon_youke"></text>
+                    <image src="{{item.AvatarUrl}}"></image>
+                    <view class="leader-icon" wx:if="{{item.IsMaster}}">团长</view>
+                </view>
+                <view class="user-text">{{item.NickName==''||item.NickName==null?'游客':item.NickName}}</view>
+                <image class="tuhao" src="http://img02.exam8.com/img2017/minapp/group/hao.png" wx:if="{{item.IsHao}}"></image>
+            </view>
+            <view class="user" wx:else>
+                <view class="user-img">
+                    <image src="http://img02.exam8.com/img2017/minapp/group/woren.png"></image>
+                </view>
+                <view class="user-text"></view>
+            </view>
+        </block>
+    </view>
+</template>

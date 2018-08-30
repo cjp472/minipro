@@ -1,0 +1,2 @@
+<import src="/lib/hardcore/templates/userinfo"></import>
+<template is="userinfo" data="{{user:user,type:'movie'}}"></template>

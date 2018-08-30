@@ -1,0 +1,108 @@
+.ico {
+    background: url(https://cdn-qiye.jingdaka.com/images/sprites.png?v=40);
+    background-repeat: no-repeat;
+    background-size: 300rpx;
+}
+
+.navi-container {
+    overflow: hidden;
+    margin-top: 30rpx;
+    height: 140rpx;
+    position: fixed;
+    bottom: 140rpx;
+    display: flex;
+    z-index: 9999;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 1s;
+}
+
+.drag-tag-pull {
+    width: 88rpx;
+    height: 68rpx;
+    background-color: #000;
+    border-radius: 8rpx 0 0 8rpx;
+    opacity: 0.6;
+    font-size: 20rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.drag-tag-pull .ico {
+    width: 26rpx;
+    height: 30rpx;
+    background-position: -192rpx -1058rpx;
+    margin-left: 8rpx;
+    padding-right: 12rpx;
+}
+
+.drag-tag-push {
+    width: 88rpx;
+    height: 68rpx;
+    background-color: #000;
+    border-radius: 8rpx 0 0 8rpx;
+    opacity: 0.6;
+    font-size: 20rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.drag-tag-push .ico {
+    width: 26rpx;
+    height: 30rpx;
+    background-position: -224rpx -1058rpx;
+    margin-left: 8rpx;
+    padding-right: 4rpx;
+}
+
+.items {
+    height: 98rpx;
+    background-color: #fff;
+    border-radius: 8rpx 0 0 8rpx;
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.2);
+}
+
+.items .item-navi {
+    width: 128rpx;
+    height: 76rpx;
+    padding-top: 14rpx;
+    padding-bottom: 8rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20rpx;
+    color: #8c8c8c;
+    float: left;
+}
+
+.items .item-navi .ico {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.items .item-navi.home .ico {
+    background-position: -255rpx -1058rpx;
+}
+
+.items .item-navi.calendar .ico {
+    background-position: -9rpx -1103rpx;
+}
+
+.items .item-navi.record .ico {
+    background-position: -57rpx -1103rpx;
+}
+
+.items .item-navi.rank .ico {
+    background-position: -105rpx -1103rpx;
+}
+
+.items .item-navi.note .ico {
+    background-position: -151rpx -1103rpx;
+}
+
+.items .item-navi.punchStudents .ico {
+    background-position: -196rpx -1103rpx;
+}

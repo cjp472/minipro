@@ -1,0 +1,153 @@
+<template name="edit-hybrid-content">
+    <view class="hybrid-content">
+        <view class="no-elements" wx:if="{{hybridContent.length===0}}">{{noContentTip}}</view>
+        <view class="elements" wx:for="{{hybridContent}}" wx:for-item="array">
+            <view class="text-box" wx:if="{{array.type=='text'}}">
+                <text class="fake-textarea" data-index="{{index}}" wx:if="{{showFake}}">{{array.content}}</text>
+                <textarea bindblur="textBlur" bindinput="saveText" class="{{!showFake?'':'fake-hide'}}" data-index="{{index}}" maxlength="-1" placeholder="请输入通知文字" value="{{array.content}}"></textarea>
+                <view catchtap="delElement" class="ico del" data-index="{{index}}"></view>
+            </view>
+            <view class="picture-box" wx:if="{{array.type=='picture'}}">
+                <image catchtap="previewImage" data-index="{{index}}" data-src="{{array.content.picture_url}}" mode="widthFix" src="{{array.content.picture_url}}" style="width:{{pictureWidth}}rpx;"></image>
+                <view catchtap="delElement" class="ico del" data-index="{{index}}"></view>
+            </view>
+            <view class="voice-box" wx:if="{{array.type=='voice'}}">
+                <view class="add_voice">
+                    <view class="clearfix">
+                        <view catchtap="{{array.content.isPlaying?'stopPlay':'startPlay'}}" class="voice" data-index="{{index}}" hoverClass="btn-hover-class">
+                            <view class="ico-box">
+                                <view class="ico btns {{array.content.isPlaying?'playing':''}}"></view>
+                            </view>
+                            <view class="line-box">
+                                <view class="span" style="width:{{array.content.time*5}}rpx">
+                                    <view class="schedule">
+                                        <view class="process" style="width:{{array.content.speedStyle}}rpx"></view>
+                                        <view class="ball" style="left:{{array.content.speedStyle}}rpx"></view>
+                                    </view>
+                                </view>
+                                <view class="time">{{array.content.time}}"</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view catchtap="delElement" class="ico del" data-index="{{index}}" data-type="{{array.type}}"></view>
+                <view catchtap="uploadVoice" class="ico reload" data-index="{{index}}" data-voiceobj="{{array.content}}" wx:if="{{array.content.success===false}}"></view>
+            </view>
+            <view class="link-box" wx:if="{{array.type=='link'}}">
+                <navigator class="link-jump" url="/pages/user_sub/link_article/link_article?website={{array.content.link}}">
+                    <view class="link-left">
+                        <view class="ico link-book"></view>
+                    </view>
+                    <view class="link-title" hoverClass="tap-hover">{{array.content.linkTitle}}</view>
+                </navigator>
+                <view catchtap="delElement" class="ico del" data-index="{{index}}"></view>
+            </view>
+        </view>
+    </view>
+    <view class="addElement">
+        <view catchtap="addText" class="addText-box">
+            <view class="addText ico"></view>
+        </view>
+        <view class="line"></view>
+        <view catchtap="addVoice" class="addVoice-box">
+            <view class="addVoice ico {{voiceStyle}}"></view>
+        </view>
+        <view class="line"></view>
+        <view catchtap="addImage" class="addImage-box">
+            <view class="addImage ico"></view>
+        </view>
+        <view class="line"></view>
+        <view catchtap="addLink" class="addLink-box">
+            <view class="addLink ico"></view>
+        </view>
+    </view>
+    <view class="link_window" wx:if="{{readyToAddLink}}">
+        <view class="link_info">
+            <text class="head">链接地址</text>
+            <text class="tip">(微信公众号、简书)</text>
+            <input bindinput="saveLink" placeholder="http://"></input>
+            <view class="ico"></view>
+        </view>
+        <view catchtap="cancelLink" class="cancel">取消</view>
+        <view catchtap="postLink" class="confirm">确定</view>
+    </view>
+    <view class="linkLayer" wx:if="{{readyToAddLink}}"></view>
+</template>
+<template name="hybrid-content-punchcard">
+    <view class="hybrid-content {{hybridContent.length==0?'no-content':''}}">
+        <view class="elements" wx:for="{{hybridContent}}" wx:for-item="array">
+            <view class="text-box" wx:if="{{array.type=='text'}}">
+                <text selectable class="textarea">{{array.content}}</text>
+            </view>
+            <view class="picture-box" wx:if="{{array.type=='picture'}}">
+                <image catchtap="{{previewImage}}" data-index="{{index}}" data-src="{{array.content.picture_url}}" data-type="hybrid" mode="widthFix" src="{{array.content.picture_url}}" style="width:{{pictureWidth}}rpx;"></image>
+            </view>
+            <view class="voice-box" wx:if="{{array.type=='voice'}}">
+                <view class="add_voice">
+                    <view class="clearfix">
+                        <view catchtap="{{array.content.isPlaying?'stopPlay':'startPlay'}}" class="voice" data-index="{{index}}" data-name="{{name}}" data-voiceindex="{{array.content.voice_index}}" hoverClass="btn-hover-class">
+                            <view class="ico-box {{isUser?'userVoice':''}}">
+                                <view class="ico btns {{array.content.isPlaying?'playing':''}}"></view>
+                            </view>
+                            <view class="line-box {{isUser?'userVoice':''}}">
+                                <view class="span" style="width:{{array.content.time*5}}rpx">
+                                    <view class="schedule">
+                                        <view class="process" style="width:{{array.content.speedStyle}}rpx"></view>
+                                        <view class="ball" style="left:{{array.content.speedStyle}}rpx"></view>
+                                    </view>
+                                </view>
+                                <view class="time">{{array.content.time}}"</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="link-box" wx:if="{{array.type=='link'}}">
+                <navigator class="link-jump" url="/pages/user_sub/link_article/link_article?website={{array.content.link}}">
+                    <view class="link-left">
+                        <view class="ico link-book"></view>
+                    </view>
+                    <view class="link-title" hoverClass="tap-hover">{{array.content.linkTitle}}</view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</template>
+<template name="hybrid-content">
+    <view class="hybrid-content">
+        <view class="elements" wx:for="{{hybridContent}}" wx:for-item="array">
+            <view class="text-box" wx:if="{{array.type=='text'}}">
+                <text selectable class="textarea">{{array.content}}</text>
+            </view>
+            <view class="picture-box" wx:if="{{array.type=='picture'}}">
+                <image catchtap="{{previewImage}}" data-index="{{index}}" data-src="{{array.content.picture_url}}" data-type="hybrid" mode="widthFix" src="{{array.content.picture_url}}" style="width:{{pictureWidth}}rpx;"></image>
+            </view>
+            <view class="voice-box" wx:if="{{array.type=='voice'}}">
+                <view class="add_voice">
+                    <view catchtap="{{voiceHandler}}" class="voice" data-index="{{index}}" data-voiceindex="{{array.content.voice_index}}" hoverClass="btn-hover-class">
+                        <view class="ico-box">
+                            <view class="ico btns {{array.content.doPlaying?'playing':''}}"></view>
+                        </view>
+                        <view class="line-box">
+                            <view class="span" style="width:{{array.content.voice_duration*5}}rpx">
+                                <view class="schedule">
+                                    <view class="process" style="width:{{array.content.speedStyle}}rpx"></view>
+                                    <view class="ball" style="left:{{array.content.speedStyle}}rpx"></view>
+                                </view>
+                            </view>
+                            <view class="time">{{array.content.voice_duration}}"</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="link-box" wx:if="{{array.type=='link'}}">
+                <navigator class="link-jump" url="/pages/user_sub/link_article/link_article?website={{array.content.link}}">
+                    <view class="link-left">
+                        <view class="ico link-book"></view>
+                    </view>
+                    <view class="link-title" hoverClass="tap-hover">{{array.content.linkTitle}}</view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</template>

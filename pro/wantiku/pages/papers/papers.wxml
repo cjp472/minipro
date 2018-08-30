@@ -1,0 +1,165 @@
+<view class="papers-warpper {{theme}} {{iPhoneX?'iphoneX':''}}">
+    <view bindtap="onFastTestExplainJs" class="papers-item papers-index-box" wx:if="{{fastTestExplain}}">
+        <view class="papers-item-index">根据当前科目历史答题情况，智能选择适合你的题目，赶快练起来吧~</view>
+        <view class="papers-item-index-btn">知道了</view>
+    </view>
+    <view class="papers-cont">
+        <view class="english-listen" wx:if="{{hasAudio}}">
+            <view bindtap="onPlayAudio" class="listen-icon {{audio.play?'stop':''}}">
+                <view class="iconfont {{audio.play?'icon_play':'icon_suspend'}}"></view>
+            </view>
+            <view class="progress">
+                <slider activeColor="#6fce29" backgroundColor="#ebebeb" bindchange="touchEnd" blockColor="#6fce29" blockSize="12" step="7" value="{{audio.percent}}"></slider>
+            </view>
+            <view class="listen-text">{{audio.AudioStart}}/{{audio.AudioEnd}}</view>
+        </view>
+        <swiper bindchange="onSwiperBindChange" class="papers-swiper" current="{{papersInfoCurrent}}" duration="{{duration}}">
+            <swiper-item class="papers-item" wx:for="{{PapersInfoList}}" wx:for-item="paperItem" wx:key="papers-key">
+                <scroll-view class="papers-continue" scrollY="true" wx:if="{{paperItem.isLastItem}}">
+                    <view>
+                        <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/icon_zuihouyiti_{{theme}}@2x.png"></image>
+                    </view>
+                    <view class="papers-continue-title">
+                        <text>{{examStateMsg}}</text>
+                    </view>
+                    <view class="papers-continue-btn">
+                        <view bindtap="OncartStateJs">查看答题卡</view>
+                        <view bindtap="OnSubmitPapersJs">交卷</view>
+                    </view>
+                </scroll-view>
+                <scroll-view class="papers-scroll {{paperItem.isExplain?'papers-cont-yindao':''}}" scrollY="true" wx:if="{{paperItem.isExplain}}">
+                    <view class="papers-guide">
+                        <view class="papers-guide-title">
+                {{paperItem.QuestionTitle}}
+              </view>
+                        <view class="papers-guide-cont">
+                {{paperItem.QuestionDescription}}
+              </view>
+                        <view class="papers-guide-img">
+                            <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/papers/icon_zuohua@2x.png"></image>
+                        </view>
+                    </view>
+                </scroll-view>
+                <view class="papers-box {{paperItem.ContextQuestionId!=0?'material-show':''}}" style="top:{{materialEntityList[paperItem.ContextQuestionId].MoveTop}}px" wx:if="{{!paperItem.isExplain}}">
+                    <view class="papers-title-box">
+                        <view bindtouchend="materialMoveEnd" bindtouchmove="materialMove" bindtouchstart="materialMoveStart" class="img_tuodong"></view>
+                        <view class="papers-title">
+                            <view>{{paperItem.strQuestionType}}</view>
+                            <view class="papers-index">
+                                <span>{{paperItem.OrderNumber}}</span>/{{orderNumber}}</view>
+                        </view>
+                        <view class="papers-title-kong"></view>
+                    </view>
+                    <scroll-view class="papers-scroll" scrollY="true" wx:if="{{!paperItem.isExplain}}">
+                        <view class="papers-cont-train" id="papers">
+                            <view class="listen-hr" wx:if="{{paperItem.AudioUrl&&paperItem.AudioUrl!=''}}"></view>
+                            <view class="papers-cont-train-question">
+                                <view class="papers-cont-train-math">
+                                    <block wx:for="{{paperItem.FormatContentWxpares}}" wx:key="FormatContentWxpares-key">
+                                        <text wx:if="{{item.type==0}}">{{item.content}}</text>
+                                        <image src="{{item.content}}" style="width:{{item.width}}rpx;height:{{item.height}}rpx" wx:if="{{item.type==1}}"></image>
+                                    </block>
+                                    <text class="papers-cont-train-question-source"> ({{paperItem.RealPaperName}})</text>
+                                </view>
+                            </view>
+                            <view class="no-answer" wx:if="{{paperItem.QuestionTypeId==50}}">
+                                <view>本题暂不支持作答，请交卷后查看解析</view>
+                            </view>
+                            <view class="papers-image" wx:for="{{paperItem.ForatImagesWxpares}}" wx:key="image-key">
+                                <image bindtap="onPreviewImageJs" class="image" data-current-image="{{item.url}}" data-format-images="{{paperItem.FormatImages}}" mode="widthFix" src="{{item.url}}" style="width:{{item.width>330?'330':item.width}}px;height:{{item.height}}px"></image>
+                                <view class="papers-image-text">[图{{index+1}}]</view>
+                            </view>
+                            <view catchtap="onQuestionContentKeyValue" class="papers-cont-train-answer" data-index="{{index}}" wx:if="{{paperItem.QuestionTypeId!=50}}" wx:for="{{paperItem.QuestionContentKeyValue}}" wx:key="QuestionContentKeyValue-key">
+                                <rich-text>
+                                    <ul>
+                                        <view class="papers-cont-btn-box" hoverClass="dianji" hoverStayTime="200">
+                                            <view class="papers-cont-train-answer-btn {{trainAnswerBtn[paperItem.QuestionTypeId]}} {{item.select?'active':''}}">{{item.Key}}</view>
+                                            <view class="papers-cont-train-answer-cont">
+                                                <view class="papers-cont-train-math">
+                                                    <block wx:for="{{item.QuestionValueWxpares}}" wx:key="QuestionValueWxpares-key">
+                                                        <text wx:if="{{item.type==0}}">{{item.content}}</text>
+                                                        <image src="{{item.content}}" style="width:{{item.width}}rpx;height:{{item.height}}rpx" wx:if="{{item.type==1}}"></image>
+                                                    </block>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </ul>
+                                </rich-text>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </view>
+                <scroll-view class="pagers-material-box" scrollY="{{true}}" style="height: {{materialEntityList[paperItem.ContextQuestionId].MoveTop}}px;" wx:if="{{!paperItem.isExplain}} || {{paperItem.ContextQuestionId!=0}}">
+                    <view class="pagers-material-cont">
+                        <view class="pagers-material-cont-question">
+                            <view class="pagers-material-cont-title">
+                  背景资料
+                </view>
+                            <view class="papers-cont-train-math">
+                                <block wx:for="{{materialEntityList[paperItem.ContextQuestionId].FormatContentWxpares}}" wx:key="material-key">
+                                    <text wx:if="{{item.type==0}}">{{item.content}}</text>
+                                    <image src="{{item.content}}" style="width:{{item.width}}rpx;height:{{item.height}}rpx" wx:if="{{item.type==1}}"></image>
+                                </block>
+                            </view>
+                        </view>
+                        <image bindtap="onPreviewImageJs" data-current-image="{{item}}" data-format-images="{{materialEntityList[paperItem.ContextQuestionId].FormatImages}}" mode="widthFix" src="{{item}}" wx:for="{{materialEntityList[paperItem.ContextQuestionId].FormatImages}}" wx:key="materialImageList-key"></image>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view catchtouchstart="onFirstTestDoPaperJs" class="papers-yindao" wx:if="{{firstTestDoPaper}}">
+        <view class="yindao-img">
+            <image mode="widthFix" src="/images/newIndex/choose-select.png"></image>
+        </view>
+    </view>
+    <view catchtouchstart="onFirstDuoxuanTestDopaperJs" class="papers-yindao" wx:if="{{firstDuoxuanTestDopaper}}">
+        <view class="yindao-img">
+            <image mode="widthFix" src="/images/newIndex/more-choose-select.png"></image>
+        </view>
+    </view>
+    <view class="papers-bar">
+        <view catchtap="onQustionFavor" class="pagers-bar-icon" wx:if="{{isRealFavor}}">
+            <view class="iconfont icon_star {{IsFavor==0?'':'active'}}"></view>
+        </view>
+        <view bindtap="OncartStateJs" class="pagers-bar-icon">
+            <view class="iconfont icon_datika" hoverClass="active"></view>
+        </view>
+        <view bindtap="onStopStateJs" class="pagers-bar-icon">
+            <view class="iconfont icon_jishi"></view>
+            <view class="icon-jishi-text">{{strTimeCounter}}</view>
+        </view>
+        <button class="pagers-bar-icon" hoverClass="active" openType="share">
+            <view class="iconfont icon_fenxiang1" hoverClass="active"></view>
+        </button>
+    </view>
+    <view class="pagers-bar-stop {{stopTimeCounter?'':'hide'}}">
+        <view class="pagers-stop-cont">
+            <view class="pagers-stop-img">
+                <image mode="widthFix" src="http://img02.exam8.com/img2017/minapp/config/{{theme}}/icon_xiuxi_{{theme}}@2x.png"></image>
+            </view>
+            <view class="pagers-stop-title">休息中</view>
+            <view class="pagers-stop-text">{{stopTimeExamState}}</view>
+            <view bindtap="onStopStateJs" class="pagers-stop-btn">继续学习</view>
+        </view>
+    </view>
+    <view class="pagers-subject-cart {{cartState?'':'cart-hide'}}">
+        <scroll-view class="pagers-subject-cart-cont" scrollY="{{true}}">
+            <block wx:for="{{cartInfoList}}" wx:key="cart-key">
+                <view style="height:52rpx;"></view>
+                <view class="pagers-subject-cart-cont-title">
+          {{item.QuestionTitle}}
+        </view>
+                <view class="pagers-subject-cart-cont-list">
+                    <view catchtap="onCartNumberJs" class="pagers-subject-cart-cont-item {{item.select?'active':''}}" data-real-questionId="{{item.RealQuestionId}}" wx:for="{{item.cartNumberList}}" wx:key="cartNumber-key">
+                        <view>{{item.cartNumber}}</view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+        <view class="pagers-subject-cart-tabbtn">
+            <view bindtap="OnContinueExamJs">继续练习</view>
+            <view bindtap="OnSubmitPapersJs">交卷</view>
+        </view>
+    </view>
+</view>

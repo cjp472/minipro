@@ -1,0 +1,44 @@
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 32rpx;
+}
+
+.logo {
+    text-align: center;
+    margin: 158rpx 0rpx 80rpx 0rpx;
+}
+
+.logo image {
+    width: 146rpx;
+    height: 146rpx;
+    margin-bottom: 5rpx;
+}
+
+.logo text {
+    color: #666;
+    font-size: 36rpx;
+}
+
+.text1 {
+    font-size: 42rpx;
+    text-align: center;
+    color: #666;
+    margin-bottom: 22rpx;
+}
+
+.text2 {
+    font-size: 32rpx;
+    text-align: center;
+    color: #999;
+}
+
+.banben {
+    color: #ccc;
+    position: absolute;
+    bottom: 37rpx;
+    text-align: center;
+    width: 100%;
+    font-size: 22rpx;
+}

@@ -1,0 +1,49 @@
+<view class="capacity-report-box {{theme}} {{iPhoneX?'iphoneX':''}}">
+    <scroll-view class="capacity-report-cont" scrollY="{{true}}">
+        <view class="capacity-report-canvas">
+            <view class="papers-report-number">
+                <view class="papers-report-number-max">
+                    <text class="title">{{userPapersReport.RightAnswerQuestion}}</text>
+                    <text>/{{userPapersReport.PaperTotalScore}}分</text>
+                </view>
+            </view>
+            <view class="papers-report-number-info">
+                <view>
+                    <view>
+                        <text>已击败考生</text>
+                    </view>
+                    <view class="papers-report-number-info-text">{{userPapersReport.BeatCount}}%</view>
+                </view>
+                <view>
+                    <view>
+                        <text>全站平均分</text>
+                    </view>
+                    <view class="papers-report-number-info-text">{{userPapersReport.AvgScore}}</view>
+                </view>
+                <view>
+                    <view>
+                        <text>正确率</text>
+                    </view>
+                    <view class="papers-report-number-info-text">{{userPapersReport.RigthRatio}}%</view>
+                </view>
+            </view>
+            <view class="capacity-report-share" wx:if="{{false}}">
+                <view class="iconfont icon_fenxiang1"></view>
+            </view>
+        </view>
+        <block wx:for="{{answerCardList}}" wx:key="answerCard-key">
+            <view class="papers-hr"></view>
+            <view class="pagers-subject-cart-cont-title">{{item.QuestionTitle}}</view>
+            <view class="pagers-subject-cart-cont-list">
+                <view catchtap="onAnswerCartJs" class="pagers-subject-cart-cont-item {{trainAnswerBtn[item.QuestionState]}}" data-question-id="{{item.QuestionId}}" wx:for="{{item.AnswerCardList}}" wx:key="cart-key">
+                    <view>{{item.QuestionNumber}}</view>
+                </view>
+            </view>
+        </block>
+        <view style="height:30rpx;"></view>
+    </scroll-view>
+    <view class="capacity-report-bar">
+        <view catchtap="onAllAnalysisJs" class="capacity-report-bar-btn">查看全部解析</view>
+        <view catchtap="onErrorAnalysisJs" class="capacity-report-bar-btn">查看错题解析</view>
+    </view>
+</view>

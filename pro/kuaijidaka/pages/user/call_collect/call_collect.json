@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "免费加入",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "#000000",
+    "usingComponents": {
+        "jdk-theme": "/components/topic/topic",
+        "foot-loading": "/components/footLoading/footLoading"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "navigationBarTitleText": "",
+    "backgroundColor": "#22dd82",
+    "enablePullDownRefresh": true,
+    "enableOnReachBottom": true,
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "jdk-logo": "/components/logo/logo",
+        "jdk-theme": "/components/topic/topic",
+        "jdk-submit": "/components/user-submit/submit/submit",
+        "jdk-guide-card": "/components/guide-card/guide-card",
+        "jdk-permission-checker": "/components/permission-checker/permission-checker",
+        "foot-loading": "/components/footLoading/footLoading",
+        "home-tools": "/components/home-tools/home-tools",
+        "home-select": "/components/home-select/home-select",
+        "share-modal": "/components/shareModal/shareModal",
+        "suspend-button": "/components/suspend-button/suspend-button",
+        "punch-button": "/components/punch-button/punch-button"
+    }
+}

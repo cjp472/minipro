@@ -1,0 +1,117 @@
+<view animation="{{animation}}" class="{{tipType}}">{{errorMessage}}</view>
+<view class="top-bar">
+    <view catchtap="deleteEdit" class="delete" wx:if="{{!isToCreate&&applyScene!=='course-inform'}}">删除</view>
+    <view catchtap="saveEdit" class="save">{{saveWord}}</view>
+</view>
+<view class="container">
+    <view class="content {{applyScene}} {{hybridContent.length===0?'no-content':''}}">
+        <view class="no-elements" wx:if="{{hybridContent.length===0}}">请通过底部控件来添加主题内容</view>
+        <view class="elements" wx:for="{{hybridContent}}" wx:for-item="array">
+            <view class="text-box" wx:if="{{array.type=='text'}}">
+                <text class="fake-textarea" data-index="{{index}}" wx:if="{{showRecorderBox||showDeleteBox||showLinkBox||showSetting}}">{{array.content}}</text>
+                <textarea bindblur="textBlur" bindinput="valueChange" class="{{!showRecorderBox&&!showDeleteBox&&!showLinkBox&&!showSetting?'':'fake-hide'}}" data-index="{{index}}" maxlength="-1" placeholder="{{textPlaceholder}}" value="{{array.content}}"></textarea>
+                <view catchtap="delText" class="ico del" data-index="{{index}}"></view>
+            </view>
+            <view class="picture-box" wx:if="{{array.type=='picture'}}">
+                <image catchtap="previewImage" data-index="{{index}}" data-src="{{array.content.picture_url}}" mode="widthFix" src="{{array.content.picture_url}}" style="width:100%"></image>
+                <view catchtap="delImg" class="ico del" data-index="{{index}}"></view>
+            </view>
+            <view class="voice-box" wx:if="{{array.type=='voice'}}">
+                <jdk-theme-audio applyType="add-theme" bind:delVoice="delVoice" bind:uploadFailRecorder="uploadFailRecorder" index="{{index}}" theme="admin" voice="{{array.content}}"></jdk-theme-audio>
+            </view>
+            <view class="link-box" wx:if="{{array.type=='link'}}">
+                <jdk-theme-link applyType="add-theme" bind:delLink="delLink" index="{{index}}" linkTitle="{{array.content.linkTitle}}" linkUrl="{{array.content.link}}"></jdk-theme-link>
+            </view>
+            <view class="video-box" wx:if="{{array.type=='video'}}">
+                <jdk-theme-video applyScene="hybrid-theme" bind:delete="delVideo" deleteBtn="{{true}}" height="{{videoHeight}}" index="{{0}}" url="{{array.content.video_url}}" videoArr="{{[array.content.video_url]}}" width="{{videoWidth}}"></jdk-theme-video>
+            </view>
+        </view>
+    </view>
+    <view class="addElement">
+        <view catchtap="addText" class="addText-box">
+            <view class="addText ico"></view>
+        </view>
+        <view class="line"></view>
+        <view catchtap="addVoice" class="addVoice-box">
+            <view class="addVoice ico"></view>
+        </view>
+        <view class="line"></view>
+        <view catchtap="addImage" class="addImage-box">
+            <view class="addImage ico"></view>
+        </view>
+        <view class="line"></view>
+        <view catchtap="addLink" class="addLink-box">
+            <view class="addLink ico"></view>
+        </view>
+        <view class="line" wx:if="{{applyScene==='homework-theme'||applyScene==='calendar-theme'}}"></view>
+        <view catchtap="addVideo" class="addVideo-box" wx:if="{{applyScene==='homework-theme'||applyScene==='calendar-theme'}}">
+            <view class="addVideo ico"></view>
+        </view>
+    </view>
+    <view class="recording-sheet" hidden="{{!showRecorderBox}}">
+        <view catchtap="outerClick" class="shade"></view>
+        <view class="selectRecording">
+            <view class="second">
+                <text>{{recordDuration}}" / 600"</text>
+            </view>
+            <view wx:if="{{!isRecording}}">
+                <view class="tag">
+                    <text>点击一下开始录音</text>
+                </view>
+                <view catchtap="startRecord" class="recordplay">
+                    <view class="ico"></view>
+                </view>
+            </view>
+            <view wx:else>
+                <view class="tag">
+                    <text>点击一下结束录音</text>
+                </view>
+                <view catchtap="stopRecord" class="recordstop">
+                    <view class="ico"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="link_window" wx:if="{{showLinkBox}}">
+        <view class="link_info">
+            <text class="head">链接地址</text>
+            <text class="tip">(微信公众号、简书)</text>
+            <input bindinput="saveLink" placeholder="http://"></input>
+            <view class="ico"></view>
+        </view>
+        <view catchtap="cancelLink" class="cancel">取消</view>
+        <view catchtap="postLink" class="confirm">确定</view>
+    </view>
+    <view class="linkLayer" wx:if="{{showLinkBox}}"></view>
+    <view class="public del-public" wx:if="{{showDeleteBox&&applyScene==='calendar-theme'}}">
+        <view class="i"></view>
+        <view class="public-content">
+            <view class="h2">
+                <text>确定要删除主题吗？</text>
+            </view>
+            <view class="btn btn50">
+                <text bindtap="cancelDel">取消</text>
+                <text bindtap="subDel">确定</text>
+                <view class="online"></view>
+            </view>
+        </view>
+    </view>
+    <view class="public del-public" wx:if="{{showDeleteBox&&applyScene==='homework-theme'}}">
+        <view class="i"></view>
+        <view class="public-content">
+            <view class="dialog-body">
+                <view class="dialog-title">删除作业</view>
+                <view class="dialog-text">
+          将清除该作业所有学员已提交内容，请输入“删除作业”四个字确认操作
+        </view>
+                <input bindinput="onInputDeleteText" placeholder="请输入" placeholderClass="placeholder-class" type="text" value="{{confirmDeleteText}}"></input>
+            </view>
+            <view class="btn btn50">
+                <text bindtap="cancelDel">取消</text>
+                <text bindtap="delHomeworkTheme" style="color:#ff7474;">删除</text>
+                <view class="online"></view>
+            </view>
+        </view>
+    </view>
+</view>
+<jdk-modal bind:modalConfirm="settingConfirm" confirmText="重新授权" content="{{settingContent}}" title="提示" type="openSetting" wx:if="{{showSetting}}"></jdk-modal>

@@ -1,0 +1,43 @@
+@import "../livelist/livelist.wxss";
+
+.live {
+    padding: 22rpx 30rpx 25rpx 30rpx;
+    border-bottom: 10rpx solid #f5f5f5;
+    background: #fff;
+}
+
+.live-head {
+    line-height: 44rpx;
+    font-size: 32rpx;
+    color: #2a2e3d;
+}
+
+.live-info {
+    height: 46rpx;
+    line-height: 46rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.live-info-img {
+    display: block;
+    float: left;
+    width: 18rpx;
+    height: 18rpx;
+    margin: 16rpx 8rpx 0 0;
+}
+
+.teacher {
+    height: 32rpx;
+    line-height: 32rpx;
+    font-size: 22rpx;
+    color: #7d829a;
+}
+
+.menutip {
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: #999;
+    text-align: center;
+}
