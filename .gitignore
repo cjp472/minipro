@@ -1,0 +1,9 @@
+.vscode/
+example/
+node_modules/
+package-lock.json
+pro/
+pro/*.zip
+pro/*.tar
+pro/*.zip
+*.wxapkg
